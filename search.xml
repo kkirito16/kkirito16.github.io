@@ -1,6 +1,403 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>操作系统期末复习总结</title>
+    <url>/2023/08/13/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/</url>
+    <content><![CDATA[<h1 id="操作系统期末复习"><a href="#操作系统期末复习" class="headerlink" title="操作系统期末复习"></a>操作系统期末复习</h1><h2 id="1、进程和线程的概念"><a href="#1、进程和线程的概念" class="headerlink" title="1、进程和线程的概念"></a>1、进程和线程的概念</h2><h3 id="典型的进程定义有："><a href="#典型的进程定义有：" class="headerlink" title="典型的进程定义有："></a>典型的进程定义有：</h3><p>（1）进程是程序的一次执行。（2）进程是一个程序及其数据在处理机上顺序执行时所发生的活动。（3）进程是程序在一个数据集合上运行的过程，它是系统进行资源分配和调度的一个独立单位。</p>
+<h2 id="2、进程的基本状态及状态转换的原因"><a href="#2、进程的基本状态及状态转换的原因" class="headerlink" title="2、进程的基本状态及状态转换的原因"></a>2、进程的基本状态及状态转换的原因</h2><p><img src="https://pic.imgdb.cn/item/64d8c2e01ddac507cc26b93a.png"></p>
+<h3 id="状态转换："><a href="#状态转换：" class="headerlink" title="状态转换："></a>状态转换：</h3><p> ① 空 -&gt;新状态  新创建的进程首先处于新状态。 </p>
+<p>② 新状态 -&gt;就绪状态  当系统允许增加就绪进程时，操作系统接纳新建状态进程，将它变为就绪状态，插入就绪队列中。 </p>
+<p>③ 就绪状态 -&gt; 执行状态  当处理机空闲时，将从就绪队列中选择一个进程执行，该选择过程称为进程调度，或将处理机分派给一个进程，该进程状态从就绪转变为执行。 </p>
+<p>④ 执行状态 -&gt; 终止状态  执行状态的进程执行完毕，或出现诸如访问地址越界、非法指令等错误，而被异常结束，则进程从执行状态转换为终止状态。</p>
+<p>⑤ 执行状态 -&gt; 就绪状态  分时系统中，时间片用完，或优先级高的进程到来，将中断较低优先级进程的执行。进程从执行状态转变为就绪状态，等待下一次调度。</p>
+<p>⑥ 执行状态 -&gt; 阻塞状态  执行进程需要等待某事件发生。通常，会因为进程需要的系统调用不能立即完成，如读文件、共享虚拟内存、等待I&#x2F;O操作、等待另一进程与之通信等事件而阻塞。</p>
+<p>⑦ 阻塞状态 -&gt; 就绪状态  当阻塞进程等待的事件发生，就转换为就绪状态。进入就绪队列排队，等待被调度执行。</p>
+<h2 id="3-PCB的作用"><a href="#3-PCB的作用" class="headerlink" title="3.PCB的作用"></a>3.PCB的作用</h2><p>进程控制块：进程控制块的作用是使一个在多道程序环境下不能独立运行的程序（包含数据），成为一个能独立运行的基本单位，一个能与其它进程并发执行的进程。</p>
+<h2 id="4-进程控制的原语操作"><a href="#4-进程控制的原语操作" class="headerlink" title="4.进程控制的原语操作"></a>4.进程控制的原语操作</h2><h3 id="（1）进程的创建原语"><a href="#（1）进程的创建原语" class="headerlink" title="（1）进程的创建原语"></a>（1）进程的创建原语</h3><p>调用进程创建原语Create（  ）按下述步骤创建一个新进程</p>
+<h4 id=""><a href="#" class="headerlink" title=""></a><img src="https://pic.imgdb.cn/item/64d8c3d91ddac507cc28a180.png"></h4><h3 id="2-进程的终止原语"><a href="#2-进程的终止原语" class="headerlink" title="(2)进程的终止原语"></a>(2)进程的终止原语</h3><p>正常结束:  </p>
+<p>批处理中用Holt指令，分时中用Logs off指令</p>
+<p><img src="https://img-blog.csdnimg.cn/20200315164109198.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzkxNDYwNA==,size_16,color_FFFFFF,t_70"></p>
+<h3 id="（3）进程的唤醒和阻塞原语"><a href="#（3）进程的唤醒和阻塞原语" class="headerlink" title="（3）进程的唤醒和阻塞原语"></a>（3）进程的唤醒和阻塞原语</h3><p><img src="https://pic.imgdb.cn/item/64d8c4091ddac507cc290135.png"></p>
+<h3 id="引起进程阻塞的事件"><a href="#引起进程阻塞的事件" class="headerlink" title="引起进程阻塞的事件:"></a>引起进程阻塞的事件:</h3><p>(1）请求系统服务：提出I&#x2F;O服务时，并不立即满足该进程的要求时，转变为阻塞状态来等待</p>
+<p>(2）启动某种操作：当进程启动某种操作后，在该操作完成之后才能继续执行</p>
+<p>(3）新数据尚未到达：对于相互合作的进程而言。</p>
+<p> (4）无新工作可做。如发送进程</p>
+<h3 id="进程阻塞过程"><a href="#进程阻塞过程" class="headerlink" title="进程阻塞过程:"></a>进程阻塞过程:</h3><p>(1)正在执行的进程，当发现上述某事件时，由于无法继续执行，于是进程便通过调用阻塞原语block( )把自己阻塞</p>
+<p>(2)把进程控制块中的现行状态由“执行”改为“阻塞”，并将PCB插入阻塞队列</p>
+<p>(3)转调度程序进行重新调度，将处理机分配给另一就绪进程，并进行切换</p>
+<h3 id="进程唤醒过程："><a href="#进程唤醒过程：" class="headerlink" title="进程唤醒过程："></a>进程唤醒过程：</h3><p>当被阻塞进程所期待的事件出现时，则由有关进程（比如，用完并释放了该I&#x2F;O设备的进程）调用唤醒原语wakeup（  ），将等待该事件的进程唤醒</p>
+<h3 id="4-进程的挂起和激活过程"><a href="#4-进程的挂起和激活过程" class="headerlink" title="(4)进程的挂起和激活过程"></a>(4)进程的挂起和激活过程</h3><p><img src="https://pic.imgdb.cn/item/64d8c4351ddac507cc295969.png"></p>
+<h2 id="5-进程互斥、临界区、进程同步的基本概念、同步准则"><a href="#5-进程互斥、临界区、进程同步的基本概念、同步准则" class="headerlink" title="5.进程互斥、临界区、进程同步的基本概念、同步准则"></a>5.进程互斥、临界区、进程同步的基本概念、同步准则</h2><h3 id="进程互斥："><a href="#进程互斥：" class="headerlink" title="进程互斥："></a>进程互斥：</h3><p>进程互斥是进程之间的间接制约关系。当一个进程进入临界区使用临界资源时，另一个进程必须等待。只有当使用临界资源的进程退出临界区后，这个进程才会解除阻塞状态。</p>
+<h3 id="临界资源："><a href="#临界资源：" class="headerlink" title="临界资源："></a>临界资源：</h3><p>一次仅允许一个进程访问的资源为临界资源 。</p>
+<h3 id="临界区："><a href="#临界区：" class="headerlink" title="临界区："></a>临界区：</h3><p>把在每个进程中访问临界资源的那段代码称为临界区。</p>
+<h3 id="进程同步："><a href="#进程同步：" class="headerlink" title="进程同步："></a>进程同步：</h3><p>进程同步是一个操作系统级别的概念，是在多道程序的环境下，存在着不同的制约关系，为了协调这种互相制约的关系，实现资源共享和进程协作，从而避免进程之间的冲突，引入了进程同步。</p>
+<p>进程同步的主要任务：是使并发执行的诸进程之间能有效地共享资源和相互合作，从而使程序的执行具有可再现性。</p>
+<h3 id="同步准则："><a href="#同步准则：" class="headerlink" title="同步准则："></a>同步准则：</h3><p>1)空闲让进</p>
+<p>2)忙则等待</p>
+<p>3)有限等待</p>
+<p>4)让权等待</p>
+<h2 id="6-记录型信号量"><a href="#6-记录型信号量" class="headerlink" title="6.记录型信号量"></a>6.记录型信号量</h2><p>记录型信号量机制，则是一种不存在“忙等”现象的进程同步机制</p>
+<p>记录型信号量的数据结构: </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">type  semaphore = record</span><br><span class="line">                  value  ：integer；</span><br><span class="line">                  L：list  of  process；</span><br><span class="line"> end  </span><br></pre></td></tr></table></figure>
+
+<p>记录型信号量的wait（S）操作:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">procedure  wait（  S  ）</span><br><span class="line">    var  S：  semaphore；</span><br><span class="line">       begin   </span><br><span class="line">           S.value:＝S.value-1;</span><br><span class="line">           if  S.value＜0  then  block（S.L）;</span><br><span class="line">       end</span><br><span class="line">// S.value＜0，该类资源已经分配完毕，进程必须放弃处理机，自我阻塞。</span><br></pre></td></tr></table></figure>
+
+<p>记录型信号量的signal（S）操作:</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">procedure  signal（S）</span><br><span class="line">  var  S:semaphore； </span><br><span class="line">  begin</span><br><span class="line">      S.value:＝S.value+1；</span><br><span class="line">      if  S.value≤0  then   wakeup(S.L)；</span><br><span class="line">  end</span><br><span class="line">// S.value≤0 ，在信号量链表中，仍有等待该资源的进程被阻塞。</span><br></pre></td></tr></table></figure>
+
+<h2 id="7-信号量的应用"><a href="#7-信号量的应用" class="headerlink" title="7.信号量的应用"></a>7.信号量的应用</h2><ol>
+<li><h3 id="利用信号量实现进程互斥"><a href="#利用信号量实现进程互斥" class="headerlink" title="利用信号量实现进程互斥"></a>利用信号量实现进程互斥</h3></li>
+</ol>
+<p>为使多个进程能互斥地访问某临界资源，只须为该资源设置一互斥信号量mutex，并设其初始值为1，然后将各进程访问该资源的临界区CS置于wait（mutex）和signal（mutex）操作之间即可。</p>
+<p>利用信号量实现进程互斥的进程可描述如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Var  mutex：semaphore:=1；</span><br><span class="line">          begin</span><br><span class="line">          parbegin</span><br><span class="line"></span><br><span class="line">             process1：begin</span><br><span class="line">                 repeat</span><br><span class="line">                      wait（mutex）；</span><br><span class="line">                      critica1  section</span><br><span class="line">                      signal（mutex）；</span><br><span class="line">                     remainder  section  until false;</span><br><span class="line">             end</span><br><span class="line">             process2：begin</span><br><span class="line">                        repeat</span><br><span class="line">                            wait（mutex）;</span><br><span class="line">                            critical  section</span><br><span class="line">                            signal（mutex）;</span><br><span class="line">                            remainder section until false；</span><br><span class="line">              end</span><br><span class="line">   parend </span><br><span class="line">   end</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>wait（mutex）和signal（mutex）必须成对出现；</p>
+<p>缺少wait（mutex）导致系统混乱，不能保证对临界资源的互斥访问；</p>
+<p>缺少signal（mutex）会使临界资源永远不释放，等待该资源的进程不能被唤醒。</p>
+<h3 id="2-利用信号量实现前趋关系"><a href="#2-利用信号量实现前趋关系" class="headerlink" title="2.利用信号量实现前趋关系"></a>2.利用信号量实现前趋关系</h3><p><img src="https://pic.imgdb.cn/item/64d8c4351ddac507cc2959b5.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">p1( )&#123; S1； signal（a）；signal（b）；&#125;</span><br><span class="line">p2( )&#123; wait(a); S2；signal（c）；signal（d）; &#125;</span><br><span class="line">p3( )&#123; wait（b）；S3；signal（e）；&#125;</span><br><span class="line">p4( )&#123; wait（c）；S4；signal（f）；&#125;</span><br><span class="line">p5( )&#123; wait（d）；S5；signal（g）；&#125;</span><br><span class="line">p6( )&#123; wait（e）；wait（f）；wait（g）；S6；&#125;</span><br><span class="line"></span><br><span class="line">void main( )&#123;</span><br><span class="line">    semaphore a,b,c,d,e,f,g;</span><br><span class="line">    a.value=b.value=c.value=0;</span><br><span class="line">    d.value=e.value=f.value=g.value=0;</span><br><span class="line">    cobegin</span><br><span class="line">         p1( ); p2( ); p3( ); p4( ); p5( ); p6( );</span><br><span class="line">    coend;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="8-经典进程同步问题；生产者与消费者问题"><a href="#8-经典进程同步问题；生产者与消费者问题" class="headerlink" title="8.经典进程同步问题；生产者与消费者问题"></a>8.经典进程同步问题；生产者与消费者问题</h2><p>生产者和消费者进程共享一个大小固定的缓冲区，其中，一个或多个生产者生产数据，并将生产的数据存入缓冲区，并有一个消费者从缓冲区中取数据。 </p>
+<p>假设缓冲区的大小为n（存储单元的个数），它可以被生产者和消费者循环使用</p>
+<p>分别设置两个指针in和out，指向生产者将存放数据的存储单元和消费者将取数据的存储单元，如图</p>
+<p><img src="https://pic.imgdb.cn/item/64d8c4341ddac507cc29582e.png"></p>
+<p><img src="C:\Users\10410\Desktop\操作系统期末复习\image-20230616160458024.png" alt="image-20230616160458024"></p>
+<p><img src="https://pic.imgdb.cn/item/64d8c2c31ddac507cc267c42.png"></p>
+<h3 id="1-利用记录型信号量解决生产者一消费者问题"><a href="#1-利用记录型信号量解决生产者一消费者问题" class="headerlink" title="1.利用记录型信号量解决生产者一消费者问题"></a>1.利用记录型信号量解决生产者一消费者问题</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"> int  in=0, out=0;</span><br><span class="line"> item    buffer [n];</span><br><span class="line"> semaphore	mutex=1, empty=n, full=0;   </span><br><span class="line"> </span><br><span class="line">void producer( );</span><br><span class="line">void consumer( );</span><br><span class="line"></span><br><span class="line">void main( )&#123;</span><br><span class="line">      cobegin</span><br><span class="line">             producer( ); consumer( );</span><br><span class="line">      coend</span><br><span class="line">&#125;</span><br><span class="line">void producer( )&#123;</span><br><span class="line">    do&#123;</span><br><span class="line">      			…</span><br><span class="line">		Produce an item in nextp;</span><br><span class="line">              		…</span><br><span class="line">wait(empty);</span><br><span class="line">wait(mutex);</span><br><span class="line">buffer(in):=nextp;</span><br><span class="line">in:=(in+1) mod n;</span><br><span class="line">signal(mutex);</span><br><span class="line">signal(full);</span><br><span class="line">&#125;while(TRUE);</span><br><span class="line">&#125;</span><br><span class="line">void consumer&#123;</span><br><span class="line">	do&#123;</span><br><span class="line">	      wait(full);</span><br><span class="line">wait(mutex);</span><br><span class="line">nextc:=buffer(out);</span><br><span class="line">out:=(out+1) mod n;</span><br><span class="line">signal(mutex);</span><br><span class="line">signal(empty);</span><br><span class="line">Consumer the item in nextc;</span><br><span class="line">     ……</span><br><span class="line">&#125;while(TRUE);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-利用AND信号量解决生产者—消费者问题"><a href="#2-利用AND信号量解决生产者—消费者问题" class="headerlink" title="2.利用AND信号量解决生产者—消费者问题"></a>2.利用AND信号量解决生产者—消费者问题</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">  int  in=0, out=0;</span><br><span class="line">  item    buffer[ n ];</span><br><span class="line">  semaphore   mutex=1;</span><br><span class="line">  semaphore  empty=n, full=0;</span><br><span class="line"></span><br><span class="line">  void producer( )&#123;</span><br><span class="line">       do&#123;</span><br><span class="line">			…</span><br><span class="line">		 produce an item in nextp;</span><br><span class="line">			…</span><br><span class="line">		Swait(empty, mutex);</span><br><span class="line">		buffer[in] = nextp;</span><br><span class="line"> in = (in+1) % n;</span><br><span class="line">   Ssignal(mutex, full);</span><br><span class="line">      &#125;while(TRUE);</span><br><span class="line">   &#125; //end producer</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">void consumer&#123;</span><br><span class="line">   do&#123;</span><br><span class="line">	   Swait(full, mutex);</span><br><span class="line">	   nextc = buffer[out];</span><br><span class="line">	   out = (out+1) % n;</span><br><span class="line">	   Ssignal(mutex, empty);</span><br><span class="line">	   consumer the item in nextc;</span><br><span class="line">     &#125;while(TRUE);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="9-进程间通信的原理和实现方法-信箱"><a href="#9-进程间通信的原理和实现方法-信箱" class="headerlink" title="9.进程间通信的原理和实现方法   信箱"></a>9.进程间通信的原理和实现方法   信箱</h2><h3 id="进程间通信的原理和实现方法"><a href="#进程间通信的原理和实现方法" class="headerlink" title="进程间通信的原理和实现方法"></a>进程间通信的原理和实现方法</h3><h4 id="1-共享存储器系统"><a href="#1-共享存储器系统" class="headerlink" title="1.共享存储器系统"></a>1.共享存储器系统</h4><p>（1）基于共享数据结构的通信方式。  （2）基于共享存储区的通信方式。 </p>
+<h4 id="2-消息传递系统"><a href="#2-消息传递系统" class="headerlink" title="2.消息传递系统"></a>2.消息传递系统</h4><p>是目前的主要通信方式，信息单位：消息（报文）实现：一组通信命令（原语），具有透明性-&gt;同步的实现。     </p>
+<p>实现方式的不同，而分成:（1）直接通信方式   （2）间接通信方式</p>
+<h4 id="3-管道（Pipe）通信"><a href="#3-管道（Pipe）通信" class="headerlink" title="3.管道（Pipe）通信"></a>3.管道（Pipe）通信</h4><p>管道：连接一个读进程和一个写进程之间通信的共享文件。</p>
+<p>功能：大量的数据发收。注意：（1）互斥（2）同步 （3）对方是否存在</p>
+<h3 id="消息传递通信的实现方法"><a href="#消息传递通信的实现方法" class="headerlink" title="消息传递通信的实现方法"></a>消息传递通信的实现方法</h3><h4 id="1-直接通信方式"><a href="#1-直接通信方式" class="headerlink" title="1.直接通信方式"></a>1.直接通信方式</h4><p> 这是指发送进程利用OS所提供的发送命令，直接把消息发送给目标进程。系统提供下述两条通信命令（原语）：     </p>
+<p>Send  （Receiver，  message）；     </p>
+<p>Receive（Sender，  message）；</p>
+<h4 id="2-间接通信方式"><a href="#2-间接通信方式" class="headerlink" title="2.间接通信方式"></a>2.间接通信方式</h4><p>指进程之间利用信箱的通信方式。发送进程发送给目标进程的消息存放信箱；接收进程则从该信箱中，取出对方发送给自己的消息；消息在信箱中可以安全地保存，只允许核准的目标用户随时读取。     系统为信箱通信提供了若干条原语，分别用于信箱的创建、撤消和消息的发送、接收等。 </p>
+<p>优点：在读&#x2F;写时间上的随机性写进程 -&gt;信箱（中间实体）-&gt;读进程原语</p>
+<p>消息的发送和接收</p>
+<p>Send (mailbox, message)</p>
+<p>Receive (mailbox, message)</p>
+<h3 id="信箱"><a href="#信箱" class="headerlink" title="信箱"></a>信箱</h3><p>信箱分为以下三类：</p>
+<p>（1）私用信箱（2）公用信箱（3）共享信箱</p>
+<p>在利用信箱通信时，在发送进程和接收进程之间，存在以下四种关系：</p>
+<p>（1）一对一关系。 （2）多对一关系，客户&#x2F;服务器交互。 （3）一对多关系， 广播方式。（4）多对多关系。  </p>
+<h2 id="第四章"><a href="#第四章" class="headerlink" title="第四章"></a>第四章</h2><h2 id="10-重定位的基本概念：为什么要引入"><a href="#10-重定位的基本概念：为什么要引入" class="headerlink" title="10.重定位的基本概念：为什么要引入"></a>10.重定位的基本概念：为什么要引入</h2><p>为解决链接地址跟运行地址不同的问题。</p>
+<p>装入内存时，相对地址（数据、指令地址）要作出相应的修改以得到正确的物理地址，这个修改的过程称为重定位。</p>
+<h2 id="11-如何提高内存利用率：离散分配、对换机制、动态链接、虚拟存储器、存储器共享"><a href="#11-如何提高内存利用率：离散分配、对换机制、动态链接、虚拟存储器、存储器共享" class="headerlink" title="11.如何提高内存利用率：离散分配、对换机制、动态链接、虚拟存储器、存储器共享"></a>11.如何提高内存利用率：离散分配、对换机制、动态链接、虚拟存储器、存储器共享</h2><h3 id="离散分配"><a href="#离散分配" class="headerlink" title="离散分配"></a>离散分配</h3><h4 id="离散分配方式的引入："><a href="#离散分配方式的引入：" class="headerlink" title="离散分配方式的引入："></a>离散分配方式的引入：</h4><p>连续分配方式会产生内&#x2F;外零头</p>
+<p>为解决零头问题又要进行紧凑等高开销活动</p>
+<h4 id="什么是离散分配："><a href="#什么是离散分配：" class="headerlink" title="什么是离散分配："></a>什么是离散分配：</h4><p> 程序在内存中不一定连续存放</p>
+<h4 id="离散分配的体现"><a href="#离散分配的体现" class="headerlink" title="离散分配的体现:"></a>离散分配的体现:</h4><p>内存一块可以装入程序一页连续的多个页不一定装入连续的多个块中注：系统中页块的大小是不变的。</p>
+<h3 id="离散分配的优点："><a href="#离散分配的优点：" class="headerlink" title="离散分配的优点："></a>离散分配的优点：</h3><p>没有外零头不受连续空间限制，每块都能分出去仅有小于一个页面的内零头</p>
+<p>程序大小一般不是页大小的整数倍        </p>
+<p>由于进程的最后一页经常装不满一块而形成了不可利用的碎片，称之为“页内碎片”或称为“内零头”。 </p>
+<h2 id="对换"><a href="#对换" class="headerlink" title="对换"></a>对换</h2><p>对换指把内存中暂不能运行的进程或暂时不用和程序和数据，换到外存上，以腾出足够的内存空间，把已具备运行条件的进程，或进程所需要的程序和数据，换入内存。 </p>
+<p>对换是系统行为，是提高内存的利用率的有效措施。常用于多道程序系统或小型分时系统中，与分区存储管理配合使用。 </p>
+<h3 id="对换的实现："><a href="#对换的实现：" class="headerlink" title="对换的实现："></a>对换的实现：</h3><p>可在系统中设一对换进程，以执行换进内存、换出至外存操作。</p>
+<h3 id="对换的分类："><a href="#对换的分类：" class="headerlink" title="对换的分类："></a>对换的分类：</h3><h4 id="“整体对换”（进程对换）："><a href="#“整体对换”（进程对换）：" class="headerlink" title="“整体对换”（进程对换）："></a>“整体对换”（进程对换）：</h4><p>对换以整个进程为单位，用于分时系统，以解决内存紧张的问题；</p>
+<h4 id="“页面对换-分段对换”："><a href="#“页面对换-分段对换”：" class="headerlink" title="“页面对换&#x2F;分段对换”："></a>“页面对换&#x2F;分段对换”：</h4><p>对换以“页”或“段”为单位进行“部分对换”，该方法是实现请求分页及请求分段存储器的基础，支持虚存系统。</p>
+<p>为实现对换，系统需要三方面的功能：对换空间的管理、进程的换入、进程的换出</p>
+<h4 id="对换空间的管理："><a href="#对换空间的管理：" class="headerlink" title="对换空间的管理："></a>对换空间的管理：</h4><p>外存被分为两部分，文件区和对换区</p>
+<p>文件区用于存放文件，对它的管理应重在如何提高存储空间的利用率。所以对它采取离散分配方式。</p>
+<p>对换区存放从内存换出的进程，它们在外存的存放时间较短，换入、换出频繁。对对换区的管理应重在提高进程的换入换出速度。因此采用连续分配方式。</p>
+<p>为了能对对换区中的空闲盘块进行管理，在系统中应配置相应的数据结构，以记录外存的使用情况</p>
+<p>空闲分区表或空闲分区链。基本单位都是盘块</p>
+<p>对换区的分配采用连续分配方式，分配与回收与动态分区方式时内存的分配与回收方法雷同</p>
+<h4 id="进程的换出与换入："><a href="#进程的换出与换入：" class="headerlink" title="进程的换出与换入："></a>进程的换出与换入：</h4><h5 id="换出（swap-out）"><a href="#换出（swap-out）" class="headerlink" title="换出（swap out）"></a>换出（swap out）</h5><p>选择：首先选择阻塞或睡眠状态的进程，若有多个，按优先级由低到高进行选择。若没有此状态进程，则选择就绪状态的，仍然按优先级由低到高进行选择。为避免某进程被频繁的换入换出，还应考虑进程在内存中的驻留时间，优先选择驻留时间长的进程。</p>
+<h5 id="换入（swap-in）"><a href="#换入（swap-in）" class="headerlink" title="换入（swap in）"></a>换入（swap in）</h5><p>①从 PCB集合中查找“就绪且换出”的进程，有多个，则选择换出时间最长的。</p>
+<p>②根据进程大小申请内存，成功则读入，否则要先执行换出，再换入。</p>
+<p>③若还有可换入进程，则转向①。直至无“就绪且换出”进程或无法获得足够内存空间为止。</p>
+<h2 id="动态链接"><a href="#动态链接" class="headerlink" title="动态链接"></a>动态链接</h2><h4 id="与之相对的静态链接："><a href="#与之相对的静态链接：" class="headerlink" title="与之相对的静态链接："></a>与之相对的<strong>静态链接</strong>：</h4><p>在程序运行之前，先将各目标模块及它们所需的库函数，链接成一个完整的装入模块（又称执行模块），以后不再拆开。</p>
+<h3 id="装入时动态链接："><a href="#装入时动态链接：" class="headerlink" title="装入时动态链接："></a>装入时动态链接：</h3><p>用户源程序经编译后所得到的目标模块，是在装入内存时，边装入边链接的。即在装入一个目标模块时，若发生一个外部模块调用，将引起装入程序去找出相应的外部目标模块，并将其装入内存。        </p>
+<h4 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h4><ol>
+<li>便于软件版本的修改和更新。只需修改各个目标模块，不必将装入模块拆开，非常方便。        </li>
+<li>便于实现目标模块共享。即可以将一个目标模块链接到几个应用模块中，从而实现多个应用程序对该模块的共享。</li>
+</ol>
+<h3 id="运行时动态链接-Run-Time-Dynamic-Linking）："><a href="#运行时动态链接-Run-Time-Dynamic-Linking）：" class="headerlink" title="运行时动态链接(Run-Time Dynamic Linking）："></a>运行时动态链接(Run-Time Dynamic Linking）：</h3><p>将某些目标模块的链接推迟到执行时才进行，即在执行过程中，若发现一个被调用模块尚未装入内存时，由OS去找到该模块，将它装入内存，并链接到调用模块上。</p>
+<p>优点：执行过程中未被用到的目标模块，都不会被调入内存和被链接到装入模块上，不仅可加快程序的装入过程，而且可节省大量的内存空间</p>
+<h3 id="虚拟存储器"><a href="#虚拟存储器" class="headerlink" title="虚拟存储器"></a>虚拟存储器</h3><h4 id="虚拟存储器："><a href="#虚拟存储器：" class="headerlink" title="虚拟存储器："></a>虚拟存储器：</h4><p>是指具有请求调入功能和置换功能，能从逻辑上对内存容量加以扩充的一种存储器系统。</p>
+<h4 id="程序执行的局部性原理："><a href="#程序执行的局部性原理：" class="headerlink" title="程序执行的局部性原理："></a>程序执行的局部性原理：</h4><p>程序的执行总是呈现局部性。即，在一个较短的时间段内，程序的执行仅限于某个部分；相应的，它所访问的存储空间也局限于某个区域。因此，只要保证进程执行所需的部分程序和数据驻留在内存，一段时间内进程都能顺利执行</p>
+<p>局限性又表现在下述两个方面：</p>
+<h3 id="1-时间局限性"><a href="#1-时间局限性" class="headerlink" title="(1) 时间局限性"></a>(1) 时间局限性</h3><p>如果程序中的某条指令一旦执行，则不久以后该指令可能再次执行；如果某数据被访问过， 则不久以后该数据可能再次被访问产生时间局限性的典型原因，是由于在程序中存在着大量的循环操作</p>
+<h3 id="2-空间局限性"><a href="#2-空间局限性" class="headerlink" title="(2) 空间局限性"></a>(2) 空间局限性</h3><p>一旦程序访问了某个存储单元，在不久之后，其附近的存储单元也将被访问程序在一段时间内所访问的地址，可能集中在一定的范围之内，其典型情况便是程序的顺序执行</p>
+<h3 id="虚拟存储器的基本工作情况"><a href="#虚拟存储器的基本工作情况" class="headerlink" title="虚拟存储器的基本工作情况"></a>虚拟存储器的基本工作情况</h3><p>1）基于局部性原理。一个作业运行前，仅将那些当前要运行的页面（段）装入内存启动运行，其余暂在外存。</p>
+<p>2）若运行所需页面（段）不在内存，则利用请求调页（段）功能将其调入内存。</p>
+<p>3）若此时内存满，则利用置换功能，将内存中暂时不用的部分页面（段）调至外存，再将所需页面（段）调入。</p>
+<p>4）这样，可实现大程序在小内存中运行，也可实现内存中同时装入更多的进程并发执行。</p>
+<h3 id="虚拟存储器的实现方法"><a href="#虚拟存储器的实现方法" class="headerlink" title="虚拟存储器的实现方法"></a>虚拟存储器的实现方法</h3><h4 id="一、请求分页系统"><a href="#一、请求分页系统" class="headerlink" title="一、请求分页系统"></a>一、请求分页系统</h4><p>它是在纯分页系统的基础上增加了请求调页、页面置换两大功能所形成的页式虚拟存储系统。</p>
+<p>为了实现请求调页、页面置换两大功能，系统必须提供如下的硬件支持：        </p>
+<ol>
+<li>请求分页的页表机制。        </li>
+<li>缺页中断机构。        </li>
+<li>地址变换机构。</li>
+</ol>
+<p>此外，实现请求调页、页面置换两大功能还需得到OS的支持。</p>
+<h4 id="二、请求分段系统"><a href="#二、请求分段系统" class="headerlink" title="二、请求分段系统"></a>二、请求分段系统</h4><p>它是在纯分段系统的基础上增加了请求调段、分段置换两大功能所形成的段式虚拟存储系统。        </p>
+<p>为了实现请求调段、分段置换两大功能，系统必须提供如下的硬件支持：        </p>
+<ol>
+<li>请求分段的段表机制。        </li>
+<li>缺段中断机构。        </li>
+<li>地址变换机构。</li>
+</ol>
+<p>此外，实现请求调段、分段置换两大功能还需得到OS的支持。</p>
+<h4 id="三、段页式虚拟系统"><a href="#三、段页式虚拟系统" class="headerlink" title="三、段页式虚拟系统"></a>三、段页式虚拟系统</h4><p>目前，许多虚拟存储管理系统是建立在段页式系统的基础上的，通过增加了请求调页、页面置换两大功能所形成的段页式虚拟存储系统。</p>
+<h2 id="12-动态分区分配方式：分配、回收算法"><a href="#12-动态分区分配方式：分配、回收算法" class="headerlink" title="12.动态分区分配方式：分配、回收算法"></a>12.动态分区分配方式：分配、回收算法</h2><p>动态分区分配（可重定位分区分配）是指根据进程的实际需要，动态地为之分配连续的内存空间。即分区的边界可以移动，分区的大小是可变的</p>
+<p>分区的数目固定大小是可变的，允许分区的数目和大小都是可变的。</p>
+<h3 id="分区分配算法"><a href="#分区分配算法" class="headerlink" title="分区分配算法:"></a>分区分配算法:</h3><p><img src="https://pic.imgdb.cn/item/64d8c2c71ddac507cc2683c7.png"></p>
+]]></content>
+      <categories>
+        <category>复习资料</category>
+      </categories>
+      <tags>
+        <tag>Markdown</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>前端学习笔记（部分）</title>
+    <url>/2023/08/13/%E5%89%8D%E7%AB%AF%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h1 id="前端笔记："><a href="#前端笔记：" class="headerlink" title="前端笔记："></a>前端笔记：</h1><h2 id="h5笔记："><a href="#h5笔记：" class="headerlink" title="h5笔记："></a>h5笔记：</h2><ol>
+<li><p>英文状态下输入！可以直接跳出格式</p>
+</li>
+<li><p>UTF-8：万国码</p>
+</li>
+<li><p>head第二行没用，可以删去。</p>
+</li>
+<li><p>title内为网页名称</p>
+</li>
+<li><p>body内填网页内容</p>
+</li>
+<li><p><xxx>这是单标签 主要用于申明属性 <xxx></xxx> 主要用于输入内容</p>
+</li>
+<li><p>lang 后面写语言 en代表英语 可以直接删去</p>
+</li>
+<li><p>段落标签：<h1>-<h6> 段落和换行标签：<p>&lt;\p&gt; <br/></p>
+<ol>
+<li>水平线分割标签<hr/></li>
+</ol>
+</li>
+<li><p>斜体<em><em/></p>
+</li>
+<li><p>加粗<strong></strong></p>
+</li>
+<li><p>结构标签<div></div> 、<span></span></p>
+</li>
+<li><p>图片标签：输入image src后面填写路径 alt后面是若图片出现异常无法显示而显示的文本 后面可以跟width设定宽度 height设置高度</p>
+</li>
+<li><p>超链接：a标签 herf后面跟网址 标签内内容填写超链接显示文字或者标签嵌套加入image标签做成图片超链接</p>
+</li>
+<li><p>锚链接：使用超链接实现 只是跳转到内部 所以跳转目标出设定一个id 然后a标签herf后写“#id名”即可</p>
+</li>
+<li><p>功能性发邮件&#x2F;打电话：也是以超链接形式实现 herf后写mailto：邮箱地址 实现发邮件 herf后写tel：电话号码实现打电话</p>
+</li>
+<li><p>块级元素：独占一行，换行显示，可以设置宽高，块可以套块和行。</p>
+</li>
+<li><p>行级元素：在行内显示，内容撑开宽高，不可以设置宽高（img、input除外），行只能套行。</p>
+</li>
+</ol>
+<h2 id="css3笔记："><a href="#css3笔记：" class="headerlink" title="css3笔记："></a>css3笔记：</h2><ol>
+<li>选择器{声明；属性：值；} 如<style>h1{color:red}</style> （标签选择器）</li>
+<li><strong>颜色</strong>：color 字体大小：front-size</li>
+<li><strong>类选择器</strong>：1.首先在标签中 定义类名 class&#x3D;“类名”多个标签的类名可以重复 因为类选择器目的就是选中多个 2.使用方法： .类名{声明；}</li>
+<li><strong>id选择器</strong>：首先在标签中 定义id名 id&#x3D;“id名” 2.使用方法： #id名{声明；}</li>
+<li><strong>id选择器和类型选择器的区别：</strong> id是唯一的 类不唯一</li>
+<li><strong>标签选择器 &lt; 类选择器 &lt; id选择器</strong></li>
+<li><strong>可以同时设置标签和id</strong></li>
+<li>Html导入css的样式方法：1.<strong>内连样式：</strong>在head之前写css 2.<strong>内部样式</strong> 在每个标签内写 3.<strong>外联样式</strong>：直接新创建一个css文件 格式：选择器{声明；} 然后将新css文件和原html文件连接起来 连接方式：html文件head前加link 然后跳出框内herf后写css文件路径以及名字（链接式）</li>
+<li>当前目录：.&#x2F;</li>
+<li>第二种外联连接方式：head前加<style></style>里面用@import url（css文件路径以及名字）（导入式）</li>
+<li>一般用链接式，导入式只能导入css样式，而且有些浏览器不兼容</li>
+<li>样式优先级：内部&gt;内联？外联 取决于在head中 谁在下面，谁的样式起作用</li>
+<li>设置字体样式：font-family 设置字体类型  font-style 设置字体风格italic（斜体） front-weight 设置字体粗细 font 可以设定所有属性</li>
+<li>text-align 文本位置 left左对齐 right右对齐 center居中</li>
+<li>设置字体颜色：color：颜色</li>
+<li>background-color 背景颜色</li>
+<li>line-height:行高 </li>
+<li>text-decoration 文本装饰 underline（下划线）overline（上划线） line-through（中划线） none取消所有格式</li>
+<li><strong>伪类语法：</strong>伪类名称：a:link（未单击访问时超链接形式） a:visited （单击访问后超链接形式） a:hover（鼠标悬浮其上的超链接样式） a:active（鼠标单击未释放） 内部可以加属性如color然后设定颜色</li>
+<li><strong>css设定鼠标形状：</strong>default 默认光标 pointer 超链接的指针（手） wait（转圈等待的效果）help（指示可用的帮助） text（指示文本） crosshair（十字架）</li>
+<li>在伪类语法中用cursor使用设定鼠标形状</li>
+<li>span的作用类似小括号 用于改文本局部的样式</li>
+<li>列表分为： 无序列表（ul） 有序列表（ol） 自定义列表（dl）</li>
+<li>（在body内）使用列表分为两个步骤：申明列表类型 和申明列表项 </li>
+<li>每个浏览器为列表设定的初边距不一样 所以需要style内加上*{margin：0；padding：0；}</li>
+<li>有序列表会帮你排序 标上序号 若像倒叙 则在ol 后加reversed</li>
+<li>更改序号类型可在ol后加type选择序号类型</li>
+<li>设置起始序号 start&#x3D;“xx”</li>
+<li>设置无序列表的类型：style中加list-style选择类型 none是取消·</li>
+<li>自定义列表使用方法 dt后内容左对齐 dd相当于段落行</li>
+<li>表格<table>标签  <tr></tr>行 <td></td>列</li>
+<li>列合并：（标签内加入）colspan&#x3D;“合并几列”框内写合并框的内容</li>
+<li>同样的原理 行合并：rowspan</li>
+<li>表单：input标签 一般格式<input type="xxx"> xxx可以是text（文本）、password（密码···形式）、radio（选择圆圈）</li>
+<li>Radio设置多选一可以把所有选项取相同名字 即都加name&#x3D;“xxx”</li>
+<li>默认选中：标签内加checked&#x3D;“checked”</li>
+<li>扩大选框选中的范围：1.给文字部分加一个label标签 for起名字 2.给input起一个和for后面名字相同的id名</li>
+<li>复选框：type&#x3D;“checkbox”</li>
+<li>按钮：type&#x3D;“botton” value后面写内容 或者<button>xxx</button></li>
+<li>选择框下拉菜单：<select> <option>xxx…</select> xxx填写备选项 value后面写获取该选项时反馈的值</li>
+<li>option&lt;&gt;内后可以加selected&#x3D;“selected”使该选项为默认选择</li>
+<li>多行文本域（限制最大输入字数）：<textarea>xxx</textarea>标签 name后面写该多行文本域 cols：显示的行数 rows：显示的列数 xxx：文本内容 （但一般不用textarea）</li>
+<li>使用input限制输入文字个数：利用maxlength属性 设定最大输入长度 在input类型是text或者password时适用</li>
+<li>可以给input设置id 然后可以通过id选择器设置输入框宽高</li>
+<li>隐藏域：type&#x3D;“hidden” 可以隐藏内容且不占空间 同时也可以<p hidden>隐藏段落</li>
+<li>只读：readonly 在标签内加</li>
+<li>禁用：（按钮变成灰色不可使用状态）一般使用于后期的判断 disabled 在标签内加</li>
+<li>后代选择器：标签选择器下通过写一层层的标签 如li a{color：red；} 注：只要是后代，都发生变化</li>
+<li>子代选择器：只有儿子生效 使用方法：类似于后代选择器 但用&gt;连接 如h1&gt;strong{color:red;}</li>
+<li>并集选择器：用，连接标签选择器下的多个声明 可以联用子代选择器</li>
+<li>交集选择器：用.连接标签选择器下的多个声明</li>
+<li>属性选择器（只要具备某个属性，或者属性&#x3D;属性值，就会被选中执行某些操作）：在标签选择器下用[xxx]{}xxx是属性如herf 满足以下任意条件：1.具备某个属性 2.满足属性&#x3D;值 3.^&#x3D;‘’以什么字母开头 $&#x3D;‘’以什么字母结束 4.*&#x3D;“xxx”包含xxx</li>
+<li>边框设置的四种样式：border属性：后面可以添加宽、线类型、颜色 线类型：solid（实线）、dashed（虚线）、double（双实线）、dotted（点状虚线）</li>
+<li>如果只给了一个边框属性，那么则同时生效作用于元素的四个边框</li>
+<li>若想让元素的四个边框不同，可以分别设置 如border-top border-bottom border-left border-right</li>
+<li>将div变圆：border-radius属性 参数设置为50% 且div必须是正方形 否则是椭圆</li>
+<li>将div变三角形：将div的width和height都设置为0px 设置四个边框不同颜色相同像素宽 将其他三个边框颜色设置为transparent（透明） 即可 （调高width或height可以变成梯形）</li>
+<li>给元素设置外边距：margin参数 可以margin-bottom、margin-top……一个个单独设置 也可以直接margin后面跟四个参数值（依次为上右下左） 单位为px（像素） 另外，设置两个值的时候第一个值代表上下 第二个值代表左右</li>
+<li>盒模型的计算大小：实际展示大小&#x3D;元素大小+边框+内边距</li>
+<li>内边距：padding 用法和margin相同</li>
+<li>怪异模式：box-sizing：border-box 增加内边距且不改变元素的大小</li>
+<li>初始化css样式：不同浏览器初始格式不同 需要统一样式 则需要先初始化 即设置*{margin：0；padding：0；}</li>
+<li>块元素：一定是独占一行，可以设置宽高。如ul、ol、li、form、div等</li>
+<li>行内块元素：不独占一行，可以设置宽高。如button、img、input、select等</li>
+<li>行内元素：不独占一行，可以设置宽高。如：span、a、label等</li>
+<li>转换为行内元素：display：inline 转换为块元素：display：block 转换为行内块元素：display：inline-block</li>
+<li>浮动：float  可以设定方向如float：left</li>
+<li>元素浮动之后就脱离了标准文档流 </li>
+<li>清除浮动的方法：1.给浮动的父元素加一个高度 2.给浮动下面建一个空白的div 起名叫clearfix，然后在选择器中设定clearfix下clear：both（或者clear：方向）</li>
+<li>超出部分隐藏：overflow:xxx xxx可以是visible(默认值。内容不会被修建，会呈现在盒子之外) hidden（内容会被剪切，且其余内容不可见） scroll（内容会被修建，但浏览器会显示滚动条以便查看其余内容） auto(如果内容被剪切，则浏览器会显示滚动条以便查看其余内容)</li>
+<li>定位：把元素放在我们指定的位置</li>
+<li><strong>定位分类：</strong>static（默认值，没有定位） relative（相对定位） absolute（绝对定位)  fixed(固定定位)</li>
+<li><strong>固定定位：</strong>滚轮滑动，显示的位置一直不变  参照物：浏览器屏幕  不占实际位置，位置会被下面元素占去</li>
+<li>申明定位属性后，可以通过设定left、bottom（距离当前页面最底部的距离）、top、right的参数值来设定位置</li>
+<li><strong>相对定位：</strong>滚轮滑动，位置随滑动改变。占实际位置，位置不会被下面元素占去 参照物：自身左上角的原点 </li>
+<li><strong>绝对定位：</strong>脱离标准流 ，如果绝对元素的父元素没有设定过任意定位，参照物是最外面元素的左上角（浏览器的左上角），如果绝对元素的父元素有任意定位，参照物就是父元素的左上角。</li>
+<li>子元素设定绝对定位，那一般父元素就设定相对定位</li>
+<li><strong>z-index属性：</strong>整数，默认值为0 数字越大越优先显示 用于重叠的时候分层 最大值是2147483647 值相同的时候 谁的代码在下面谁优先显示，因为程序最后读到他</li>
+<li>实现文本在div中上下居中：使用flex布局 display: flex;align-items: center;justify-content: space-around; flex-direction: column;</li>
+<li></li>
+</ol>
+<h2 id="JS笔记："><a href="#JS笔记：" class="headerlink" title="JS笔记："></a>JS笔记：</h2><ol>
+<li><p><strong>JavaScipt分为三个部分：</strong>ECMAScript、BOM、DOM。ECMAScipt：语言标准 BOM：浏览器对象模型，只要是浏览器给我提供的功能，前后退隐藏最小化最大关闭等统称为BOM DOM：文档对象模型，页面上显示的所有内容，统称为DOM</p>
+</li>
+<li><p>js文件代码的后缀就直接是.js</p>
+</li>
+<li><p><strong>Js代码引入的三种方式：</strong>外部、内部、行内。</p>
+</li>
+<li><p><strong>外部引入：</strong>使用<script>表现 在h5文件的head中利用<script src="xxx"></script> xxx为js文件地址</p>
+</li>
+<li><p><strong>内部样式：</strong>在script双标签之间填入js内容 可以放在head双标签之间 body双标签之间 body双标签之外</p>
+</li>
+<li><p><strong>标签内部嵌套：</strong>eg.&lt;button onclick&#x3D;“alert(xxx)”xxx</button></p>
+</li>
+<li><p><strong>js的方法：</strong>弹框输出方法：alert（‘弹出内容’(或者用””)）document.write(‘xxx’)直接显示</p>
+</li>
+</ol>
+<p>声明变量：var 变量名&#x3D;值  赋值：等号后面的值赋值给等号前面的变量名 变量：常常变化的量</p>
+<ol start="8">
+<li><p>声明变量后，系统会立马在内存开辟一片空间。</p>
+</li>
+<li><p>声明变量如果不写var，解释器会自动帮你补全。</p>
+</li>
+<li><p>js中<strong>；</strong>代表结束</p>
+</li>
+<li><p>接受浏览器弹框输入：prompt（‘xxx’） xxx为内容（提示用户输入的信息）</p>
+</li>
+<li><p><strong>js的数据类型：</strong>undefined 当变量被申明时没有初识值，则将会被赋予undefined      null 表示一个空值，与undefined值相等    number 包含整数和浮点数    boolean 布尔型    string 被引号括起来的文本    object 属性的集合、每个属性都由‘名&#x2F;值’对构成 </p>
+</li>
+<li><p>只要变量值是‘’ 无论前面怎么定义变量类型 都是string类型</p>
+</li>
+<li><p>console.log(xxx) xxx为变量名 这是程序员调试用的 可以测试xxx的输出值</p>
+</li>
+<li><p>算术运算符：+、-、*、&#x2F;、%、++、–     赋值运算符：&#x3D;   比较运算符：&gt;、&lt;、&gt;&#x3D;、&lt;&#x3D;、&#x3D;&#x3D;、!&#x3D;</p>
+</li>
+<li><p>加法：对于A+B，如果一个是字符串，一个是数字类型，会拼接 ，如果都是数字类型，则会运算</p>
+</li>
+<li><p>减法：对变量隐式转换，只要能转换为number类型，全部转换为number类型，然后运算</p>
+</li>
+<li><p>如果无法转换为number类型，将不再运算 无法运算 返回结果NaN （not a number）</p>
+</li>
+<li><p>乘法、除法和减法一样</p>
+</li>
+<li><p>取余数的时候 如果被除数小于除数 取本身</p>
+</li>
+<li><p>取整 在需要取整的变量前加parseInt</p>
+</li>
+<li><p>小数 paseInt</p>
+</li>
+<li><p>&#x3D;&#x3D;只判断内容   &#x3D;&#x3D;&#x3D;不但判断值，还要判断数据类型 成立返回true 不成立返回false</p>
+</li>
+<li><p>++代表自增 –代表自减  ++在前，先自增，再运算 –在后，先运算，再自增</p>
+</li>
+<li><p>变量命名规则 严格区分大小写 不能以数字开头 不能是关键字、保留字 遵循驼峰命名法（首字母小写，后面单词的首字母需要大写）</p>
+</li>
+<li><p>typeof可用来获取检测变量的数据类型 可以加在console.log(xxx)中xxx的前面 则输出值为xxx的数据类型</p>
+</li>
+<li><p>if、if else、else if、switch、do-while、break语句用法和c语言相同</p>
+</li>
+<li><p>三元表达式（三目运算符）：条件表达式？表达式1：表达式2 如果条件表达式为真 则返回表达式1的值 如果条件表达式为假 则返回表达式2的值</p>
+</li>
+<li><p>声明函数语法结构：function 函数名（）{ 函数体 }  调用函数则直接使用函数名（）即可</p>
+</li>
+<li><p>我们可以利用函数的参数实现函数重复不同的代码（参照c语言的实参和形参的区别）</p>
+</li>
+<li><p>如果实参数量大于形参，则会忽略多余的实参用其他的进行运算 如果实参数量小于形参，意味着是数字加上undefined，结果是NaN</p>
+</li>
+<li><p>返回语句return语句和c语言用法相同</p>
+</li>
+<li><p>不知道有多少个参数传递时，可以用arguments来获取。arguments实际上是当前函数的一个内置对象。所有函数都内置了一个arguments对象，arguments对象中储存了传递的所有实参。</p>
+<p>1.arguments展现形式是一个伪数组，因此可以遍历。具有特点：1.具有数组的length属性 2.按照索引的方式进行存储的3.它没有真正数组的一些方法pop（） push()等等</p>
+<p>用法eg.function fn(){</p>
+<p>console.log(agruments);</p>
+<p>}</p>
+<p>fn(1,2,3);</p>
+</li>
+<li><p>预解析：js引擎会把js里面所有的var还有function提升到当前作用域的最前面。</p>
+</li>
+<li><p>构造函数的语法格式：function 构造函数名(){</p>
+<p>this.属性&#x3D;值；</p>
+<p>this.方法&#x3D;function(){}</p>
+<p>}</p>
+</li>
+<li><p>1.构造函数的名字首字母必须要大写 2.构造函数不需要return就可以返回结果 3.我们构造函数必须要使用new 4.我们只要new Star（）调用函数就创建了一个对象 5.我们的属性和方法前面必须添加this</p>
+</li>
+<li><p>对象：特指是一个具体的事物</p>
+</li>
+<li><p>我们利用构造函数创建对象的过程我们也称之为对象的实例化</p>
+</li>
+<li><p>new关键字执行过程：1.new构造函数可以在内存中创建一个空的对象  2.this就会指向刚才创建的空对象 3.执行构造函数的代码 给这个空对象添加属性和方法  4.返回这个对象</p>
+</li>
+<li><p>遍历对象：for（变量 in 对象）{   }</p>
+</li>
+<li><p>JS中的对象分为3种：自定义对象、内置对象、浏览器对象</p>
+</li>
+<li><p>通过查MDN文档可以查阅js的具体各内置对象用法</p>
+</li>
+<li><p>Math数学对象 不是一个构造函数，所以我们不需要new来调用 而是直接使用里面的属性和方法即可。</p>
+</li>
+<li><p>js中的四舍五入：其他数字都是四舍五入，只有.5是往大了取 如-1.5四舍五入后是-1</p>
+</li>
+<li><p><strong>window.onload()</strong> 方法用于在网页加载完毕后立刻执行的操作，即当 HTML 文档加载完毕后，立刻执行某个方法。</p>
+</li>
+<li><p>window.onload 事件绑定事件处理函数，绑定的是一个匿名函数，也可以绑定具名函数。</p>
+<ol>
+<li></li>
+</ol>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>自学资料</category>
+      </categories>
+      <tags>
+        <tag>Markdown</tag>
+        <tag>前端</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Java学习笔记</title>
     <url>/2023/08/13/Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h2 id="Java学习笔记"><a href="#Java学习笔记" class="headerlink" title="Java学习笔记"></a>Java学习笔记</h2><h3 id="一、基本格式"><a href="#一、基本格式" class="headerlink" title="一、基本格式"></a>一、基本格式</h3><h4 id="1-类"><a href="#1-类" class="headerlink" title="1.类"></a>1.类</h4><p>类是Java的基本结构，一个程序可以包含一个或多个类</p>
@@ -415,405 +812,8 @@
         <category>复习资料</category>
       </categories>
       <tags>
+        <tag>Markdown</tag>
         <tag>JAVA</tag>
-        <tag>Markdown</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>操作系统期末复习总结</title>
-    <url>/2023/08/13/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/</url>
-    <content><![CDATA[<h1 id="操作系统期末复习"><a href="#操作系统期末复习" class="headerlink" title="操作系统期末复习"></a>操作系统期末复习</h1><h2 id="1、进程和线程的概念"><a href="#1、进程和线程的概念" class="headerlink" title="1、进程和线程的概念"></a>1、进程和线程的概念</h2><h3 id="典型的进程定义有："><a href="#典型的进程定义有：" class="headerlink" title="典型的进程定义有："></a>典型的进程定义有：</h3><p>（1）进程是程序的一次执行。（2）进程是一个程序及其数据在处理机上顺序执行时所发生的活动。（3）进程是程序在一个数据集合上运行的过程，它是系统进行资源分配和调度的一个独立单位。</p>
-<h2 id="2、进程的基本状态及状态转换的原因"><a href="#2、进程的基本状态及状态转换的原因" class="headerlink" title="2、进程的基本状态及状态转换的原因"></a>2、进程的基本状态及状态转换的原因</h2><p><img src="https://pic.imgdb.cn/item/64d8c2e01ddac507cc26b93a.png"></p>
-<h3 id="状态转换："><a href="#状态转换：" class="headerlink" title="状态转换："></a>状态转换：</h3><p> ① 空 -&gt;新状态  新创建的进程首先处于新状态。 </p>
-<p>② 新状态 -&gt;就绪状态  当系统允许增加就绪进程时，操作系统接纳新建状态进程，将它变为就绪状态，插入就绪队列中。 </p>
-<p>③ 就绪状态 -&gt; 执行状态  当处理机空闲时，将从就绪队列中选择一个进程执行，该选择过程称为进程调度，或将处理机分派给一个进程，该进程状态从就绪转变为执行。 </p>
-<p>④ 执行状态 -&gt; 终止状态  执行状态的进程执行完毕，或出现诸如访问地址越界、非法指令等错误，而被异常结束，则进程从执行状态转换为终止状态。</p>
-<p>⑤ 执行状态 -&gt; 就绪状态  分时系统中，时间片用完，或优先级高的进程到来，将中断较低优先级进程的执行。进程从执行状态转变为就绪状态，等待下一次调度。</p>
-<p>⑥ 执行状态 -&gt; 阻塞状态  执行进程需要等待某事件发生。通常，会因为进程需要的系统调用不能立即完成，如读文件、共享虚拟内存、等待I&#x2F;O操作、等待另一进程与之通信等事件而阻塞。</p>
-<p>⑦ 阻塞状态 -&gt; 就绪状态  当阻塞进程等待的事件发生，就转换为就绪状态。进入就绪队列排队，等待被调度执行。</p>
-<h2 id="3-PCB的作用"><a href="#3-PCB的作用" class="headerlink" title="3.PCB的作用"></a>3.PCB的作用</h2><p>进程控制块：进程控制块的作用是使一个在多道程序环境下不能独立运行的程序（包含数据），成为一个能独立运行的基本单位，一个能与其它进程并发执行的进程。</p>
-<h2 id="4-进程控制的原语操作"><a href="#4-进程控制的原语操作" class="headerlink" title="4.进程控制的原语操作"></a>4.进程控制的原语操作</h2><h3 id="（1）进程的创建原语"><a href="#（1）进程的创建原语" class="headerlink" title="（1）进程的创建原语"></a>（1）进程的创建原语</h3><p>调用进程创建原语Create（  ）按下述步骤创建一个新进程</p>
-<h4 id=""><a href="#" class="headerlink" title=""></a><img src="https://pic.imgdb.cn/item/64d8c3d91ddac507cc28a180.png"></h4><h3 id="2-进程的终止原语"><a href="#2-进程的终止原语" class="headerlink" title="(2)进程的终止原语"></a>(2)进程的终止原语</h3><p>正常结束:  </p>
-<p>批处理中用Holt指令，分时中用Logs off指令</p>
-<p><img src="https://img-blog.csdnimg.cn/20200315164109198.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzkxNDYwNA==,size_16,color_FFFFFF,t_70"></p>
-<h3 id="（3）进程的唤醒和阻塞原语"><a href="#（3）进程的唤醒和阻塞原语" class="headerlink" title="（3）进程的唤醒和阻塞原语"></a>（3）进程的唤醒和阻塞原语</h3><p><img src="https://pic.imgdb.cn/item/64d8c4091ddac507cc290135.png"></p>
-<h3 id="引起进程阻塞的事件"><a href="#引起进程阻塞的事件" class="headerlink" title="引起进程阻塞的事件:"></a>引起进程阻塞的事件:</h3><p>(1）请求系统服务：提出I&#x2F;O服务时，并不立即满足该进程的要求时，转变为阻塞状态来等待</p>
-<p>(2）启动某种操作：当进程启动某种操作后，在该操作完成之后才能继续执行</p>
-<p>(3）新数据尚未到达：对于相互合作的进程而言。</p>
-<p> (4）无新工作可做。如发送进程</p>
-<h3 id="进程阻塞过程"><a href="#进程阻塞过程" class="headerlink" title="进程阻塞过程:"></a>进程阻塞过程:</h3><p>(1)正在执行的进程，当发现上述某事件时，由于无法继续执行，于是进程便通过调用阻塞原语block( )把自己阻塞</p>
-<p>(2)把进程控制块中的现行状态由“执行”改为“阻塞”，并将PCB插入阻塞队列</p>
-<p>(3)转调度程序进行重新调度，将处理机分配给另一就绪进程，并进行切换</p>
-<h3 id="进程唤醒过程："><a href="#进程唤醒过程：" class="headerlink" title="进程唤醒过程："></a>进程唤醒过程：</h3><p>当被阻塞进程所期待的事件出现时，则由有关进程（比如，用完并释放了该I&#x2F;O设备的进程）调用唤醒原语wakeup（  ），将等待该事件的进程唤醒</p>
-<h3 id="4-进程的挂起和激活过程"><a href="#4-进程的挂起和激活过程" class="headerlink" title="(4)进程的挂起和激活过程"></a>(4)进程的挂起和激活过程</h3><p><img src="https://pic.imgdb.cn/item/64d8c4351ddac507cc295969.png"></p>
-<h2 id="5-进程互斥、临界区、进程同步的基本概念、同步准则"><a href="#5-进程互斥、临界区、进程同步的基本概念、同步准则" class="headerlink" title="5.进程互斥、临界区、进程同步的基本概念、同步准则"></a>5.进程互斥、临界区、进程同步的基本概念、同步准则</h2><h3 id="进程互斥："><a href="#进程互斥：" class="headerlink" title="进程互斥："></a>进程互斥：</h3><p>进程互斥是进程之间的间接制约关系。当一个进程进入临界区使用临界资源时，另一个进程必须等待。只有当使用临界资源的进程退出临界区后，这个进程才会解除阻塞状态。</p>
-<h3 id="临界资源："><a href="#临界资源：" class="headerlink" title="临界资源："></a>临界资源：</h3><p>一次仅允许一个进程访问的资源为临界资源 。</p>
-<h3 id="临界区："><a href="#临界区：" class="headerlink" title="临界区："></a>临界区：</h3><p>把在每个进程中访问临界资源的那段代码称为临界区。</p>
-<h3 id="进程同步："><a href="#进程同步：" class="headerlink" title="进程同步："></a>进程同步：</h3><p>进程同步是一个操作系统级别的概念，是在多道程序的环境下，存在着不同的制约关系，为了协调这种互相制约的关系，实现资源共享和进程协作，从而避免进程之间的冲突，引入了进程同步。</p>
-<p>进程同步的主要任务：是使并发执行的诸进程之间能有效地共享资源和相互合作，从而使程序的执行具有可再现性。</p>
-<h3 id="同步准则："><a href="#同步准则：" class="headerlink" title="同步准则："></a>同步准则：</h3><p>1)空闲让进</p>
-<p>2)忙则等待</p>
-<p>3)有限等待</p>
-<p>4)让权等待</p>
-<h2 id="6-记录型信号量"><a href="#6-记录型信号量" class="headerlink" title="6.记录型信号量"></a>6.记录型信号量</h2><p>记录型信号量机制，则是一种不存在“忙等”现象的进程同步机制</p>
-<p>记录型信号量的数据结构: </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">type  semaphore = record</span><br><span class="line">                  value  ：integer；</span><br><span class="line">                  L：list  of  process；</span><br><span class="line"> end  </span><br></pre></td></tr></table></figure>
-
-<p>记录型信号量的wait（S）操作:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">procedure  wait（  S  ）</span><br><span class="line">    var  S：  semaphore；</span><br><span class="line">       begin   </span><br><span class="line">           S.value:＝S.value-1;</span><br><span class="line">           if  S.value＜0  then  block（S.L）;</span><br><span class="line">       end</span><br><span class="line">// S.value＜0，该类资源已经分配完毕，进程必须放弃处理机，自我阻塞。</span><br></pre></td></tr></table></figure>
-
-<p>记录型信号量的signal（S）操作:</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">procedure  signal（S）</span><br><span class="line">  var  S:semaphore； </span><br><span class="line">  begin</span><br><span class="line">      S.value:＝S.value+1；</span><br><span class="line">      if  S.value≤0  then   wakeup(S.L)；</span><br><span class="line">  end</span><br><span class="line">// S.value≤0 ，在信号量链表中，仍有等待该资源的进程被阻塞。</span><br></pre></td></tr></table></figure>
-
-<h2 id="7-信号量的应用"><a href="#7-信号量的应用" class="headerlink" title="7.信号量的应用"></a>7.信号量的应用</h2><ol>
-<li><h3 id="利用信号量实现进程互斥"><a href="#利用信号量实现进程互斥" class="headerlink" title="利用信号量实现进程互斥"></a>利用信号量实现进程互斥</h3></li>
-</ol>
-<p>为使多个进程能互斥地访问某临界资源，只须为该资源设置一互斥信号量mutex，并设其初始值为1，然后将各进程访问该资源的临界区CS置于wait（mutex）和signal（mutex）操作之间即可。</p>
-<p>利用信号量实现进程互斥的进程可描述如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Var  mutex：semaphore:=1；</span><br><span class="line">          begin</span><br><span class="line">          parbegin</span><br><span class="line"></span><br><span class="line">             process1：begin</span><br><span class="line">                 repeat</span><br><span class="line">                      wait（mutex）；</span><br><span class="line">                      critica1  section</span><br><span class="line">                      signal（mutex）；</span><br><span class="line">                     remainder  section  until false;</span><br><span class="line">             end</span><br><span class="line">             process2：begin</span><br><span class="line">                        repeat</span><br><span class="line">                            wait（mutex）;</span><br><span class="line">                            critical  section</span><br><span class="line">                            signal（mutex）;</span><br><span class="line">                            remainder section until false；</span><br><span class="line">              end</span><br><span class="line">   parend </span><br><span class="line">   end</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>wait（mutex）和signal（mutex）必须成对出现；</p>
-<p>缺少wait（mutex）导致系统混乱，不能保证对临界资源的互斥访问；</p>
-<p>缺少signal（mutex）会使临界资源永远不释放，等待该资源的进程不能被唤醒。</p>
-<h3 id="2-利用信号量实现前趋关系"><a href="#2-利用信号量实现前趋关系" class="headerlink" title="2.利用信号量实现前趋关系"></a>2.利用信号量实现前趋关系</h3><p><img src="https://pic.imgdb.cn/item/64d8c4351ddac507cc2959b5.png"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">p1( )&#123; S1； signal（a）；signal（b）；&#125;</span><br><span class="line">p2( )&#123; wait(a); S2；signal（c）；signal（d）; &#125;</span><br><span class="line">p3( )&#123; wait（b）；S3；signal（e）；&#125;</span><br><span class="line">p4( )&#123; wait（c）；S4；signal（f）；&#125;</span><br><span class="line">p5( )&#123; wait（d）；S5；signal（g）；&#125;</span><br><span class="line">p6( )&#123; wait（e）；wait（f）；wait（g）；S6；&#125;</span><br><span class="line"></span><br><span class="line">void main( )&#123;</span><br><span class="line">    semaphore a,b,c,d,e,f,g;</span><br><span class="line">    a.value=b.value=c.value=0;</span><br><span class="line">    d.value=e.value=f.value=g.value=0;</span><br><span class="line">    cobegin</span><br><span class="line">         p1( ); p2( ); p3( ); p4( ); p5( ); p6( );</span><br><span class="line">    coend;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="8-经典进程同步问题；生产者与消费者问题"><a href="#8-经典进程同步问题；生产者与消费者问题" class="headerlink" title="8.经典进程同步问题；生产者与消费者问题"></a>8.经典进程同步问题；生产者与消费者问题</h2><p>生产者和消费者进程共享一个大小固定的缓冲区，其中，一个或多个生产者生产数据，并将生产的数据存入缓冲区，并有一个消费者从缓冲区中取数据。 </p>
-<p>假设缓冲区的大小为n（存储单元的个数），它可以被生产者和消费者循环使用</p>
-<p>分别设置两个指针in和out，指向生产者将存放数据的存储单元和消费者将取数据的存储单元，如图</p>
-<p><img src="https://pic.imgdb.cn/item/64d8c4341ddac507cc29582e.png"></p>
-<p><img src="C:\Users\10410\Desktop\操作系统期末复习\image-20230616160458024.png" alt="image-20230616160458024"></p>
-<p><img src="https://pic.imgdb.cn/item/64d8c2c31ddac507cc267c42.png"></p>
-<h3 id="1-利用记录型信号量解决生产者一消费者问题"><a href="#1-利用记录型信号量解决生产者一消费者问题" class="headerlink" title="1.利用记录型信号量解决生产者一消费者问题"></a>1.利用记录型信号量解决生产者一消费者问题</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"> int  in=0, out=0;</span><br><span class="line"> item    buffer [n];</span><br><span class="line"> semaphore	mutex=1, empty=n, full=0;   </span><br><span class="line"> </span><br><span class="line">void producer( );</span><br><span class="line">void consumer( );</span><br><span class="line"></span><br><span class="line">void main( )&#123;</span><br><span class="line">      cobegin</span><br><span class="line">             producer( ); consumer( );</span><br><span class="line">      coend</span><br><span class="line">&#125;</span><br><span class="line">void producer( )&#123;</span><br><span class="line">    do&#123;</span><br><span class="line">      			…</span><br><span class="line">		Produce an item in nextp;</span><br><span class="line">              		…</span><br><span class="line">wait(empty);</span><br><span class="line">wait(mutex);</span><br><span class="line">buffer(in):=nextp;</span><br><span class="line">in:=(in+1) mod n;</span><br><span class="line">signal(mutex);</span><br><span class="line">signal(full);</span><br><span class="line">&#125;while(TRUE);</span><br><span class="line">&#125;</span><br><span class="line">void consumer&#123;</span><br><span class="line">	do&#123;</span><br><span class="line">	      wait(full);</span><br><span class="line">wait(mutex);</span><br><span class="line">nextc:=buffer(out);</span><br><span class="line">out:=(out+1) mod n;</span><br><span class="line">signal(mutex);</span><br><span class="line">signal(empty);</span><br><span class="line">Consumer the item in nextc;</span><br><span class="line">     ……</span><br><span class="line">&#125;while(TRUE);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="2-利用AND信号量解决生产者—消费者问题"><a href="#2-利用AND信号量解决生产者—消费者问题" class="headerlink" title="2.利用AND信号量解决生产者—消费者问题"></a>2.利用AND信号量解决生产者—消费者问题</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">  int  in=0, out=0;</span><br><span class="line">  item    buffer[ n ];</span><br><span class="line">  semaphore   mutex=1;</span><br><span class="line">  semaphore  empty=n, full=0;</span><br><span class="line"></span><br><span class="line">  void producer( )&#123;</span><br><span class="line">       do&#123;</span><br><span class="line">			…</span><br><span class="line">		 produce an item in nextp;</span><br><span class="line">			…</span><br><span class="line">		Swait(empty, mutex);</span><br><span class="line">		buffer[in] = nextp;</span><br><span class="line"> in = (in+1) % n;</span><br><span class="line">   Ssignal(mutex, full);</span><br><span class="line">      &#125;while(TRUE);</span><br><span class="line">   &#125; //end producer</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">void consumer&#123;</span><br><span class="line">   do&#123;</span><br><span class="line">	   Swait(full, mutex);</span><br><span class="line">	   nextc = buffer[out];</span><br><span class="line">	   out = (out+1) % n;</span><br><span class="line">	   Ssignal(mutex, empty);</span><br><span class="line">	   consumer the item in nextc;</span><br><span class="line">     &#125;while(TRUE);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="9-进程间通信的原理和实现方法-信箱"><a href="#9-进程间通信的原理和实现方法-信箱" class="headerlink" title="9.进程间通信的原理和实现方法   信箱"></a>9.进程间通信的原理和实现方法   信箱</h2><h3 id="进程间通信的原理和实现方法"><a href="#进程间通信的原理和实现方法" class="headerlink" title="进程间通信的原理和实现方法"></a>进程间通信的原理和实现方法</h3><h4 id="1-共享存储器系统"><a href="#1-共享存储器系统" class="headerlink" title="1.共享存储器系统"></a>1.共享存储器系统</h4><p>（1）基于共享数据结构的通信方式。  （2）基于共享存储区的通信方式。 </p>
-<h4 id="2-消息传递系统"><a href="#2-消息传递系统" class="headerlink" title="2.消息传递系统"></a>2.消息传递系统</h4><p>是目前的主要通信方式，信息单位：消息（报文）实现：一组通信命令（原语），具有透明性-&gt;同步的实现。     </p>
-<p>实现方式的不同，而分成:（1）直接通信方式   （2）间接通信方式</p>
-<h4 id="3-管道（Pipe）通信"><a href="#3-管道（Pipe）通信" class="headerlink" title="3.管道（Pipe）通信"></a>3.管道（Pipe）通信</h4><p>管道：连接一个读进程和一个写进程之间通信的共享文件。</p>
-<p>功能：大量的数据发收。注意：（1）互斥（2）同步 （3）对方是否存在</p>
-<h3 id="消息传递通信的实现方法"><a href="#消息传递通信的实现方法" class="headerlink" title="消息传递通信的实现方法"></a>消息传递通信的实现方法</h3><h4 id="1-直接通信方式"><a href="#1-直接通信方式" class="headerlink" title="1.直接通信方式"></a>1.直接通信方式</h4><p> 这是指发送进程利用OS所提供的发送命令，直接把消息发送给目标进程。系统提供下述两条通信命令（原语）：     </p>
-<p>Send  （Receiver，  message）；     </p>
-<p>Receive（Sender，  message）；</p>
-<h4 id="2-间接通信方式"><a href="#2-间接通信方式" class="headerlink" title="2.间接通信方式"></a>2.间接通信方式</h4><p>指进程之间利用信箱的通信方式。发送进程发送给目标进程的消息存放信箱；接收进程则从该信箱中，取出对方发送给自己的消息；消息在信箱中可以安全地保存，只允许核准的目标用户随时读取。     系统为信箱通信提供了若干条原语，分别用于信箱的创建、撤消和消息的发送、接收等。 </p>
-<p>优点：在读&#x2F;写时间上的随机性写进程 -&gt;信箱（中间实体）-&gt;读进程原语</p>
-<p>消息的发送和接收</p>
-<p>Send (mailbox, message)</p>
-<p>Receive (mailbox, message)</p>
-<h3 id="信箱"><a href="#信箱" class="headerlink" title="信箱"></a>信箱</h3><p>信箱分为以下三类：</p>
-<p>（1）私用信箱（2）公用信箱（3）共享信箱</p>
-<p>在利用信箱通信时，在发送进程和接收进程之间，存在以下四种关系：</p>
-<p>（1）一对一关系。 （2）多对一关系，客户&#x2F;服务器交互。 （3）一对多关系， 广播方式。（4）多对多关系。  </p>
-<h2 id="第四章"><a href="#第四章" class="headerlink" title="第四章"></a>第四章</h2><h2 id="10-重定位的基本概念：为什么要引入"><a href="#10-重定位的基本概念：为什么要引入" class="headerlink" title="10.重定位的基本概念：为什么要引入"></a>10.重定位的基本概念：为什么要引入</h2><p>为解决链接地址跟运行地址不同的问题。</p>
-<p>装入内存时，相对地址（数据、指令地址）要作出相应的修改以得到正确的物理地址，这个修改的过程称为重定位。</p>
-<h2 id="11-如何提高内存利用率：离散分配、对换机制、动态链接、虚拟存储器、存储器共享"><a href="#11-如何提高内存利用率：离散分配、对换机制、动态链接、虚拟存储器、存储器共享" class="headerlink" title="11.如何提高内存利用率：离散分配、对换机制、动态链接、虚拟存储器、存储器共享"></a>11.如何提高内存利用率：离散分配、对换机制、动态链接、虚拟存储器、存储器共享</h2><h3 id="离散分配"><a href="#离散分配" class="headerlink" title="离散分配"></a>离散分配</h3><h4 id="离散分配方式的引入："><a href="#离散分配方式的引入：" class="headerlink" title="离散分配方式的引入："></a>离散分配方式的引入：</h4><p>连续分配方式会产生内&#x2F;外零头</p>
-<p>为解决零头问题又要进行紧凑等高开销活动</p>
-<h4 id="什么是离散分配："><a href="#什么是离散分配：" class="headerlink" title="什么是离散分配："></a>什么是离散分配：</h4><p> 程序在内存中不一定连续存放</p>
-<h4 id="离散分配的体现"><a href="#离散分配的体现" class="headerlink" title="离散分配的体现:"></a>离散分配的体现:</h4><p>内存一块可以装入程序一页连续的多个页不一定装入连续的多个块中注：系统中页块的大小是不变的。</p>
-<h3 id="离散分配的优点："><a href="#离散分配的优点：" class="headerlink" title="离散分配的优点："></a>离散分配的优点：</h3><p>没有外零头不受连续空间限制，每块都能分出去仅有小于一个页面的内零头</p>
-<p>程序大小一般不是页大小的整数倍        </p>
-<p>由于进程的最后一页经常装不满一块而形成了不可利用的碎片，称之为“页内碎片”或称为“内零头”。 </p>
-<h2 id="对换"><a href="#对换" class="headerlink" title="对换"></a>对换</h2><p>对换指把内存中暂不能运行的进程或暂时不用和程序和数据，换到外存上，以腾出足够的内存空间，把已具备运行条件的进程，或进程所需要的程序和数据，换入内存。 </p>
-<p>对换是系统行为，是提高内存的利用率的有效措施。常用于多道程序系统或小型分时系统中，与分区存储管理配合使用。 </p>
-<h3 id="对换的实现："><a href="#对换的实现：" class="headerlink" title="对换的实现："></a>对换的实现：</h3><p>可在系统中设一对换进程，以执行换进内存、换出至外存操作。</p>
-<h3 id="对换的分类："><a href="#对换的分类：" class="headerlink" title="对换的分类："></a>对换的分类：</h3><h4 id="“整体对换”（进程对换）："><a href="#“整体对换”（进程对换）：" class="headerlink" title="“整体对换”（进程对换）："></a>“整体对换”（进程对换）：</h4><p>对换以整个进程为单位，用于分时系统，以解决内存紧张的问题；</p>
-<h4 id="“页面对换-分段对换”："><a href="#“页面对换-分段对换”：" class="headerlink" title="“页面对换&#x2F;分段对换”："></a>“页面对换&#x2F;分段对换”：</h4><p>对换以“页”或“段”为单位进行“部分对换”，该方法是实现请求分页及请求分段存储器的基础，支持虚存系统。</p>
-<p>为实现对换，系统需要三方面的功能：对换空间的管理、进程的换入、进程的换出</p>
-<h4 id="对换空间的管理："><a href="#对换空间的管理：" class="headerlink" title="对换空间的管理："></a>对换空间的管理：</h4><p>外存被分为两部分，文件区和对换区</p>
-<p>文件区用于存放文件，对它的管理应重在如何提高存储空间的利用率。所以对它采取离散分配方式。</p>
-<p>对换区存放从内存换出的进程，它们在外存的存放时间较短，换入、换出频繁。对对换区的管理应重在提高进程的换入换出速度。因此采用连续分配方式。</p>
-<p>为了能对对换区中的空闲盘块进行管理，在系统中应配置相应的数据结构，以记录外存的使用情况</p>
-<p>空闲分区表或空闲分区链。基本单位都是盘块</p>
-<p>对换区的分配采用连续分配方式，分配与回收与动态分区方式时内存的分配与回收方法雷同</p>
-<h4 id="进程的换出与换入："><a href="#进程的换出与换入：" class="headerlink" title="进程的换出与换入："></a>进程的换出与换入：</h4><h5 id="换出（swap-out）"><a href="#换出（swap-out）" class="headerlink" title="换出（swap out）"></a>换出（swap out）</h5><p>选择：首先选择阻塞或睡眠状态的进程，若有多个，按优先级由低到高进行选择。若没有此状态进程，则选择就绪状态的，仍然按优先级由低到高进行选择。为避免某进程被频繁的换入换出，还应考虑进程在内存中的驻留时间，优先选择驻留时间长的进程。</p>
-<h5 id="换入（swap-in）"><a href="#换入（swap-in）" class="headerlink" title="换入（swap in）"></a>换入（swap in）</h5><p>①从 PCB集合中查找“就绪且换出”的进程，有多个，则选择换出时间最长的。</p>
-<p>②根据进程大小申请内存，成功则读入，否则要先执行换出，再换入。</p>
-<p>③若还有可换入进程，则转向①。直至无“就绪且换出”进程或无法获得足够内存空间为止。</p>
-<h2 id="动态链接"><a href="#动态链接" class="headerlink" title="动态链接"></a>动态链接</h2><h4 id="与之相对的静态链接："><a href="#与之相对的静态链接：" class="headerlink" title="与之相对的静态链接："></a>与之相对的<strong>静态链接</strong>：</h4><p>在程序运行之前，先将各目标模块及它们所需的库函数，链接成一个完整的装入模块（又称执行模块），以后不再拆开。</p>
-<h3 id="装入时动态链接："><a href="#装入时动态链接：" class="headerlink" title="装入时动态链接："></a>装入时动态链接：</h3><p>用户源程序经编译后所得到的目标模块，是在装入内存时，边装入边链接的。即在装入一个目标模块时，若发生一个外部模块调用，将引起装入程序去找出相应的外部目标模块，并将其装入内存。        </p>
-<h4 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h4><ol>
-<li>便于软件版本的修改和更新。只需修改各个目标模块，不必将装入模块拆开，非常方便。        </li>
-<li>便于实现目标模块共享。即可以将一个目标模块链接到几个应用模块中，从而实现多个应用程序对该模块的共享。</li>
-</ol>
-<h3 id="运行时动态链接-Run-Time-Dynamic-Linking）："><a href="#运行时动态链接-Run-Time-Dynamic-Linking）：" class="headerlink" title="运行时动态链接(Run-Time Dynamic Linking）："></a>运行时动态链接(Run-Time Dynamic Linking）：</h3><p>将某些目标模块的链接推迟到执行时才进行，即在执行过程中，若发现一个被调用模块尚未装入内存时，由OS去找到该模块，将它装入内存，并链接到调用模块上。</p>
-<p>优点：执行过程中未被用到的目标模块，都不会被调入内存和被链接到装入模块上，不仅可加快程序的装入过程，而且可节省大量的内存空间</p>
-<h3 id="虚拟存储器"><a href="#虚拟存储器" class="headerlink" title="虚拟存储器"></a>虚拟存储器</h3><h4 id="虚拟存储器："><a href="#虚拟存储器：" class="headerlink" title="虚拟存储器："></a>虚拟存储器：</h4><p>是指具有请求调入功能和置换功能，能从逻辑上对内存容量加以扩充的一种存储器系统。</p>
-<h4 id="程序执行的局部性原理："><a href="#程序执行的局部性原理：" class="headerlink" title="程序执行的局部性原理："></a>程序执行的局部性原理：</h4><p>程序的执行总是呈现局部性。即，在一个较短的时间段内，程序的执行仅限于某个部分；相应的，它所访问的存储空间也局限于某个区域。因此，只要保证进程执行所需的部分程序和数据驻留在内存，一段时间内进程都能顺利执行</p>
-<p>局限性又表现在下述两个方面：</p>
-<h3 id="1-时间局限性"><a href="#1-时间局限性" class="headerlink" title="(1) 时间局限性"></a>(1) 时间局限性</h3><p>如果程序中的某条指令一旦执行，则不久以后该指令可能再次执行；如果某数据被访问过， 则不久以后该数据可能再次被访问产生时间局限性的典型原因，是由于在程序中存在着大量的循环操作</p>
-<h3 id="2-空间局限性"><a href="#2-空间局限性" class="headerlink" title="(2) 空间局限性"></a>(2) 空间局限性</h3><p>一旦程序访问了某个存储单元，在不久之后，其附近的存储单元也将被访问程序在一段时间内所访问的地址，可能集中在一定的范围之内，其典型情况便是程序的顺序执行</p>
-<h3 id="虚拟存储器的基本工作情况"><a href="#虚拟存储器的基本工作情况" class="headerlink" title="虚拟存储器的基本工作情况"></a>虚拟存储器的基本工作情况</h3><p>1）基于局部性原理。一个作业运行前，仅将那些当前要运行的页面（段）装入内存启动运行，其余暂在外存。</p>
-<p>2）若运行所需页面（段）不在内存，则利用请求调页（段）功能将其调入内存。</p>
-<p>3）若此时内存满，则利用置换功能，将内存中暂时不用的部分页面（段）调至外存，再将所需页面（段）调入。</p>
-<p>4）这样，可实现大程序在小内存中运行，也可实现内存中同时装入更多的进程并发执行。</p>
-<h3 id="虚拟存储器的实现方法"><a href="#虚拟存储器的实现方法" class="headerlink" title="虚拟存储器的实现方法"></a>虚拟存储器的实现方法</h3><h4 id="一、请求分页系统"><a href="#一、请求分页系统" class="headerlink" title="一、请求分页系统"></a>一、请求分页系统</h4><p>它是在纯分页系统的基础上增加了请求调页、页面置换两大功能所形成的页式虚拟存储系统。</p>
-<p>为了实现请求调页、页面置换两大功能，系统必须提供如下的硬件支持：        </p>
-<ol>
-<li>请求分页的页表机制。        </li>
-<li>缺页中断机构。        </li>
-<li>地址变换机构。</li>
-</ol>
-<p>此外，实现请求调页、页面置换两大功能还需得到OS的支持。</p>
-<h4 id="二、请求分段系统"><a href="#二、请求分段系统" class="headerlink" title="二、请求分段系统"></a>二、请求分段系统</h4><p>它是在纯分段系统的基础上增加了请求调段、分段置换两大功能所形成的段式虚拟存储系统。        </p>
-<p>为了实现请求调段、分段置换两大功能，系统必须提供如下的硬件支持：        </p>
-<ol>
-<li>请求分段的段表机制。        </li>
-<li>缺段中断机构。        </li>
-<li>地址变换机构。</li>
-</ol>
-<p>此外，实现请求调段、分段置换两大功能还需得到OS的支持。</p>
-<h4 id="三、段页式虚拟系统"><a href="#三、段页式虚拟系统" class="headerlink" title="三、段页式虚拟系统"></a>三、段页式虚拟系统</h4><p>目前，许多虚拟存储管理系统是建立在段页式系统的基础上的，通过增加了请求调页、页面置换两大功能所形成的段页式虚拟存储系统。</p>
-<h2 id="12-动态分区分配方式：分配、回收算法"><a href="#12-动态分区分配方式：分配、回收算法" class="headerlink" title="12.动态分区分配方式：分配、回收算法"></a>12.动态分区分配方式：分配、回收算法</h2><p>动态分区分配（可重定位分区分配）是指根据进程的实际需要，动态地为之分配连续的内存空间。即分区的边界可以移动，分区的大小是可变的</p>
-<p>分区的数目固定大小是可变的，允许分区的数目和大小都是可变的。</p>
-<h3 id="分区分配算法"><a href="#分区分配算法" class="headerlink" title="分区分配算法:"></a>分区分配算法:</h3><p><img src="https://pic.imgdb.cn/item/64d8c2c71ddac507cc2683c7.png"></p>
-]]></content>
-      <categories>
-        <category>复习资料</category>
-      </categories>
-      <tags>
-        <tag>Markdown</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>前端学习笔记（部分）</title>
-    <url>/2023/08/13/%E5%89%8D%E7%AB%AF%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<h1 id="前端笔记："><a href="#前端笔记：" class="headerlink" title="前端笔记："></a>前端笔记：</h1><h2 id="h5笔记："><a href="#h5笔记：" class="headerlink" title="h5笔记："></a>h5笔记：</h2><ol>
-<li><p>英文状态下输入！可以直接跳出格式</p>
-</li>
-<li><p>UTF-8：万国码</p>
-</li>
-<li><p>head第二行没用，可以删去。</p>
-</li>
-<li><p>title内为网页名称</p>
-</li>
-<li><p>body内填网页内容</p>
-</li>
-<li><p><xxx>这是单标签 主要用于申明属性 <xxx></xxx> 主要用于输入内容</p>
-</li>
-<li><p>lang 后面写语言 en代表英语 可以直接删去</p>
-</li>
-<li><p>段落标签：<h1>-<h6> 段落和换行标签：<p>&lt;\p&gt; <br/></p>
-<ol>
-<li>水平线分割标签<hr/></li>
-</ol>
-</li>
-<li><p>斜体<em><em/></p>
-</li>
-<li><p>加粗<strong></strong></p>
-</li>
-<li><p>结构标签<div></div> 、<span></span></p>
-</li>
-<li><p>图片标签：输入image src后面填写路径 alt后面是若图片出现异常无法显示而显示的文本 后面可以跟width设定宽度 height设置高度</p>
-</li>
-<li><p>超链接：a标签 herf后面跟网址 标签内内容填写超链接显示文字或者标签嵌套加入image标签做成图片超链接</p>
-</li>
-<li><p>锚链接：使用超链接实现 只是跳转到内部 所以跳转目标出设定一个id 然后a标签herf后写“#id名”即可</p>
-</li>
-<li><p>功能性发邮件&#x2F;打电话：也是以超链接形式实现 herf后写mailto：邮箱地址 实现发邮件 herf后写tel：电话号码实现打电话</p>
-</li>
-<li><p>块级元素：独占一行，换行显示，可以设置宽高，块可以套块和行。</p>
-</li>
-<li><p>行级元素：在行内显示，内容撑开宽高，不可以设置宽高（img、input除外），行只能套行。</p>
-</li>
-</ol>
-<h2 id="css3笔记："><a href="#css3笔记：" class="headerlink" title="css3笔记："></a>css3笔记：</h2><ol>
-<li>选择器{声明；属性：值；} 如<style>h1{color:red}</style> （标签选择器）</li>
-<li><strong>颜色</strong>：color 字体大小：front-size</li>
-<li><strong>类选择器</strong>：1.首先在标签中 定义类名 class&#x3D;“类名”多个标签的类名可以重复 因为类选择器目的就是选中多个 2.使用方法： .类名{声明；}</li>
-<li><strong>id选择器</strong>：首先在标签中 定义id名 id&#x3D;“id名” 2.使用方法： #id名{声明；}</li>
-<li><strong>id选择器和类型选择器的区别：</strong> id是唯一的 类不唯一</li>
-<li><strong>标签选择器 &lt; 类选择器 &lt; id选择器</strong></li>
-<li><strong>可以同时设置标签和id</strong></li>
-<li>Html导入css的样式方法：1.<strong>内连样式：</strong>在head之前写css 2.<strong>内部样式</strong> 在每个标签内写 3.<strong>外联样式</strong>：直接新创建一个css文件 格式：选择器{声明；} 然后将新css文件和原html文件连接起来 连接方式：html文件head前加link 然后跳出框内herf后写css文件路径以及名字（链接式）</li>
-<li>当前目录：.&#x2F;</li>
-<li>第二种外联连接方式：head前加<style></style>里面用@import url（css文件路径以及名字）（导入式）</li>
-<li>一般用链接式，导入式只能导入css样式，而且有些浏览器不兼容</li>
-<li>样式优先级：内部&gt;内联？外联 取决于在head中 谁在下面，谁的样式起作用</li>
-<li>设置字体样式：font-family 设置字体类型  font-style 设置字体风格italic（斜体） front-weight 设置字体粗细 font 可以设定所有属性</li>
-<li>text-align 文本位置 left左对齐 right右对齐 center居中</li>
-<li>设置字体颜色：color：颜色</li>
-<li>background-color 背景颜色</li>
-<li>line-height:行高 </li>
-<li>text-decoration 文本装饰 underline（下划线）overline（上划线） line-through（中划线） none取消所有格式</li>
-<li><strong>伪类语法：</strong>伪类名称：a:link（未单击访问时超链接形式） a:visited （单击访问后超链接形式） a:hover（鼠标悬浮其上的超链接样式） a:active（鼠标单击未释放） 内部可以加属性如color然后设定颜色</li>
-<li><strong>css设定鼠标形状：</strong>default 默认光标 pointer 超链接的指针（手） wait（转圈等待的效果）help（指示可用的帮助） text（指示文本） crosshair（十字架）</li>
-<li>在伪类语法中用cursor使用设定鼠标形状</li>
-<li>span的作用类似小括号 用于改文本局部的样式</li>
-<li>列表分为： 无序列表（ul） 有序列表（ol） 自定义列表（dl）</li>
-<li>（在body内）使用列表分为两个步骤：申明列表类型 和申明列表项 </li>
-<li>每个浏览器为列表设定的初边距不一样 所以需要style内加上*{margin：0；padding：0；}</li>
-<li>有序列表会帮你排序 标上序号 若像倒叙 则在ol 后加reversed</li>
-<li>更改序号类型可在ol后加type选择序号类型</li>
-<li>设置起始序号 start&#x3D;“xx”</li>
-<li>设置无序列表的类型：style中加list-style选择类型 none是取消·</li>
-<li>自定义列表使用方法 dt后内容左对齐 dd相当于段落行</li>
-<li>表格<table>标签  <tr></tr>行 <td></td>列</li>
-<li>列合并：（标签内加入）colspan&#x3D;“合并几列”框内写合并框的内容</li>
-<li>同样的原理 行合并：rowspan</li>
-<li>表单：input标签 一般格式<input type="xxx"> xxx可以是text（文本）、password（密码···形式）、radio（选择圆圈）</li>
-<li>Radio设置多选一可以把所有选项取相同名字 即都加name&#x3D;“xxx”</li>
-<li>默认选中：标签内加checked&#x3D;“checked”</li>
-<li>扩大选框选中的范围：1.给文字部分加一个label标签 for起名字 2.给input起一个和for后面名字相同的id名</li>
-<li>复选框：type&#x3D;“checkbox”</li>
-<li>按钮：type&#x3D;“botton” value后面写内容 或者<button>xxx</button></li>
-<li>选择框下拉菜单：<select> <option>xxx…</select> xxx填写备选项 value后面写获取该选项时反馈的值</li>
-<li>option&lt;&gt;内后可以加selected&#x3D;“selected”使该选项为默认选择</li>
-<li>多行文本域（限制最大输入字数）：<textarea>xxx</textarea>标签 name后面写该多行文本域 cols：显示的行数 rows：显示的列数 xxx：文本内容 （但一般不用textarea）</li>
-<li>使用input限制输入文字个数：利用maxlength属性 设定最大输入长度 在input类型是text或者password时适用</li>
-<li>可以给input设置id 然后可以通过id选择器设置输入框宽高</li>
-<li>隐藏域：type&#x3D;“hidden” 可以隐藏内容且不占空间 同时也可以<p hidden>隐藏段落</li>
-<li>只读：readonly 在标签内加</li>
-<li>禁用：（按钮变成灰色不可使用状态）一般使用于后期的判断 disabled 在标签内加</li>
-<li>后代选择器：标签选择器下通过写一层层的标签 如li a{color：red；} 注：只要是后代，都发生变化</li>
-<li>子代选择器：只有儿子生效 使用方法：类似于后代选择器 但用&gt;连接 如h1&gt;strong{color:red;}</li>
-<li>并集选择器：用，连接标签选择器下的多个声明 可以联用子代选择器</li>
-<li>交集选择器：用.连接标签选择器下的多个声明</li>
-<li>属性选择器（只要具备某个属性，或者属性&#x3D;属性值，就会被选中执行某些操作）：在标签选择器下用[xxx]{}xxx是属性如herf 满足以下任意条件：1.具备某个属性 2.满足属性&#x3D;值 3.^&#x3D;‘’以什么字母开头 $&#x3D;‘’以什么字母结束 4.*&#x3D;“xxx”包含xxx</li>
-<li>边框设置的四种样式：border属性：后面可以添加宽、线类型、颜色 线类型：solid（实线）、dashed（虚线）、double（双实线）、dotted（点状虚线）</li>
-<li>如果只给了一个边框属性，那么则同时生效作用于元素的四个边框</li>
-<li>若想让元素的四个边框不同，可以分别设置 如border-top border-bottom border-left border-right</li>
-<li>将div变圆：border-radius属性 参数设置为50% 且div必须是正方形 否则是椭圆</li>
-<li>将div变三角形：将div的width和height都设置为0px 设置四个边框不同颜色相同像素宽 将其他三个边框颜色设置为transparent（透明） 即可 （调高width或height可以变成梯形）</li>
-<li>给元素设置外边距：margin参数 可以margin-bottom、margin-top……一个个单独设置 也可以直接margin后面跟四个参数值（依次为上右下左） 单位为px（像素） 另外，设置两个值的时候第一个值代表上下 第二个值代表左右</li>
-<li>盒模型的计算大小：实际展示大小&#x3D;元素大小+边框+内边距</li>
-<li>内边距：padding 用法和margin相同</li>
-<li>怪异模式：box-sizing：border-box 增加内边距且不改变元素的大小</li>
-<li>初始化css样式：不同浏览器初始格式不同 需要统一样式 则需要先初始化 即设置*{margin：0；padding：0；}</li>
-<li>块元素：一定是独占一行，可以设置宽高。如ul、ol、li、form、div等</li>
-<li>行内块元素：不独占一行，可以设置宽高。如button、img、input、select等</li>
-<li>行内元素：不独占一行，可以设置宽高。如：span、a、label等</li>
-<li>转换为行内元素：display：inline 转换为块元素：display：block 转换为行内块元素：display：inline-block</li>
-<li>浮动：float  可以设定方向如float：left</li>
-<li>元素浮动之后就脱离了标准文档流 </li>
-<li>清除浮动的方法：1.给浮动的父元素加一个高度 2.给浮动下面建一个空白的div 起名叫clearfix，然后在选择器中设定clearfix下clear：both（或者clear：方向）</li>
-<li>超出部分隐藏：overflow:xxx xxx可以是visible(默认值。内容不会被修建，会呈现在盒子之外) hidden（内容会被剪切，且其余内容不可见） scroll（内容会被修建，但浏览器会显示滚动条以便查看其余内容） auto(如果内容被剪切，则浏览器会显示滚动条以便查看其余内容)</li>
-<li>定位：把元素放在我们指定的位置</li>
-<li><strong>定位分类：</strong>static（默认值，没有定位） relative（相对定位） absolute（绝对定位)  fixed(固定定位)</li>
-<li><strong>固定定位：</strong>滚轮滑动，显示的位置一直不变  参照物：浏览器屏幕  不占实际位置，位置会被下面元素占去</li>
-<li>申明定位属性后，可以通过设定left、bottom（距离当前页面最底部的距离）、top、right的参数值来设定位置</li>
-<li><strong>相对定位：</strong>滚轮滑动，位置随滑动改变。占实际位置，位置不会被下面元素占去 参照物：自身左上角的原点 </li>
-<li><strong>绝对定位：</strong>脱离标准流 ，如果绝对元素的父元素没有设定过任意定位，参照物是最外面元素的左上角（浏览器的左上角），如果绝对元素的父元素有任意定位，参照物就是父元素的左上角。</li>
-<li>子元素设定绝对定位，那一般父元素就设定相对定位</li>
-<li><strong>z-index属性：</strong>整数，默认值为0 数字越大越优先显示 用于重叠的时候分层 最大值是2147483647 值相同的时候 谁的代码在下面谁优先显示，因为程序最后读到他</li>
-<li>实现文本在div中上下居中：使用flex布局 display: flex;align-items: center;justify-content: space-around; flex-direction: column;</li>
-<li></li>
-</ol>
-<h2 id="JS笔记："><a href="#JS笔记：" class="headerlink" title="JS笔记："></a>JS笔记：</h2><ol>
-<li><p><strong>JavaScipt分为三个部分：</strong>ECMAScript、BOM、DOM。ECMAScipt：语言标准 BOM：浏览器对象模型，只要是浏览器给我提供的功能，前后退隐藏最小化最大关闭等统称为BOM DOM：文档对象模型，页面上显示的所有内容，统称为DOM</p>
-</li>
-<li><p>js文件代码的后缀就直接是.js</p>
-</li>
-<li><p><strong>Js代码引入的三种方式：</strong>外部、内部、行内。</p>
-</li>
-<li><p><strong>外部引入：</strong>使用<script>表现 在h5文件的head中利用<script src="xxx"></script> xxx为js文件地址</p>
-</li>
-<li><p><strong>内部样式：</strong>在script双标签之间填入js内容 可以放在head双标签之间 body双标签之间 body双标签之外</p>
-</li>
-<li><p><strong>标签内部嵌套：</strong>eg.&lt;button onclick&#x3D;“alert(xxx)”xxx</button></p>
-</li>
-<li><p><strong>js的方法：</strong>弹框输出方法：alert（‘弹出内容’(或者用””)）document.write(‘xxx’)直接显示</p>
-</li>
-</ol>
-<p>声明变量：var 变量名&#x3D;值  赋值：等号后面的值赋值给等号前面的变量名 变量：常常变化的量</p>
-<ol start="8">
-<li><p>声明变量后，系统会立马在内存开辟一片空间。</p>
-</li>
-<li><p>声明变量如果不写var，解释器会自动帮你补全。</p>
-</li>
-<li><p>js中<strong>；</strong>代表结束</p>
-</li>
-<li><p>接受浏览器弹框输入：prompt（‘xxx’） xxx为内容（提示用户输入的信息）</p>
-</li>
-<li><p><strong>js的数据类型：</strong>undefined 当变量被申明时没有初识值，则将会被赋予undefined      null 表示一个空值，与undefined值相等    number 包含整数和浮点数    boolean 布尔型    string 被引号括起来的文本    object 属性的集合、每个属性都由‘名&#x2F;值’对构成 </p>
-</li>
-<li><p>只要变量值是‘’ 无论前面怎么定义变量类型 都是string类型</p>
-</li>
-<li><p>console.log(xxx) xxx为变量名 这是程序员调试用的 可以测试xxx的输出值</p>
-</li>
-<li><p>算术运算符：+、-、*、&#x2F;、%、++、–     赋值运算符：&#x3D;   比较运算符：&gt;、&lt;、&gt;&#x3D;、&lt;&#x3D;、&#x3D;&#x3D;、!&#x3D;</p>
-</li>
-<li><p>加法：对于A+B，如果一个是字符串，一个是数字类型，会拼接 ，如果都是数字类型，则会运算</p>
-</li>
-<li><p>减法：对变量隐式转换，只要能转换为number类型，全部转换为number类型，然后运算</p>
-</li>
-<li><p>如果无法转换为number类型，将不再运算 无法运算 返回结果NaN （not a number）</p>
-</li>
-<li><p>乘法、除法和减法一样</p>
-</li>
-<li><p>取余数的时候 如果被除数小于除数 取本身</p>
-</li>
-<li><p>取整 在需要取整的变量前加parseInt</p>
-</li>
-<li><p>小数 paseInt</p>
-</li>
-<li><p>&#x3D;&#x3D;只判断内容   &#x3D;&#x3D;&#x3D;不但判断值，还要判断数据类型 成立返回true 不成立返回false</p>
-</li>
-<li><p>++代表自增 –代表自减  ++在前，先自增，再运算 –在后，先运算，再自增</p>
-</li>
-<li><p>变量命名规则 严格区分大小写 不能以数字开头 不能是关键字、保留字 遵循驼峰命名法（首字母小写，后面单词的首字母需要大写）</p>
-</li>
-<li><p>typeof可用来获取检测变量的数据类型 可以加在console.log(xxx)中xxx的前面 则输出值为xxx的数据类型</p>
-</li>
-<li><p>if、if else、else if、switch、do-while、break语句用法和c语言相同</p>
-</li>
-<li><p>三元表达式（三目运算符）：条件表达式？表达式1：表达式2 如果条件表达式为真 则返回表达式1的值 如果条件表达式为假 则返回表达式2的值</p>
-</li>
-<li><p>声明函数语法结构：function 函数名（）{ 函数体 }  调用函数则直接使用函数名（）即可</p>
-</li>
-<li><p>我们可以利用函数的参数实现函数重复不同的代码（参照c语言的实参和形参的区别）</p>
-</li>
-<li><p>如果实参数量大于形参，则会忽略多余的实参用其他的进行运算 如果实参数量小于形参，意味着是数字加上undefined，结果是NaN</p>
-</li>
-<li><p>返回语句return语句和c语言用法相同</p>
-</li>
-<li><p>不知道有多少个参数传递时，可以用arguments来获取。arguments实际上是当前函数的一个内置对象。所有函数都内置了一个arguments对象，arguments对象中储存了传递的所有实参。</p>
-<p>1.arguments展现形式是一个伪数组，因此可以遍历。具有特点：1.具有数组的length属性 2.按照索引的方式进行存储的3.它没有真正数组的一些方法pop（） push()等等</p>
-<p>用法eg.function fn(){</p>
-<p>console.log(agruments);</p>
-<p>}</p>
-<p>fn(1,2,3);</p>
-</li>
-<li><p>预解析：js引擎会把js里面所有的var还有function提升到当前作用域的最前面。</p>
-</li>
-<li><p>构造函数的语法格式：function 构造函数名(){</p>
-<p>this.属性&#x3D;值；</p>
-<p>this.方法&#x3D;function(){}</p>
-<p>}</p>
-</li>
-<li><p>1.构造函数的名字首字母必须要大写 2.构造函数不需要return就可以返回结果 3.我们构造函数必须要使用new 4.我们只要new Star（）调用函数就创建了一个对象 5.我们的属性和方法前面必须添加this</p>
-</li>
-<li><p>对象：特指是一个具体的事物</p>
-</li>
-<li><p>我们利用构造函数创建对象的过程我们也称之为对象的实例化</p>
-</li>
-<li><p>new关键字执行过程：1.new构造函数可以在内存中创建一个空的对象  2.this就会指向刚才创建的空对象 3.执行构造函数的代码 给这个空对象添加属性和方法  4.返回这个对象</p>
-</li>
-<li><p>遍历对象：for（变量 in 对象）{   }</p>
-</li>
-<li><p>JS中的对象分为3种：自定义对象、内置对象、浏览器对象</p>
-</li>
-<li><p>通过查MDN文档可以查阅js的具体各内置对象用法</p>
-</li>
-<li><p>Math数学对象 不是一个构造函数，所以我们不需要new来调用 而是直接使用里面的属性和方法即可。</p>
-</li>
-<li><p>js中的四舍五入：其他数字都是四舍五入，只有.5是往大了取 如-1.5四舍五入后是-1</p>
-</li>
-<li><p><strong>window.onload()</strong> 方法用于在网页加载完毕后立刻执行的操作，即当 HTML 文档加载完毕后，立刻执行某个方法。</p>
-</li>
-<li><p>window.onload 事件绑定事件处理函数，绑定的是一个匿名函数，也可以绑定具名函数。</p>
-<ol>
-<li></li>
-</ol>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>自学资料</category>
-      </categories>
-      <tags>
-        <tag>Markdown</tag>
-        <tag>前端</tag>
       </tags>
   </entry>
 </search>
