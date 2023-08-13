@@ -17,5 +17,164 @@
 
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
+      <categories>
+        <category>Markdown</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>操作系统期末复习总结</title>
+    <url>/2023/08/13/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/</url>
+    <content><![CDATA[<h1 id="操作系统期末复习"><a href="#操作系统期末复习" class="headerlink" title="操作系统期末复习"></a>操作系统期末复习</h1><h2 id="1、进程和线程的概念"><a href="#1、进程和线程的概念" class="headerlink" title="1、进程和线程的概念"></a>1、进程和线程的概念</h2><h3 id="典型的进程定义有："><a href="#典型的进程定义有：" class="headerlink" title="典型的进程定义有："></a>典型的进程定义有：</h3><p>（1）进程是程序的一次执行。（2）进程是一个程序及其数据在处理机上顺序执行时所发生的活动。（3）进程是程序在一个数据集合上运行的过程，它是系统进行资源分配和调度的一个独立单位。</p>
+<h2 id="2、进程的基本状态及状态转换的原因"><a href="#2、进程的基本状态及状态转换的原因" class="headerlink" title="2、进程的基本状态及状态转换的原因"></a>2、进程的基本状态及状态转换的原因</h2><p><img src="https://pic.imgdb.cn/item/64d8c2e01ddac507cc26b93a.png"></p>
+<h3 id="状态转换："><a href="#状态转换：" class="headerlink" title="状态转换："></a>状态转换：</h3><p> ① 空 -&gt;新状态  新创建的进程首先处于新状态。 </p>
+<p>② 新状态 -&gt;就绪状态  当系统允许增加就绪进程时，操作系统接纳新建状态进程，将它变为就绪状态，插入就绪队列中。 </p>
+<p>③ 就绪状态 -&gt; 执行状态  当处理机空闲时，将从就绪队列中选择一个进程执行，该选择过程称为进程调度，或将处理机分派给一个进程，该进程状态从就绪转变为执行。 </p>
+<p>④ 执行状态 -&gt; 终止状态  执行状态的进程执行完毕，或出现诸如访问地址越界、非法指令等错误，而被异常结束，则进程从执行状态转换为终止状态。</p>
+<p>⑤ 执行状态 -&gt; 就绪状态  分时系统中，时间片用完，或优先级高的进程到来，将中断较低优先级进程的执行。进程从执行状态转变为就绪状态，等待下一次调度。</p>
+<p>⑥ 执行状态 -&gt; 阻塞状态  执行进程需要等待某事件发生。通常，会因为进程需要的系统调用不能立即完成，如读文件、共享虚拟内存、等待I&#x2F;O操作、等待另一进程与之通信等事件而阻塞。</p>
+<p>⑦ 阻塞状态 -&gt; 就绪状态  当阻塞进程等待的事件发生，就转换为就绪状态。进入就绪队列排队，等待被调度执行。</p>
+<h2 id="3-PCB的作用"><a href="#3-PCB的作用" class="headerlink" title="3.PCB的作用"></a>3.PCB的作用</h2><p>进程控制块：进程控制块的作用是使一个在多道程序环境下不能独立运行的程序（包含数据），成为一个能独立运行的基本单位，一个能与其它进程并发执行的进程。</p>
+<h2 id="4-进程控制的原语操作"><a href="#4-进程控制的原语操作" class="headerlink" title="4.进程控制的原语操作"></a>4.进程控制的原语操作</h2><h3 id="（1）进程的创建原语"><a href="#（1）进程的创建原语" class="headerlink" title="（1）进程的创建原语"></a>（1）进程的创建原语</h3><p>调用进程创建原语Create（  ）按下述步骤创建一个新进程</p>
+<h4 id=""><a href="#" class="headerlink" title=""></a><img src="https://pic.imgdb.cn/item/64d8c3d91ddac507cc28a180.png"></h4><h3 id="2-进程的终止原语"><a href="#2-进程的终止原语" class="headerlink" title="(2)进程的终止原语"></a>(2)进程的终止原语</h3><p>正常结束:  </p>
+<p>批处理中用Holt指令，分时中用Logs off指令</p>
+<p><img src="https://img-blog.csdnimg.cn/20200315164109198.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzkxNDYwNA==,size_16,color_FFFFFF,t_70"></p>
+<h3 id="（3）进程的唤醒和阻塞原语"><a href="#（3）进程的唤醒和阻塞原语" class="headerlink" title="（3）进程的唤醒和阻塞原语"></a>（3）进程的唤醒和阻塞原语</h3><p><img src="https://pic.imgdb.cn/item/64d8c4091ddac507cc290135.png"></p>
+<h3 id="引起进程阻塞的事件"><a href="#引起进程阻塞的事件" class="headerlink" title="引起进程阻塞的事件:"></a>引起进程阻塞的事件:</h3><p>(1）请求系统服务：提出I&#x2F;O服务时，并不立即满足该进程的要求时，转变为阻塞状态来等待</p>
+<p>(2）启动某种操作：当进程启动某种操作后，在该操作完成之后才能继续执行</p>
+<p>(3）新数据尚未到达：对于相互合作的进程而言。</p>
+<p> (4）无新工作可做。如发送进程</p>
+<h3 id="进程阻塞过程"><a href="#进程阻塞过程" class="headerlink" title="进程阻塞过程:"></a>进程阻塞过程:</h3><p>(1)正在执行的进程，当发现上述某事件时，由于无法继续执行，于是进程便通过调用阻塞原语block( )把自己阻塞</p>
+<p>(2)把进程控制块中的现行状态由“执行”改为“阻塞”，并将PCB插入阻塞队列</p>
+<p>(3)转调度程序进行重新调度，将处理机分配给另一就绪进程，并进行切换</p>
+<h3 id="进程唤醒过程："><a href="#进程唤醒过程：" class="headerlink" title="进程唤醒过程："></a>进程唤醒过程：</h3><p>当被阻塞进程所期待的事件出现时，则由有关进程（比如，用完并释放了该I&#x2F;O设备的进程）调用唤醒原语wakeup（  ），将等待该事件的进程唤醒</p>
+<h3 id="4-进程的挂起和激活过程"><a href="#4-进程的挂起和激活过程" class="headerlink" title="(4)进程的挂起和激活过程"></a>(4)进程的挂起和激活过程</h3><p><img src="https://pic.imgdb.cn/item/64d8c4351ddac507cc295969.png"></p>
+<h2 id="5-进程互斥、临界区、进程同步的基本概念、同步准则"><a href="#5-进程互斥、临界区、进程同步的基本概念、同步准则" class="headerlink" title="5.进程互斥、临界区、进程同步的基本概念、同步准则"></a>5.进程互斥、临界区、进程同步的基本概念、同步准则</h2><h3 id="进程互斥："><a href="#进程互斥：" class="headerlink" title="进程互斥："></a>进程互斥：</h3><p>进程互斥是进程之间的间接制约关系。当一个进程进入临界区使用临界资源时，另一个进程必须等待。只有当使用临界资源的进程退出临界区后，这个进程才会解除阻塞状态。</p>
+<h3 id="临界资源："><a href="#临界资源：" class="headerlink" title="临界资源："></a>临界资源：</h3><p>一次仅允许一个进程访问的资源为临界资源 。</p>
+<h3 id="临界区："><a href="#临界区：" class="headerlink" title="临界区："></a>临界区：</h3><p>把在每个进程中访问临界资源的那段代码称为临界区。</p>
+<h3 id="进程同步："><a href="#进程同步：" class="headerlink" title="进程同步："></a>进程同步：</h3><p>进程同步是一个操作系统级别的概念，是在多道程序的环境下，存在着不同的制约关系，为了协调这种互相制约的关系，实现资源共享和进程协作，从而避免进程之间的冲突，引入了进程同步。</p>
+<p>进程同步的主要任务：是使并发执行的诸进程之间能有效地共享资源和相互合作，从而使程序的执行具有可再现性。</p>
+<h3 id="同步准则："><a href="#同步准则：" class="headerlink" title="同步准则："></a>同步准则：</h3><p>1)空闲让进</p>
+<p>2)忙则等待</p>
+<p>3)有限等待</p>
+<p>4)让权等待</p>
+<h2 id="6-记录型信号量"><a href="#6-记录型信号量" class="headerlink" title="6.记录型信号量"></a>6.记录型信号量</h2><p>记录型信号量机制，则是一种不存在“忙等”现象的进程同步机制</p>
+<p>记录型信号量的数据结构: </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">type  semaphore = record</span><br><span class="line">                  value  ：integer；</span><br><span class="line">                  L：list  of  process；</span><br><span class="line"> end  </span><br></pre></td></tr></table></figure>
+
+<p>记录型信号量的wait（S）操作:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">procedure  wait（  S  ）</span><br><span class="line">    var  S：  semaphore；</span><br><span class="line">       begin   </span><br><span class="line">           S.value:＝S.value-1;</span><br><span class="line">           if  S.value＜0  then  block（S.L）;</span><br><span class="line">       end</span><br><span class="line">// S.value＜0，该类资源已经分配完毕，进程必须放弃处理机，自我阻塞。</span><br></pre></td></tr></table></figure>
+
+<p>记录型信号量的signal（S）操作:</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">procedure  signal（S）</span><br><span class="line">  var  S:semaphore； </span><br><span class="line">  begin</span><br><span class="line">      S.value:＝S.value+1；</span><br><span class="line">      if  S.value≤0  then   wakeup(S.L)；</span><br><span class="line">  end</span><br><span class="line">// S.value≤0 ，在信号量链表中，仍有等待该资源的进程被阻塞。</span><br></pre></td></tr></table></figure>
+
+<h2 id="7-信号量的应用"><a href="#7-信号量的应用" class="headerlink" title="7.信号量的应用"></a>7.信号量的应用</h2><ol>
+<li><h3 id="利用信号量实现进程互斥"><a href="#利用信号量实现进程互斥" class="headerlink" title="利用信号量实现进程互斥"></a>利用信号量实现进程互斥</h3></li>
+</ol>
+<p>为使多个进程能互斥地访问某临界资源，只须为该资源设置一互斥信号量mutex，并设其初始值为1，然后将各进程访问该资源的临界区CS置于wait（mutex）和signal（mutex）操作之间即可。</p>
+<p>利用信号量实现进程互斥的进程可描述如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Var  mutex：semaphore:=1；</span><br><span class="line">          begin</span><br><span class="line">          parbegin</span><br><span class="line"></span><br><span class="line">             process1：begin</span><br><span class="line">                 repeat</span><br><span class="line">                      wait（mutex）；</span><br><span class="line">                      critica1  section</span><br><span class="line">                      signal（mutex）；</span><br><span class="line">                     remainder  section  until false;</span><br><span class="line">             end</span><br><span class="line">             process2：begin</span><br><span class="line">                        repeat</span><br><span class="line">                            wait（mutex）;</span><br><span class="line">                            critical  section</span><br><span class="line">                            signal（mutex）;</span><br><span class="line">                            remainder section until false；</span><br><span class="line">              end</span><br><span class="line">   parend </span><br><span class="line">   end</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>wait（mutex）和signal（mutex）必须成对出现；</p>
+<p>缺少wait（mutex）导致系统混乱，不能保证对临界资源的互斥访问；</p>
+<p>缺少signal（mutex）会使临界资源永远不释放，等待该资源的进程不能被唤醒。</p>
+<h3 id="2-利用信号量实现前趋关系"><a href="#2-利用信号量实现前趋关系" class="headerlink" title="2.利用信号量实现前趋关系"></a>2.利用信号量实现前趋关系</h3><p><img src="https://pic.imgdb.cn/item/64d8c4351ddac507cc2959b5.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">p1( )&#123; S1； signal（a）；signal（b）；&#125;</span><br><span class="line">p2( )&#123; wait(a); S2；signal（c）；signal（d）; &#125;</span><br><span class="line">p3( )&#123; wait（b）；S3；signal（e）；&#125;</span><br><span class="line">p4( )&#123; wait（c）；S4；signal（f）；&#125;</span><br><span class="line">p5( )&#123; wait（d）；S5；signal（g）；&#125;</span><br><span class="line">p6( )&#123; wait（e）；wait（f）；wait（g）；S6；&#125;</span><br><span class="line"></span><br><span class="line">void main( )&#123;</span><br><span class="line">    semaphore a,b,c,d,e,f,g;</span><br><span class="line">    a.value=b.value=c.value=0;</span><br><span class="line">    d.value=e.value=f.value=g.value=0;</span><br><span class="line">    cobegin</span><br><span class="line">         p1( ); p2( ); p3( ); p4( ); p5( ); p6( );</span><br><span class="line">    coend;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="8-经典进程同步问题；生产者与消费者问题"><a href="#8-经典进程同步问题；生产者与消费者问题" class="headerlink" title="8.经典进程同步问题；生产者与消费者问题"></a>8.经典进程同步问题；生产者与消费者问题</h2><p>生产者和消费者进程共享一个大小固定的缓冲区，其中，一个或多个生产者生产数据，并将生产的数据存入缓冲区，并有一个消费者从缓冲区中取数据。 </p>
+<p>假设缓冲区的大小为n（存储单元的个数），它可以被生产者和消费者循环使用</p>
+<p>分别设置两个指针in和out，指向生产者将存放数据的存储单元和消费者将取数据的存储单元，如图</p>
+<p><img src="https://pic.imgdb.cn/item/64d8c4341ddac507cc29582e.png"></p>
+<p><img src="C:\Users\10410\Desktop\操作系统期末复习\image-20230616160458024.png" alt="image-20230616160458024"></p>
+<p><img src="https://pic.imgdb.cn/item/64d8c2c31ddac507cc267c42.png"></p>
+<h3 id="1-利用记录型信号量解决生产者一消费者问题"><a href="#1-利用记录型信号量解决生产者一消费者问题" class="headerlink" title="1.利用记录型信号量解决生产者一消费者问题"></a>1.利用记录型信号量解决生产者一消费者问题</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"> int  in=0, out=0;</span><br><span class="line"> item    buffer [n];</span><br><span class="line"> semaphore	mutex=1, empty=n, full=0;   </span><br><span class="line"> </span><br><span class="line">void producer( );</span><br><span class="line">void consumer( );</span><br><span class="line"></span><br><span class="line">void main( )&#123;</span><br><span class="line">      cobegin</span><br><span class="line">             producer( ); consumer( );</span><br><span class="line">      coend</span><br><span class="line">&#125;</span><br><span class="line">void producer( )&#123;</span><br><span class="line">    do&#123;</span><br><span class="line">      			…</span><br><span class="line">		Produce an item in nextp;</span><br><span class="line">              		…</span><br><span class="line">wait(empty);</span><br><span class="line">wait(mutex);</span><br><span class="line">buffer(in):=nextp;</span><br><span class="line">in:=(in+1) mod n;</span><br><span class="line">signal(mutex);</span><br><span class="line">signal(full);</span><br><span class="line">&#125;while(TRUE);</span><br><span class="line">&#125;</span><br><span class="line">void consumer&#123;</span><br><span class="line">	do&#123;</span><br><span class="line">	      wait(full);</span><br><span class="line">wait(mutex);</span><br><span class="line">nextc:=buffer(out);</span><br><span class="line">out:=(out+1) mod n;</span><br><span class="line">signal(mutex);</span><br><span class="line">signal(empty);</span><br><span class="line">Consumer the item in nextc;</span><br><span class="line">     ……</span><br><span class="line">&#125;while(TRUE);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-利用AND信号量解决生产者—消费者问题"><a href="#2-利用AND信号量解决生产者—消费者问题" class="headerlink" title="2.利用AND信号量解决生产者—消费者问题"></a>2.利用AND信号量解决生产者—消费者问题</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">  int  in=0, out=0;</span><br><span class="line">  item    buffer[ n ];</span><br><span class="line">  semaphore   mutex=1;</span><br><span class="line">  semaphore  empty=n, full=0;</span><br><span class="line"></span><br><span class="line">  void producer( )&#123;</span><br><span class="line">       do&#123;</span><br><span class="line">			…</span><br><span class="line">		 produce an item in nextp;</span><br><span class="line">			…</span><br><span class="line">		Swait(empty, mutex);</span><br><span class="line">		buffer[in] = nextp;</span><br><span class="line"> in = (in+1) % n;</span><br><span class="line">   Ssignal(mutex, full);</span><br><span class="line">      &#125;while(TRUE);</span><br><span class="line">   &#125; //end producer</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">void consumer&#123;</span><br><span class="line">   do&#123;</span><br><span class="line">	   Swait(full, mutex);</span><br><span class="line">	   nextc = buffer[out];</span><br><span class="line">	   out = (out+1) % n;</span><br><span class="line">	   Ssignal(mutex, empty);</span><br><span class="line">	   consumer the item in nextc;</span><br><span class="line">     &#125;while(TRUE);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="9-进程间通信的原理和实现方法-信箱"><a href="#9-进程间通信的原理和实现方法-信箱" class="headerlink" title="9.进程间通信的原理和实现方法   信箱"></a>9.进程间通信的原理和实现方法   信箱</h2><h3 id="进程间通信的原理和实现方法"><a href="#进程间通信的原理和实现方法" class="headerlink" title="进程间通信的原理和实现方法"></a>进程间通信的原理和实现方法</h3><h4 id="1-共享存储器系统"><a href="#1-共享存储器系统" class="headerlink" title="1.共享存储器系统"></a>1.共享存储器系统</h4><p>（1）基于共享数据结构的通信方式。  （2）基于共享存储区的通信方式。 </p>
+<h4 id="2-消息传递系统"><a href="#2-消息传递系统" class="headerlink" title="2.消息传递系统"></a>2.消息传递系统</h4><p>是目前的主要通信方式，信息单位：消息（报文）实现：一组通信命令（原语），具有透明性-&gt;同步的实现。     </p>
+<p>实现方式的不同，而分成:（1）直接通信方式   （2）间接通信方式</p>
+<h4 id="3-管道（Pipe）通信"><a href="#3-管道（Pipe）通信" class="headerlink" title="3.管道（Pipe）通信"></a>3.管道（Pipe）通信</h4><p>管道：连接一个读进程和一个写进程之间通信的共享文件。</p>
+<p>功能：大量的数据发收。注意：（1）互斥（2）同步 （3）对方是否存在</p>
+<h3 id="消息传递通信的实现方法"><a href="#消息传递通信的实现方法" class="headerlink" title="消息传递通信的实现方法"></a>消息传递通信的实现方法</h3><h4 id="1-直接通信方式"><a href="#1-直接通信方式" class="headerlink" title="1.直接通信方式"></a>1.直接通信方式</h4><p> 这是指发送进程利用OS所提供的发送命令，直接把消息发送给目标进程。系统提供下述两条通信命令（原语）：     </p>
+<p>Send  （Receiver，  message）；     </p>
+<p>Receive（Sender，  message）；</p>
+<h4 id="2-间接通信方式"><a href="#2-间接通信方式" class="headerlink" title="2.间接通信方式"></a>2.间接通信方式</h4><p>指进程之间利用信箱的通信方式。发送进程发送给目标进程的消息存放信箱；接收进程则从该信箱中，取出对方发送给自己的消息；消息在信箱中可以安全地保存，只允许核准的目标用户随时读取。     系统为信箱通信提供了若干条原语，分别用于信箱的创建、撤消和消息的发送、接收等。 </p>
+<p>优点：在读&#x2F;写时间上的随机性写进程 -&gt;信箱（中间实体）-&gt;读进程原语</p>
+<p>消息的发送和接收</p>
+<p>Send (mailbox, message)</p>
+<p>Receive (mailbox, message)</p>
+<h3 id="信箱"><a href="#信箱" class="headerlink" title="信箱"></a>信箱</h3><p>信箱分为以下三类：</p>
+<p>（1）私用信箱（2）公用信箱（3）共享信箱</p>
+<p>在利用信箱通信时，在发送进程和接收进程之间，存在以下四种关系：</p>
+<p>（1）一对一关系。 （2）多对一关系，客户&#x2F;服务器交互。 （3）一对多关系， 广播方式。（4）多对多关系。  </p>
+<h2 id="第四章"><a href="#第四章" class="headerlink" title="第四章"></a>第四章</h2><h2 id="10-重定位的基本概念：为什么要引入"><a href="#10-重定位的基本概念：为什么要引入" class="headerlink" title="10.重定位的基本概念：为什么要引入"></a>10.重定位的基本概念：为什么要引入</h2><p>为解决链接地址跟运行地址不同的问题。</p>
+<p>装入内存时，相对地址（数据、指令地址）要作出相应的修改以得到正确的物理地址，这个修改的过程称为重定位。</p>
+<h2 id="11-如何提高内存利用率：离散分配、对换机制、动态链接、虚拟存储器、存储器共享"><a href="#11-如何提高内存利用率：离散分配、对换机制、动态链接、虚拟存储器、存储器共享" class="headerlink" title="11.如何提高内存利用率：离散分配、对换机制、动态链接、虚拟存储器、存储器共享"></a>11.如何提高内存利用率：离散分配、对换机制、动态链接、虚拟存储器、存储器共享</h2><h3 id="离散分配"><a href="#离散分配" class="headerlink" title="离散分配"></a>离散分配</h3><h4 id="离散分配方式的引入："><a href="#离散分配方式的引入：" class="headerlink" title="离散分配方式的引入："></a>离散分配方式的引入：</h4><p>连续分配方式会产生内&#x2F;外零头</p>
+<p>为解决零头问题又要进行紧凑等高开销活动</p>
+<h4 id="什么是离散分配："><a href="#什么是离散分配：" class="headerlink" title="什么是离散分配："></a>什么是离散分配：</h4><p> 程序在内存中不一定连续存放</p>
+<h4 id="离散分配的体现"><a href="#离散分配的体现" class="headerlink" title="离散分配的体现:"></a>离散分配的体现:</h4><p>内存一块可以装入程序一页连续的多个页不一定装入连续的多个块中注：系统中页块的大小是不变的。</p>
+<h3 id="离散分配的优点："><a href="#离散分配的优点：" class="headerlink" title="离散分配的优点："></a>离散分配的优点：</h3><p>没有外零头不受连续空间限制，每块都能分出去仅有小于一个页面的内零头</p>
+<p>程序大小一般不是页大小的整数倍        </p>
+<p>由于进程的最后一页经常装不满一块而形成了不可利用的碎片，称之为“页内碎片”或称为“内零头”。 </p>
+<h2 id="对换"><a href="#对换" class="headerlink" title="对换"></a>对换</h2><p>对换指把内存中暂不能运行的进程或暂时不用和程序和数据，换到外存上，以腾出足够的内存空间，把已具备运行条件的进程，或进程所需要的程序和数据，换入内存。 </p>
+<p>对换是系统行为，是提高内存的利用率的有效措施。常用于多道程序系统或小型分时系统中，与分区存储管理配合使用。 </p>
+<h3 id="对换的实现："><a href="#对换的实现：" class="headerlink" title="对换的实现："></a>对换的实现：</h3><p>可在系统中设一对换进程，以执行换进内存、换出至外存操作。</p>
+<h3 id="对换的分类："><a href="#对换的分类：" class="headerlink" title="对换的分类："></a>对换的分类：</h3><h4 id="“整体对换”（进程对换）："><a href="#“整体对换”（进程对换）：" class="headerlink" title="“整体对换”（进程对换）："></a>“整体对换”（进程对换）：</h4><p>对换以整个进程为单位，用于分时系统，以解决内存紧张的问题；</p>
+<h4 id="“页面对换-分段对换”："><a href="#“页面对换-分段对换”：" class="headerlink" title="“页面对换&#x2F;分段对换”："></a>“页面对换&#x2F;分段对换”：</h4><p>对换以“页”或“段”为单位进行“部分对换”，该方法是实现请求分页及请求分段存储器的基础，支持虚存系统。</p>
+<p>为实现对换，系统需要三方面的功能：对换空间的管理、进程的换入、进程的换出</p>
+<h4 id="对换空间的管理："><a href="#对换空间的管理：" class="headerlink" title="对换空间的管理："></a>对换空间的管理：</h4><p>外存被分为两部分，文件区和对换区</p>
+<p>文件区用于存放文件，对它的管理应重在如何提高存储空间的利用率。所以对它采取离散分配方式。</p>
+<p>对换区存放从内存换出的进程，它们在外存的存放时间较短，换入、换出频繁。对对换区的管理应重在提高进程的换入换出速度。因此采用连续分配方式。</p>
+<p>为了能对对换区中的空闲盘块进行管理，在系统中应配置相应的数据结构，以记录外存的使用情况</p>
+<p>空闲分区表或空闲分区链。基本单位都是盘块</p>
+<p>对换区的分配采用连续分配方式，分配与回收与动态分区方式时内存的分配与回收方法雷同</p>
+<h4 id="进程的换出与换入："><a href="#进程的换出与换入：" class="headerlink" title="进程的换出与换入："></a>进程的换出与换入：</h4><h5 id="换出（swap-out）"><a href="#换出（swap-out）" class="headerlink" title="换出（swap out）"></a>换出（swap out）</h5><p>选择：首先选择阻塞或睡眠状态的进程，若有多个，按优先级由低到高进行选择。若没有此状态进程，则选择就绪状态的，仍然按优先级由低到高进行选择。为避免某进程被频繁的换入换出，还应考虑进程在内存中的驻留时间，优先选择驻留时间长的进程。</p>
+<h5 id="换入（swap-in）"><a href="#换入（swap-in）" class="headerlink" title="换入（swap in）"></a>换入（swap in）</h5><p>①从 PCB集合中查找“就绪且换出”的进程，有多个，则选择换出时间最长的。</p>
+<p>②根据进程大小申请内存，成功则读入，否则要先执行换出，再换入。</p>
+<p>③若还有可换入进程，则转向①。直至无“就绪且换出”进程或无法获得足够内存空间为止。</p>
+<h2 id="动态链接"><a href="#动态链接" class="headerlink" title="动态链接"></a>动态链接</h2><h4 id="与之相对的静态链接："><a href="#与之相对的静态链接：" class="headerlink" title="与之相对的静态链接："></a>与之相对的<strong>静态链接</strong>：</h4><p>在程序运行之前，先将各目标模块及它们所需的库函数，链接成一个完整的装入模块（又称执行模块），以后不再拆开。</p>
+<h3 id="装入时动态链接："><a href="#装入时动态链接：" class="headerlink" title="装入时动态链接："></a>装入时动态链接：</h3><p>用户源程序经编译后所得到的目标模块，是在装入内存时，边装入边链接的。即在装入一个目标模块时，若发生一个外部模块调用，将引起装入程序去找出相应的外部目标模块，并将其装入内存。        </p>
+<h4 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h4><ol>
+<li>便于软件版本的修改和更新。只需修改各个目标模块，不必将装入模块拆开，非常方便。        </li>
+<li>便于实现目标模块共享。即可以将一个目标模块链接到几个应用模块中，从而实现多个应用程序对该模块的共享。</li>
+</ol>
+<h3 id="运行时动态链接-Run-Time-Dynamic-Linking）："><a href="#运行时动态链接-Run-Time-Dynamic-Linking）：" class="headerlink" title="运行时动态链接(Run-Time Dynamic Linking）："></a>运行时动态链接(Run-Time Dynamic Linking）：</h3><p>将某些目标模块的链接推迟到执行时才进行，即在执行过程中，若发现一个被调用模块尚未装入内存时，由OS去找到该模块，将它装入内存，并链接到调用模块上。</p>
+<p>优点：执行过程中未被用到的目标模块，都不会被调入内存和被链接到装入模块上，不仅可加快程序的装入过程，而且可节省大量的内存空间</p>
+<h3 id="虚拟存储器"><a href="#虚拟存储器" class="headerlink" title="虚拟存储器"></a>虚拟存储器</h3><h4 id="虚拟存储器："><a href="#虚拟存储器：" class="headerlink" title="虚拟存储器："></a>虚拟存储器：</h4><p>是指具有请求调入功能和置换功能，能从逻辑上对内存容量加以扩充的一种存储器系统。</p>
+<h4 id="程序执行的局部性原理："><a href="#程序执行的局部性原理：" class="headerlink" title="程序执行的局部性原理："></a>程序执行的局部性原理：</h4><p>程序的执行总是呈现局部性。即，在一个较短的时间段内，程序的执行仅限于某个部分；相应的，它所访问的存储空间也局限于某个区域。因此，只要保证进程执行所需的部分程序和数据驻留在内存，一段时间内进程都能顺利执行</p>
+<p>局限性又表现在下述两个方面：</p>
+<h3 id="1-时间局限性"><a href="#1-时间局限性" class="headerlink" title="(1) 时间局限性"></a>(1) 时间局限性</h3><p>如果程序中的某条指令一旦执行，则不久以后该指令可能再次执行；如果某数据被访问过， 则不久以后该数据可能再次被访问产生时间局限性的典型原因，是由于在程序中存在着大量的循环操作</p>
+<h3 id="2-空间局限性"><a href="#2-空间局限性" class="headerlink" title="(2) 空间局限性"></a>(2) 空间局限性</h3><p>一旦程序访问了某个存储单元，在不久之后，其附近的存储单元也将被访问程序在一段时间内所访问的地址，可能集中在一定的范围之内，其典型情况便是程序的顺序执行</p>
+<h3 id="虚拟存储器的基本工作情况"><a href="#虚拟存储器的基本工作情况" class="headerlink" title="虚拟存储器的基本工作情况"></a>虚拟存储器的基本工作情况</h3><p>1）基于局部性原理。一个作业运行前，仅将那些当前要运行的页面（段）装入内存启动运行，其余暂在外存。</p>
+<p>2）若运行所需页面（段）不在内存，则利用请求调页（段）功能将其调入内存。</p>
+<p>3）若此时内存满，则利用置换功能，将内存中暂时不用的部分页面（段）调至外存，再将所需页面（段）调入。</p>
+<p>4）这样，可实现大程序在小内存中运行，也可实现内存中同时装入更多的进程并发执行。</p>
+<h3 id="虚拟存储器的实现方法"><a href="#虚拟存储器的实现方法" class="headerlink" title="虚拟存储器的实现方法"></a>虚拟存储器的实现方法</h3><h4 id="一、请求分页系统"><a href="#一、请求分页系统" class="headerlink" title="一、请求分页系统"></a>一、请求分页系统</h4><p>它是在纯分页系统的基础上增加了请求调页、页面置换两大功能所形成的页式虚拟存储系统。</p>
+<p>为了实现请求调页、页面置换两大功能，系统必须提供如下的硬件支持：        </p>
+<ol>
+<li>请求分页的页表机制。        </li>
+<li>缺页中断机构。        </li>
+<li>地址变换机构。</li>
+</ol>
+<p>此外，实现请求调页、页面置换两大功能还需得到OS的支持。</p>
+<h4 id="二、请求分段系统"><a href="#二、请求分段系统" class="headerlink" title="二、请求分段系统"></a>二、请求分段系统</h4><p>它是在纯分段系统的基础上增加了请求调段、分段置换两大功能所形成的段式虚拟存储系统。        </p>
+<p>为了实现请求调段、分段置换两大功能，系统必须提供如下的硬件支持：        </p>
+<ol>
+<li>请求分段的段表机制。        </li>
+<li>缺段中断机构。        </li>
+<li>地址变换机构。</li>
+</ol>
+<p>此外，实现请求调段、分段置换两大功能还需得到OS的支持。</p>
+<h4 id="三、段页式虚拟系统"><a href="#三、段页式虚拟系统" class="headerlink" title="三、段页式虚拟系统"></a>三、段页式虚拟系统</h4><p>目前，许多虚拟存储管理系统是建立在段页式系统的基础上的，通过增加了请求调页、页面置换两大功能所形成的段页式虚拟存储系统。</p>
+<h2 id="12-动态分区分配方式：分配、回收算法"><a href="#12-动态分区分配方式：分配、回收算法" class="headerlink" title="12.动态分区分配方式：分配、回收算法"></a>12.动态分区分配方式：分配、回收算法</h2><p>动态分区分配（可重定位分区分配）是指根据进程的实际需要，动态地为之分配连续的内存空间。即分区的边界可以移动，分区的大小是可变的</p>
+<p>分区的数目固定大小是可变的，允许分区的数目和大小都是可变的。</p>
+<h3 id="分区分配算法"><a href="#分区分配算法" class="headerlink" title="分区分配算法:"></a>分区分配算法:</h3><p><img src="https://pic.imgdb.cn/item/64d8c2c71ddac507cc2683c7.png"></p>
+]]></content>
+      <categories>
+        <category>Markdown</category>
+      </categories>
+      <tags>
+        <tag>复习资料</tag>
+      </tags>
   </entry>
 </search>
