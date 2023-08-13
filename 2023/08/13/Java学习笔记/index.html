@@ -1,406 +1,188 @@
-<?xml version="1.0" encoding="utf-8"?>
-<search>
-  <entry>
-    <title>操作系统期末复习总结</title>
-    <url>/2023/08/13/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/</url>
-    <content><![CDATA[<h1 id="操作系统期末复习"><a href="#操作系统期末复习" class="headerlink" title="操作系统期末复习"></a>操作系统期末复习</h1><h2 id="1、进程和线程的概念"><a href="#1、进程和线程的概念" class="headerlink" title="1、进程和线程的概念"></a>1、进程和线程的概念</h2><h3 id="典型的进程定义有："><a href="#典型的进程定义有：" class="headerlink" title="典型的进程定义有："></a>典型的进程定义有：</h3><p>（1）进程是程序的一次执行。（2）进程是一个程序及其数据在处理机上顺序执行时所发生的活动。（3）进程是程序在一个数据集合上运行的过程，它是系统进行资源分配和调度的一个独立单位。</p>
-<h2 id="2、进程的基本状态及状态转换的原因"><a href="#2、进程的基本状态及状态转换的原因" class="headerlink" title="2、进程的基本状态及状态转换的原因"></a>2、进程的基本状态及状态转换的原因</h2><p><img src="https://pic.imgdb.cn/item/64d8c2e01ddac507cc26b93a.png"></p>
-<h3 id="状态转换："><a href="#状态转换：" class="headerlink" title="状态转换："></a>状态转换：</h3><p> ① 空 -&gt;新状态  新创建的进程首先处于新状态。 </p>
-<p>② 新状态 -&gt;就绪状态  当系统允许增加就绪进程时，操作系统接纳新建状态进程，将它变为就绪状态，插入就绪队列中。 </p>
-<p>③ 就绪状态 -&gt; 执行状态  当处理机空闲时，将从就绪队列中选择一个进程执行，该选择过程称为进程调度，或将处理机分派给一个进程，该进程状态从就绪转变为执行。 </p>
-<p>④ 执行状态 -&gt; 终止状态  执行状态的进程执行完毕，或出现诸如访问地址越界、非法指令等错误，而被异常结束，则进程从执行状态转换为终止状态。</p>
-<p>⑤ 执行状态 -&gt; 就绪状态  分时系统中，时间片用完，或优先级高的进程到来，将中断较低优先级进程的执行。进程从执行状态转变为就绪状态，等待下一次调度。</p>
-<p>⑥ 执行状态 -&gt; 阻塞状态  执行进程需要等待某事件发生。通常，会因为进程需要的系统调用不能立即完成，如读文件、共享虚拟内存、等待I&#x2F;O操作、等待另一进程与之通信等事件而阻塞。</p>
-<p>⑦ 阻塞状态 -&gt; 就绪状态  当阻塞进程等待的事件发生，就转换为就绪状态。进入就绪队列排队，等待被调度执行。</p>
-<h2 id="3-PCB的作用"><a href="#3-PCB的作用" class="headerlink" title="3.PCB的作用"></a>3.PCB的作用</h2><p>进程控制块：进程控制块的作用是使一个在多道程序环境下不能独立运行的程序（包含数据），成为一个能独立运行的基本单位，一个能与其它进程并发执行的进程。</p>
-<h2 id="4-进程控制的原语操作"><a href="#4-进程控制的原语操作" class="headerlink" title="4.进程控制的原语操作"></a>4.进程控制的原语操作</h2><h3 id="（1）进程的创建原语"><a href="#（1）进程的创建原语" class="headerlink" title="（1）进程的创建原语"></a>（1）进程的创建原语</h3><p>调用进程创建原语Create（  ）按下述步骤创建一个新进程</p>
-<h4 id=""><a href="#" class="headerlink" title=""></a><img src="https://pic.imgdb.cn/item/64d8c3d91ddac507cc28a180.png"></h4><h3 id="2-进程的终止原语"><a href="#2-进程的终止原语" class="headerlink" title="(2)进程的终止原语"></a>(2)进程的终止原语</h3><p>正常结束:  </p>
-<p>批处理中用Holt指令，分时中用Logs off指令</p>
-<p><img src="https://img-blog.csdnimg.cn/20200315164109198.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzkxNDYwNA==,size_16,color_FFFFFF,t_70"></p>
-<h3 id="（3）进程的唤醒和阻塞原语"><a href="#（3）进程的唤醒和阻塞原语" class="headerlink" title="（3）进程的唤醒和阻塞原语"></a>（3）进程的唤醒和阻塞原语</h3><p><img src="https://pic.imgdb.cn/item/64d8c4091ddac507cc290135.png"></p>
-<h3 id="引起进程阻塞的事件"><a href="#引起进程阻塞的事件" class="headerlink" title="引起进程阻塞的事件:"></a>引起进程阻塞的事件:</h3><p>(1）请求系统服务：提出I&#x2F;O服务时，并不立即满足该进程的要求时，转变为阻塞状态来等待</p>
-<p>(2）启动某种操作：当进程启动某种操作后，在该操作完成之后才能继续执行</p>
-<p>(3）新数据尚未到达：对于相互合作的进程而言。</p>
-<p> (4）无新工作可做。如发送进程</p>
-<h3 id="进程阻塞过程"><a href="#进程阻塞过程" class="headerlink" title="进程阻塞过程:"></a>进程阻塞过程:</h3><p>(1)正在执行的进程，当发现上述某事件时，由于无法继续执行，于是进程便通过调用阻塞原语block( )把自己阻塞</p>
-<p>(2)把进程控制块中的现行状态由“执行”改为“阻塞”，并将PCB插入阻塞队列</p>
-<p>(3)转调度程序进行重新调度，将处理机分配给另一就绪进程，并进行切换</p>
-<h3 id="进程唤醒过程："><a href="#进程唤醒过程：" class="headerlink" title="进程唤醒过程："></a>进程唤醒过程：</h3><p>当被阻塞进程所期待的事件出现时，则由有关进程（比如，用完并释放了该I&#x2F;O设备的进程）调用唤醒原语wakeup（  ），将等待该事件的进程唤醒</p>
-<h3 id="4-进程的挂起和激活过程"><a href="#4-进程的挂起和激活过程" class="headerlink" title="(4)进程的挂起和激活过程"></a>(4)进程的挂起和激活过程</h3><p><img src="https://pic.imgdb.cn/item/64d8c4351ddac507cc295969.png"></p>
-<h2 id="5-进程互斥、临界区、进程同步的基本概念、同步准则"><a href="#5-进程互斥、临界区、进程同步的基本概念、同步准则" class="headerlink" title="5.进程互斥、临界区、进程同步的基本概念、同步准则"></a>5.进程互斥、临界区、进程同步的基本概念、同步准则</h2><h3 id="进程互斥："><a href="#进程互斥：" class="headerlink" title="进程互斥："></a>进程互斥：</h3><p>进程互斥是进程之间的间接制约关系。当一个进程进入临界区使用临界资源时，另一个进程必须等待。只有当使用临界资源的进程退出临界区后，这个进程才会解除阻塞状态。</p>
-<h3 id="临界资源："><a href="#临界资源：" class="headerlink" title="临界资源："></a>临界资源：</h3><p>一次仅允许一个进程访问的资源为临界资源 。</p>
-<h3 id="临界区："><a href="#临界区：" class="headerlink" title="临界区："></a>临界区：</h3><p>把在每个进程中访问临界资源的那段代码称为临界区。</p>
-<h3 id="进程同步："><a href="#进程同步：" class="headerlink" title="进程同步："></a>进程同步：</h3><p>进程同步是一个操作系统级别的概念，是在多道程序的环境下，存在着不同的制约关系，为了协调这种互相制约的关系，实现资源共享和进程协作，从而避免进程之间的冲突，引入了进程同步。</p>
-<p>进程同步的主要任务：是使并发执行的诸进程之间能有效地共享资源和相互合作，从而使程序的执行具有可再现性。</p>
-<h3 id="同步准则："><a href="#同步准则：" class="headerlink" title="同步准则："></a>同步准则：</h3><p>1)空闲让进</p>
-<p>2)忙则等待</p>
-<p>3)有限等待</p>
-<p>4)让权等待</p>
-<h2 id="6-记录型信号量"><a href="#6-记录型信号量" class="headerlink" title="6.记录型信号量"></a>6.记录型信号量</h2><p>记录型信号量机制，则是一种不存在“忙等”现象的进程同步机制</p>
-<p>记录型信号量的数据结构: </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">type  semaphore = record</span><br><span class="line">                  value  ：integer；</span><br><span class="line">                  L：list  of  process；</span><br><span class="line"> end  </span><br></pre></td></tr></table></figure>
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Java学习笔记 | 仰望星空时</title><meta name="author" content="KKirito,2021090917010@std.uestc.edu.cn"><meta name="copyright" content="KKirito"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Java学习笔记一、基本格式1.类类是Java的基本结构，一个程序可以包含一个或多个类 类的申明： &#x2F;*修饰符class类名&amp;#123;	 程序代码&amp;#125;*&#x2F;public class HelloWorld&amp;#123;            &#x2F;&#x2F;声明一个名为HelloWorld的类&amp;#125;  2.修饰符修饰符用于指定数据、方法、类的属性以及用法 修饰符示例： public class He">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java学习笔记">
+<meta property="og:url" content="https://ljqkkirito16.top/2023/08/13/Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="仰望星空时">
+<meta property="og:description" content="Java学习笔记一、基本格式1.类类是Java的基本结构，一个程序可以包含一个或多个类 类的申明： &#x2F;*修饰符class类名&amp;#123;	 程序代码&amp;#125;*&#x2F;public class HelloWorld&amp;#123;            &#x2F;&#x2F;声明一个名为HelloWorld的类&amp;#125;  2.修饰符修饰符用于指定数据、方法、类的属性以及用法 修饰符示例： public class He">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ljqkkirito16.top/img/%E5%A4%B4%E5%83%8F.jpg">
+<meta property="article:published_time" content="2023-08-13T12:09:57.632Z">
+<meta property="article:modified_time" content="2023-08-13T12:39:42.622Z">
+<meta property="article:author" content="KKirito">
+<meta property="article:tag" content="JAVA">
+<meta property="article:tag" content="Markdown">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ljqkkirito16.top/img/%E5%A4%B4%E5%83%8F.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://ljqkkirito16.top/2023/08/13/Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":50},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"top-right"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Java学习笔记',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: true,
+  isToc: true,
+  postUpdate: '2023-08-13 20:39:42'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
 
-<p>记录型信号量的wait（S）操作:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">procedure  wait（  S  ）</span><br><span class="line">    var  S：  semaphore；</span><br><span class="line">       begin   </span><br><span class="line">           S.value:＝S.value-1;</span><br><span class="line">           if  S.value＜0  then  block（S.L）;</span><br><span class="line">       end</span><br><span class="line">// S.value＜0，该类资源已经分配完毕，进程必须放弃处理机，自我阻塞。</span><br></pre></td></tr></table></figure>
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
 
-<p>记录型信号量的signal（S）操作:</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">procedure  signal（S）</span><br><span class="line">  var  S:semaphore； </span><br><span class="line">  begin</span><br><span class="line">      S.value:＝S.value+1；</span><br><span class="line">      if  S.value≤0  then   wakeup(S.L)；</span><br><span class="line">  end</span><br><span class="line">// S.value≤0 ，在信号量链表中，仍有等待该资源的进程被阻塞。</span><br></pre></td></tr></table></figure>
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
 
-<h2 id="7-信号量的应用"><a href="#7-信号量的应用" class="headerlink" title="7.信号量的应用"></a>7.信号量的应用</h2><ol>
-<li><h3 id="利用信号量实现进程互斥"><a href="#利用信号量实现进程互斥" class="headerlink" title="利用信号量实现进程互斥"></a>利用信号量实现进程互斥</h3></li>
-</ol>
-<p>为使多个进程能互斥地访问某临界资源，只须为该资源设置一互斥信号量mutex，并设其初始值为1，然后将各进程访问该资源的临界区CS置于wait（mutex）和signal（mutex）操作之间即可。</p>
-<p>利用信号量实现进程互斥的进程可描述如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Var  mutex：semaphore:=1；</span><br><span class="line">          begin</span><br><span class="line">          parbegin</span><br><span class="line"></span><br><span class="line">             process1：begin</span><br><span class="line">                 repeat</span><br><span class="line">                      wait（mutex）；</span><br><span class="line">                      critica1  section</span><br><span class="line">                      signal（mutex）；</span><br><span class="line">                     remainder  section  until false;</span><br><span class="line">             end</span><br><span class="line">             process2：begin</span><br><span class="line">                        repeat</span><br><span class="line">                            wait（mutex）;</span><br><span class="line">                            critical  section</span><br><span class="line">                            signal（mutex）;</span><br><span class="line">                            remainder section until false；</span><br><span class="line">              end</span><br><span class="line">   parend </span><br><span class="line">   end</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
 
-<p>wait（mutex）和signal（mutex）必须成对出现；</p>
-<p>缺少wait（mutex）导致系统混乱，不能保证对临界资源的互斥访问；</p>
-<p>缺少signal（mutex）会使临界资源永远不释放，等待该资源的进程不能被唤醒。</p>
-<h3 id="2-利用信号量实现前趋关系"><a href="#2-利用信号量实现前趋关系" class="headerlink" title="2.利用信号量实现前趋关系"></a>2.利用信号量实现前趋关系</h3><p><img src="https://pic.imgdb.cn/item/64d8c4351ddac507cc2959b5.png"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">p1( )&#123; S1； signal（a）；signal（b）；&#125;</span><br><span class="line">p2( )&#123; wait(a); S2；signal（c）；signal（d）; &#125;</span><br><span class="line">p3( )&#123; wait（b）；S3；signal（e）；&#125;</span><br><span class="line">p4( )&#123; wait（c）；S4；signal（f）；&#125;</span><br><span class="line">p5( )&#123; wait（d）；S5；signal（g）；&#125;</span><br><span class="line">p6( )&#123; wait（e）；wait（f）；wait（g）；S6；&#125;</span><br><span class="line"></span><br><span class="line">void main( )&#123;</span><br><span class="line">    semaphore a,b,c,d,e,f,g;</span><br><span class="line">    a.value=b.value=c.value=0;</span><br><span class="line">    d.value=e.value=f.value=g.value=0;</span><br><span class="line">    cobegin</span><br><span class="line">         p1( ); p2( ); p3( ); p4( ); p5( ); p6( );</span><br><span class="line">    coend;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
 
-<h2 id="8-经典进程同步问题；生产者与消费者问题"><a href="#8-经典进程同步问题；生产者与消费者问题" class="headerlink" title="8.经典进程同步问题；生产者与消费者问题"></a>8.经典进程同步问题；生产者与消费者问题</h2><p>生产者和消费者进程共享一个大小固定的缓冲区，其中，一个或多个生产者生产数据，并将生产的数据存入缓冲区，并有一个消费者从缓冲区中取数据。 </p>
-<p>假设缓冲区的大小为n（存储单元的个数），它可以被生产者和消费者循环使用</p>
-<p>分别设置两个指针in和out，指向生产者将存放数据的存储单元和消费者将取数据的存储单元，如图</p>
-<p><img src="https://pic.imgdb.cn/item/64d8c4341ddac507cc29582e.png"></p>
-<p><img src="C:\Users\10410\Desktop\操作系统期末复习\image-20230616160458024.png" alt="image-20230616160458024"></p>
-<p><img src="https://pic.imgdb.cn/item/64d8c2c31ddac507cc267c42.png"></p>
-<h3 id="1-利用记录型信号量解决生产者一消费者问题"><a href="#1-利用记录型信号量解决生产者一消费者问题" class="headerlink" title="1.利用记录型信号量解决生产者一消费者问题"></a>1.利用记录型信号量解决生产者一消费者问题</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"> int  in=0, out=0;</span><br><span class="line"> item    buffer [n];</span><br><span class="line"> semaphore	mutex=1, empty=n, full=0;   </span><br><span class="line"> </span><br><span class="line">void producer( );</span><br><span class="line">void consumer( );</span><br><span class="line"></span><br><span class="line">void main( )&#123;</span><br><span class="line">      cobegin</span><br><span class="line">             producer( ); consumer( );</span><br><span class="line">      coend</span><br><span class="line">&#125;</span><br><span class="line">void producer( )&#123;</span><br><span class="line">    do&#123;</span><br><span class="line">      			…</span><br><span class="line">		Produce an item in nextp;</span><br><span class="line">              		…</span><br><span class="line">wait(empty);</span><br><span class="line">wait(mutex);</span><br><span class="line">buffer(in):=nextp;</span><br><span class="line">in:=(in+1) mod n;</span><br><span class="line">signal(mutex);</span><br><span class="line">signal(full);</span><br><span class="line">&#125;while(TRUE);</span><br><span class="line">&#125;</span><br><span class="line">void consumer&#123;</span><br><span class="line">	do&#123;</span><br><span class="line">	      wait(full);</span><br><span class="line">wait(mutex);</span><br><span class="line">nextc:=buffer(out);</span><br><span class="line">out:=(out+1) mod n;</span><br><span class="line">signal(mutex);</span><br><span class="line">signal(empty);</span><br><span class="line">Consumer the item in nextc;</span><br><span class="line">     ……</span><br><span class="line">&#125;while(TRUE);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="2-利用AND信号量解决生产者—消费者问题"><a href="#2-利用AND信号量解决生产者—消费者问题" class="headerlink" title="2.利用AND信号量解决生产者—消费者问题"></a>2.利用AND信号量解决生产者—消费者问题</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">  int  in=0, out=0;</span><br><span class="line">  item    buffer[ n ];</span><br><span class="line">  semaphore   mutex=1;</span><br><span class="line">  semaphore  empty=n, full=0;</span><br><span class="line"></span><br><span class="line">  void producer( )&#123;</span><br><span class="line">       do&#123;</span><br><span class="line">			…</span><br><span class="line">		 produce an item in nextp;</span><br><span class="line">			…</span><br><span class="line">		Swait(empty, mutex);</span><br><span class="line">		buffer[in] = nextp;</span><br><span class="line"> in = (in+1) % n;</span><br><span class="line">   Ssignal(mutex, full);</span><br><span class="line">      &#125;while(TRUE);</span><br><span class="line">   &#125; //end producer</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">void consumer&#123;</span><br><span class="line">   do&#123;</span><br><span class="line">	   Swait(full, mutex);</span><br><span class="line">	   nextc = buffer[out];</span><br><span class="line">	   out = (out+1) % n;</span><br><span class="line">	   Ssignal(mutex, empty);</span><br><span class="line">	   consumer the item in nextc;</span><br><span class="line">     &#125;while(TRUE);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="9-进程间通信的原理和实现方法-信箱"><a href="#9-进程间通信的原理和实现方法-信箱" class="headerlink" title="9.进程间通信的原理和实现方法   信箱"></a>9.进程间通信的原理和实现方法   信箱</h2><h3 id="进程间通信的原理和实现方法"><a href="#进程间通信的原理和实现方法" class="headerlink" title="进程间通信的原理和实现方法"></a>进程间通信的原理和实现方法</h3><h4 id="1-共享存储器系统"><a href="#1-共享存储器系统" class="headerlink" title="1.共享存储器系统"></a>1.共享存储器系统</h4><p>（1）基于共享数据结构的通信方式。  （2）基于共享存储区的通信方式。 </p>
-<h4 id="2-消息传递系统"><a href="#2-消息传递系统" class="headerlink" title="2.消息传递系统"></a>2.消息传递系统</h4><p>是目前的主要通信方式，信息单位：消息（报文）实现：一组通信命令（原语），具有透明性-&gt;同步的实现。     </p>
-<p>实现方式的不同，而分成:（1）直接通信方式   （2）间接通信方式</p>
-<h4 id="3-管道（Pipe）通信"><a href="#3-管道（Pipe）通信" class="headerlink" title="3.管道（Pipe）通信"></a>3.管道（Pipe）通信</h4><p>管道：连接一个读进程和一个写进程之间通信的共享文件。</p>
-<p>功能：大量的数据发收。注意：（1）互斥（2）同步 （3）对方是否存在</p>
-<h3 id="消息传递通信的实现方法"><a href="#消息传递通信的实现方法" class="headerlink" title="消息传递通信的实现方法"></a>消息传递通信的实现方法</h3><h4 id="1-直接通信方式"><a href="#1-直接通信方式" class="headerlink" title="1.直接通信方式"></a>1.直接通信方式</h4><p> 这是指发送进程利用OS所提供的发送命令，直接把消息发送给目标进程。系统提供下述两条通信命令（原语）：     </p>
-<p>Send  （Receiver，  message）；     </p>
-<p>Receive（Sender，  message）；</p>
-<h4 id="2-间接通信方式"><a href="#2-间接通信方式" class="headerlink" title="2.间接通信方式"></a>2.间接通信方式</h4><p>指进程之间利用信箱的通信方式。发送进程发送给目标进程的消息存放信箱；接收进程则从该信箱中，取出对方发送给自己的消息；消息在信箱中可以安全地保存，只允许核准的目标用户随时读取。     系统为信箱通信提供了若干条原语，分别用于信箱的创建、撤消和消息的发送、接收等。 </p>
-<p>优点：在读&#x2F;写时间上的随机性写进程 -&gt;信箱（中间实体）-&gt;读进程原语</p>
-<p>消息的发送和接收</p>
-<p>Send (mailbox, message)</p>
-<p>Receive (mailbox, message)</p>
-<h3 id="信箱"><a href="#信箱" class="headerlink" title="信箱"></a>信箱</h3><p>信箱分为以下三类：</p>
-<p>（1）私用信箱（2）公用信箱（3）共享信箱</p>
-<p>在利用信箱通信时，在发送进程和接收进程之间，存在以下四种关系：</p>
-<p>（1）一对一关系。 （2）多对一关系，客户&#x2F;服务器交互。 （3）一对多关系， 广播方式。（4）多对多关系。  </p>
-<h2 id="第四章"><a href="#第四章" class="headerlink" title="第四章"></a>第四章</h2><h2 id="10-重定位的基本概念：为什么要引入"><a href="#10-重定位的基本概念：为什么要引入" class="headerlink" title="10.重定位的基本概念：为什么要引入"></a>10.重定位的基本概念：为什么要引入</h2><p>为解决链接地址跟运行地址不同的问题。</p>
-<p>装入内存时，相对地址（数据、指令地址）要作出相应的修改以得到正确的物理地址，这个修改的过程称为重定位。</p>
-<h2 id="11-如何提高内存利用率：离散分配、对换机制、动态链接、虚拟存储器、存储器共享"><a href="#11-如何提高内存利用率：离散分配、对换机制、动态链接、虚拟存储器、存储器共享" class="headerlink" title="11.如何提高内存利用率：离散分配、对换机制、动态链接、虚拟存储器、存储器共享"></a>11.如何提高内存利用率：离散分配、对换机制、动态链接、虚拟存储器、存储器共享</h2><h3 id="离散分配"><a href="#离散分配" class="headerlink" title="离散分配"></a>离散分配</h3><h4 id="离散分配方式的引入："><a href="#离散分配方式的引入：" class="headerlink" title="离散分配方式的引入："></a>离散分配方式的引入：</h4><p>连续分配方式会产生内&#x2F;外零头</p>
-<p>为解决零头问题又要进行紧凑等高开销活动</p>
-<h4 id="什么是离散分配："><a href="#什么是离散分配：" class="headerlink" title="什么是离散分配："></a>什么是离散分配：</h4><p> 程序在内存中不一定连续存放</p>
-<h4 id="离散分配的体现"><a href="#离散分配的体现" class="headerlink" title="离散分配的体现:"></a>离散分配的体现:</h4><p>内存一块可以装入程序一页连续的多个页不一定装入连续的多个块中注：系统中页块的大小是不变的。</p>
-<h3 id="离散分配的优点："><a href="#离散分配的优点：" class="headerlink" title="离散分配的优点："></a>离散分配的优点：</h3><p>没有外零头不受连续空间限制，每块都能分出去仅有小于一个页面的内零头</p>
-<p>程序大小一般不是页大小的整数倍        </p>
-<p>由于进程的最后一页经常装不满一块而形成了不可利用的碎片，称之为“页内碎片”或称为“内零头”。 </p>
-<h2 id="对换"><a href="#对换" class="headerlink" title="对换"></a>对换</h2><p>对换指把内存中暂不能运行的进程或暂时不用和程序和数据，换到外存上，以腾出足够的内存空间，把已具备运行条件的进程，或进程所需要的程序和数据，换入内存。 </p>
-<p>对换是系统行为，是提高内存的利用率的有效措施。常用于多道程序系统或小型分时系统中，与分区存储管理配合使用。 </p>
-<h3 id="对换的实现："><a href="#对换的实现：" class="headerlink" title="对换的实现："></a>对换的实现：</h3><p>可在系统中设一对换进程，以执行换进内存、换出至外存操作。</p>
-<h3 id="对换的分类："><a href="#对换的分类：" class="headerlink" title="对换的分类："></a>对换的分类：</h3><h4 id="“整体对换”（进程对换）："><a href="#“整体对换”（进程对换）：" class="headerlink" title="“整体对换”（进程对换）："></a>“整体对换”（进程对换）：</h4><p>对换以整个进程为单位，用于分时系统，以解决内存紧张的问题；</p>
-<h4 id="“页面对换-分段对换”："><a href="#“页面对换-分段对换”：" class="headerlink" title="“页面对换&#x2F;分段对换”："></a>“页面对换&#x2F;分段对换”：</h4><p>对换以“页”或“段”为单位进行“部分对换”，该方法是实现请求分页及请求分段存储器的基础，支持虚存系统。</p>
-<p>为实现对换，系统需要三方面的功能：对换空间的管理、进程的换入、进程的换出</p>
-<h4 id="对换空间的管理："><a href="#对换空间的管理：" class="headerlink" title="对换空间的管理："></a>对换空间的管理：</h4><p>外存被分为两部分，文件区和对换区</p>
-<p>文件区用于存放文件，对它的管理应重在如何提高存储空间的利用率。所以对它采取离散分配方式。</p>
-<p>对换区存放从内存换出的进程，它们在外存的存放时间较短，换入、换出频繁。对对换区的管理应重在提高进程的换入换出速度。因此采用连续分配方式。</p>
-<p>为了能对对换区中的空闲盘块进行管理，在系统中应配置相应的数据结构，以记录外存的使用情况</p>
-<p>空闲分区表或空闲分区链。基本单位都是盘块</p>
-<p>对换区的分配采用连续分配方式，分配与回收与动态分区方式时内存的分配与回收方法雷同</p>
-<h4 id="进程的换出与换入："><a href="#进程的换出与换入：" class="headerlink" title="进程的换出与换入："></a>进程的换出与换入：</h4><h5 id="换出（swap-out）"><a href="#换出（swap-out）" class="headerlink" title="换出（swap out）"></a>换出（swap out）</h5><p>选择：首先选择阻塞或睡眠状态的进程，若有多个，按优先级由低到高进行选择。若没有此状态进程，则选择就绪状态的，仍然按优先级由低到高进行选择。为避免某进程被频繁的换入换出，还应考虑进程在内存中的驻留时间，优先选择驻留时间长的进程。</p>
-<h5 id="换入（swap-in）"><a href="#换入（swap-in）" class="headerlink" title="换入（swap in）"></a>换入（swap in）</h5><p>①从 PCB集合中查找“就绪且换出”的进程，有多个，则选择换出时间最长的。</p>
-<p>②根据进程大小申请内存，成功则读入，否则要先执行换出，再换入。</p>
-<p>③若还有可换入进程，则转向①。直至无“就绪且换出”进程或无法获得足够内存空间为止。</p>
-<h2 id="动态链接"><a href="#动态链接" class="headerlink" title="动态链接"></a>动态链接</h2><h4 id="与之相对的静态链接："><a href="#与之相对的静态链接：" class="headerlink" title="与之相对的静态链接："></a>与之相对的<strong>静态链接</strong>：</h4><p>在程序运行之前，先将各目标模块及它们所需的库函数，链接成一个完整的装入模块（又称执行模块），以后不再拆开。</p>
-<h3 id="装入时动态链接："><a href="#装入时动态链接：" class="headerlink" title="装入时动态链接："></a>装入时动态链接：</h3><p>用户源程序经编译后所得到的目标模块，是在装入内存时，边装入边链接的。即在装入一个目标模块时，若发生一个外部模块调用，将引起装入程序去找出相应的外部目标模块，并将其装入内存。        </p>
-<h4 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h4><ol>
-<li>便于软件版本的修改和更新。只需修改各个目标模块，不必将装入模块拆开，非常方便。        </li>
-<li>便于实现目标模块共享。即可以将一个目标模块链接到几个应用模块中，从而实现多个应用程序对该模块的共享。</li>
-</ol>
-<h3 id="运行时动态链接-Run-Time-Dynamic-Linking）："><a href="#运行时动态链接-Run-Time-Dynamic-Linking）：" class="headerlink" title="运行时动态链接(Run-Time Dynamic Linking）："></a>运行时动态链接(Run-Time Dynamic Linking）：</h3><p>将某些目标模块的链接推迟到执行时才进行，即在执行过程中，若发现一个被调用模块尚未装入内存时，由OS去找到该模块，将它装入内存，并链接到调用模块上。</p>
-<p>优点：执行过程中未被用到的目标模块，都不会被调入内存和被链接到装入模块上，不仅可加快程序的装入过程，而且可节省大量的内存空间</p>
-<h3 id="虚拟存储器"><a href="#虚拟存储器" class="headerlink" title="虚拟存储器"></a>虚拟存储器</h3><h4 id="虚拟存储器："><a href="#虚拟存储器：" class="headerlink" title="虚拟存储器："></a>虚拟存储器：</h4><p>是指具有请求调入功能和置换功能，能从逻辑上对内存容量加以扩充的一种存储器系统。</p>
-<h4 id="程序执行的局部性原理："><a href="#程序执行的局部性原理：" class="headerlink" title="程序执行的局部性原理："></a>程序执行的局部性原理：</h4><p>程序的执行总是呈现局部性。即，在一个较短的时间段内，程序的执行仅限于某个部分；相应的，它所访问的存储空间也局限于某个区域。因此，只要保证进程执行所需的部分程序和数据驻留在内存，一段时间内进程都能顺利执行</p>
-<p>局限性又表现在下述两个方面：</p>
-<h3 id="1-时间局限性"><a href="#1-时间局限性" class="headerlink" title="(1) 时间局限性"></a>(1) 时间局限性</h3><p>如果程序中的某条指令一旦执行，则不久以后该指令可能再次执行；如果某数据被访问过， 则不久以后该数据可能再次被访问产生时间局限性的典型原因，是由于在程序中存在着大量的循环操作</p>
-<h3 id="2-空间局限性"><a href="#2-空间局限性" class="headerlink" title="(2) 空间局限性"></a>(2) 空间局限性</h3><p>一旦程序访问了某个存储单元，在不久之后，其附近的存储单元也将被访问程序在一段时间内所访问的地址，可能集中在一定的范围之内，其典型情况便是程序的顺序执行</p>
-<h3 id="虚拟存储器的基本工作情况"><a href="#虚拟存储器的基本工作情况" class="headerlink" title="虚拟存储器的基本工作情况"></a>虚拟存储器的基本工作情况</h3><p>1）基于局部性原理。一个作业运行前，仅将那些当前要运行的页面（段）装入内存启动运行，其余暂在外存。</p>
-<p>2）若运行所需页面（段）不在内存，则利用请求调页（段）功能将其调入内存。</p>
-<p>3）若此时内存满，则利用置换功能，将内存中暂时不用的部分页面（段）调至外存，再将所需页面（段）调入。</p>
-<p>4）这样，可实现大程序在小内存中运行，也可实现内存中同时装入更多的进程并发执行。</p>
-<h3 id="虚拟存储器的实现方法"><a href="#虚拟存储器的实现方法" class="headerlink" title="虚拟存储器的实现方法"></a>虚拟存储器的实现方法</h3><h4 id="一、请求分页系统"><a href="#一、请求分页系统" class="headerlink" title="一、请求分页系统"></a>一、请求分页系统</h4><p>它是在纯分页系统的基础上增加了请求调页、页面置换两大功能所形成的页式虚拟存储系统。</p>
-<p>为了实现请求调页、页面置换两大功能，系统必须提供如下的硬件支持：        </p>
-<ol>
-<li>请求分页的页表机制。        </li>
-<li>缺页中断机构。        </li>
-<li>地址变换机构。</li>
-</ol>
-<p>此外，实现请求调页、页面置换两大功能还需得到OS的支持。</p>
-<h4 id="二、请求分段系统"><a href="#二、请求分段系统" class="headerlink" title="二、请求分段系统"></a>二、请求分段系统</h4><p>它是在纯分段系统的基础上增加了请求调段、分段置换两大功能所形成的段式虚拟存储系统。        </p>
-<p>为了实现请求调段、分段置换两大功能，系统必须提供如下的硬件支持：        </p>
-<ol>
-<li>请求分段的段表机制。        </li>
-<li>缺段中断机构。        </li>
-<li>地址变换机构。</li>
-</ol>
-<p>此外，实现请求调段、分段置换两大功能还需得到OS的支持。</p>
-<h4 id="三、段页式虚拟系统"><a href="#三、段页式虚拟系统" class="headerlink" title="三、段页式虚拟系统"></a>三、段页式虚拟系统</h4><p>目前，许多虚拟存储管理系统是建立在段页式系统的基础上的，通过增加了请求调页、页面置换两大功能所形成的段页式虚拟存储系统。</p>
-<h2 id="12-动态分区分配方式：分配、回收算法"><a href="#12-动态分区分配方式：分配、回收算法" class="headerlink" title="12.动态分区分配方式：分配、回收算法"></a>12.动态分区分配方式：分配、回收算法</h2><p>动态分区分配（可重定位分区分配）是指根据进程的实际需要，动态地为之分配连续的内存空间。即分区的边界可以移动，分区的大小是可变的</p>
-<p>分区的数目固定大小是可变的，允许分区的数目和大小都是可变的。</p>
-<h3 id="分区分配算法"><a href="#分区分配算法" class="headerlink" title="分区分配算法:"></a>分区分配算法:</h3><p><img src="https://pic.imgdb.cn/item/64d8c2c71ddac507cc2683c7.png"></p>
-]]></content>
-      <categories>
-        <category>复习资料</category>
-      </categories>
-      <tags>
-        <tag>Markdown</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>前端学习笔记（部分）</title>
-    <url>/2023/08/13/%E5%89%8D%E7%AB%AF%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<h1 id="前端笔记："><a href="#前端笔记：" class="headerlink" title="前端笔记："></a>前端笔记：</h1><h2 id="h5笔记："><a href="#h5笔记：" class="headerlink" title="h5笔记："></a>h5笔记：</h2><ol>
-<li><p>英文状态下输入！可以直接跳出格式</p>
-</li>
-<li><p>UTF-8：万国码</p>
-</li>
-<li><p>head第二行没用，可以删去。</p>
-</li>
-<li><p>title内为网页名称</p>
-</li>
-<li><p>body内填网页内容</p>
-</li>
-<li><p><xxx>这是单标签 主要用于申明属性 <xxx></xxx> 主要用于输入内容</p>
-</li>
-<li><p>lang 后面写语言 en代表英语 可以直接删去</p>
-</li>
-<li><p>段落标签：<h1>-<h6> 段落和换行标签：<p>&lt;\p&gt; <br/></p>
-<ol>
-<li>水平线分割标签<hr/></li>
-</ol>
-</li>
-<li><p>斜体<em><em/></p>
-</li>
-<li><p>加粗<strong></strong></p>
-</li>
-<li><p>结构标签<div></div> 、<span></span></p>
-</li>
-<li><p>图片标签：输入image src后面填写路径 alt后面是若图片出现异常无法显示而显示的文本 后面可以跟width设定宽度 height设置高度</p>
-</li>
-<li><p>超链接：a标签 herf后面跟网址 标签内内容填写超链接显示文字或者标签嵌套加入image标签做成图片超链接</p>
-</li>
-<li><p>锚链接：使用超链接实现 只是跳转到内部 所以跳转目标出设定一个id 然后a标签herf后写“#id名”即可</p>
-</li>
-<li><p>功能性发邮件&#x2F;打电话：也是以超链接形式实现 herf后写mailto：邮箱地址 实现发邮件 herf后写tel：电话号码实现打电话</p>
-</li>
-<li><p>块级元素：独占一行，换行显示，可以设置宽高，块可以套块和行。</p>
-</li>
-<li><p>行级元素：在行内显示，内容撑开宽高，不可以设置宽高（img、input除外），行只能套行。</p>
-</li>
-</ol>
-<h2 id="css3笔记："><a href="#css3笔记：" class="headerlink" title="css3笔记："></a>css3笔记：</h2><ol>
-<li>选择器{声明；属性：值；} 如<style>h1{color:red}</style> （标签选择器）</li>
-<li><strong>颜色</strong>：color 字体大小：front-size</li>
-<li><strong>类选择器</strong>：1.首先在标签中 定义类名 class&#x3D;“类名”多个标签的类名可以重复 因为类选择器目的就是选中多个 2.使用方法： .类名{声明；}</li>
-<li><strong>id选择器</strong>：首先在标签中 定义id名 id&#x3D;“id名” 2.使用方法： #id名{声明；}</li>
-<li><strong>id选择器和类型选择器的区别：</strong> id是唯一的 类不唯一</li>
-<li><strong>标签选择器 &lt; 类选择器 &lt; id选择器</strong></li>
-<li><strong>可以同时设置标签和id</strong></li>
-<li>Html导入css的样式方法：1.<strong>内连样式：</strong>在head之前写css 2.<strong>内部样式</strong> 在每个标签内写 3.<strong>外联样式</strong>：直接新创建一个css文件 格式：选择器{声明；} 然后将新css文件和原html文件连接起来 连接方式：html文件head前加link 然后跳出框内herf后写css文件路径以及名字（链接式）</li>
-<li>当前目录：.&#x2F;</li>
-<li>第二种外联连接方式：head前加<style></style>里面用@import url（css文件路径以及名字）（导入式）</li>
-<li>一般用链接式，导入式只能导入css样式，而且有些浏览器不兼容</li>
-<li>样式优先级：内部&gt;内联？外联 取决于在head中 谁在下面，谁的样式起作用</li>
-<li>设置字体样式：font-family 设置字体类型  font-style 设置字体风格italic（斜体） front-weight 设置字体粗细 font 可以设定所有属性</li>
-<li>text-align 文本位置 left左对齐 right右对齐 center居中</li>
-<li>设置字体颜色：color：颜色</li>
-<li>background-color 背景颜色</li>
-<li>line-height:行高 </li>
-<li>text-decoration 文本装饰 underline（下划线）overline（上划线） line-through（中划线） none取消所有格式</li>
-<li><strong>伪类语法：</strong>伪类名称：a:link（未单击访问时超链接形式） a:visited （单击访问后超链接形式） a:hover（鼠标悬浮其上的超链接样式） a:active（鼠标单击未释放） 内部可以加属性如color然后设定颜色</li>
-<li><strong>css设定鼠标形状：</strong>default 默认光标 pointer 超链接的指针（手） wait（转圈等待的效果）help（指示可用的帮助） text（指示文本） crosshair（十字架）</li>
-<li>在伪类语法中用cursor使用设定鼠标形状</li>
-<li>span的作用类似小括号 用于改文本局部的样式</li>
-<li>列表分为： 无序列表（ul） 有序列表（ol） 自定义列表（dl）</li>
-<li>（在body内）使用列表分为两个步骤：申明列表类型 和申明列表项 </li>
-<li>每个浏览器为列表设定的初边距不一样 所以需要style内加上*{margin：0；padding：0；}</li>
-<li>有序列表会帮你排序 标上序号 若像倒叙 则在ol 后加reversed</li>
-<li>更改序号类型可在ol后加type选择序号类型</li>
-<li>设置起始序号 start&#x3D;“xx”</li>
-<li>设置无序列表的类型：style中加list-style选择类型 none是取消·</li>
-<li>自定义列表使用方法 dt后内容左对齐 dd相当于段落行</li>
-<li>表格<table>标签  <tr></tr>行 <td></td>列</li>
-<li>列合并：（标签内加入）colspan&#x3D;“合并几列”框内写合并框的内容</li>
-<li>同样的原理 行合并：rowspan</li>
-<li>表单：input标签 一般格式<input type="xxx"> xxx可以是text（文本）、password（密码···形式）、radio（选择圆圈）</li>
-<li>Radio设置多选一可以把所有选项取相同名字 即都加name&#x3D;“xxx”</li>
-<li>默认选中：标签内加checked&#x3D;“checked”</li>
-<li>扩大选框选中的范围：1.给文字部分加一个label标签 for起名字 2.给input起一个和for后面名字相同的id名</li>
-<li>复选框：type&#x3D;“checkbox”</li>
-<li>按钮：type&#x3D;“botton” value后面写内容 或者<button>xxx</button></li>
-<li>选择框下拉菜单：<select> <option>xxx…</select> xxx填写备选项 value后面写获取该选项时反馈的值</li>
-<li>option&lt;&gt;内后可以加selected&#x3D;“selected”使该选项为默认选择</li>
-<li>多行文本域（限制最大输入字数）：<textarea>xxx</textarea>标签 name后面写该多行文本域 cols：显示的行数 rows：显示的列数 xxx：文本内容 （但一般不用textarea）</li>
-<li>使用input限制输入文字个数：利用maxlength属性 设定最大输入长度 在input类型是text或者password时适用</li>
-<li>可以给input设置id 然后可以通过id选择器设置输入框宽高</li>
-<li>隐藏域：type&#x3D;“hidden” 可以隐藏内容且不占空间 同时也可以<p hidden>隐藏段落</li>
-<li>只读：readonly 在标签内加</li>
-<li>禁用：（按钮变成灰色不可使用状态）一般使用于后期的判断 disabled 在标签内加</li>
-<li>后代选择器：标签选择器下通过写一层层的标签 如li a{color：red；} 注：只要是后代，都发生变化</li>
-<li>子代选择器：只有儿子生效 使用方法：类似于后代选择器 但用&gt;连接 如h1&gt;strong{color:red;}</li>
-<li>并集选择器：用，连接标签选择器下的多个声明 可以联用子代选择器</li>
-<li>交集选择器：用.连接标签选择器下的多个声明</li>
-<li>属性选择器（只要具备某个属性，或者属性&#x3D;属性值，就会被选中执行某些操作）：在标签选择器下用[xxx]{}xxx是属性如herf 满足以下任意条件：1.具备某个属性 2.满足属性&#x3D;值 3.^&#x3D;‘’以什么字母开头 $&#x3D;‘’以什么字母结束 4.*&#x3D;“xxx”包含xxx</li>
-<li>边框设置的四种样式：border属性：后面可以添加宽、线类型、颜色 线类型：solid（实线）、dashed（虚线）、double（双实线）、dotted（点状虚线）</li>
-<li>如果只给了一个边框属性，那么则同时生效作用于元素的四个边框</li>
-<li>若想让元素的四个边框不同，可以分别设置 如border-top border-bottom border-left border-right</li>
-<li>将div变圆：border-radius属性 参数设置为50% 且div必须是正方形 否则是椭圆</li>
-<li>将div变三角形：将div的width和height都设置为0px 设置四个边框不同颜色相同像素宽 将其他三个边框颜色设置为transparent（透明） 即可 （调高width或height可以变成梯形）</li>
-<li>给元素设置外边距：margin参数 可以margin-bottom、margin-top……一个个单独设置 也可以直接margin后面跟四个参数值（依次为上右下左） 单位为px（像素） 另外，设置两个值的时候第一个值代表上下 第二个值代表左右</li>
-<li>盒模型的计算大小：实际展示大小&#x3D;元素大小+边框+内边距</li>
-<li>内边距：padding 用法和margin相同</li>
-<li>怪异模式：box-sizing：border-box 增加内边距且不改变元素的大小</li>
-<li>初始化css样式：不同浏览器初始格式不同 需要统一样式 则需要先初始化 即设置*{margin：0；padding：0；}</li>
-<li>块元素：一定是独占一行，可以设置宽高。如ul、ol、li、form、div等</li>
-<li>行内块元素：不独占一行，可以设置宽高。如button、img、input、select等</li>
-<li>行内元素：不独占一行，可以设置宽高。如：span、a、label等</li>
-<li>转换为行内元素：display：inline 转换为块元素：display：block 转换为行内块元素：display：inline-block</li>
-<li>浮动：float  可以设定方向如float：left</li>
-<li>元素浮动之后就脱离了标准文档流 </li>
-<li>清除浮动的方法：1.给浮动的父元素加一个高度 2.给浮动下面建一个空白的div 起名叫clearfix，然后在选择器中设定clearfix下clear：both（或者clear：方向）</li>
-<li>超出部分隐藏：overflow:xxx xxx可以是visible(默认值。内容不会被修建，会呈现在盒子之外) hidden（内容会被剪切，且其余内容不可见） scroll（内容会被修建，但浏览器会显示滚动条以便查看其余内容） auto(如果内容被剪切，则浏览器会显示滚动条以便查看其余内容)</li>
-<li>定位：把元素放在我们指定的位置</li>
-<li><strong>定位分类：</strong>static（默认值，没有定位） relative（相对定位） absolute（绝对定位)  fixed(固定定位)</li>
-<li><strong>固定定位：</strong>滚轮滑动，显示的位置一直不变  参照物：浏览器屏幕  不占实际位置，位置会被下面元素占去</li>
-<li>申明定位属性后，可以通过设定left、bottom（距离当前页面最底部的距离）、top、right的参数值来设定位置</li>
-<li><strong>相对定位：</strong>滚轮滑动，位置随滑动改变。占实际位置，位置不会被下面元素占去 参照物：自身左上角的原点 </li>
-<li><strong>绝对定位：</strong>脱离标准流 ，如果绝对元素的父元素没有设定过任意定位，参照物是最外面元素的左上角（浏览器的左上角），如果绝对元素的父元素有任意定位，参照物就是父元素的左上角。</li>
-<li>子元素设定绝对定位，那一般父元素就设定相对定位</li>
-<li><strong>z-index属性：</strong>整数，默认值为0 数字越大越优先显示 用于重叠的时候分层 最大值是2147483647 值相同的时候 谁的代码在下面谁优先显示，因为程序最后读到他</li>
-<li>实现文本在div中上下居中：使用flex布局 display: flex;align-items: center;justify-content: space-around; flex-direction: column;</li>
-<li></li>
-</ol>
-<h2 id="JS笔记："><a href="#JS笔记：" class="headerlink" title="JS笔记："></a>JS笔记：</h2><ol>
-<li><p><strong>JavaScipt分为三个部分：</strong>ECMAScript、BOM、DOM。ECMAScipt：语言标准 BOM：浏览器对象模型，只要是浏览器给我提供的功能，前后退隐藏最小化最大关闭等统称为BOM DOM：文档对象模型，页面上显示的所有内容，统称为DOM</p>
-</li>
-<li><p>js文件代码的后缀就直接是.js</p>
-</li>
-<li><p><strong>Js代码引入的三种方式：</strong>外部、内部、行内。</p>
-</li>
-<li><p><strong>外部引入：</strong>使用<script>表现 在h5文件的head中利用<script src="xxx"></script> xxx为js文件地址</p>
-</li>
-<li><p><strong>内部样式：</strong>在script双标签之间填入js内容 可以放在head双标签之间 body双标签之间 body双标签之外</p>
-</li>
-<li><p><strong>标签内部嵌套：</strong>eg.&lt;button onclick&#x3D;“alert(xxx)”xxx</button></p>
-</li>
-<li><p><strong>js的方法：</strong>弹框输出方法：alert（‘弹出内容’(或者用””)）document.write(‘xxx’)直接显示</p>
-</li>
-</ol>
-<p>声明变量：var 变量名&#x3D;值  赋值：等号后面的值赋值给等号前面的变量名 变量：常常变化的量</p>
-<ol start="8">
-<li><p>声明变量后，系统会立马在内存开辟一片空间。</p>
-</li>
-<li><p>声明变量如果不写var，解释器会自动帮你补全。</p>
-</li>
-<li><p>js中<strong>；</strong>代表结束</p>
-</li>
-<li><p>接受浏览器弹框输入：prompt（‘xxx’） xxx为内容（提示用户输入的信息）</p>
-</li>
-<li><p><strong>js的数据类型：</strong>undefined 当变量被申明时没有初识值，则将会被赋予undefined      null 表示一个空值，与undefined值相等    number 包含整数和浮点数    boolean 布尔型    string 被引号括起来的文本    object 属性的集合、每个属性都由‘名&#x2F;值’对构成 </p>
-</li>
-<li><p>只要变量值是‘’ 无论前面怎么定义变量类型 都是string类型</p>
-</li>
-<li><p>console.log(xxx) xxx为变量名 这是程序员调试用的 可以测试xxx的输出值</p>
-</li>
-<li><p>算术运算符：+、-、*、&#x2F;、%、++、–     赋值运算符：&#x3D;   比较运算符：&gt;、&lt;、&gt;&#x3D;、&lt;&#x3D;、&#x3D;&#x3D;、!&#x3D;</p>
-</li>
-<li><p>加法：对于A+B，如果一个是字符串，一个是数字类型，会拼接 ，如果都是数字类型，则会运算</p>
-</li>
-<li><p>减法：对变量隐式转换，只要能转换为number类型，全部转换为number类型，然后运算</p>
-</li>
-<li><p>如果无法转换为number类型，将不再运算 无法运算 返回结果NaN （not a number）</p>
-</li>
-<li><p>乘法、除法和减法一样</p>
-</li>
-<li><p>取余数的时候 如果被除数小于除数 取本身</p>
-</li>
-<li><p>取整 在需要取整的变量前加parseInt</p>
-</li>
-<li><p>小数 paseInt</p>
-</li>
-<li><p>&#x3D;&#x3D;只判断内容   &#x3D;&#x3D;&#x3D;不但判断值，还要判断数据类型 成立返回true 不成立返回false</p>
-</li>
-<li><p>++代表自增 –代表自减  ++在前，先自增，再运算 –在后，先运算，再自增</p>
-</li>
-<li><p>变量命名规则 严格区分大小写 不能以数字开头 不能是关键字、保留字 遵循驼峰命名法（首字母小写，后面单词的首字母需要大写）</p>
-</li>
-<li><p>typeof可用来获取检测变量的数据类型 可以加在console.log(xxx)中xxx的前面 则输出值为xxx的数据类型</p>
-</li>
-<li><p>if、if else、else if、switch、do-while、break语句用法和c语言相同</p>
-</li>
-<li><p>三元表达式（三目运算符）：条件表达式？表达式1：表达式2 如果条件表达式为真 则返回表达式1的值 如果条件表达式为假 则返回表达式2的值</p>
-</li>
-<li><p>声明函数语法结构：function 函数名（）{ 函数体 }  调用函数则直接使用函数名（）即可</p>
-</li>
-<li><p>我们可以利用函数的参数实现函数重复不同的代码（参照c语言的实参和形参的区别）</p>
-</li>
-<li><p>如果实参数量大于形参，则会忽略多余的实参用其他的进行运算 如果实参数量小于形参，意味着是数字加上undefined，结果是NaN</p>
-</li>
-<li><p>返回语句return语句和c语言用法相同</p>
-</li>
-<li><p>不知道有多少个参数传递时，可以用arguments来获取。arguments实际上是当前函数的一个内置对象。所有函数都内置了一个arguments对象，arguments对象中储存了传递的所有实参。</p>
-<p>1.arguments展现形式是一个伪数组，因此可以遍历。具有特点：1.具有数组的length属性 2.按照索引的方式进行存储的3.它没有真正数组的一些方法pop（） push()等等</p>
-<p>用法eg.function fn(){</p>
-<p>console.log(agruments);</p>
-<p>}</p>
-<p>fn(1,2,3);</p>
-</li>
-<li><p>预解析：js引擎会把js里面所有的var还有function提升到当前作用域的最前面。</p>
-</li>
-<li><p>构造函数的语法格式：function 构造函数名(){</p>
-<p>this.属性&#x3D;值；</p>
-<p>this.方法&#x3D;function(){}</p>
-<p>}</p>
-</li>
-<li><p>1.构造函数的名字首字母必须要大写 2.构造函数不需要return就可以返回结果 3.我们构造函数必须要使用new 4.我们只要new Star（）调用函数就创建了一个对象 5.我们的属性和方法前面必须添加this</p>
-</li>
-<li><p>对象：特指是一个具体的事物</p>
-</li>
-<li><p>我们利用构造函数创建对象的过程我们也称之为对象的实例化</p>
-</li>
-<li><p>new关键字执行过程：1.new构造函数可以在内存中创建一个空的对象  2.this就会指向刚才创建的空对象 3.执行构造函数的代码 给这个空对象添加属性和方法  4.返回这个对象</p>
-</li>
-<li><p>遍历对象：for（变量 in 对象）{   }</p>
-</li>
-<li><p>JS中的对象分为3种：自定义对象、内置对象、浏览器对象</p>
-</li>
-<li><p>通过查MDN文档可以查阅js的具体各内置对象用法</p>
-</li>
-<li><p>Math数学对象 不是一个构造函数，所以我们不需要new来调用 而是直接使用里面的属性和方法即可。</p>
-</li>
-<li><p>js中的四舍五入：其他数字都是四舍五入，只有.5是往大了取 如-1.5四舍五入后是-1</p>
-</li>
-<li><p><strong>window.onload()</strong> 方法用于在网页加载完毕后立刻执行的操作，即当 HTML 文档加载完毕后，立刻执行某个方法。</p>
-</li>
-<li><p>window.onload 事件绑定事件处理函数，绑定的是一个匿名函数，也可以绑定具名函数。</p>
-<ol>
-<li></li>
-</ol>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>自学资料</category>
-      </categories>
-      <tags>
-        <tag>前端</tag>
-        <tag>Markdown</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java学习笔记</title>
-    <url>/2023/08/13/Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<h2 id="Java学习笔记"><a href="#Java学习笔记" class="headerlink" title="Java学习笔记"></a>Java学习笔记</h2><h3 id="一、基本格式"><a href="#一、基本格式" class="headerlink" title="一、基本格式"></a>一、基本格式</h3><h4 id="1-类"><a href="#1-类" class="headerlink" title="1.类"></a>1.类</h4><p>类是Java的基本结构，一个程序可以包含一个或多个类</p>
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><meta name="generator" content="Hexo 6.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/./img/%E5%A4%B4%E5%83%8F.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">3</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/./img/bg1.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="仰望星空时"><span class="site-name">仰望星空时</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Java学习笔记</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-08-13T12:09:57.632Z" title="发表于 2023-08-13 20:09:57">2023-08-13</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-08-13T12:39:42.622Z" title="更新于 2023-08-13 20:39:42">2023-08-13</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/">复习资料</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">14.6k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>53分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Java学习笔记"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="Java学习笔记"><a href="#Java学习笔记" class="headerlink" title="Java学习笔记"></a>Java学习笔记</h2><h3 id="一、基本格式"><a href="#一、基本格式" class="headerlink" title="一、基本格式"></a>一、基本格式</h3><h4 id="1-类"><a href="#1-类" class="headerlink" title="1.类"></a>1.类</h4><p>类是Java的基本结构，一个程序可以包含一个或多个类</p>
 <p>类的申明：</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">修饰符class类名&#123;</span></span><br><span class="line"><span class="comment">	 程序代码</span></span><br><span class="line"><span class="comment">&#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">HelloWorld</span>&#123;            <span class="comment">//声明一个名为HelloWorld的类</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -807,13 +589,82 @@
 <h5 id="3-使用Callable接口和Futrue接口创建线程"><a href="#3-使用Callable接口和Futrue接口创建线程" class="headerlink" title="3.使用Callable接口和Futrue接口创建线程"></a>3.使用Callable接口和Futrue接口创建线程</h5><p>重写run()方法实现功能代码有一定局限性，这样做方法没有返回值且不能抛出异常</p>
 <p>Java提供了Callable接口来解决这样的问题，接口内有一个call()方法可以作为线程执行体，call()方法有返回值且可以抛出异常。</p>
 <p>(1)定义</p>
-]]></content>
-      <categories>
-        <category>复习资料</category>
-      </categories>
-      <tags>
-        <tag>JAVA</tag>
-        <tag>Markdown</tag>
-      </tags>
-  </entry>
-</search>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://ljqkkirito16.top">KKirito</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://ljqkkirito16.top/2023/08/13/Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">https://ljqkkirito16.top/2023/08/13/Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://ljqkkirito16.top" target="_blank">仰望星空时</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/JAVA/">JAVA</a><a class="post-meta__tags" href="/tags/Markdown/">Markdown</a></div><div class="post_share"><div class="social-share" data-image="/./img/%E5%A4%B4%E5%83%8F.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2023/08/13/%E5%89%8D%E7%AB%AF%E7%AC%94%E8%AE%B0/" title="前端学习笔记（部分）"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">前端学习笔记（部分）</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2023/08/13/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/" title="操作系统期末复习总结"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-08-13</div><div class="title">操作系统期末复习总结</div></div></a></div><div><a href="/2023/08/13/%E5%89%8D%E7%AB%AF%E7%AC%94%E8%AE%B0/" title="前端学习笔记（部分）"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-08-13</div><div class="title">前端学习笔记（部分）</div></div></a></div></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div><div id="comment-switch"><span class="first-comment">Valine</span><span class="switch-btn"></span><span class="second-comment">Disqus</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div><div><div id="disqus_thread"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/./img/%E5%A4%B4%E5%83%8F.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">KKirito</div><div class="author-info__description">无论暴风将我带到什么岸边，我都将以主人的身份上岸</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">3</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/kkirito16"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/kkirito16" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:2021090917010@std.uestc.edu.cn" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #24292e;"></i></a><a class="social-icon" href="/img/qq.jpg" target="_blank" title="QQ"><i class="fa-brands fa-qq"></i></a><a class="social-icon" href="/img/wechat.jpg" target="_blank" title="微信"><i class="fa-brands fa-weixin"></i></a><a class="social-icon" href="https://space.bilibili.com/171235920" target="_blank" title="bilibili"><i class="fa-brands fa-bilibili"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">追星的少年不会停下，只为寻得心中的那颗星，璀璨入心。</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0"><span class="toc-number">1.</span> <span class="toc-text">Java学习笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%9F%BA%E6%9C%AC%E6%A0%BC%E5%BC%8F"><span class="toc-number">1.1.</span> <span class="toc-text">一、基本格式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E7%B1%BB"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="toc-number">1.1.2.</span> <span class="toc-text">2.修饰符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E5%9D%97"><span class="toc-number">1.1.3.</span> <span class="toc-text">3.块</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E6%B3%A8%E9%87%8A"><span class="toc-number">1.2.</span> <span class="toc-text">二、注释</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%8D%95%E8%A1%8C%E6%B3%A8%E9%87%8A"><span class="toc-number">1.2.1.</span> <span class="toc-text">1.单行注释</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%A4%9A%E8%A1%8C%E6%B3%A8%E9%87%8A"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.多行注释</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.3.</span> <span class="toc-text">三、基本数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E6%95%B4%E6%95%B0%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.3.1.</span> <span class="toc-text">1.整数类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E6%B5%AE%E7%82%B9%E6%95%B0%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.3.2.</span> <span class="toc-text">2.浮点数类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E5%AD%97%E7%AC%A6%E5%9E%8B"><span class="toc-number">1.3.3.</span> <span class="toc-text">3.字符型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E5%B8%83%E5%B0%94%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.3.4.</span> <span class="toc-text">4.布尔类型</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E5%8F%98%E9%87%8F"><span class="toc-number">1.4.</span> <span class="toc-text">四、变量</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%A3%B0%E6%98%8E%E5%8F%98%E9%87%8F"><span class="toc-number">1.4.1.</span> <span class="toc-text">1.声明变量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%8F%98%E9%87%8F%E7%9A%84%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="toc-number">1.4.2.</span> <span class="toc-text">2.变量的类型转换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E5%8F%98%E9%87%8F%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="toc-number">1.4.3.</span> <span class="toc-text">3.变量的作用域</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E5%B8%B8%E9%87%8F"><span class="toc-number">1.4.4.</span> <span class="toc-text">4.常量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E8%BD%AC%E4%B9%89%E5%AD%97%E7%AC%A6"><span class="toc-number">1.4.5.</span> <span class="toc-text">5.转义字符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">1.4.6.</span> <span class="toc-text">6.运算符</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">1.4.6.1.</span> <span class="toc-text">1.算术运算符</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">1.4.6.2.</span> <span class="toc-text">2.赋值运算符</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E5%85%B3%E7%B3%BB%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">1.4.6.3.</span> <span class="toc-text">3.关系运算符</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">1.4.6.4.</span> <span class="toc-text">4.位运算符</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E7%A8%8B%E5%BA%8F%E7%9A%84%E7%BB%93%E6%9E%84"><span class="toc-number">1.5.</span> <span class="toc-text">五、程序的结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E9%A1%BA%E5%BA%8F%E7%BB%93%E6%9E%84"><span class="toc-number">1.5.1.</span> <span class="toc-text">1.顺序结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E9%80%89%E6%8B%A9%E7%BB%93%E6%9E%84"><span class="toc-number">1.5.2.</span> <span class="toc-text">2.选择结构</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-if%E8%AF%AD%E5%8F%A5"><span class="toc-number">1.5.2.1.</span> <span class="toc-text">1.if语句</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-if-else%E8%AF%AD%E5%8F%A5"><span class="toc-number">1.5.2.2.</span> <span class="toc-text">2.if-else语句</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E4%B8%89%E7%9B%AE%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">1.5.2.3.</span> <span class="toc-text">3.三目运算符</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-if-else-if-else%E8%AF%AD%E5%8F%A5"><span class="toc-number">1.5.2.4.</span> <span class="toc-text">4.if-else if-else语句</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-switch%E8%AF%AD%E5%8F%A5"><span class="toc-number">1.5.2.5.</span> <span class="toc-text">5.switch语句</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84"><span class="toc-number">1.5.3.</span> <span class="toc-text">3.循环结构</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-while%E5%BE%AA%E7%8E%AF"><span class="toc-number">1.5.3.1.</span> <span class="toc-text">1.while循环</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-do-while%E5%BE%AA%E7%8E%AF"><span class="toc-number">1.5.3.2.</span> <span class="toc-text">2.do-while循环</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-for%E5%BE%AA%E7%8E%AF"><span class="toc-number">1.5.3.3.</span> <span class="toc-text">3.for循环</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-%E5%BE%AA%E7%8E%AF%E4%B8%AD%E6%96%AD"><span class="toc-number">1.5.3.4.</span> <span class="toc-text">4.循环中断</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1-break%E8%AF%AD%E5%8F%A5"><span class="toc-number">1.5.3.4.1.</span> <span class="toc-text">1.break语句</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2-continue%E8%AF%AD%E5%8F%A5"><span class="toc-number">1.5.3.4.2.</span> <span class="toc-text">2.continue语句</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E6%95%B0%E7%BB%84"><span class="toc-number">1.6.</span> <span class="toc-text">六、数组</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E6%95%B0%E7%BB%84%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-number">1.6.1.</span> <span class="toc-text">1.数组的初始化</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E9%9D%99%E6%80%81%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-number">1.6.1.1.</span> <span class="toc-text">1.静态初始化</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E5%8A%A8%E6%80%81%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-number">1.6.1.2.</span> <span class="toc-text">2.动态初始化</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E6%95%B0%E7%BB%84%E7%9A%84%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C"><span class="toc-number">1.6.2.</span> <span class="toc-text">2.数组的常用操作</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E8%AE%BF%E9%97%AE%E6%95%B0%E7%BB%84"><span class="toc-number">1.6.2.1.</span> <span class="toc-text">1.访问数组</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E6%95%B0%E7%BB%84%E5%85%83%E7%B4%A0%E7%9A%84%E5%AD%98%E5%8F%96"><span class="toc-number">1.6.2.2.</span> <span class="toc-text">2.数组元素的存取</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E6%95%B0%E7%BB%84%E9%81%8D%E5%8E%86"><span class="toc-number">1.6.2.3.</span> <span class="toc-text">3.数组遍历</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-%E6%95%B0%E7%BB%84%E6%9C%80%E5%A4%A7%E5%80%BC%E5%92%8C%E6%9C%80%E5%B0%8F%E5%80%BC"><span class="toc-number">1.6.2.4.</span> <span class="toc-text">4.数组最大值和最小值</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-%E6%95%B0%E7%BB%84%E6%8E%92%E5%BA%8F%E2%80%94%E2%80%94%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F%E6%B3%95"><span class="toc-number">1.6.2.5.</span> <span class="toc-text">5.数组排序——冒泡排序法</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84"><span class="toc-number">1.6.3.</span> <span class="toc-text">3.二维数组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E9%94%AF%E9%BD%BF%E6%95%B0%E7%BB%84"><span class="toc-number">1.6.4.</span> <span class="toc-text">4.锯齿数组</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E6%96%B9%E6%B3%95"><span class="toc-number">1.7.</span> <span class="toc-text">七、方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E6%96%B9%E6%B3%95%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-number">1.7.1.</span> <span class="toc-text">1.方法的定义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E6%96%B9%E6%B3%95%E7%9A%84%E8%B0%83%E7%94%A8"><span class="toc-number">1.7.2.</span> <span class="toc-text">2.方法的调用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E6%96%B9%E6%B3%95%E7%9A%84%E9%87%8D%E8%BD%BD"><span class="toc-number">1.7.3.</span> <span class="toc-text">3.方法的重载</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E6%96%B9%E6%B3%95%E7%9A%84%E9%80%92%E5%BD%92"><span class="toc-number">1.7.4.</span> <span class="toc-text">4.方法的递归</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%AB%E3%80%81%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1"><span class="toc-number">1.8.</span> <span class="toc-text">八、面向对象</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="toc-number">1.8.1.</span> <span class="toc-text">1.面向对象的概念</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E5%B0%81%E8%A3%85"><span class="toc-number">1.8.1.1.</span> <span class="toc-text">1.封装</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E7%BB%A7%E6%89%BF"><span class="toc-number">1.8.1.2.</span> <span class="toc-text">2.继承</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E5%A4%9A%E6%80%81"><span class="toc-number">1.8.1.3.</span> <span class="toc-text">3.多态</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1"><span class="toc-number">1.8.2.</span> <span class="toc-text">2.类与对象</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E7%B1%BB%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-number">1.8.2.1.</span> <span class="toc-text">1.类的定义</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%88%9B%E5%BB%BA%E4%B8%8E%E4%BD%BF%E7%94%A8"><span class="toc-number">1.8.2.2.</span> <span class="toc-text">2.对象的创建与使用</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E7%B1%BB%E7%9A%84%E5%B0%81%E8%A3%85"><span class="toc-number">1.8.2.3.</span> <span class="toc-text">3.类的封装</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-%E8%AE%BF%E9%97%AE%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="toc-number">1.8.2.4.</span> <span class="toc-text">4.访问修饰符</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1-%E5%85%AC%E6%9C%89%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6%E7%AC%A6%EF%BC%88public%EF%BC%89"><span class="toc-number">1.8.2.4.1.</span> <span class="toc-text">1.公有访问控制符（public）</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2-%E7%A7%81%E6%9C%89%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6%E7%AC%A6-private"><span class="toc-number">1.8.2.4.2.</span> <span class="toc-text">2.私有访问控制符(private)</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#3-%E4%BF%9D%E6%8A%A4%E9%98%B2%E6%8A%A4%E6%8E%A7%E5%88%B6%E7%AC%A6-protected"><span class="toc-number">1.8.2.4.3.</span> <span class="toc-text">3.保护防护控制符(protected)</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#4-%E9%BB%98%E8%AE%A4%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6%E7%AC%A6%EF%BC%88defaulted"><span class="toc-number">1.8.2.4.4.</span> <span class="toc-text">4.默认访问控制符（defaulted)</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95"><span class="toc-number">1.8.2.5.</span> <span class="toc-text">5.构造方法</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1-%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-number">1.8.2.5.1.</span> <span class="toc-text">1.构造方法的定义</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2-%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95%E7%9A%84%E9%87%8D%E8%BD%BD"><span class="toc-number">1.8.2.5.2.</span> <span class="toc-text">2.构造方法的重载</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-this%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-number">1.8.3.</span> <span class="toc-text">3.this关键字</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E4%BD%BF%E7%94%A8this%E8%B0%83%E7%94%A8%E7%B1%BB%E4%B8%AD%E7%9A%84%E5%B1%9E%E6%80%A7"><span class="toc-number">1.8.3.1.</span> <span class="toc-text">1.使用this调用类中的属性</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E4%BD%BF%E7%94%A8this%E8%B0%83%E7%94%A8%E6%88%90%E5%91%98%E6%96%B9%E6%B3%95"><span class="toc-number">1.8.3.2.</span> <span class="toc-text">2.使用this调用成员方法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E4%BD%BF%E7%94%A8this%E8%B0%83%E7%94%A8%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95"><span class="toc-number">1.8.3.3.</span> <span class="toc-text">3.使用this调用构造方法</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-static%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-number">1.8.4.</span> <span class="toc-text">4.static关键字</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E9%9D%99%E6%80%81%E5%8F%98%E9%87%8F"><span class="toc-number">1.8.4.1.</span> <span class="toc-text">1.静态变量</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95"><span class="toc-number">1.8.4.2.</span> <span class="toc-text">2.静态方法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E4%BB%A3%E7%A0%81%E5%9D%97"><span class="toc-number">1.8.4.3.</span> <span class="toc-text">3.代码块</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E5%86%85%E9%83%A8%E7%B1%BB"><span class="toc-number">1.8.5.</span> <span class="toc-text">5.内部类</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E6%88%90%E5%91%98%E5%86%85%E9%83%A8%E7%B1%BB"><span class="toc-number">1.8.5.1.</span> <span class="toc-text">1.成员内部类</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E9%9D%99%E6%80%81%E5%86%85%E9%83%A8%E7%B1%BB"><span class="toc-number">1.8.5.2.</span> <span class="toc-text">2.静态内部类</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E6%96%B9%E6%B3%95%E5%86%85%E9%83%A8%E7%B1%BB"><span class="toc-number">1.8.5.3.</span> <span class="toc-text">3.方法内部类</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-%E5%8C%BF%E5%90%8D%E5%86%85%E9%83%A8%E7%B1%BB"><span class="toc-number">1.8.5.4.</span> <span class="toc-text">4.匿名内部类</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-%E7%B1%BB%E7%9A%84%E7%BB%A7%E6%89%BF"><span class="toc-number">1.8.6.</span> <span class="toc-text">6.类的继承</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E7%94%A8%E6%B3%95"><span class="toc-number">1.8.6.1.</span> <span class="toc-text">1.用法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E9%87%8D%E5%86%99%E7%88%B6%E7%B1%BB%E6%96%B9%E6%B3%95"><span class="toc-number">1.8.6.2.</span> <span class="toc-text">2.重写父类方法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-super%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-number">1.8.6.3.</span> <span class="toc-text">3.super关键字</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-final%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-number">1.8.6.4.</span> <span class="toc-text">4.final关键字</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-%E6%8A%BD%E8%B1%A1%E7%B1%BB%E5%92%8C%E6%8E%A5%E5%8F%A3"><span class="toc-number">1.8.7.</span> <span class="toc-text">7.抽象类和接口</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E6%8A%BD%E8%B1%A1%E7%B1%BB"><span class="toc-number">1.8.7.1.</span> <span class="toc-text">1.抽象类</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E6%8E%A5%E5%8F%A3"><span class="toc-number">1.8.7.2.</span> <span class="toc-text">2.接口</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1-%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.8.7.2.1.</span> <span class="toc-text">1.接口的实现</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2-%E6%8E%A5%E5%8F%A3%E7%9A%84%E7%BB%A7%E6%89%BF"><span class="toc-number">1.8.7.2.2.</span> <span class="toc-text">2.接口的继承</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-%E5%A4%9A%E6%80%81"><span class="toc-number">1.8.8.</span> <span class="toc-text">8.多态</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-Object%E7%B1%BB"><span class="toc-number">1.8.9.</span> <span class="toc-text">9.Object类</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-toString-%E6%96%B9%E6%B3%95"><span class="toc-number">1.8.9.1.</span> <span class="toc-text">1.toString()方法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-equals-%E6%96%B9%E6%B3%95"><span class="toc-number">1.8.9.2.</span> <span class="toc-text">2.equals()方法</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#10-%E5%B7%A5%E5%8E%82%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.8.10.</span> <span class="toc-text">10.工厂设计模式</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.8.10.1.</span> <span class="toc-text">1.简单工厂模式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.8.10.2.</span> <span class="toc-text">2.工厂方法模式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.8.10.3.</span> <span class="toc-text">3.抽象工厂模式</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#11-%E5%8C%85"><span class="toc-number">1.8.11.</span> <span class="toc-text">11.包</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E5%8C%85%E7%9A%84%E5%AE%9A%E4%B9%89%E4%B8%8E%E4%BD%BF%E7%94%A8"><span class="toc-number">1.8.11.1.</span> <span class="toc-text">1.包的定义与使用</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-import%E8%AF%AD%E5%8F%A5"><span class="toc-number">1.8.11.2.</span> <span class="toc-text">2.import语句</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E7%BB%99Java%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E6%89%93%E5%8C%85"><span class="toc-number">1.8.11.3.</span> <span class="toc-text">3.给Java应用程序打包</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#12-Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-number">1.8.12.</span> <span class="toc-text">12.Lambda表达式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B9%9D-%E5%BC%82%E5%B8%B8"><span class="toc-number">1.9.</span> <span class="toc-text">九.异常</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%BC%82%E5%B8%B8%E7%9A%84%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.9.1.</span> <span class="toc-text">1.异常的类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%BC%82%E5%B8%B8%E7%9A%84%E5%A4%84%E7%90%86"><span class="toc-number">1.9.2.</span> <span class="toc-text">2.异常的处理</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E4%BD%BF%E7%94%A8try-catch%E5%A4%84%E7%90%86%E5%BC%82%E5%B8%B8"><span class="toc-number">1.9.2.1.</span> <span class="toc-text">1.使用try-catch处理异常</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E4%BD%BF%E7%94%A8throws%E5%85%B3%E9%94%AE%E5%AD%97%E6%8A%9B%E5%87%BA%E5%BC%82%E5%B8%B8"><span class="toc-number">1.9.2.2.</span> <span class="toc-text">2.使用throws关键字抛出异常</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E4%BD%BF%E7%94%A8throw%E5%85%B3%E9%94%AE%E5%AD%97%E6%8A%9B%E5%87%BA%E5%BC%82%E5%B8%B8"><span class="toc-number">1.9.2.3.</span> <span class="toc-text">3.使用throw关键字抛出异常</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%BC%82%E5%B8%B8"><span class="toc-number">1.9.3.</span> <span class="toc-text">4.自定义异常</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E6%96%AD%E8%A8%80"><span class="toc-number">1.9.4.</span> <span class="toc-text">5.断言</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%81-%E5%A4%9A%E7%BA%BF%E7%A8%8B"><span class="toc-number">1.10.</span> <span class="toc-text">十.多线程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%88%9B%E5%BB%BA"><span class="toc-number">1.10.1.</span> <span class="toc-text">1.线程的创建</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E7%BB%A7%E6%89%BFThread%E7%B1%BB%E5%88%9B%E5%BB%BA%E7%BA%BF%E7%A8%8B"><span class="toc-number">1.10.1.1.</span> <span class="toc-text">1.继承Thread类创建线程</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E5%AE%9E%E7%8E%B0Runnable%E6%8E%A5%E5%8F%A3%E5%88%9B%E5%BB%BA%E7%BA%BF%E7%A8%8B"><span class="toc-number">1.10.1.2.</span> <span class="toc-text">2.实现Runnable接口创建线程</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E4%BD%BF%E7%94%A8Callable%E6%8E%A5%E5%8F%A3%E5%92%8CFutrue%E6%8E%A5%E5%8F%A3%E5%88%9B%E5%BB%BA%E7%BA%BF%E7%A8%8B"><span class="toc-number">1.10.1.3.</span> <span class="toc-text">3.使用Callable接口和Futrue接口创建线程</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/08/13/Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="Java学习笔记">Java学习笔记</a><time datetime="2023-08-13T12:09:57.632Z" title="发表于 2023-08-13 20:09:57">2023-08-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/08/13/%E5%89%8D%E7%AB%AF%E7%AC%94%E8%AE%B0/" title="前端学习笔记（部分）">前端学习笔记（部分）</a><time datetime="2023-08-13T12:07:38.046Z" title="发表于 2023-08-13 20:07:38">2023-08-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/08/13/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/" title="操作系统期末复习总结">操作系统期末复习总结</a><time datetime="2023-08-13T11:55:28.155Z" title="发表于 2023-08-13 19:55:28">2023-08-13</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By KKirito</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: '',
+      appKey: '',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script><script>function loadDisqus () {
+  const disqus_config = function () {
+    this.page.url = 'https://ljqkkirito16.top/2023/08/13/Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/'
+    this.page.identifier = '/2023/08/13/Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/'
+    this.page.title = 'Java学习笔记'
+  }
+
+  const disqusReset = () => {
+    DISQUS.reset({
+      reload: true,
+      config: disqus_config
+    })
+  }
+
+  btf.addModeChange('disqus', disqusReset)
+
+  if (window.DISQUS) disqusReset()
+  else {
+    (function() { 
+      var d = document, s = d.createElement('script');
+      s.src = 'https://.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  }
+}
+
+if ('Valine' === 'Disqus' || !true) {
+  if (true) btf.loadComment(document.getElementById('disqus_thread'), loadDisqus)
+  else loadDisqus()
+} else {
+  function loadOtherComment () {
+    loadDisqus()
+  }
+}
+</script></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
