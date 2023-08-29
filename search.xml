@@ -1509,4 +1509,46 @@
         <tag>Markdown</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Vue3环境搭建</title>
+    <url>/2023/08/29/Vue3%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</url>
+    <content><![CDATA[<h1 id="Vue3环境搭建"><a href="#Vue3环境搭建" class="headerlink" title="Vue3环境搭建"></a>Vue3环境搭建</h1><h2 id="确保你已经安装"><a href="#确保你已经安装" class="headerlink" title="确保你已经安装"></a>确保你已经安装</h2><ul>
+<li>node.js</li>
+</ul>
+<h2 id="1-安装Vue3"><a href="#1-安装Vue3" class="headerlink" title="1.安装Vue3"></a>1.安装Vue3</h2><p>根据vue官网<a href="https://vuejs.org/">Vue.js - The Progressive JavaScript Framework | Vue.js (vuejs.org)</a>  Docs&#x2F;Guide&#x2F;Quick Start</p>
+<p>建议自行创建一个Vue项目的安装目录，打开终端并切换到创建好的安装目录（我这里是E:\Vue）</p>
+<p>运行命令安装最新的Vue：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm create vue@latest</span><br></pre></td></tr></table></figure>
+
+<img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/535d38f4bf2f69de6b9dc11b97ec37a.png" alt="535d38f4bf2f69de6b9dc11b97ec37a" style="zoom:150%;" />
+
+<p>接下来会跳出一系列选项</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/91377a3786b9ce2b25dc1b0facfd861.png" alt="91377a3786b9ce2b25dc1b0facfd861"></p>
+<p>有需要的话可以在对应选项后面选择Yes，我这里都选择不安装</p>
+<p>安装成功后显示：+</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1fd53c592c15e5787dcc455fddd59dd.png" alt="1fd53c592c15e5787dcc455fddd59dd"></p>
+<p>运行命令：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd vue-project #注意这里你显示的可能不是vue-project，同上面那个绿色的文件名字</span><br><span class="line">npm install</span><br><span class="line">npm run dev</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/946abc9319b74282832cf961465bfa9.png" alt="946abc9319b74282832cf961465bfa9"></p>
+<p>接下来，在浏览器中按照提示打开</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">http://localhost:5173/</span><br></pre></td></tr></table></figure>
+
+<p>出现如下页面则表示项目搭建成功</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/8a909238c7319a6fd2196fbf9c8ae58.png" alt="8a909238c7319a6fd2196fbf9c8ae58"></p>
+<h2 id="2-安装Vue-CLI"><a href="#2-安装Vue-CLI" class="headerlink" title="2.安装Vue-CLI"></a>2.安装Vue-CLI</h2><p>若需要在命令行中使用vue命令进行vue项目创建、vue图形化界面的使用，需要安装vue-cli</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install -g @vue/cli</span><br></pre></td></tr></table></figure>
+
+<p>可以用这个命令来检查其版本是否正确：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vue --version</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>个人经验文章</category>
+      </categories>
+      <tags>
+        <tag>Markdown</tag>
+        <tag>Vue3</tag>
+      </tags>
+  </entry>
 </search>
