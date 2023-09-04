@@ -1,6 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Vue3环境搭建</title>
+    <url>/2023/08/29/Vue3%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</url>
+    <content><![CDATA[<h1 id="Vue3环境搭建"><a href="#Vue3环境搭建" class="headerlink" title="Vue3环境搭建"></a>Vue3环境搭建</h1><h2 id="确保你已经安装"><a href="#确保你已经安装" class="headerlink" title="确保你已经安装"></a>确保你已经安装</h2><ul>
+<li>node.js</li>
+</ul>
+<h2 id="1-安装Vue3"><a href="#1-安装Vue3" class="headerlink" title="1.安装Vue3"></a>1.安装Vue3</h2><p>根据vue官网<a href="https://vuejs.org/">Vue.js - The Progressive JavaScript Framework | Vue.js (vuejs.org)</a>  Docs&#x2F;Guide&#x2F;Quick Start</p>
+<p>建议自行创建一个Vue项目的安装目录，打开终端并切换到创建好的安装目录（我这里是E:\Vue）</p>
+<p>运行命令安装最新的Vue：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm create vue@latest</span><br></pre></td></tr></table></figure>
+
+<img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/535d38f4bf2f69de6b9dc11b97ec37a.png" alt="535d38f4bf2f69de6b9dc11b97ec37a" style="zoom:150%;" />
+
+<p>接下来会跳出一系列选项</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/91377a3786b9ce2b25dc1b0facfd861.png" alt="91377a3786b9ce2b25dc1b0facfd861"></p>
+<p>有需要的话可以在对应选项后面选择Yes，我这里都选择不安装</p>
+<p>安装成功后显示：+</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1fd53c592c15e5787dcc455fddd59dd.png" alt="1fd53c592c15e5787dcc455fddd59dd"></p>
+<p>运行命令：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd vue-project #注意这里你显示的可能不是vue-project，同上面那个绿色的文件名字</span><br><span class="line">npm install</span><br><span class="line">npm run dev</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/946abc9319b74282832cf961465bfa9.png" alt="946abc9319b74282832cf961465bfa9"></p>
+<p>接下来，在浏览器中按照提示打开</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">http://localhost:5173/</span><br></pre></td></tr></table></figure>
+
+<p>出现如下页面则表示项目搭建成功</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/8a909238c7319a6fd2196fbf9c8ae58.png" alt="8a909238c7319a6fd2196fbf9c8ae58"></p>
+<h2 id="2-安装Vue-CLI"><a href="#2-安装Vue-CLI" class="headerlink" title="2.安装Vue-CLI"></a>2.安装Vue-CLI</h2><p>若需要在命令行中使用vue命令进行vue项目创建、vue图形化界面的使用，需要安装vue-cli</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install -g @vue/cli</span><br></pre></td></tr></table></figure>
+
+<p>可以用这个命令来检查其版本是否正确：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vue --version</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>个人经验文章</category>
+      </categories>
+      <tags>
+        <tag>Vue3</tag>
+        <tag>Markdown</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>前端学习笔记（部分）</title>
     <url>/2023/08/13/%E5%89%8D%E7%AB%AF%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="前端笔记："><a href="#前端笔记：" class="headerlink" title="前端笔记："></a>前端笔记：</h1><h2 id="h5笔记："><a href="#h5笔记：" class="headerlink" title="h5笔记："></a>h5笔记：</h2><ol>
@@ -237,7 +279,163 @@
         <category>自学资料</category>
       </categories>
       <tags>
+        <tag>Markdown</tag>
         <tag>前端</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>操作系统期末复习总结</title>
+    <url>/2023/08/13/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/</url>
+    <content><![CDATA[<h1 id="操作系统期末复习"><a href="#操作系统期末复习" class="headerlink" title="操作系统期末复习"></a>操作系统期末复习</h1><h2 id="1、进程和线程的概念"><a href="#1、进程和线程的概念" class="headerlink" title="1、进程和线程的概念"></a>1、进程和线程的概念</h2><h3 id="典型的进程定义有："><a href="#典型的进程定义有：" class="headerlink" title="典型的进程定义有："></a>典型的进程定义有：</h3><p>（1）进程是程序的一次执行。（2）进程是一个程序及其数据在处理机上顺序执行时所发生的活动。（3）进程是程序在一个数据集合上运行的过程，它是系统进行资源分配和调度的一个独立单位。</p>
+<h2 id="2、进程的基本状态及状态转换的原因"><a href="#2、进程的基本状态及状态转换的原因" class="headerlink" title="2、进程的基本状态及状态转换的原因"></a>2、进程的基本状态及状态转换的原因</h2><p><img src="https://pic.imgdb.cn/item/64d8c2e01ddac507cc26b93a.png"></p>
+<h3 id="状态转换："><a href="#状态转换：" class="headerlink" title="状态转换："></a>状态转换：</h3><p> ① 空 -&gt;新状态  新创建的进程首先处于新状态。 </p>
+<p>② 新状态 -&gt;就绪状态  当系统允许增加就绪进程时，操作系统接纳新建状态进程，将它变为就绪状态，插入就绪队列中。 </p>
+<p>③ 就绪状态 -&gt; 执行状态  当处理机空闲时，将从就绪队列中选择一个进程执行，该选择过程称为进程调度，或将处理机分派给一个进程，该进程状态从就绪转变为执行。 </p>
+<p>④ 执行状态 -&gt; 终止状态  执行状态的进程执行完毕，或出现诸如访问地址越界、非法指令等错误，而被异常结束，则进程从执行状态转换为终止状态。</p>
+<p>⑤ 执行状态 -&gt; 就绪状态  分时系统中，时间片用完，或优先级高的进程到来，将中断较低优先级进程的执行。进程从执行状态转变为就绪状态，等待下一次调度。</p>
+<p>⑥ 执行状态 -&gt; 阻塞状态  执行进程需要等待某事件发生。通常，会因为进程需要的系统调用不能立即完成，如读文件、共享虚拟内存、等待I&#x2F;O操作、等待另一进程与之通信等事件而阻塞。</p>
+<p>⑦ 阻塞状态 -&gt; 就绪状态  当阻塞进程等待的事件发生，就转换为就绪状态。进入就绪队列排队，等待被调度执行。</p>
+<h2 id="3-PCB的作用"><a href="#3-PCB的作用" class="headerlink" title="3.PCB的作用"></a>3.PCB的作用</h2><p>进程控制块：进程控制块的作用是使一个在多道程序环境下不能独立运行的程序（包含数据），成为一个能独立运行的基本单位，一个能与其它进程并发执行的进程。</p>
+<h2 id="4-进程控制的原语操作"><a href="#4-进程控制的原语操作" class="headerlink" title="4.进程控制的原语操作"></a>4.进程控制的原语操作</h2><h3 id="（1）进程的创建原语"><a href="#（1）进程的创建原语" class="headerlink" title="（1）进程的创建原语"></a>（1）进程的创建原语</h3><p>调用进程创建原语Create（  ）按下述步骤创建一个新进程</p>
+<h4 id=""><a href="#" class="headerlink" title=""></a><img src="https://pic.imgdb.cn/item/64d8c3d91ddac507cc28a180.png"></h4><h3 id="2-进程的终止原语"><a href="#2-进程的终止原语" class="headerlink" title="(2)进程的终止原语"></a>(2)进程的终止原语</h3><p>正常结束:  </p>
+<p>批处理中用Holt指令，分时中用Logs off指令</p>
+<p><img src="https://img-blog.csdnimg.cn/20200315164109198.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzkxNDYwNA==,size_16,color_FFFFFF,t_70"></p>
+<h3 id="（3）进程的唤醒和阻塞原语"><a href="#（3）进程的唤醒和阻塞原语" class="headerlink" title="（3）进程的唤醒和阻塞原语"></a>（3）进程的唤醒和阻塞原语</h3><p><img src="https://pic.imgdb.cn/item/64d8c4091ddac507cc290135.png"></p>
+<h3 id="引起进程阻塞的事件"><a href="#引起进程阻塞的事件" class="headerlink" title="引起进程阻塞的事件:"></a>引起进程阻塞的事件:</h3><p>(1）请求系统服务：提出I&#x2F;O服务时，并不立即满足该进程的要求时，转变为阻塞状态来等待</p>
+<p>(2）启动某种操作：当进程启动某种操作后，在该操作完成之后才能继续执行</p>
+<p>(3）新数据尚未到达：对于相互合作的进程而言。</p>
+<p> (4）无新工作可做。如发送进程</p>
+<h3 id="进程阻塞过程"><a href="#进程阻塞过程" class="headerlink" title="进程阻塞过程:"></a>进程阻塞过程:</h3><p>(1)正在执行的进程，当发现上述某事件时，由于无法继续执行，于是进程便通过调用阻塞原语block( )把自己阻塞</p>
+<p>(2)把进程控制块中的现行状态由“执行”改为“阻塞”，并将PCB插入阻塞队列</p>
+<p>(3)转调度程序进行重新调度，将处理机分配给另一就绪进程，并进行切换</p>
+<h3 id="进程唤醒过程："><a href="#进程唤醒过程：" class="headerlink" title="进程唤醒过程："></a>进程唤醒过程：</h3><p>当被阻塞进程所期待的事件出现时，则由有关进程（比如，用完并释放了该I&#x2F;O设备的进程）调用唤醒原语wakeup（  ），将等待该事件的进程唤醒</p>
+<h3 id="4-进程的挂起和激活过程"><a href="#4-进程的挂起和激活过程" class="headerlink" title="(4)进程的挂起和激活过程"></a>(4)进程的挂起和激活过程</h3><p><img src="https://pic.imgdb.cn/item/64d8c4351ddac507cc295969.png"></p>
+<h2 id="5-进程互斥、临界区、进程同步的基本概念、同步准则"><a href="#5-进程互斥、临界区、进程同步的基本概念、同步准则" class="headerlink" title="5.进程互斥、临界区、进程同步的基本概念、同步准则"></a>5.进程互斥、临界区、进程同步的基本概念、同步准则</h2><h3 id="进程互斥："><a href="#进程互斥：" class="headerlink" title="进程互斥："></a>进程互斥：</h3><p>进程互斥是进程之间的间接制约关系。当一个进程进入临界区使用临界资源时，另一个进程必须等待。只有当使用临界资源的进程退出临界区后，这个进程才会解除阻塞状态。</p>
+<h3 id="临界资源："><a href="#临界资源：" class="headerlink" title="临界资源："></a>临界资源：</h3><p>一次仅允许一个进程访问的资源为临界资源 。</p>
+<h3 id="临界区："><a href="#临界区：" class="headerlink" title="临界区："></a>临界区：</h3><p>把在每个进程中访问临界资源的那段代码称为临界区。</p>
+<h3 id="进程同步："><a href="#进程同步：" class="headerlink" title="进程同步："></a>进程同步：</h3><p>进程同步是一个操作系统级别的概念，是在多道程序的环境下，存在着不同的制约关系，为了协调这种互相制约的关系，实现资源共享和进程协作，从而避免进程之间的冲突，引入了进程同步。</p>
+<p>进程同步的主要任务：是使并发执行的诸进程之间能有效地共享资源和相互合作，从而使程序的执行具有可再现性。</p>
+<h3 id="同步准则："><a href="#同步准则：" class="headerlink" title="同步准则："></a>同步准则：</h3><p>1)空闲让进</p>
+<p>2)忙则等待</p>
+<p>3)有限等待</p>
+<p>4)让权等待</p>
+<h2 id="6-记录型信号量"><a href="#6-记录型信号量" class="headerlink" title="6.记录型信号量"></a>6.记录型信号量</h2><p>记录型信号量机制，则是一种不存在“忙等”现象的进程同步机制</p>
+<p>记录型信号量的数据结构: </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">type  semaphore = record</span><br><span class="line">                  value  ：integer；</span><br><span class="line">                  L：list  of  process；</span><br><span class="line"> end  </span><br></pre></td></tr></table></figure>
+
+<p>记录型信号量的wait（S）操作:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">procedure  wait（  S  ）</span><br><span class="line">    var  S：  semaphore；</span><br><span class="line">       begin   </span><br><span class="line">           S.value:＝S.value-1;</span><br><span class="line">           if  S.value＜0  then  block（S.L）;</span><br><span class="line">       end</span><br><span class="line">// S.value＜0，该类资源已经分配完毕，进程必须放弃处理机，自我阻塞。</span><br></pre></td></tr></table></figure>
+
+<p>记录型信号量的signal（S）操作:</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">procedure  signal（S）</span><br><span class="line">  var  S:semaphore； </span><br><span class="line">  begin</span><br><span class="line">      S.value:＝S.value+1；</span><br><span class="line">      if  S.value≤0  then   wakeup(S.L)；</span><br><span class="line">  end</span><br><span class="line">// S.value≤0 ，在信号量链表中，仍有等待该资源的进程被阻塞。</span><br></pre></td></tr></table></figure>
+
+<h2 id="7-信号量的应用"><a href="#7-信号量的应用" class="headerlink" title="7.信号量的应用"></a>7.信号量的应用</h2><ol>
+<li><h3 id="利用信号量实现进程互斥"><a href="#利用信号量实现进程互斥" class="headerlink" title="利用信号量实现进程互斥"></a>利用信号量实现进程互斥</h3></li>
+</ol>
+<p>为使多个进程能互斥地访问某临界资源，只须为该资源设置一互斥信号量mutex，并设其初始值为1，然后将各进程访问该资源的临界区CS置于wait（mutex）和signal（mutex）操作之间即可。</p>
+<p>利用信号量实现进程互斥的进程可描述如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Var  mutex：semaphore:=1；</span><br><span class="line">          begin</span><br><span class="line">          parbegin</span><br><span class="line"></span><br><span class="line">             process1：begin</span><br><span class="line">                 repeat</span><br><span class="line">                      wait（mutex）；</span><br><span class="line">                      critica1  section</span><br><span class="line">                      signal（mutex）；</span><br><span class="line">                     remainder  section  until false;</span><br><span class="line">             end</span><br><span class="line">             process2：begin</span><br><span class="line">                        repeat</span><br><span class="line">                            wait（mutex）;</span><br><span class="line">                            critical  section</span><br><span class="line">                            signal（mutex）;</span><br><span class="line">                            remainder section until false；</span><br><span class="line">              end</span><br><span class="line">   parend </span><br><span class="line">   end</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>wait（mutex）和signal（mutex）必须成对出现；</p>
+<p>缺少wait（mutex）导致系统混乱，不能保证对临界资源的互斥访问；</p>
+<p>缺少signal（mutex）会使临界资源永远不释放，等待该资源的进程不能被唤醒。</p>
+<h3 id="2-利用信号量实现前趋关系"><a href="#2-利用信号量实现前趋关系" class="headerlink" title="2.利用信号量实现前趋关系"></a>2.利用信号量实现前趋关系</h3><p><img src="https://pic.imgdb.cn/item/64d8c4351ddac507cc2959b5.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">p1( )&#123; S1； signal（a）；signal（b）；&#125;</span><br><span class="line">p2( )&#123; wait(a); S2；signal（c）；signal（d）; &#125;</span><br><span class="line">p3( )&#123; wait（b）；S3；signal（e）；&#125;</span><br><span class="line">p4( )&#123; wait（c）；S4；signal（f）；&#125;</span><br><span class="line">p5( )&#123; wait（d）；S5；signal（g）；&#125;</span><br><span class="line">p6( )&#123; wait（e）；wait（f）；wait（g）；S6；&#125;</span><br><span class="line"></span><br><span class="line">void main( )&#123;</span><br><span class="line">    semaphore a,b,c,d,e,f,g;</span><br><span class="line">    a.value=b.value=c.value=0;</span><br><span class="line">    d.value=e.value=f.value=g.value=0;</span><br><span class="line">    cobegin</span><br><span class="line">         p1( ); p2( ); p3( ); p4( ); p5( ); p6( );</span><br><span class="line">    coend;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="8-经典进程同步问题；生产者与消费者问题"><a href="#8-经典进程同步问题；生产者与消费者问题" class="headerlink" title="8.经典进程同步问题；生产者与消费者问题"></a>8.经典进程同步问题；生产者与消费者问题</h2><p>生产者和消费者进程共享一个大小固定的缓冲区，其中，一个或多个生产者生产数据，并将生产的数据存入缓冲区，并有一个消费者从缓冲区中取数据。 </p>
+<p>假设缓冲区的大小为n（存储单元的个数），它可以被生产者和消费者循环使用</p>
+<p>分别设置两个指针in和out，指向生产者将存放数据的存储单元和消费者将取数据的存储单元，如图</p>
+<p><img src="https://pic.imgdb.cn/item/64d8c4341ddac507cc29582e.png"></p>
+<p><img src="C:\Users\10410\Desktop\操作系统期末复习\image-20230616160458024.png" alt="image-20230616160458024"></p>
+<p><img src="https://pic.imgdb.cn/item/64d8c2c31ddac507cc267c42.png"></p>
+<h3 id="1-利用记录型信号量解决生产者一消费者问题"><a href="#1-利用记录型信号量解决生产者一消费者问题" class="headerlink" title="1.利用记录型信号量解决生产者一消费者问题"></a>1.利用记录型信号量解决生产者一消费者问题</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"> int  in=0, out=0;</span><br><span class="line"> item    buffer [n];</span><br><span class="line"> semaphore	mutex=1, empty=n, full=0;   </span><br><span class="line"> </span><br><span class="line">void producer( );</span><br><span class="line">void consumer( );</span><br><span class="line"></span><br><span class="line">void main( )&#123;</span><br><span class="line">      cobegin</span><br><span class="line">             producer( ); consumer( );</span><br><span class="line">      coend</span><br><span class="line">&#125;</span><br><span class="line">void producer( )&#123;</span><br><span class="line">    do&#123;</span><br><span class="line">      			…</span><br><span class="line">		Produce an item in nextp;</span><br><span class="line">              		…</span><br><span class="line">wait(empty);</span><br><span class="line">wait(mutex);</span><br><span class="line">buffer(in):=nextp;</span><br><span class="line">in:=(in+1) mod n;</span><br><span class="line">signal(mutex);</span><br><span class="line">signal(full);</span><br><span class="line">&#125;while(TRUE);</span><br><span class="line">&#125;</span><br><span class="line">void consumer&#123;</span><br><span class="line">	do&#123;</span><br><span class="line">	      wait(full);</span><br><span class="line">wait(mutex);</span><br><span class="line">nextc:=buffer(out);</span><br><span class="line">out:=(out+1) mod n;</span><br><span class="line">signal(mutex);</span><br><span class="line">signal(empty);</span><br><span class="line">Consumer the item in nextc;</span><br><span class="line">     ……</span><br><span class="line">&#125;while(TRUE);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-利用AND信号量解决生产者—消费者问题"><a href="#2-利用AND信号量解决生产者—消费者问题" class="headerlink" title="2.利用AND信号量解决生产者—消费者问题"></a>2.利用AND信号量解决生产者—消费者问题</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">  int  in=0, out=0;</span><br><span class="line">  item    buffer[ n ];</span><br><span class="line">  semaphore   mutex=1;</span><br><span class="line">  semaphore  empty=n, full=0;</span><br><span class="line"></span><br><span class="line">  void producer( )&#123;</span><br><span class="line">       do&#123;</span><br><span class="line">			…</span><br><span class="line">		 produce an item in nextp;</span><br><span class="line">			…</span><br><span class="line">		Swait(empty, mutex);</span><br><span class="line">		buffer[in] = nextp;</span><br><span class="line"> in = (in+1) % n;</span><br><span class="line">   Ssignal(mutex, full);</span><br><span class="line">      &#125;while(TRUE);</span><br><span class="line">   &#125; //end producer</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">void consumer&#123;</span><br><span class="line">   do&#123;</span><br><span class="line">	   Swait(full, mutex);</span><br><span class="line">	   nextc = buffer[out];</span><br><span class="line">	   out = (out+1) % n;</span><br><span class="line">	   Ssignal(mutex, empty);</span><br><span class="line">	   consumer the item in nextc;</span><br><span class="line">     &#125;while(TRUE);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="9-进程间通信的原理和实现方法-信箱"><a href="#9-进程间通信的原理和实现方法-信箱" class="headerlink" title="9.进程间通信的原理和实现方法   信箱"></a>9.进程间通信的原理和实现方法   信箱</h2><h3 id="进程间通信的原理和实现方法"><a href="#进程间通信的原理和实现方法" class="headerlink" title="进程间通信的原理和实现方法"></a>进程间通信的原理和实现方法</h3><h4 id="1-共享存储器系统"><a href="#1-共享存储器系统" class="headerlink" title="1.共享存储器系统"></a>1.共享存储器系统</h4><p>（1）基于共享数据结构的通信方式。  （2）基于共享存储区的通信方式。 </p>
+<h4 id="2-消息传递系统"><a href="#2-消息传递系统" class="headerlink" title="2.消息传递系统"></a>2.消息传递系统</h4><p>是目前的主要通信方式，信息单位：消息（报文）实现：一组通信命令（原语），具有透明性-&gt;同步的实现。     </p>
+<p>实现方式的不同，而分成:（1）直接通信方式   （2）间接通信方式</p>
+<h4 id="3-管道（Pipe）通信"><a href="#3-管道（Pipe）通信" class="headerlink" title="3.管道（Pipe）通信"></a>3.管道（Pipe）通信</h4><p>管道：连接一个读进程和一个写进程之间通信的共享文件。</p>
+<p>功能：大量的数据发收。注意：（1）互斥（2）同步 （3）对方是否存在</p>
+<h3 id="消息传递通信的实现方法"><a href="#消息传递通信的实现方法" class="headerlink" title="消息传递通信的实现方法"></a>消息传递通信的实现方法</h3><h4 id="1-直接通信方式"><a href="#1-直接通信方式" class="headerlink" title="1.直接通信方式"></a>1.直接通信方式</h4><p> 这是指发送进程利用OS所提供的发送命令，直接把消息发送给目标进程。系统提供下述两条通信命令（原语）：     </p>
+<p>Send  （Receiver，  message）；     </p>
+<p>Receive（Sender，  message）；</p>
+<h4 id="2-间接通信方式"><a href="#2-间接通信方式" class="headerlink" title="2.间接通信方式"></a>2.间接通信方式</h4><p>指进程之间利用信箱的通信方式。发送进程发送给目标进程的消息存放信箱；接收进程则从该信箱中，取出对方发送给自己的消息；消息在信箱中可以安全地保存，只允许核准的目标用户随时读取。     系统为信箱通信提供了若干条原语，分别用于信箱的创建、撤消和消息的发送、接收等。 </p>
+<p>优点：在读&#x2F;写时间上的随机性写进程 -&gt;信箱（中间实体）-&gt;读进程原语</p>
+<p>消息的发送和接收</p>
+<p>Send (mailbox, message)</p>
+<p>Receive (mailbox, message)</p>
+<h3 id="信箱"><a href="#信箱" class="headerlink" title="信箱"></a>信箱</h3><p>信箱分为以下三类：</p>
+<p>（1）私用信箱（2）公用信箱（3）共享信箱</p>
+<p>在利用信箱通信时，在发送进程和接收进程之间，存在以下四种关系：</p>
+<p>（1）一对一关系。 （2）多对一关系，客户&#x2F;服务器交互。 （3）一对多关系， 广播方式。（4）多对多关系。  </p>
+<h2 id="第四章"><a href="#第四章" class="headerlink" title="第四章"></a>第四章</h2><h2 id="10-重定位的基本概念：为什么要引入"><a href="#10-重定位的基本概念：为什么要引入" class="headerlink" title="10.重定位的基本概念：为什么要引入"></a>10.重定位的基本概念：为什么要引入</h2><p>为解决链接地址跟运行地址不同的问题。</p>
+<p>装入内存时，相对地址（数据、指令地址）要作出相应的修改以得到正确的物理地址，这个修改的过程称为重定位。</p>
+<h2 id="11-如何提高内存利用率：离散分配、对换机制、动态链接、虚拟存储器、存储器共享"><a href="#11-如何提高内存利用率：离散分配、对换机制、动态链接、虚拟存储器、存储器共享" class="headerlink" title="11.如何提高内存利用率：离散分配、对换机制、动态链接、虚拟存储器、存储器共享"></a>11.如何提高内存利用率：离散分配、对换机制、动态链接、虚拟存储器、存储器共享</h2><h3 id="离散分配"><a href="#离散分配" class="headerlink" title="离散分配"></a>离散分配</h3><h4 id="离散分配方式的引入："><a href="#离散分配方式的引入：" class="headerlink" title="离散分配方式的引入："></a>离散分配方式的引入：</h4><p>连续分配方式会产生内&#x2F;外零头</p>
+<p>为解决零头问题又要进行紧凑等高开销活动</p>
+<h4 id="什么是离散分配："><a href="#什么是离散分配：" class="headerlink" title="什么是离散分配："></a>什么是离散分配：</h4><p> 程序在内存中不一定连续存放</p>
+<h4 id="离散分配的体现"><a href="#离散分配的体现" class="headerlink" title="离散分配的体现:"></a>离散分配的体现:</h4><p>内存一块可以装入程序一页连续的多个页不一定装入连续的多个块中注：系统中页块的大小是不变的。</p>
+<h3 id="离散分配的优点："><a href="#离散分配的优点：" class="headerlink" title="离散分配的优点："></a>离散分配的优点：</h3><p>没有外零头不受连续空间限制，每块都能分出去仅有小于一个页面的内零头</p>
+<p>程序大小一般不是页大小的整数倍        </p>
+<p>由于进程的最后一页经常装不满一块而形成了不可利用的碎片，称之为“页内碎片”或称为“内零头”。 </p>
+<h2 id="对换"><a href="#对换" class="headerlink" title="对换"></a>对换</h2><p>对换指把内存中暂不能运行的进程或暂时不用和程序和数据，换到外存上，以腾出足够的内存空间，把已具备运行条件的进程，或进程所需要的程序和数据，换入内存。 </p>
+<p>对换是系统行为，是提高内存的利用率的有效措施。常用于多道程序系统或小型分时系统中，与分区存储管理配合使用。 </p>
+<h3 id="对换的实现："><a href="#对换的实现：" class="headerlink" title="对换的实现："></a>对换的实现：</h3><p>可在系统中设一对换进程，以执行换进内存、换出至外存操作。</p>
+<h3 id="对换的分类："><a href="#对换的分类：" class="headerlink" title="对换的分类："></a>对换的分类：</h3><h4 id="“整体对换”（进程对换）："><a href="#“整体对换”（进程对换）：" class="headerlink" title="“整体对换”（进程对换）："></a>“整体对换”（进程对换）：</h4><p>对换以整个进程为单位，用于分时系统，以解决内存紧张的问题；</p>
+<h4 id="“页面对换-分段对换”："><a href="#“页面对换-分段对换”：" class="headerlink" title="“页面对换&#x2F;分段对换”："></a>“页面对换&#x2F;分段对换”：</h4><p>对换以“页”或“段”为单位进行“部分对换”，该方法是实现请求分页及请求分段存储器的基础，支持虚存系统。</p>
+<p>为实现对换，系统需要三方面的功能：对换空间的管理、进程的换入、进程的换出</p>
+<h4 id="对换空间的管理："><a href="#对换空间的管理：" class="headerlink" title="对换空间的管理："></a>对换空间的管理：</h4><p>外存被分为两部分，文件区和对换区</p>
+<p>文件区用于存放文件，对它的管理应重在如何提高存储空间的利用率。所以对它采取离散分配方式。</p>
+<p>对换区存放从内存换出的进程，它们在外存的存放时间较短，换入、换出频繁。对对换区的管理应重在提高进程的换入换出速度。因此采用连续分配方式。</p>
+<p>为了能对对换区中的空闲盘块进行管理，在系统中应配置相应的数据结构，以记录外存的使用情况</p>
+<p>空闲分区表或空闲分区链。基本单位都是盘块</p>
+<p>对换区的分配采用连续分配方式，分配与回收与动态分区方式时内存的分配与回收方法雷同</p>
+<h4 id="进程的换出与换入："><a href="#进程的换出与换入：" class="headerlink" title="进程的换出与换入："></a>进程的换出与换入：</h4><h5 id="换出（swap-out）"><a href="#换出（swap-out）" class="headerlink" title="换出（swap out）"></a>换出（swap out）</h5><p>选择：首先选择阻塞或睡眠状态的进程，若有多个，按优先级由低到高进行选择。若没有此状态进程，则选择就绪状态的，仍然按优先级由低到高进行选择。为避免某进程被频繁的换入换出，还应考虑进程在内存中的驻留时间，优先选择驻留时间长的进程。</p>
+<h5 id="换入（swap-in）"><a href="#换入（swap-in）" class="headerlink" title="换入（swap in）"></a>换入（swap in）</h5><p>①从 PCB集合中查找“就绪且换出”的进程，有多个，则选择换出时间最长的。</p>
+<p>②根据进程大小申请内存，成功则读入，否则要先执行换出，再换入。</p>
+<p>③若还有可换入进程，则转向①。直至无“就绪且换出”进程或无法获得足够内存空间为止。</p>
+<h2 id="动态链接"><a href="#动态链接" class="headerlink" title="动态链接"></a>动态链接</h2><h4 id="与之相对的静态链接："><a href="#与之相对的静态链接：" class="headerlink" title="与之相对的静态链接："></a>与之相对的<strong>静态链接</strong>：</h4><p>在程序运行之前，先将各目标模块及它们所需的库函数，链接成一个完整的装入模块（又称执行模块），以后不再拆开。</p>
+<h3 id="装入时动态链接："><a href="#装入时动态链接：" class="headerlink" title="装入时动态链接："></a>装入时动态链接：</h3><p>用户源程序经编译后所得到的目标模块，是在装入内存时，边装入边链接的。即在装入一个目标模块时，若发生一个外部模块调用，将引起装入程序去找出相应的外部目标模块，并将其装入内存。        </p>
+<h4 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h4><ol>
+<li>便于软件版本的修改和更新。只需修改各个目标模块，不必将装入模块拆开，非常方便。        </li>
+<li>便于实现目标模块共享。即可以将一个目标模块链接到几个应用模块中，从而实现多个应用程序对该模块的共享。</li>
+</ol>
+<h3 id="运行时动态链接-Run-Time-Dynamic-Linking）："><a href="#运行时动态链接-Run-Time-Dynamic-Linking）：" class="headerlink" title="运行时动态链接(Run-Time Dynamic Linking）："></a>运行时动态链接(Run-Time Dynamic Linking）：</h3><p>将某些目标模块的链接推迟到执行时才进行，即在执行过程中，若发现一个被调用模块尚未装入内存时，由OS去找到该模块，将它装入内存，并链接到调用模块上。</p>
+<p>优点：执行过程中未被用到的目标模块，都不会被调入内存和被链接到装入模块上，不仅可加快程序的装入过程，而且可节省大量的内存空间</p>
+<h3 id="虚拟存储器"><a href="#虚拟存储器" class="headerlink" title="虚拟存储器"></a>虚拟存储器</h3><h4 id="虚拟存储器："><a href="#虚拟存储器：" class="headerlink" title="虚拟存储器："></a>虚拟存储器：</h4><p>是指具有请求调入功能和置换功能，能从逻辑上对内存容量加以扩充的一种存储器系统。</p>
+<h4 id="程序执行的局部性原理："><a href="#程序执行的局部性原理：" class="headerlink" title="程序执行的局部性原理："></a>程序执行的局部性原理：</h4><p>程序的执行总是呈现局部性。即，在一个较短的时间段内，程序的执行仅限于某个部分；相应的，它所访问的存储空间也局限于某个区域。因此，只要保证进程执行所需的部分程序和数据驻留在内存，一段时间内进程都能顺利执行</p>
+<p>局限性又表现在下述两个方面：</p>
+<h3 id="1-时间局限性"><a href="#1-时间局限性" class="headerlink" title="(1) 时间局限性"></a>(1) 时间局限性</h3><p>如果程序中的某条指令一旦执行，则不久以后该指令可能再次执行；如果某数据被访问过， 则不久以后该数据可能再次被访问产生时间局限性的典型原因，是由于在程序中存在着大量的循环操作</p>
+<h3 id="2-空间局限性"><a href="#2-空间局限性" class="headerlink" title="(2) 空间局限性"></a>(2) 空间局限性</h3><p>一旦程序访问了某个存储单元，在不久之后，其附近的存储单元也将被访问程序在一段时间内所访问的地址，可能集中在一定的范围之内，其典型情况便是程序的顺序执行</p>
+<h3 id="虚拟存储器的基本工作情况"><a href="#虚拟存储器的基本工作情况" class="headerlink" title="虚拟存储器的基本工作情况"></a>虚拟存储器的基本工作情况</h3><p>1）基于局部性原理。一个作业运行前，仅将那些当前要运行的页面（段）装入内存启动运行，其余暂在外存。</p>
+<p>2）若运行所需页面（段）不在内存，则利用请求调页（段）功能将其调入内存。</p>
+<p>3）若此时内存满，则利用置换功能，将内存中暂时不用的部分页面（段）调至外存，再将所需页面（段）调入。</p>
+<p>4）这样，可实现大程序在小内存中运行，也可实现内存中同时装入更多的进程并发执行。</p>
+<h3 id="虚拟存储器的实现方法"><a href="#虚拟存储器的实现方法" class="headerlink" title="虚拟存储器的实现方法"></a>虚拟存储器的实现方法</h3><h4 id="一、请求分页系统"><a href="#一、请求分页系统" class="headerlink" title="一、请求分页系统"></a>一、请求分页系统</h4><p>它是在纯分页系统的基础上增加了请求调页、页面置换两大功能所形成的页式虚拟存储系统。</p>
+<p>为了实现请求调页、页面置换两大功能，系统必须提供如下的硬件支持：        </p>
+<ol>
+<li>请求分页的页表机制。        </li>
+<li>缺页中断机构。        </li>
+<li>地址变换机构。</li>
+</ol>
+<p>此外，实现请求调页、页面置换两大功能还需得到OS的支持。</p>
+<h4 id="二、请求分段系统"><a href="#二、请求分段系统" class="headerlink" title="二、请求分段系统"></a>二、请求分段系统</h4><p>它是在纯分段系统的基础上增加了请求调段、分段置换两大功能所形成的段式虚拟存储系统。        </p>
+<p>为了实现请求调段、分段置换两大功能，系统必须提供如下的硬件支持：        </p>
+<ol>
+<li>请求分段的段表机制。        </li>
+<li>缺段中断机构。        </li>
+<li>地址变换机构。</li>
+</ol>
+<p>此外，实现请求调段、分段置换两大功能还需得到OS的支持。</p>
+<h4 id="三、段页式虚拟系统"><a href="#三、段页式虚拟系统" class="headerlink" title="三、段页式虚拟系统"></a>三、段页式虚拟系统</h4><p>目前，许多虚拟存储管理系统是建立在段页式系统的基础上的，通过增加了请求调页、页面置换两大功能所形成的段页式虚拟存储系统。</p>
+<h2 id="12-动态分区分配方式：分配、回收算法"><a href="#12-动态分区分配方式：分配、回收算法" class="headerlink" title="12.动态分区分配方式：分配、回收算法"></a>12.动态分区分配方式：分配、回收算法</h2><p>动态分区分配（可重定位分区分配）是指根据进程的实际需要，动态地为之分配连续的内存空间。即分区的边界可以移动，分区的大小是可变的</p>
+<p>分区的数目固定大小是可变的，允许分区的数目和大小都是可变的。</p>
+<h3 id="分区分配算法"><a href="#分区分配算法" class="headerlink" title="分区分配算法:"></a>分区分配算法:</h3><p><img src="https://pic.imgdb.cn/item/64d8c2c71ddac507cc2683c7.png"></p>
+]]></content>
+      <categories>
+        <category>复习资料</category>
+      </categories>
+      <tags>
         <tag>Markdown</tag>
       </tags>
   </entry>
@@ -661,153 +859,472 @@
       </tags>
   </entry>
   <entry>
-    <title>操作系统期末复习总结</title>
-    <url>/2023/08/13/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/</url>
-    <content><![CDATA[<h1 id="操作系统期末复习"><a href="#操作系统期末复习" class="headerlink" title="操作系统期末复习"></a>操作系统期末复习</h1><h2 id="1、进程和线程的概念"><a href="#1、进程和线程的概念" class="headerlink" title="1、进程和线程的概念"></a>1、进程和线程的概念</h2><h3 id="典型的进程定义有："><a href="#典型的进程定义有：" class="headerlink" title="典型的进程定义有："></a>典型的进程定义有：</h3><p>（1）进程是程序的一次执行。（2）进程是一个程序及其数据在处理机上顺序执行时所发生的活动。（3）进程是程序在一个数据集合上运行的过程，它是系统进行资源分配和调度的一个独立单位。</p>
-<h2 id="2、进程的基本状态及状态转换的原因"><a href="#2、进程的基本状态及状态转换的原因" class="headerlink" title="2、进程的基本状态及状态转换的原因"></a>2、进程的基本状态及状态转换的原因</h2><p><img src="https://pic.imgdb.cn/item/64d8c2e01ddac507cc26b93a.png"></p>
-<h3 id="状态转换："><a href="#状态转换：" class="headerlink" title="状态转换："></a>状态转换：</h3><p> ① 空 -&gt;新状态  新创建的进程首先处于新状态。 </p>
-<p>② 新状态 -&gt;就绪状态  当系统允许增加就绪进程时，操作系统接纳新建状态进程，将它变为就绪状态，插入就绪队列中。 </p>
-<p>③ 就绪状态 -&gt; 执行状态  当处理机空闲时，将从就绪队列中选择一个进程执行，该选择过程称为进程调度，或将处理机分派给一个进程，该进程状态从就绪转变为执行。 </p>
-<p>④ 执行状态 -&gt; 终止状态  执行状态的进程执行完毕，或出现诸如访问地址越界、非法指令等错误，而被异常结束，则进程从执行状态转换为终止状态。</p>
-<p>⑤ 执行状态 -&gt; 就绪状态  分时系统中，时间片用完，或优先级高的进程到来，将中断较低优先级进程的执行。进程从执行状态转变为就绪状态，等待下一次调度。</p>
-<p>⑥ 执行状态 -&gt; 阻塞状态  执行进程需要等待某事件发生。通常，会因为进程需要的系统调用不能立即完成，如读文件、共享虚拟内存、等待I&#x2F;O操作、等待另一进程与之通信等事件而阻塞。</p>
-<p>⑦ 阻塞状态 -&gt; 就绪状态  当阻塞进程等待的事件发生，就转换为就绪状态。进入就绪队列排队，等待被调度执行。</p>
-<h2 id="3-PCB的作用"><a href="#3-PCB的作用" class="headerlink" title="3.PCB的作用"></a>3.PCB的作用</h2><p>进程控制块：进程控制块的作用是使一个在多道程序环境下不能独立运行的程序（包含数据），成为一个能独立运行的基本单位，一个能与其它进程并发执行的进程。</p>
-<h2 id="4-进程控制的原语操作"><a href="#4-进程控制的原语操作" class="headerlink" title="4.进程控制的原语操作"></a>4.进程控制的原语操作</h2><h3 id="（1）进程的创建原语"><a href="#（1）进程的创建原语" class="headerlink" title="（1）进程的创建原语"></a>（1）进程的创建原语</h3><p>调用进程创建原语Create（  ）按下述步骤创建一个新进程</p>
-<h4 id=""><a href="#" class="headerlink" title=""></a><img src="https://pic.imgdb.cn/item/64d8c3d91ddac507cc28a180.png"></h4><h3 id="2-进程的终止原语"><a href="#2-进程的终止原语" class="headerlink" title="(2)进程的终止原语"></a>(2)进程的终止原语</h3><p>正常结束:  </p>
-<p>批处理中用Holt指令，分时中用Logs off指令</p>
-<p><img src="https://img-blog.csdnimg.cn/20200315164109198.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzkxNDYwNA==,size_16,color_FFFFFF,t_70"></p>
-<h3 id="（3）进程的唤醒和阻塞原语"><a href="#（3）进程的唤醒和阻塞原语" class="headerlink" title="（3）进程的唤醒和阻塞原语"></a>（3）进程的唤醒和阻塞原语</h3><p><img src="https://pic.imgdb.cn/item/64d8c4091ddac507cc290135.png"></p>
-<h3 id="引起进程阻塞的事件"><a href="#引起进程阻塞的事件" class="headerlink" title="引起进程阻塞的事件:"></a>引起进程阻塞的事件:</h3><p>(1）请求系统服务：提出I&#x2F;O服务时，并不立即满足该进程的要求时，转变为阻塞状态来等待</p>
-<p>(2）启动某种操作：当进程启动某种操作后，在该操作完成之后才能继续执行</p>
-<p>(3）新数据尚未到达：对于相互合作的进程而言。</p>
-<p> (4）无新工作可做。如发送进程</p>
-<h3 id="进程阻塞过程"><a href="#进程阻塞过程" class="headerlink" title="进程阻塞过程:"></a>进程阻塞过程:</h3><p>(1)正在执行的进程，当发现上述某事件时，由于无法继续执行，于是进程便通过调用阻塞原语block( )把自己阻塞</p>
-<p>(2)把进程控制块中的现行状态由“执行”改为“阻塞”，并将PCB插入阻塞队列</p>
-<p>(3)转调度程序进行重新调度，将处理机分配给另一就绪进程，并进行切换</p>
-<h3 id="进程唤醒过程："><a href="#进程唤醒过程：" class="headerlink" title="进程唤醒过程："></a>进程唤醒过程：</h3><p>当被阻塞进程所期待的事件出现时，则由有关进程（比如，用完并释放了该I&#x2F;O设备的进程）调用唤醒原语wakeup（  ），将等待该事件的进程唤醒</p>
-<h3 id="4-进程的挂起和激活过程"><a href="#4-进程的挂起和激活过程" class="headerlink" title="(4)进程的挂起和激活过程"></a>(4)进程的挂起和激活过程</h3><p><img src="https://pic.imgdb.cn/item/64d8c4351ddac507cc295969.png"></p>
-<h2 id="5-进程互斥、临界区、进程同步的基本概念、同步准则"><a href="#5-进程互斥、临界区、进程同步的基本概念、同步准则" class="headerlink" title="5.进程互斥、临界区、进程同步的基本概念、同步准则"></a>5.进程互斥、临界区、进程同步的基本概念、同步准则</h2><h3 id="进程互斥："><a href="#进程互斥：" class="headerlink" title="进程互斥："></a>进程互斥：</h3><p>进程互斥是进程之间的间接制约关系。当一个进程进入临界区使用临界资源时，另一个进程必须等待。只有当使用临界资源的进程退出临界区后，这个进程才会解除阻塞状态。</p>
-<h3 id="临界资源："><a href="#临界资源：" class="headerlink" title="临界资源："></a>临界资源：</h3><p>一次仅允许一个进程访问的资源为临界资源 。</p>
-<h3 id="临界区："><a href="#临界区：" class="headerlink" title="临界区："></a>临界区：</h3><p>把在每个进程中访问临界资源的那段代码称为临界区。</p>
-<h3 id="进程同步："><a href="#进程同步：" class="headerlink" title="进程同步："></a>进程同步：</h3><p>进程同步是一个操作系统级别的概念，是在多道程序的环境下，存在着不同的制约关系，为了协调这种互相制约的关系，实现资源共享和进程协作，从而避免进程之间的冲突，引入了进程同步。</p>
-<p>进程同步的主要任务：是使并发执行的诸进程之间能有效地共享资源和相互合作，从而使程序的执行具有可再现性。</p>
-<h3 id="同步准则："><a href="#同步准则：" class="headerlink" title="同步准则："></a>同步准则：</h3><p>1)空闲让进</p>
-<p>2)忙则等待</p>
-<p>3)有限等待</p>
-<p>4)让权等待</p>
-<h2 id="6-记录型信号量"><a href="#6-记录型信号量" class="headerlink" title="6.记录型信号量"></a>6.记录型信号量</h2><p>记录型信号量机制，则是一种不存在“忙等”现象的进程同步机制</p>
-<p>记录型信号量的数据结构: </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">type  semaphore = record</span><br><span class="line">                  value  ：integer；</span><br><span class="line">                  L：list  of  process；</span><br><span class="line"> end  </span><br></pre></td></tr></table></figure>
-
-<p>记录型信号量的wait（S）操作:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">procedure  wait（  S  ）</span><br><span class="line">    var  S：  semaphore；</span><br><span class="line">       begin   </span><br><span class="line">           S.value:＝S.value-1;</span><br><span class="line">           if  S.value＜0  then  block（S.L）;</span><br><span class="line">       end</span><br><span class="line">// S.value＜0，该类资源已经分配完毕，进程必须放弃处理机，自我阻塞。</span><br></pre></td></tr></table></figure>
-
-<p>记录型信号量的signal（S）操作:</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">procedure  signal（S）</span><br><span class="line">  var  S:semaphore； </span><br><span class="line">  begin</span><br><span class="line">      S.value:＝S.value+1；</span><br><span class="line">      if  S.value≤0  then   wakeup(S.L)；</span><br><span class="line">  end</span><br><span class="line">// S.value≤0 ，在信号量链表中，仍有等待该资源的进程被阻塞。</span><br></pre></td></tr></table></figure>
-
-<h2 id="7-信号量的应用"><a href="#7-信号量的应用" class="headerlink" title="7.信号量的应用"></a>7.信号量的应用</h2><ol>
-<li><h3 id="利用信号量实现进程互斥"><a href="#利用信号量实现进程互斥" class="headerlink" title="利用信号量实现进程互斥"></a>利用信号量实现进程互斥</h3></li>
-</ol>
-<p>为使多个进程能互斥地访问某临界资源，只须为该资源设置一互斥信号量mutex，并设其初始值为1，然后将各进程访问该资源的临界区CS置于wait（mutex）和signal（mutex）操作之间即可。</p>
-<p>利用信号量实现进程互斥的进程可描述如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Var  mutex：semaphore:=1；</span><br><span class="line">          begin</span><br><span class="line">          parbegin</span><br><span class="line"></span><br><span class="line">             process1：begin</span><br><span class="line">                 repeat</span><br><span class="line">                      wait（mutex）；</span><br><span class="line">                      critica1  section</span><br><span class="line">                      signal（mutex）；</span><br><span class="line">                     remainder  section  until false;</span><br><span class="line">             end</span><br><span class="line">             process2：begin</span><br><span class="line">                        repeat</span><br><span class="line">                            wait（mutex）;</span><br><span class="line">                            critical  section</span><br><span class="line">                            signal（mutex）;</span><br><span class="line">                            remainder section until false；</span><br><span class="line">              end</span><br><span class="line">   parend </span><br><span class="line">   end</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>wait（mutex）和signal（mutex）必须成对出现；</p>
-<p>缺少wait（mutex）导致系统混乱，不能保证对临界资源的互斥访问；</p>
-<p>缺少signal（mutex）会使临界资源永远不释放，等待该资源的进程不能被唤醒。</p>
-<h3 id="2-利用信号量实现前趋关系"><a href="#2-利用信号量实现前趋关系" class="headerlink" title="2.利用信号量实现前趋关系"></a>2.利用信号量实现前趋关系</h3><p><img src="https://pic.imgdb.cn/item/64d8c4351ddac507cc2959b5.png"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">p1( )&#123; S1； signal（a）；signal（b）；&#125;</span><br><span class="line">p2( )&#123; wait(a); S2；signal（c）；signal（d）; &#125;</span><br><span class="line">p3( )&#123; wait（b）；S3；signal（e）；&#125;</span><br><span class="line">p4( )&#123; wait（c）；S4；signal（f）；&#125;</span><br><span class="line">p5( )&#123; wait（d）；S5；signal（g）；&#125;</span><br><span class="line">p6( )&#123; wait（e）；wait（f）；wait（g）；S6；&#125;</span><br><span class="line"></span><br><span class="line">void main( )&#123;</span><br><span class="line">    semaphore a,b,c,d,e,f,g;</span><br><span class="line">    a.value=b.value=c.value=0;</span><br><span class="line">    d.value=e.value=f.value=g.value=0;</span><br><span class="line">    cobegin</span><br><span class="line">         p1( ); p2( ); p3( ); p4( ); p5( ); p6( );</span><br><span class="line">    coend;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="8-经典进程同步问题；生产者与消费者问题"><a href="#8-经典进程同步问题；生产者与消费者问题" class="headerlink" title="8.经典进程同步问题；生产者与消费者问题"></a>8.经典进程同步问题；生产者与消费者问题</h2><p>生产者和消费者进程共享一个大小固定的缓冲区，其中，一个或多个生产者生产数据，并将生产的数据存入缓冲区，并有一个消费者从缓冲区中取数据。 </p>
-<p>假设缓冲区的大小为n（存储单元的个数），它可以被生产者和消费者循环使用</p>
-<p>分别设置两个指针in和out，指向生产者将存放数据的存储单元和消费者将取数据的存储单元，如图</p>
-<p><img src="https://pic.imgdb.cn/item/64d8c4341ddac507cc29582e.png"></p>
-<p><img src="C:\Users\10410\Desktop\操作系统期末复习\image-20230616160458024.png" alt="image-20230616160458024"></p>
-<p><img src="https://pic.imgdb.cn/item/64d8c2c31ddac507cc267c42.png"></p>
-<h3 id="1-利用记录型信号量解决生产者一消费者问题"><a href="#1-利用记录型信号量解决生产者一消费者问题" class="headerlink" title="1.利用记录型信号量解决生产者一消费者问题"></a>1.利用记录型信号量解决生产者一消费者问题</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"> int  in=0, out=0;</span><br><span class="line"> item    buffer [n];</span><br><span class="line"> semaphore	mutex=1, empty=n, full=0;   </span><br><span class="line"> </span><br><span class="line">void producer( );</span><br><span class="line">void consumer( );</span><br><span class="line"></span><br><span class="line">void main( )&#123;</span><br><span class="line">      cobegin</span><br><span class="line">             producer( ); consumer( );</span><br><span class="line">      coend</span><br><span class="line">&#125;</span><br><span class="line">void producer( )&#123;</span><br><span class="line">    do&#123;</span><br><span class="line">      			…</span><br><span class="line">		Produce an item in nextp;</span><br><span class="line">              		…</span><br><span class="line">wait(empty);</span><br><span class="line">wait(mutex);</span><br><span class="line">buffer(in):=nextp;</span><br><span class="line">in:=(in+1) mod n;</span><br><span class="line">signal(mutex);</span><br><span class="line">signal(full);</span><br><span class="line">&#125;while(TRUE);</span><br><span class="line">&#125;</span><br><span class="line">void consumer&#123;</span><br><span class="line">	do&#123;</span><br><span class="line">	      wait(full);</span><br><span class="line">wait(mutex);</span><br><span class="line">nextc:=buffer(out);</span><br><span class="line">out:=(out+1) mod n;</span><br><span class="line">signal(mutex);</span><br><span class="line">signal(empty);</span><br><span class="line">Consumer the item in nextc;</span><br><span class="line">     ……</span><br><span class="line">&#125;while(TRUE);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="2-利用AND信号量解决生产者—消费者问题"><a href="#2-利用AND信号量解决生产者—消费者问题" class="headerlink" title="2.利用AND信号量解决生产者—消费者问题"></a>2.利用AND信号量解决生产者—消费者问题</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">  int  in=0, out=0;</span><br><span class="line">  item    buffer[ n ];</span><br><span class="line">  semaphore   mutex=1;</span><br><span class="line">  semaphore  empty=n, full=0;</span><br><span class="line"></span><br><span class="line">  void producer( )&#123;</span><br><span class="line">       do&#123;</span><br><span class="line">			…</span><br><span class="line">		 produce an item in nextp;</span><br><span class="line">			…</span><br><span class="line">		Swait(empty, mutex);</span><br><span class="line">		buffer[in] = nextp;</span><br><span class="line"> in = (in+1) % n;</span><br><span class="line">   Ssignal(mutex, full);</span><br><span class="line">      &#125;while(TRUE);</span><br><span class="line">   &#125; //end producer</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">void consumer&#123;</span><br><span class="line">   do&#123;</span><br><span class="line">	   Swait(full, mutex);</span><br><span class="line">	   nextc = buffer[out];</span><br><span class="line">	   out = (out+1) % n;</span><br><span class="line">	   Ssignal(mutex, empty);</span><br><span class="line">	   consumer the item in nextc;</span><br><span class="line">     &#125;while(TRUE);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="9-进程间通信的原理和实现方法-信箱"><a href="#9-进程间通信的原理和实现方法-信箱" class="headerlink" title="9.进程间通信的原理和实现方法   信箱"></a>9.进程间通信的原理和实现方法   信箱</h2><h3 id="进程间通信的原理和实现方法"><a href="#进程间通信的原理和实现方法" class="headerlink" title="进程间通信的原理和实现方法"></a>进程间通信的原理和实现方法</h3><h4 id="1-共享存储器系统"><a href="#1-共享存储器系统" class="headerlink" title="1.共享存储器系统"></a>1.共享存储器系统</h4><p>（1）基于共享数据结构的通信方式。  （2）基于共享存储区的通信方式。 </p>
-<h4 id="2-消息传递系统"><a href="#2-消息传递系统" class="headerlink" title="2.消息传递系统"></a>2.消息传递系统</h4><p>是目前的主要通信方式，信息单位：消息（报文）实现：一组通信命令（原语），具有透明性-&gt;同步的实现。     </p>
-<p>实现方式的不同，而分成:（1）直接通信方式   （2）间接通信方式</p>
-<h4 id="3-管道（Pipe）通信"><a href="#3-管道（Pipe）通信" class="headerlink" title="3.管道（Pipe）通信"></a>3.管道（Pipe）通信</h4><p>管道：连接一个读进程和一个写进程之间通信的共享文件。</p>
-<p>功能：大量的数据发收。注意：（1）互斥（2）同步 （3）对方是否存在</p>
-<h3 id="消息传递通信的实现方法"><a href="#消息传递通信的实现方法" class="headerlink" title="消息传递通信的实现方法"></a>消息传递通信的实现方法</h3><h4 id="1-直接通信方式"><a href="#1-直接通信方式" class="headerlink" title="1.直接通信方式"></a>1.直接通信方式</h4><p> 这是指发送进程利用OS所提供的发送命令，直接把消息发送给目标进程。系统提供下述两条通信命令（原语）：     </p>
-<p>Send  （Receiver，  message）；     </p>
-<p>Receive（Sender，  message）；</p>
-<h4 id="2-间接通信方式"><a href="#2-间接通信方式" class="headerlink" title="2.间接通信方式"></a>2.间接通信方式</h4><p>指进程之间利用信箱的通信方式。发送进程发送给目标进程的消息存放信箱；接收进程则从该信箱中，取出对方发送给自己的消息；消息在信箱中可以安全地保存，只允许核准的目标用户随时读取。     系统为信箱通信提供了若干条原语，分别用于信箱的创建、撤消和消息的发送、接收等。 </p>
-<p>优点：在读&#x2F;写时间上的随机性写进程 -&gt;信箱（中间实体）-&gt;读进程原语</p>
-<p>消息的发送和接收</p>
-<p>Send (mailbox, message)</p>
-<p>Receive (mailbox, message)</p>
-<h3 id="信箱"><a href="#信箱" class="headerlink" title="信箱"></a>信箱</h3><p>信箱分为以下三类：</p>
-<p>（1）私用信箱（2）公用信箱（3）共享信箱</p>
-<p>在利用信箱通信时，在发送进程和接收进程之间，存在以下四种关系：</p>
-<p>（1）一对一关系。 （2）多对一关系，客户&#x2F;服务器交互。 （3）一对多关系， 广播方式。（4）多对多关系。  </p>
-<h2 id="第四章"><a href="#第四章" class="headerlink" title="第四章"></a>第四章</h2><h2 id="10-重定位的基本概念：为什么要引入"><a href="#10-重定位的基本概念：为什么要引入" class="headerlink" title="10.重定位的基本概念：为什么要引入"></a>10.重定位的基本概念：为什么要引入</h2><p>为解决链接地址跟运行地址不同的问题。</p>
-<p>装入内存时，相对地址（数据、指令地址）要作出相应的修改以得到正确的物理地址，这个修改的过程称为重定位。</p>
-<h2 id="11-如何提高内存利用率：离散分配、对换机制、动态链接、虚拟存储器、存储器共享"><a href="#11-如何提高内存利用率：离散分配、对换机制、动态链接、虚拟存储器、存储器共享" class="headerlink" title="11.如何提高内存利用率：离散分配、对换机制、动态链接、虚拟存储器、存储器共享"></a>11.如何提高内存利用率：离散分配、对换机制、动态链接、虚拟存储器、存储器共享</h2><h3 id="离散分配"><a href="#离散分配" class="headerlink" title="离散分配"></a>离散分配</h3><h4 id="离散分配方式的引入："><a href="#离散分配方式的引入：" class="headerlink" title="离散分配方式的引入："></a>离散分配方式的引入：</h4><p>连续分配方式会产生内&#x2F;外零头</p>
-<p>为解决零头问题又要进行紧凑等高开销活动</p>
-<h4 id="什么是离散分配："><a href="#什么是离散分配：" class="headerlink" title="什么是离散分配："></a>什么是离散分配：</h4><p> 程序在内存中不一定连续存放</p>
-<h4 id="离散分配的体现"><a href="#离散分配的体现" class="headerlink" title="离散分配的体现:"></a>离散分配的体现:</h4><p>内存一块可以装入程序一页连续的多个页不一定装入连续的多个块中注：系统中页块的大小是不变的。</p>
-<h3 id="离散分配的优点："><a href="#离散分配的优点：" class="headerlink" title="离散分配的优点："></a>离散分配的优点：</h3><p>没有外零头不受连续空间限制，每块都能分出去仅有小于一个页面的内零头</p>
-<p>程序大小一般不是页大小的整数倍        </p>
-<p>由于进程的最后一页经常装不满一块而形成了不可利用的碎片，称之为“页内碎片”或称为“内零头”。 </p>
-<h2 id="对换"><a href="#对换" class="headerlink" title="对换"></a>对换</h2><p>对换指把内存中暂不能运行的进程或暂时不用和程序和数据，换到外存上，以腾出足够的内存空间，把已具备运行条件的进程，或进程所需要的程序和数据，换入内存。 </p>
-<p>对换是系统行为，是提高内存的利用率的有效措施。常用于多道程序系统或小型分时系统中，与分区存储管理配合使用。 </p>
-<h3 id="对换的实现："><a href="#对换的实现：" class="headerlink" title="对换的实现："></a>对换的实现：</h3><p>可在系统中设一对换进程，以执行换进内存、换出至外存操作。</p>
-<h3 id="对换的分类："><a href="#对换的分类：" class="headerlink" title="对换的分类："></a>对换的分类：</h3><h4 id="“整体对换”（进程对换）："><a href="#“整体对换”（进程对换）：" class="headerlink" title="“整体对换”（进程对换）："></a>“整体对换”（进程对换）：</h4><p>对换以整个进程为单位，用于分时系统，以解决内存紧张的问题；</p>
-<h4 id="“页面对换-分段对换”："><a href="#“页面对换-分段对换”：" class="headerlink" title="“页面对换&#x2F;分段对换”："></a>“页面对换&#x2F;分段对换”：</h4><p>对换以“页”或“段”为单位进行“部分对换”，该方法是实现请求分页及请求分段存储器的基础，支持虚存系统。</p>
-<p>为实现对换，系统需要三方面的功能：对换空间的管理、进程的换入、进程的换出</p>
-<h4 id="对换空间的管理："><a href="#对换空间的管理：" class="headerlink" title="对换空间的管理："></a>对换空间的管理：</h4><p>外存被分为两部分，文件区和对换区</p>
-<p>文件区用于存放文件，对它的管理应重在如何提高存储空间的利用率。所以对它采取离散分配方式。</p>
-<p>对换区存放从内存换出的进程，它们在外存的存放时间较短，换入、换出频繁。对对换区的管理应重在提高进程的换入换出速度。因此采用连续分配方式。</p>
-<p>为了能对对换区中的空闲盘块进行管理，在系统中应配置相应的数据结构，以记录外存的使用情况</p>
-<p>空闲分区表或空闲分区链。基本单位都是盘块</p>
-<p>对换区的分配采用连续分配方式，分配与回收与动态分区方式时内存的分配与回收方法雷同</p>
-<h4 id="进程的换出与换入："><a href="#进程的换出与换入：" class="headerlink" title="进程的换出与换入："></a>进程的换出与换入：</h4><h5 id="换出（swap-out）"><a href="#换出（swap-out）" class="headerlink" title="换出（swap out）"></a>换出（swap out）</h5><p>选择：首先选择阻塞或睡眠状态的进程，若有多个，按优先级由低到高进行选择。若没有此状态进程，则选择就绪状态的，仍然按优先级由低到高进行选择。为避免某进程被频繁的换入换出，还应考虑进程在内存中的驻留时间，优先选择驻留时间长的进程。</p>
-<h5 id="换入（swap-in）"><a href="#换入（swap-in）" class="headerlink" title="换入（swap in）"></a>换入（swap in）</h5><p>①从 PCB集合中查找“就绪且换出”的进程，有多个，则选择换出时间最长的。</p>
-<p>②根据进程大小申请内存，成功则读入，否则要先执行换出，再换入。</p>
-<p>③若还有可换入进程，则转向①。直至无“就绪且换出”进程或无法获得足够内存空间为止。</p>
-<h2 id="动态链接"><a href="#动态链接" class="headerlink" title="动态链接"></a>动态链接</h2><h4 id="与之相对的静态链接："><a href="#与之相对的静态链接：" class="headerlink" title="与之相对的静态链接："></a>与之相对的<strong>静态链接</strong>：</h4><p>在程序运行之前，先将各目标模块及它们所需的库函数，链接成一个完整的装入模块（又称执行模块），以后不再拆开。</p>
-<h3 id="装入时动态链接："><a href="#装入时动态链接：" class="headerlink" title="装入时动态链接："></a>装入时动态链接：</h3><p>用户源程序经编译后所得到的目标模块，是在装入内存时，边装入边链接的。即在装入一个目标模块时，若发生一个外部模块调用，将引起装入程序去找出相应的外部目标模块，并将其装入内存。        </p>
-<h4 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h4><ol>
-<li>便于软件版本的修改和更新。只需修改各个目标模块，不必将装入模块拆开，非常方便。        </li>
-<li>便于实现目标模块共享。即可以将一个目标模块链接到几个应用模块中，从而实现多个应用程序对该模块的共享。</li>
-</ol>
-<h3 id="运行时动态链接-Run-Time-Dynamic-Linking）："><a href="#运行时动态链接-Run-Time-Dynamic-Linking）：" class="headerlink" title="运行时动态链接(Run-Time Dynamic Linking）："></a>运行时动态链接(Run-Time Dynamic Linking）：</h3><p>将某些目标模块的链接推迟到执行时才进行，即在执行过程中，若发现一个被调用模块尚未装入内存时，由OS去找到该模块，将它装入内存，并链接到调用模块上。</p>
-<p>优点：执行过程中未被用到的目标模块，都不会被调入内存和被链接到装入模块上，不仅可加快程序的装入过程，而且可节省大量的内存空间</p>
-<h3 id="虚拟存储器"><a href="#虚拟存储器" class="headerlink" title="虚拟存储器"></a>虚拟存储器</h3><h4 id="虚拟存储器："><a href="#虚拟存储器：" class="headerlink" title="虚拟存储器："></a>虚拟存储器：</h4><p>是指具有请求调入功能和置换功能，能从逻辑上对内存容量加以扩充的一种存储器系统。</p>
-<h4 id="程序执行的局部性原理："><a href="#程序执行的局部性原理：" class="headerlink" title="程序执行的局部性原理："></a>程序执行的局部性原理：</h4><p>程序的执行总是呈现局部性。即，在一个较短的时间段内，程序的执行仅限于某个部分；相应的，它所访问的存储空间也局限于某个区域。因此，只要保证进程执行所需的部分程序和数据驻留在内存，一段时间内进程都能顺利执行</p>
-<p>局限性又表现在下述两个方面：</p>
-<h3 id="1-时间局限性"><a href="#1-时间局限性" class="headerlink" title="(1) 时间局限性"></a>(1) 时间局限性</h3><p>如果程序中的某条指令一旦执行，则不久以后该指令可能再次执行；如果某数据被访问过， 则不久以后该数据可能再次被访问产生时间局限性的典型原因，是由于在程序中存在着大量的循环操作</p>
-<h3 id="2-空间局限性"><a href="#2-空间局限性" class="headerlink" title="(2) 空间局限性"></a>(2) 空间局限性</h3><p>一旦程序访问了某个存储单元，在不久之后，其附近的存储单元也将被访问程序在一段时间内所访问的地址，可能集中在一定的范围之内，其典型情况便是程序的顺序执行</p>
-<h3 id="虚拟存储器的基本工作情况"><a href="#虚拟存储器的基本工作情况" class="headerlink" title="虚拟存储器的基本工作情况"></a>虚拟存储器的基本工作情况</h3><p>1）基于局部性原理。一个作业运行前，仅将那些当前要运行的页面（段）装入内存启动运行，其余暂在外存。</p>
-<p>2）若运行所需页面（段）不在内存，则利用请求调页（段）功能将其调入内存。</p>
-<p>3）若此时内存满，则利用置换功能，将内存中暂时不用的部分页面（段）调至外存，再将所需页面（段）调入。</p>
-<p>4）这样，可实现大程序在小内存中运行，也可实现内存中同时装入更多的进程并发执行。</p>
-<h3 id="虚拟存储器的实现方法"><a href="#虚拟存储器的实现方法" class="headerlink" title="虚拟存储器的实现方法"></a>虚拟存储器的实现方法</h3><h4 id="一、请求分页系统"><a href="#一、请求分页系统" class="headerlink" title="一、请求分页系统"></a>一、请求分页系统</h4><p>它是在纯分页系统的基础上增加了请求调页、页面置换两大功能所形成的页式虚拟存储系统。</p>
-<p>为了实现请求调页、页面置换两大功能，系统必须提供如下的硬件支持：        </p>
-<ol>
-<li>请求分页的页表机制。        </li>
-<li>缺页中断机构。        </li>
-<li>地址变换机构。</li>
-</ol>
-<p>此外，实现请求调页、页面置换两大功能还需得到OS的支持。</p>
-<h4 id="二、请求分段系统"><a href="#二、请求分段系统" class="headerlink" title="二、请求分段系统"></a>二、请求分段系统</h4><p>它是在纯分段系统的基础上增加了请求调段、分段置换两大功能所形成的段式虚拟存储系统。        </p>
-<p>为了实现请求调段、分段置换两大功能，系统必须提供如下的硬件支持：        </p>
-<ol>
-<li>请求分段的段表机制。        </li>
-<li>缺段中断机构。        </li>
-<li>地址变换机构。</li>
-</ol>
-<p>此外，实现请求调段、分段置换两大功能还需得到OS的支持。</p>
-<h4 id="三、段页式虚拟系统"><a href="#三、段页式虚拟系统" class="headerlink" title="三、段页式虚拟系统"></a>三、段页式虚拟系统</h4><p>目前，许多虚拟存储管理系统是建立在段页式系统的基础上的，通过增加了请求调页、页面置换两大功能所形成的段页式虚拟存储系统。</p>
-<h2 id="12-动态分区分配方式：分配、回收算法"><a href="#12-动态分区分配方式：分配、回收算法" class="headerlink" title="12.动态分区分配方式：分配、回收算法"></a>12.动态分区分配方式：分配、回收算法</h2><p>动态分区分配（可重定位分区分配）是指根据进程的实际需要，动态地为之分配连续的内存空间。即分区的边界可以移动，分区的大小是可变的</p>
-<p>分区的数目固定大小是可变的，允许分区的数目和大小都是可变的。</p>
-<h3 id="分区分配算法"><a href="#分区分配算法" class="headerlink" title="分区分配算法:"></a>分区分配算法:</h3><p><img src="https://pic.imgdb.cn/item/64d8c2c71ddac507cc2683c7.png"></p>
+    <title>数字图像处理复习笔记</title>
+    <url>/2023/09/04/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E5%A4%8D%E4%B9%A0/</url>
+    <content><![CDATA[<h2 id="数字图像处理速通复习整理"><a href="#数字图像处理速通复习整理" class="headerlink" title="数字图像处理速通复习整理"></a>数字图像处理速通复习整理</h2><h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><h3 id="1-什么是数字图像？"><a href="#1-什么是数字图像？" class="headerlink" title="1.什么是数字图像？"></a>1.什么是数字图像？</h3><p>数字图像由二维的元素组成，每一个元素具有一个 特定的位置（x,y）和幅值f(x,y),这些元素就称为像素</p>
+<h3 id="2-图像处理系统的基本组成结构"><a href="#2-图像处理系统的基本组成结构" class="headerlink" title="2.图像处理系统的基本组成结构"></a>2.图像处理系统的基本组成结构</h3><p>主要由三大部分组成</p>
+<ul>
+<li><p>图像数字化设备，包括数码相机、数码摄像机、带照相和&#x2F;或摄像功能的手机 等</p>
+</li>
+<li><p>图像处理设备，包括计算机和存储系 统</p>
+</li>
+<li><p>图像输出设备，包括打印机，也可以 输出到Internet上的其它设备</p>
+</li>
+</ul>
+<h3 id="3-取样-量化"><a href="#3-取样-量化" class="headerlink" title="3.取样&amp;量化"></a>3.取样&amp;量化</h3><p>大多数传感器的输出是连续电压波形。为了产生一幅数字图像，需要把连续的感知数据转化为数字形式。这包括了两种处理操作</p>
+<ul>
+<li>取样：图像空间坐标的数字化</li>
+<li>量化：图像函数值（灰度值）的数字化</li>
+</ul>
+<p><strong>非统一的采样</strong>：在灰度级变化尖锐的区域，用细腻的采样， 在灰度级比较平滑的区域，用粗糙的采样</p>
+<p><strong>非统一的图像的量化</strong>：在边界附近使用较少的灰度级。剩余的灰度级可以用于灰度级变化比较平滑的区域</p>
+<p>避免或减少由于量化的太粗糙，在灰度级变化比较平滑的区域出现加假轮廓 的现象。</p>
+<h3 id="4-数字图像的表示"><a href="#4-数字图像的表示" class="headerlink" title="4.数字图像的表示"></a>4.数字图像的表示</h3><p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693193253045.png" alt="1693193253045"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693193276564.png" alt="1693193276564"></p>
+<ul>
+<li>对于2色位图，1位表示一个像素颜色，所以一个字节表示8个像素</li>
+<li>对于16色位图，4位表示一个像素颜色， 所以一个字节表示2个像素</li>
+<li>对于256色位图，1个字节表示1个像素</li>
+<li>对于真彩色图，3个字节表示一个像素</li>
+</ul>
+<h3 id="5-灰度级-层次"><a href="#5-灰度级-层次" class="headerlink" title="5.灰度级&amp;层次"></a>5.灰度级&amp;层次</h3><p>灰度级：表示像素明暗程度的整数量   eg.像素的取值范围为0-255,就称该图像为256个灰度级的图像</p>
+<p>层次：表示图像实际拥有的灰度级的数量  eg.具有32种不同取值的图像，可称该图像具有32个层次</p>
+<p><strong>图像数据的实际层次越多，视觉效果就越好</strong></p>
+<h3 id="6-对比度"><a href="#6-对比度" class="headerlink" title="6.对比度"></a>6.对比度</h3><p>对比度：是指一幅图像中灰度反差的大小 <strong>对比度&#x3D;最大亮度&#x2F;最小亮度</strong></p>
+<p><strong>与清晰度相关的主要因素</strong>：亮度、对比度、尺寸大小、细微层次、颜色饱和度</p>
+<h3 id="7-4邻域-D邻域-8邻域"><a href="#7-4邻域-D邻域-8邻域" class="headerlink" title="7.4邻域&amp;D邻域&amp;8邻域"></a>7.4邻域&amp;D邻域&amp;8邻域</h3><p>4邻域：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693194492592.png" alt="1693194492592"></p>
+<p>D邻域：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693194515906.png" alt="1693194515906"></p>
+<p>8邻域：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693194538478.png" alt="1693194538478"></p>
+<h3 id="8-4邻接-8邻接-m邻接"><a href="#8-4邻接-8邻接-m邻接" class="headerlink" title="8.4邻接&amp;8邻接&amp;m邻接"></a>8.4邻接&amp;8邻接&amp;m邻接</h3><p>4邻接：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693194592283.png" alt="1693194592283"></p>
+<p>8邻接：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693194603839.png" alt="1693194603839"></p>
+<p>m邻接：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693194618775.png" alt="1693194618775"></p>
+<h3 id="9-通路-连通"><a href="#9-通路-连通" class="headerlink" title="9.通路&amp;连通"></a>9.通路&amp;连通</h3><ul>
+<li>通路：如果从（x0,y0）点到（xn,yn）点，其中的每个点与前后都是K邻接的（K代表4、8、m），则说这两个点之间存在一条K通路，n是这个通路的长度，如果（x0,y0）和（xn,yn）是重合的，那么说这是一条闭合通路。</li>
+<li>连通：对于图像中的某一个像素子集U和其中的两个点p和q，如果p和q之间有一个有U中全部元素构成的通路，那就说p和q是连通的。</li>
+</ul>
+<p><strong>主要是对m邻接的含义的理解！！</strong></p>
+<p>eg.</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693195176445.png" alt="1693195176445"></p>
+<p><strong>m连通：</strong> 如果两个节点是m邻接的，<strong>并且存在一条由一系列m邻接的节点组成的路径连接它们，那么这两个节点是m连通的。</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693195364478.png" alt="1693195364478"></p>
+<h3 id="10-城市距离-棋盘距离"><a href="#10-城市距离-棋盘距离" class="headerlink" title="10.城市距离&amp;棋盘距离"></a>10.城市距离&amp;棋盘距离</h3><p><strong>D4距离（城市距离）：</strong></p>
+<p>像素p(x,y)和q(s,t)之间的D4距离定义为：D4(p,q)&#x3D;|x–s|+|y–t|</p>
+<p><strong>D8距离（棋盘距离）：</strong></p>
+<p>像素p(x,y)和q(s,t)之间的D8距离定义为：D8(p,q)&#x3D;max(|x–s|,|y–t|)</p>
+<h2 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h2><h3 id="1-图像处理"><a href="#1-图像处理" class="headerlink" title="1.图像处理"></a>1.图像处理</h3><p><strong>图像处理流程：</strong>图像采集-&gt;图像预处理-&gt;特征提取-&gt;识别与理解</p>
+<p>图像处理分为两大类：</p>
+<ul>
+<li>空间域：对原始图像的像素直接处理</li>
+<li>变换域：<ul>
+<li>原始图像变换到变换域</li>
+<li>变换域处理</li>
+<li>反变换回到空间域</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693205501263.png" alt="1693205501263"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693206167432.png" alt="1693206167432"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693206178716.png" alt="1693206178716"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693206771288.png" alt="1693206771288"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693206792692.png" alt="1693206792692"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693206814825.png" alt="1693206814825"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693206859240.png" alt="1693206859240"></p>
+<h4 id="位平面切片"><a href="#位平面切片" class="headerlink" title="位平面切片"></a>位平面切片</h4><p>作用：</p>
+<ul>
+<li>通过对特定位提高亮度，改善图像质量</li>
+<li>较高位（如前4位）包含大多数视觉重要数据</li>
+<li>较低位（如后4位）对图像中的微笑细节有作用</li>
+<li>分解为位平面，可以分析每一位在图像中的相对重要性</li>
+</ul>
+<h3 id="2-加法、减法、乘法、逻辑运算"><a href="#2-加法、减法、乘法、逻辑运算" class="headerlink" title="2.加法、减法、乘法、逻辑运算"></a>2.加法、减法、乘法、逻辑运算</h3><p>加法运算：<strong>去除叠加性噪声，生成图像叠加效果</strong></p>
+<p>减法运算：<strong>显示两幅图像的差异，去除不需要的叠加性图案，图像分割：如分割运动的车辆，减法去掉静止部分，剩余的是运动元素和噪声</strong></p>
+<p>乘法运算：<strong>图像的局部显示</strong></p>
+<p>逻辑运算：</p>
+<ul>
+<li>非：获得一个阴图像；获得一个子图像的补图像</li>
+<li>与：求两个子图像的相交子图</li>
+<li>或：合并子图像  模板运算：提取感兴趣的子图像</li>
+<li>异或：获得相交子图像</li>
+</ul>
+<h3 id="3-直方图的运算"><a href="#3-直方图的运算" class="headerlink" title="3.直方图的运算"></a>3.直方图的运算</h3><p><strong>图像直方图的定义</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693312315660.png" alt="1693312315660"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693312496792.png" alt="1693312496792"></p>
+<p>直方图均衡化：</p>
+<ul>
+<li>希望一幅图像的像素占有全部可能的灰度级且分布均匀，能够具有高对比度</li>
+<li>使用的方法是灰度级变换：s &#x3D; T(r)</li>
+<li>基本思想是把原始图的直方图变换为均匀分布的形式，这样就增加了像素灰度值的动态范围，从而达到增强图像整体对比度的效果</li>
+</ul>
+<p><strong>s&#x3D;T(r)	0≤r≤1</strong></p>
+<p>T(r)满足下列两个条件：</p>
+<p>（1）T(r)在区间0≤r≤1中为单值且单调递增</p>
+<p>（2）当0≤r≤1时,0≤T(r) ≤1</p>
+<p>条件1保证原图各灰度级在变换后依旧保持次序</p>
+<p>条件2保证变换前后灰度值动态范围的一致性</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693315515026.png" alt="1693315515026"></p>
+<p>这里的sk并的值的计算方式：sk计最近的n&#x2F;7便是sk并的值</p>
+<p>均衡化后：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693315857547.png" alt="1693315857547"></p>
+<p>直方图均衡化后的图像给人的直观感受会更好看，一般对比度也会得到增强，图片显得更清晰</p>
+<p>可以应用在水下摄影，雾天图像处理，卫星图像增强等</p>
+<h3 id="4-空间域-频率域"><a href="#4-空间域-频率域" class="headerlink" title="4.空间域&amp;频率域"></a>4.空间域&amp;频率域</h3><p><strong>空间域</strong>是直接对图像各像素进行处理； </p>
+<p><strong>频率域</strong>是对图像经傅立叶变换后的频谱成分进行处理，然后逆傅立叶变换获得所需的图像。 </p>
+<h3 id="5-空间域图像增强"><a href="#5-空间域图像增强" class="headerlink" title="5.空间域图像增强"></a>5.空间域图像增强</h3><p><strong>空间滤波</strong>：使用空间模板进行的图像处理，被称为空间滤波。模板本身被称为空间滤波器。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693316770655.png" alt="1693316770655"></p>
+<p>平滑空间滤波器的作用：</p>
+<ul>
+<li>模糊处理:去除图像中一些不重要的细节</li>
+<li>减小噪声</li>
+</ul>
+<p><strong>平滑空间滤波器的分类</strong>：</p>
+<ul>
+<li>线性滤波器：均值滤波器</li>
+<li>非线性滤波器<ul>
+<li>最大值滤波器：用像素领域内的最大值代替该像素</li>
+<li>中值滤波器：用像素领域内的中间值代替该像素</li>
+<li>最小值滤波器：用像素领域内的最小值代替该像素</li>
+</ul>
+</li>
+</ul>
+<p><strong>线性滤波器</strong>：</p>
+<ul>
+<li>减小图像灰度的“尖锐”变化，减小噪声</li>
+<li>由于图像边缘是由图像灰度尖锐变化 引起的，所以也存在边缘模糊的问题</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693316922303.png" alt="1693316922303"></p>
+<p><strong>统计排序滤波器</strong>：</p>
+<ul>
+<li>是一种非线性滤波器</li>
+<li>基于滤波器所在图像区域中像素的排序，由排序结果决定的值代替中心像素的值</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693317044198.png" alt="1693317044198"></p>
+<p><strong>中值滤波的原理：</strong></p>
+<p>用模板区域内像素的中间值，作为结果值；强迫突出的亮点（暗点）更象它周围的值， 以消除孤立的亮点（暗点）</p>
+<p><strong>中值滤波算法的特点：</strong></p>
+<ul>
+<li>在去除噪音的同时，可以比较好地保留边的锐度和图像的细节（优于均值 滤波器）</li>
+<li>能够有效去除脉冲噪声：以黑白点叠加在图像上</li>
+</ul>
+<p><strong>锐化滤波器主要用途：</strong></p>
+<ul>
+<li>突出图像中的细节，增强被模糊了的细节</li>
+<li>印刷中的细微层次强调。弥补扫描对图像的钝化</li>
+<li>超声探测成像，分辨率低，边缘模糊，通过锐化来改善</li>
+<li>图像识别中，分割前的边缘提取</li>
+<li>锐化处理恢复过度钝化、暴光不足的图像</li>
+<li>尖端武器的目标识别、定位</li>
+</ul>
+<p><strong>微分滤波器的原理：</strong></p>
+<ul>
+<li><strong>均值产生钝化</strong>的效果，而<strong>均值与积分</strong>相似，由此而联想到，<strong>微分</strong>能不能产生相反的效果，即<strong>锐化</strong>的效果？结论是肯定的。</li>
+<li>在图像处理中应用微分最常用的方法是计算<strong>梯度</strong>。函数f(x,y)在(x,y)处的梯度为一个向量：</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/image-20230829215319092.png" alt="image-20230829215319092"></p>
+<p>锐化滤波器的分类：</p>
+<ul>
+<li>二阶微分滤波器－拉普拉斯算子</li>
+<li>一阶微分滤波器－梯度算子</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693317298501.png" alt="1693317298501"></p>
+<h2 id="第三章"><a href="#第三章" class="headerlink" title="第三章"></a>第三章</h2><p>彩色图像处理</p>
+<ul>
+<li>全彩色处理（数码相机、数码摄像机、彩色扫描仪）</li>
+<li>伪彩色处理（对不同的灰度或灰度范围赋予不同的颜色）</li>
+</ul>
+<h3 id="1-彩色图像基础"><a href="#1-彩色图像基础" class="headerlink" title="1.彩色图像基础"></a>1.彩色图像基础</h3><p>光特性是颜色科学的核心</p>
+<p>描述彩色光的3个基本量：</p>
+<ul>
+<li>辐射率：从光源流出能量的总量，用瓦特（W）度量</li>
+<li>光强：观察者从光源接受的能量总和</li>
+<li>亮度：主观描绘子</li>
+</ul>
+<h3 id="2-彩色空间"><a href="#2-彩色空间" class="headerlink" title="2.彩色空间"></a>2.彩色空间</h3><p><strong>RGB****（红绿蓝）</strong></p>
+<ul>
+<li>CCD技术直接感知R,G,B三个分量</li>
+<li>是图像成像、显示、打印等设备的基础</li>
+</ul>
+<p><strong>CMY（青、深红、黄）、CMYK（青、深红、黄、黑）</strong></p>
+<ul>
+<li>运用在大多数在纸上沉淀彩色颜料的设备，如彩色打印机和复印机</li>
+</ul>
+<p>CMYK</p>
+<ul>
+<li>打印中的主要颜色是黑色</li>
+<li>等量的CMY原色产生黑色，但不纯</li>
+<li>在CMY基础上，加入黑色，形成CMYK彩色空间</li>
+</ul>
+<p>HSI（色调、饱和度、亮度）</p>
+<ul>
+<li><p>两个特点：</p>
+<ul>
+<li><p>I分量与图像的彩色信息无关</p>
+</li>
+<li><p>H和S分量与人感受颜色的方式是紧密相连的</p>
+</li>
+</ul>
+</li>
+<li><p>将亮度（I）与色调（H）和饱和度（S）分开</p>
+</li>
+<li><p>避免颜色受到光照明暗（I)等条件的干扰</p>
+</li>
+<li><p>仅仅分析反映色彩本质的色调和饱和度</p>
+</li>
+<li><p>广泛用于计算机视觉、图像检索和视频检索</p>
+</li>
+</ul>
+<p>YIQ</p>
+<ul>
+<li>Y指亮度，即灰度值</li>
+<li>I和Q指色调，描述色彩及饱和度</li>
+<li>用于彩色电视广播，被北美的电视系统所采用（属于NTSC系统）</li>
+<li>Y分量可提供黑白电视机的所有影像信息</li>
+</ul>
+<p>YUV</p>
+<ul>
+<li>Y指亮度，与YIQ的Y相同</li>
+<li>U和V也指色调，不同于YIQ的I和Q</li>
+<li>用于彩色电视广播，被欧洲的电视系统所采用（属于PAL系统）</li>
+<li>Y分量也可提供黑白电视机的所有影像信息</li>
+</ul>
+<p>YCbCr</p>
+<ul>
+<li>Y指亮度，与YIQ和YUV的Y相同</li>
+<li>Cb和Cr由U和V调整得到</li>
+<li>JPEG采用的彩色空间</li>
+</ul>
+<h3 id="3-伪彩色图像处理-全彩色图像处理"><a href="#3-伪彩色图像处理-全彩色图像处理" class="headerlink" title="3.伪彩色图像处理&amp;全彩色图像处理"></a>3.伪彩色图像处理&amp;全彩色图像处理</h3><p>伪彩色图像处理</p>
+<ul>
+<li>也叫假彩色图像处理</li>
+<li>根据一定的准则对灰度值赋以彩色的处理</li>
+<li>区分：伪彩色图像、真彩色图像、单色图像</li>
+</ul>
+<p>为什么需要伪彩色图像处理？</p>
+<ul>
+<li>人类可以辨别上千种颜色和强度</li>
+<li>只能辨别二十几种灰度</li>
+</ul>
+<p>伪彩色图像处理：</p>
+<ul>
+<li>应用：为人们观察和解释图像中的灰度目标</li>
+</ul>
+<p>怎样进行伪彩色图像处理？</p>
+<ul>
+<li>强度分层技术</li>
+<li>灰度级到彩色转换技术</li>
+</ul>
+<p>全彩色图像处理研究分为两大类：</p>
+<ul>
+<li><p><em>分别处理每一分量图像</em>，然后合成彩色图像</p>
+</li>
+<li><p>直接对彩色像素处理：3个颜色分量表示像素向量。令c代表RGB彩色空间中的任意向量</p>
+</li>
+</ul>
+<p>补色：在如图所示的彩色环上，与一种色调直接相对应的另一种色调称为补色</p>
+<p>作用：增强嵌在彩色图像暗区的细节</p>
+<h2 id="第四章"><a href="#第四章" class="headerlink" title="第四章"></a>第四章</h2><h3 id="1-频率域图像增强"><a href="#1-频率域图像增强" class="headerlink" title="1.频率域图像增强"></a>1.频率域图像增强</h3><p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693387333261.png" alt="1693387333261"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693387389637.png" alt="1693387389637"></p>
+<h3 id="2-一维DFT及其反变换"><a href="#2-一维DFT及其反变换" class="headerlink" title="2.一维DFT及其反变换"></a>2.一维DFT及其反变换</h3><p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693552262191.png" alt="1693552262191"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693552279469.png" alt="1693552279469"></p>
+<p><strong>傅里叶变换将信号分成不同频率成份</strong>。类似光学中的分色棱镜把白光按波长(频率)分成不同颜色，称数学棱镜。</p>
+<p>傅里叶变换的成份：<strong>直流分量和交流分量</strong></p>
+<p>信号变化的快慢与频率域的频率有关。噪声、边缘、跳跃部分代表图像的<strong>高频</strong>分量；背景区域和慢变部分代表图像的<strong>低频</strong>分量</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693552370690.png" alt="1693552370690"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693552390253.png" alt="1693552390253"></p>
+<h2 id="第五章"><a href="#第五章" class="headerlink" title="第五章"></a>第五章</h2><h3 id="1-为什么要在频率域研究图像增强"><a href="#1-为什么要在频率域研究图像增强" class="headerlink" title="1.为什么要在频率域研究图像增强"></a>1.为什么要在频率域研究图像增强</h3><ul>
+<li><strong>可以利用频率成分和图像外表之间的对应关系。一些在空间域表述困难的增强任务，在频率域中变得非常普通</strong></li>
+<li><strong>频域滤波在频率域更为直观，它可以解释空间域滤波的某些性质</strong></li>
+<li>给出一个问题，寻找某个滤波器解决该问题，频率域处理对于试验、迅速而全面地控制滤波器参数是一个理想工具</li>
+<li>一旦找到一个特殊应用的滤波器，通常在空间域采用硬件实现它</li>
+</ul>
+<h3 id="2-一些基本的滤波器"><a href="#2-一些基本的滤波器" class="headerlink" title="2.一些基本的滤波器"></a>2.一些基本的滤波器</h3><h4 id="低通滤波器：低频通过而使高频衰减的滤波器"><a href="#低通滤波器：低频通过而使高频衰减的滤波器" class="headerlink" title="低通滤波器：低频通过而使高频衰减的滤波器"></a>低通滤波器：低频通过而使高频衰减的滤波器</h4><ul>
+<li>被低通滤波的图像比原始图像少尖锐的细节部分而突出平滑过渡部分</li>
+<li>对比空间域滤波的平滑处理，如均值滤波器</li>
+</ul>
+<h4 id="高通滤波器：使高频通过而使低频衰减的滤波器"><a href="#高通滤波器：使高频通过而使低频衰减的滤波器" class="headerlink" title="高通滤波器：使高频通过而使低频衰减的滤波器"></a>高通滤波器：使高频通过而使低频衰减的滤波器</h4><ul>
+<li>被高通滤波的图像比原始图像少灰度级的平滑过渡而突出边缘等细节部分</li>
+<li>对比空间域的梯度算子、拉普拉斯算子</li>
+</ul>
+<h3 id="3-频率域图像增强"><a href="#3-频率域图像增强" class="headerlink" title="3.频率域图像增强"></a>3.频率域图像增强</h3><p>频率域平滑滤波器：</p>
+<ul>
+<li>边缘和噪声等尖锐变化处于傅里叶变换的高频部分<ul>
+<li>平滑可以通过衰减高频成分的范围来实现</li>
+<li>理想低通滤波器：尖锐</li>
+</ul>
+</li>
+<li>巴特沃思低通滤波器：处于理想和高斯滤波器之间<ul>
+<li>高斯低通滤波器：平滑</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-振铃现象"><a href="#4-振铃现象" class="headerlink" title="4.振铃现象"></a>4.振铃现象</h3><p>图像处理中，对一幅图像进行滤波处理，若选用的<strong>频域滤波器具有陡峭的变化</strong>，则会使滤波图像<strong>产生“振铃”</strong>，所谓“振铃”，就是指输出图像的灰度剧烈变化处产生的震荡，就好像钟被敲击后产生的空气震荡。如下图：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693535302806.png" alt="1693535302806"></p>
+<p>振铃现象产生的主要原因是图像处理中的<strong>过度增强或过度滤波</strong>。</p>
+<p>凡具有接近窗函数的滤波器，IFT之后，其<strong>空域函数</strong>式多少接近sinc函数。<strong>sinc是进行图像滤波的主要因素，两边的余波将对图像产生振铃现象</strong>。</p>
+<h3 id="5-低通滤波器的应用"><a href="#5-低通滤波器的应用" class="headerlink" title="5.低通滤波器的应用"></a>5.低通滤波器的应用</h3><p>低通滤波器的应用实例：模糊,平滑等</p>
+<ul>
+<li>字符识别：通过模糊图像，桥接断裂字符的裂缝</li>
+<li>印刷和出版业：从一幅尖锐的原始图像产生平滑、柔和的外观，如人脸，减少皮肤细纹的锐化程度和小斑点</li>
+<li>处理卫星和航空图像：尽可能模糊细节，而保留大的可识别特征。低通滤波通过消除不重要的特征来简化感兴趣特征的分析</li>
+</ul>
+<h3 id="6-为什么要进行高频提升和高频加强？"><a href="#6-为什么要进行高频提升和高频加强？" class="headerlink" title="6.为什么要进行高频提升和高频加强？"></a>6.为什么要进行高频提升和高频加强？</h3><ul>
+<li><p>高频滤波后的图像，其背景平均强度减小到接近黑色（因为高通滤波器滤除了傅里叶变换的零频率成分:  F(0,0)&#x3D;f(x,y)&#x3D;0）</p>
+</li>
+<li><p>解决办法：把原始图像加到过滤后的 结果，如拉普拉斯算子增强，这种处理称为高频提升过滤</p>
+</li>
+</ul>
+<h2 id="第六章"><a href="#第六章" class="headerlink" title="第六章"></a>第六章</h2><h3 id="1-图像增强和图像复原的异同"><a href="#1-图像增强和图像复原的异同" class="headerlink" title="1.图像增强和图像复原的异同"></a>1.图像增强和图像复原的异同</h3><p>同：与图像增强相似，图像复原的目的也是改善 图像质量</p>
+<p>异：<strong>图像增强</strong>主要是一个主观过程，而<strong>图像复原</strong>主要是一个客观过程</p>
+<h3 id="2-一些重要的噪声"><a href="#2-一些重要的噪声" class="headerlink" title="2.一些重要的噪声"></a>2.一些重要的噪声</h3><p><strong>高斯噪声</strong>：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693532779179.png" alt="1693532779179"></p>
+<p>高斯噪声源于<strong>电子电路噪声</strong>和<strong>由低照明度或高温带来的传感器噪声</strong></p>
+<p><strong>瑞利噪声：</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693532806464.png" alt="1693532806464"></p>
+<p>瑞利噪声<strong>对于表征远距离成像</strong>噪声有用</p>
+<p><strong>伽马（爱尔兰）噪声：</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693532839096.png" alt="1693532839096"></p>
+<p><strong>指数分布噪声：</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693532882837.png" alt="1693532882837"></p>
+<p>伽马分布和指数分布用于<strong>表征激光成像噪声</strong></p>
+<p><strong>均匀分布噪声：</strong></p>
+<p>![1693532897917](D:\Wechat Files\WeChat Files\wxid_3c6w0ld0qob622\FileStorage\Temp\1693532897917.png)</p>
+<p><strong>脉冲噪声：</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693532951082.png" alt="1693532951082"></p>
+<ul>
+<li>脉冲噪声可以为正，也可为负</li>
+<li>标定以后，脉冲噪声总是数字化为最大值（纯黑或纯白）</li>
+<li>通常，负脉冲以黑点（胡椒点）出现，正脉冲以白点（盐点）出现</li>
+<li>脉冲噪声用于成像中的短暂停留中，如错误的开关操作</li>
+</ul>
+<h3 id="3-图像复原的空间滤波器"><a href="#3-图像复原的空间滤波器" class="headerlink" title="3.图像复原的空间滤波器"></a>3.图像复原的空间滤波器</h3><h4 id="均值滤波器"><a href="#均值滤波器" class="headerlink" title="均值滤波器"></a>均值滤波器</h4><p>算术均值滤波器：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693533188096.png" alt="1693533188096"></p>
+<p>几何均值滤波器：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693533265769.png" alt="1693533265769"></p>
+<p>谐波均值滤波器：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693533305015.png" alt="1693533305015"></p>
+<p>逆谐波均值滤波器：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693533325399.png" alt="1693533325399"></p>
+<p><strong>总结：</strong></p>
+<ul>
+<li><strong>算术均值滤波器</strong>和<strong>几何均值滤波器</strong>适合于处理高斯或均匀等随机噪声</li>
+<li>谐波均值滤波器适合于处理脉冲噪声</li>
+<li>缺点：必须事先知道噪声是暗噪声还是亮噪声，以便于选择合适的Q符号</li>
+</ul>
+<h4 id="顺序统计滤波器"><a href="#顺序统计滤波器" class="headerlink" title="顺序统计滤波器"></a>顺序统计滤波器</h4><p>中值滤波器：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693533460466.png" alt="1693533460466"></p>
+<p>最大值滤波器：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693533503256.png" alt="1693533503256"></p>
+<p>最小值滤波器：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693533538686.png" alt="1693533538686"></p>
+<p>中点滤波器：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693533570811.png" alt="1693533570811"></p>
+<p>修正后的阿尔法均值滤波器：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693533603203.png" alt="1693533603203"></p>
+<h4 id="自适应滤波器"><a href="#自适应滤波器" class="headerlink" title="自适应滤波器"></a>自适应滤波器</h4><p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693533647234.png" alt="1693533647234"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693533661486.png" alt="1693533661486"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693533683064.png" alt="1693533683064"></p>
+<h3 id="4-图像复原·带阻滤波器"><a href="#4-图像复原·带阻滤波器" class="headerlink" title="4.图像复原·带阻滤波器"></a>4.图像复原·带阻滤波器</h3><p>带阻滤波器：阻止一定频率范围内的信号通过而允许其它频率范围内的信号通 过，消除或衰减傅里叶变换原点处的频段</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693533931007.png" alt="1693533931007"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693533953504.png" alt="1693533953504"></p>
+<h3 id="5-图像复原·带通滤波器"><a href="#5-图像复原·带通滤波器" class="headerlink" title="5.图像复原·带通滤波器"></a>5.图像复原·带通滤波器</h3><p>带通滤波器：允许一定频率范围内的信 号通过而阻止其它频率范围内的信号通过</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693534003686.png" alt="1693534003686"></p>
+<p>Hbp(u,v)表示带通滤波器，Hbr(u,v)表示相应的带阻滤波器</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693534028245.png" alt="1693534028245"></p>
+<h2 id="第七章"><a href="#第七章" class="headerlink" title="第七章"></a>第七章</h2><h3 id="1-图像压缩的方法分类"><a href="#1-图像压缩的方法分类" class="headerlink" title="1.图像压缩的方法分类"></a>1.图像压缩的方法分类</h3><ul>
+<li>无损压缩：在压缩和解压缩过程中没有信息损失</li>
+<li>有损压缩：能取得较高的压缩率，但压缩后不能通过解压缩恢复原状</li>
+<li>其它：如根据需要，既可进行无损，也可进行有损压缩的技术；准无损技术</li>
+</ul>
+<h3 id="2-三种基本的数据冗余"><a href="#2-三种基本的数据冗余" class="headerlink" title="2.三种基本的数据冗余"></a>2.三种基本的数据冗余</h3><p>编码冗余：如果一个图像的灰度级编码，使用了多于实 际需要的编码符号，就称该图像包含了编码冗余</p>
+<p>像素间冗余：因为任何给定像素的值可以根据与这个像素相邻的像素进行预测，所以单个像素携带的信息相对较少。对于一幅图像，很多单个像素对视觉的贡献是冗余的。它的值可以通过与它相邻的像素值为基础进行预测</p>
+<p>心理视觉冗余：眼睛对所有视觉信息感受的灵敏度不同。在正常视觉处理过程中各种信息的相对重要程度不同。有些信息在通常的视觉过程中与另外一些信息相比并不那么重要，这些信息被认为是心理视觉冗余的，去除这些信息并不会明显降低图像质量</p>
+<h3 id="3-保真度原则"><a href="#3-保真度原则" class="headerlink" title="3.保真度原则"></a>3.保真度原则</h3><p>需要评价信息损失的测度以描述解码图像相 对于原始图像的偏离程度，这些测度称为保真度准则</p>
+<p>分类：</p>
+<ul>
+<li>客观保真度准则</li>
+<li>主观保真度准则</li>
+</ul>
+<p><strong>客观保真度准则：</strong></p>
+<p>当所损失的信息量可以用编码输入图像与编码输出图像的函数表示时，它就是基于客观保真度准则的</p>
+<p>常用的两种客观保真度准则</p>
+<ul>
+<li>均方根误差</li>
+<li>均方信噪比</li>
+</ul>
+<h3 id="4-图像压缩模型"><a href="#4-图像压缩模型" class="headerlink" title="4.图像压缩模型"></a>4.图像压缩模型</h3><p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693552048703.png" alt="1693552048703"></p>
+<h3 id="5-霍夫曼编码"><a href="#5-霍夫曼编码" class="headerlink" title="5.霍夫曼编码"></a>5.霍夫曼编码</h3><p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693552090957.png" alt="1693552090957"></p>
+<h3 id="6-算术编码"><a href="#6-算术编码" class="headerlink" title="6.算术编码"></a>6.算术编码</h3><p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693552133112.png" alt="1693552133112"></p>
+<h3 id="7-LZW编码"><a href="#7-LZW编码" class="headerlink" title="7.LZW编码"></a>7.LZW编码</h3><p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693552190203.png" alt="1693552190203"></p>
+<h2 id="第八章"><a href="#第八章" class="headerlink" title="第八章"></a>第八章</h2><h3 id="腐蚀"><a href="#腐蚀" class="headerlink" title="腐蚀"></a>腐蚀</h3><p>腐蚀：使图像缩小 A和B是两个集合</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693551564033.png" alt="1693551564033"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693551593326.png" alt="1693551593326"></p>
+<h3 id="膨胀"><a href="#膨胀" class="headerlink" title="膨胀"></a>膨胀</h3><p>膨胀：使图像扩大</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693551627639.png" alt="1693551627639"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/image-20230901150042428.png" alt="image-20230901150042428"></p>
+<h3 id="开操作和闭操作"><a href="#开操作和闭操作" class="headerlink" title="开操作和闭操作"></a>开操作和闭操作</h3><p><strong>开操作</strong>：使图像的轮廓变得光滑，断开狭窄的间断和消除细的突出物   <strong>先用B对A腐蚀，然后用B对结果膨胀</strong></p>
+<p><strong>闭操作：</strong>同样使图像的轮廓变得光滑，但开操作相反，它能消除狭窄的间断和长细的鸿沟，消除小的孔洞，并填补轮廓线中的裂痕 <strong>先用B对A膨胀，然后用B对结果腐蚀</strong></p>
+<h2 id="第九章"><a href="#第九章" class="headerlink" title="第九章"></a>第九章</h2><h3 id="1-间断检测"><a href="#1-间断检测" class="headerlink" title="1.间断检测"></a>1.间断检测</h3><p>分为：点检测、线检测、边缘检测</p>
+<p>寻找间断的一般方法：模板检测</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693536055432.png" alt="1693536055432"></p>
+<p>结论：孤立点可以通过检测模板并设置阈值进行检测</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693536100705.png" alt="1693536100705"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693536118694.png" alt="1693536118694"></p>
+<p>边缘检测：</p>
+<p>边缘：一组相连的像素集合，这些像素位于两个区域的边界上</p>
+<p>结论：</p>
+<ul>
+<li>一阶导数可用于检测图像中的一个点是否在边缘上</li>
+<li>二阶导数可以判断一个边缘像素是在边缘亮的一边还是暗的一边</li>
+<li>一条连接二阶导数正值和负值的虚构直线将在边缘中点附近穿过零点</li>
+<li>一阶导数使用梯度算子，二阶导数使用拉普拉斯算子</li>
+</ul>
+<p>梯度算子：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693536393214.png" alt="1693536393214"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693536597101.png" alt="1693536597101"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693536608924.png" alt="1693536608924"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693536619545.png" alt="1693536619545"></p>
+<p>结论：</p>
+<ul>
+<li>Prewitt和Sobel算子是计算数字梯度时最常用的算子</li>
+<li>Prewitt模板比Sobel模板简单，但Sobel模板能够有效抑制噪声</li>
+</ul>
+<p>Roberts：<strong>对具有陡峭的低噪声的图像处理效果比较好</strong>，但利用Roberts算子提取边缘的结果是边缘比较粗，因此<strong>边缘定位不是很准确</strong>。</p>
+<p>Sobel：对灰度渐变和噪声较多的图像处理效果比较好，<strong>Sobel算子对边缘定位比较准确</strong></p>
+<p>Kirsh：对灰度渐变和噪声较多的图像处理效果较好。</p>
+<p>Prewitt:对灰度渐变和噪声较多的图像处理效果较好。</p>
+<p>Laplacian：<strong>对图像中的阶跃性边缘点定位准确，对噪声非常敏感</strong>，丢失一部分边缘的方向信息，造成一些不连续的检测边缘。</p>
+<p>LoG：LoG算子经常出现双边缘像素边界，而且该检测方法对噪声比较敏感，所以很少用LoG算子检测边缘，而是用来<strong>判断边缘像素是位于图像的明区还是暗区</strong>。</p>
+<p>Canny：<strong>此方法不容易受噪声干扰，能够检测到真正的弱边缘。</strong>在edge函数中，最有效的边缘检测方法是Canny方法。该方法的优点在于使用两种不同的阈值分别检测强边缘和弱边缘，并且仅当弱边缘与强边缘相连时，才将弱边缘包含在输出图像中。这种方法更容易检测出真正的弱边缘。</p>
+<p><strong>拉普拉斯算子：</strong></p>
+<p>缺点：</p>
+<ul>
+<li>拉普拉斯算子对噪声具有<strong>敏感性</strong></li>
+<li>拉普拉斯算子的幅值产生<strong>双边缘</strong></li>
+<li>拉普拉斯算子不能检测边缘的方向</li>
+</ul>
+<p>优点：</p>
+<ul>
+<li>可以利用零交叉的性质进行<strong>边缘定位</strong></li>
+<li>可以确定一个像素是在边缘暗的一边还是亮的 一边</li>
+</ul>
+<h3 id="高斯型拉普拉斯算子总结："><a href="#高斯型拉普拉斯算子总结：" class="headerlink" title="高斯型拉普拉斯算子总结："></a>高斯型拉普拉斯算子总结：</h3><ul>
+<li>高斯型函数的目的是对图像进行平滑</li>
+<li>处理拉普拉斯算子的目的是提供一幅用零交叉确定边缘位置的图像</li>
+<li>平滑处理减少了噪声的影响</li>
+</ul>
+<h3 id="2-边缘连接和边界检测"><a href="#2-边缘连接和边界检测" class="headerlink" title="2.边缘连接和边界检测"></a>2.边缘连接和边界检测</h3><h3 id="3-阈值处理"><a href="#3-阈值处理" class="headerlink" title="3.阈值处理"></a>3.阈值处理</h3><p>基本自适应阈值：</p>
+<p>单一全局阈值存在的问题：不均匀亮度图像无法有效分割</p>
+<p>方法：</p>
+<ul>
+<li>将图像进一步细分为子图像，并对不同的子图像使用不同的阈值处理</li>
+<li>解决的关键问题：如何将图像进行细分和如何为得到的子图像估计阈值</li>
+<li>自适应阈值：取决于像素在子图像中的位置</li>
+</ul>
 ]]></content>
       <categories>
         <category>复习资料</category>
@@ -1501,523 +2018,6 @@
 <li>某一个VLAN内的流量帧，如果要跨域物理的交换机，需使用802.1q格式（带有VLAN ID 信息）802.1q协议的作用：对干线端口之间传输的帧，添加&#x2F;移除额外的头部字段</li>
 </ul>
 <p><img src="https://cdn.jsdelivr.net/gh/kkirito16/picgopicture/img/f917eb082d83f7a3d6121eaa0e2c929b.png" alt="img"></p>
-]]></content>
-      <categories>
-        <category>复习资料</category>
-      </categories>
-      <tags>
-        <tag>Markdown</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Vue3环境搭建</title>
-    <url>/2023/08/29/Vue3%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</url>
-    <content><![CDATA[<h1 id="Vue3环境搭建"><a href="#Vue3环境搭建" class="headerlink" title="Vue3环境搭建"></a>Vue3环境搭建</h1><h2 id="确保你已经安装"><a href="#确保你已经安装" class="headerlink" title="确保你已经安装"></a>确保你已经安装</h2><ul>
-<li>node.js</li>
-</ul>
-<h2 id="1-安装Vue3"><a href="#1-安装Vue3" class="headerlink" title="1.安装Vue3"></a>1.安装Vue3</h2><p>根据vue官网<a href="https://vuejs.org/">Vue.js - The Progressive JavaScript Framework | Vue.js (vuejs.org)</a>  Docs&#x2F;Guide&#x2F;Quick Start</p>
-<p>建议自行创建一个Vue项目的安装目录，打开终端并切换到创建好的安装目录（我这里是E:\Vue）</p>
-<p>运行命令安装最新的Vue：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm create vue@latest</span><br></pre></td></tr></table></figure>
-
-<img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/535d38f4bf2f69de6b9dc11b97ec37a.png" alt="535d38f4bf2f69de6b9dc11b97ec37a" style="zoom:150%;" />
-
-<p>接下来会跳出一系列选项</p>
-<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/91377a3786b9ce2b25dc1b0facfd861.png" alt="91377a3786b9ce2b25dc1b0facfd861"></p>
-<p>有需要的话可以在对应选项后面选择Yes，我这里都选择不安装</p>
-<p>安装成功后显示：+</p>
-<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1fd53c592c15e5787dcc455fddd59dd.png" alt="1fd53c592c15e5787dcc455fddd59dd"></p>
-<p>运行命令：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd vue-project #注意这里你显示的可能不是vue-project，同上面那个绿色的文件名字</span><br><span class="line">npm install</span><br><span class="line">npm run dev</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/946abc9319b74282832cf961465bfa9.png" alt="946abc9319b74282832cf961465bfa9"></p>
-<p>接下来，在浏览器中按照提示打开</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">http://localhost:5173/</span><br></pre></td></tr></table></figure>
-
-<p>出现如下页面则表示项目搭建成功</p>
-<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/8a909238c7319a6fd2196fbf9c8ae58.png" alt="8a909238c7319a6fd2196fbf9c8ae58"></p>
-<h2 id="2-安装Vue-CLI"><a href="#2-安装Vue-CLI" class="headerlink" title="2.安装Vue-CLI"></a>2.安装Vue-CLI</h2><p>若需要在命令行中使用vue命令进行vue项目创建、vue图形化界面的使用，需要安装vue-cli</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install -g @vue/cli</span><br></pre></td></tr></table></figure>
-
-<p>可以用这个命令来检查其版本是否正确：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vue --version</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>个人经验文章</category>
-      </categories>
-      <tags>
-        <tag>Markdown</tag>
-        <tag>Vue3</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>数字图像处理复习笔记</title>
-    <url>/2023/09/04/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E5%A4%8D%E4%B9%A0/</url>
-    <content><![CDATA[<h2 id="数字图像处理速通复习整理"><a href="#数字图像处理速通复习整理" class="headerlink" title="数字图像处理速通复习整理"></a>数字图像处理速通复习整理</h2><h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><h3 id="1-什么是数字图像？"><a href="#1-什么是数字图像？" class="headerlink" title="1.什么是数字图像？"></a>1.什么是数字图像？</h3><p>数字图像由二维的元素组成，每一个元素具有一个 特定的位置（x,y）和幅值f(x,y),这些元素就称为像素</p>
-<h3 id="2-图像处理系统的基本组成结构"><a href="#2-图像处理系统的基本组成结构" class="headerlink" title="2.图像处理系统的基本组成结构"></a>2.图像处理系统的基本组成结构</h3><p>主要由三大部分组成</p>
-<ul>
-<li><p>图像数字化设备，包括数码相机、数码摄像机、带照相和&#x2F;或摄像功能的手机 等</p>
-</li>
-<li><p>图像处理设备，包括计算机和存储系 统</p>
-</li>
-<li><p>图像输出设备，包括打印机，也可以 输出到Internet上的其它设备</p>
-</li>
-</ul>
-<h3 id="3-取样-量化"><a href="#3-取样-量化" class="headerlink" title="3.取样&amp;量化"></a>3.取样&amp;量化</h3><p>大多数传感器的输出是连续电压波形。为了产生一幅数字图像，需要把连续的感知数据转化为数字形式。这包括了两种处理操作</p>
-<ul>
-<li>取样：图像空间坐标的数字化</li>
-<li>量化：图像函数值（灰度值）的数字化</li>
-</ul>
-<p><strong>非统一的采样</strong>：在灰度级变化尖锐的区域，用细腻的采样， 在灰度级比较平滑的区域，用粗糙的采样</p>
-<p><strong>非统一的图像的量化</strong>：在边界附近使用较少的灰度级。剩余的灰度级可以用于灰度级变化比较平滑的区域</p>
-<p>避免或减少由于量化的太粗糙，在灰度级变化比较平滑的区域出现加假轮廓 的现象。</p>
-<h3 id="4-数字图像的表示"><a href="#4-数字图像的表示" class="headerlink" title="4.数字图像的表示"></a>4.数字图像的表示</h3><p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693193253045.png" alt="1693193253045"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693193276564.png" alt="1693193276564"></p>
-<ul>
-<li>对于2色位图，1位表示一个像素颜色，所以一个字节表示8个像素</li>
-<li>对于16色位图，4位表示一个像素颜色， 所以一个字节表示2个像素</li>
-<li>对于256色位图，1个字节表示1个像素</li>
-<li>对于真彩色图，3个字节表示一个像素</li>
-</ul>
-<h3 id="5-灰度级-层次"><a href="#5-灰度级-层次" class="headerlink" title="5.灰度级&amp;层次"></a>5.灰度级&amp;层次</h3><p>灰度级：表示像素明暗程度的整数量   eg.像素的取值范围为0-255,就称该图像为256个灰度级的图像</p>
-<p>层次：表示图像实际拥有的灰度级的数量  eg.具有32种不同取值的图像，可称该图像具有32个层次</p>
-<p><strong>图像数据的实际层次越多，视觉效果就越好</strong></p>
-<h3 id="6-对比度"><a href="#6-对比度" class="headerlink" title="6.对比度"></a>6.对比度</h3><p>对比度：是指一幅图像中灰度反差的大小 <strong>对比度&#x3D;最大亮度&#x2F;最小亮度</strong></p>
-<p><strong>与清晰度相关的主要因素</strong>：亮度、对比度、尺寸大小、细微层次、颜色饱和度</p>
-<h3 id="7-4邻域-D邻域-8邻域"><a href="#7-4邻域-D邻域-8邻域" class="headerlink" title="7.4邻域&amp;D邻域&amp;8邻域"></a>7.4邻域&amp;D邻域&amp;8邻域</h3><p>4邻域：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693194492592.png" alt="1693194492592"></p>
-<p>D邻域：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693194515906.png" alt="1693194515906"></p>
-<p>8邻域：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693194538478.png" alt="1693194538478"></p>
-<h3 id="8-4邻接-8邻接-m邻接"><a href="#8-4邻接-8邻接-m邻接" class="headerlink" title="8.4邻接&amp;8邻接&amp;m邻接"></a>8.4邻接&amp;8邻接&amp;m邻接</h3><p>4邻接：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693194592283.png" alt="1693194592283"></p>
-<p>8邻接：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693194603839.png" alt="1693194603839"></p>
-<p>m邻接：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693194618775.png" alt="1693194618775"></p>
-<h3 id="9-通路-连通"><a href="#9-通路-连通" class="headerlink" title="9.通路&amp;连通"></a>9.通路&amp;连通</h3><ul>
-<li>通路：如果从（x0,y0）点到（xn,yn）点，其中的每个点与前后都是K邻接的（K代表4、8、m），则说这两个点之间存在一条K通路，n是这个通路的长度，如果（x0,y0）和（xn,yn）是重合的，那么说这是一条闭合通路。</li>
-<li>连通：对于图像中的某一个像素子集U和其中的两个点p和q，如果p和q之间有一个有U中全部元素构成的通路，那就说p和q是连通的。</li>
-</ul>
-<p><strong>主要是对m邻接的含义的理解！！</strong></p>
-<p>eg.</p>
-<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693195176445.png" alt="1693195176445"></p>
-<p><strong>m连通：</strong> 如果两个节点是m邻接的，<strong>并且存在一条由一系列m邻接的节点组成的路径连接它们，那么这两个节点是m连通的。</strong></p>
-<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693195364478.png" alt="1693195364478"></p>
-<h3 id="10-城市距离-棋盘距离"><a href="#10-城市距离-棋盘距离" class="headerlink" title="10.城市距离&amp;棋盘距离"></a>10.城市距离&amp;棋盘距离</h3><p><strong>D4距离（城市距离）：</strong></p>
-<p>像素p(x,y)和q(s,t)之间的D4距离定义为：D4(p,q)&#x3D;|x–s|+|y–t|</p>
-<p><strong>D8距离（棋盘距离）：</strong></p>
-<p>像素p(x,y)和q(s,t)之间的D8距离定义为：D8(p,q)&#x3D;max(|x–s|,|y–t|)</p>
-<h2 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h2><h3 id="1-图像处理"><a href="#1-图像处理" class="headerlink" title="1.图像处理"></a>1.图像处理</h3><p><strong>图像处理流程：</strong>图像采集-&gt;图像预处理-&gt;特征提取-&gt;识别与理解</p>
-<p>图像处理分为两大类：</p>
-<ul>
-<li>空间域：对原始图像的像素直接处理</li>
-<li>变换域：<ul>
-<li>原始图像变换到变换域</li>
-<li>变换域处理</li>
-<li>反变换回到空间域</li>
-</ul>
-</li>
-</ul>
-<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693205501263.png" alt="1693205501263"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693206167432.png" alt="1693206167432"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693206178716.png" alt="1693206178716"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693206771288.png" alt="1693206771288"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693206792692.png" alt="1693206792692"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693206814825.png" alt="1693206814825"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693206859240.png" alt="1693206859240"></p>
-<h4 id="位平面切片"><a href="#位平面切片" class="headerlink" title="位平面切片"></a>位平面切片</h4><p>作用：</p>
-<ul>
-<li>通过对特定位提高亮度，改善图像质量</li>
-<li>较高位（如前4位）包含大多数视觉重要数据</li>
-<li>较低位（如后4位）对图像中的微笑细节有作用</li>
-<li>分解为位平面，可以分析每一位在图像中的相对重要性</li>
-</ul>
-<h3 id="2-加法、减法、乘法、逻辑运算"><a href="#2-加法、减法、乘法、逻辑运算" class="headerlink" title="2.加法、减法、乘法、逻辑运算"></a>2.加法、减法、乘法、逻辑运算</h3><p>加法运算：<strong>去除叠加性噪声，生成图像叠加效果</strong></p>
-<p>减法运算：<strong>显示两幅图像的差异，去除不需要的叠加性图案，图像分割：如分割运动的车辆，减法去掉静止部分，剩余的是运动元素和噪声</strong></p>
-<p>乘法运算：<strong>图像的局部显示</strong></p>
-<p>逻辑运算：</p>
-<ul>
-<li>非：获得一个阴图像；获得一个子图像的补图像</li>
-<li>与：求两个子图像的相交子图</li>
-<li>或：合并子图像  模板运算：提取感兴趣的子图像</li>
-<li>异或：获得相交子图像</li>
-</ul>
-<h3 id="3-直方图的运算"><a href="#3-直方图的运算" class="headerlink" title="3.直方图的运算"></a>3.直方图的运算</h3><p><strong>图像直方图的定义</strong></p>
-<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693312315660.png" alt="1693312315660"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693312496792.png" alt="1693312496792"></p>
-<p>直方图均衡化：</p>
-<ul>
-<li>希望一幅图像的像素占有全部可能的灰度级且分布均匀，能够具有高对比度</li>
-<li>使用的方法是灰度级变换：s &#x3D; T(r)</li>
-<li>基本思想是把原始图的直方图变换为均匀分布的形式，这样就增加了像素灰度值的动态范围，从而达到增强图像整体对比度的效果</li>
-</ul>
-<p><strong>s&#x3D;T(r)	0≤r≤1</strong></p>
-<p>T(r)满足下列两个条件：</p>
-<p>（1）T(r)在区间0≤r≤1中为单值且单调递增</p>
-<p>（2）当0≤r≤1时,0≤T(r) ≤1</p>
-<p>条件1保证原图各灰度级在变换后依旧保持次序</p>
-<p>条件2保证变换前后灰度值动态范围的一致性</p>
-<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693315515026.png" alt="1693315515026"></p>
-<p>这里的sk并的值的计算方式：sk计最近的n&#x2F;7便是sk并的值</p>
-<p>均衡化后：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693315857547.png" alt="1693315857547"></p>
-<p>直方图均衡化后的图像给人的直观感受会更好看，一般对比度也会得到增强，图片显得更清晰</p>
-<p>可以应用在水下摄影，雾天图像处理，卫星图像增强等</p>
-<h3 id="4-空间域-频率域"><a href="#4-空间域-频率域" class="headerlink" title="4.空间域&amp;频率域"></a>4.空间域&amp;频率域</h3><p><strong>空间域</strong>是直接对图像各像素进行处理； </p>
-<p><strong>频率域</strong>是对图像经傅立叶变换后的频谱成分进行处理，然后逆傅立叶变换获得所需的图像。 </p>
-<h3 id="5-空间域图像增强"><a href="#5-空间域图像增强" class="headerlink" title="5.空间域图像增强"></a>5.空间域图像增强</h3><p><strong>空间滤波</strong>：使用空间模板进行的图像处理，被称为空间滤波。模板本身被称为空间滤波器。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693316770655.png" alt="1693316770655"></p>
-<p>平滑空间滤波器的作用：</p>
-<ul>
-<li>模糊处理:去除图像中一些不重要的细节</li>
-<li>减小噪声</li>
-</ul>
-<p><strong>平滑空间滤波器的分类</strong>：</p>
-<ul>
-<li>线性滤波器：均值滤波器</li>
-<li>非线性滤波器<ul>
-<li>最大值滤波器：用像素领域内的最大值代替该像素</li>
-<li>中值滤波器：用像素领域内的中间值代替该像素</li>
-<li>最小值滤波器：用像素领域内的最小值代替该像素</li>
-</ul>
-</li>
-</ul>
-<p><strong>线性滤波器</strong>：</p>
-<ul>
-<li>减小图像灰度的“尖锐”变化，减小噪声</li>
-<li>由于图像边缘是由图像灰度尖锐变化 引起的，所以也存在边缘模糊的问题</li>
-</ul>
-<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693316922303.png" alt="1693316922303"></p>
-<p><strong>统计排序滤波器</strong>：</p>
-<ul>
-<li>是一种非线性滤波器</li>
-<li>基于滤波器所在图像区域中像素的排序，由排序结果决定的值代替中心像素的值</li>
-</ul>
-<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693317044198.png" alt="1693317044198"></p>
-<p><strong>中值滤波的原理：</strong></p>
-<p>用模板区域内像素的中间值，作为结果值；强迫突出的亮点（暗点）更象它周围的值， 以消除孤立的亮点（暗点）</p>
-<p><strong>中值滤波算法的特点：</strong></p>
-<ul>
-<li>在去除噪音的同时，可以比较好地保留边的锐度和图像的细节（优于均值 滤波器）</li>
-<li>能够有效去除脉冲噪声：以黑白点叠加在图像上</li>
-</ul>
-<p><strong>锐化滤波器主要用途：</strong></p>
-<ul>
-<li>突出图像中的细节，增强被模糊了的细节</li>
-<li>印刷中的细微层次强调。弥补扫描对图像的钝化</li>
-<li>超声探测成像，分辨率低，边缘模糊，通过锐化来改善</li>
-<li>图像识别中，分割前的边缘提取</li>
-<li>锐化处理恢复过度钝化、暴光不足的图像</li>
-<li>尖端武器的目标识别、定位</li>
-</ul>
-<p><strong>微分滤波器的原理：</strong></p>
-<ul>
-<li><strong>均值产生钝化</strong>的效果，而<strong>均值与积分</strong>相似，由此而联想到，<strong>微分</strong>能不能产生相反的效果，即<strong>锐化</strong>的效果？结论是肯定的。</li>
-<li>在图像处理中应用微分最常用的方法是计算<strong>梯度</strong>。函数f(x,y)在(x,y)处的梯度为一个向量：</li>
-</ul>
-<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/image-20230829215319092.png" alt="image-20230829215319092"></p>
-<p>锐化滤波器的分类：</p>
-<ul>
-<li>二阶微分滤波器－拉普拉斯算子</li>
-<li>一阶微分滤波器－梯度算子</li>
-</ul>
-<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693317298501.png" alt="1693317298501"></p>
-<h2 id="第三章"><a href="#第三章" class="headerlink" title="第三章"></a>第三章</h2><p>彩色图像处理</p>
-<ul>
-<li>全彩色处理（数码相机、数码摄像机、彩色扫描仪）</li>
-<li>伪彩色处理（对不同的灰度或灰度范围赋予不同的颜色）</li>
-</ul>
-<h3 id="1-彩色图像基础"><a href="#1-彩色图像基础" class="headerlink" title="1.彩色图像基础"></a>1.彩色图像基础</h3><p>光特性是颜色科学的核心</p>
-<p>描述彩色光的3个基本量：</p>
-<ul>
-<li>辐射率：从光源流出能量的总量，用瓦特（W）度量</li>
-<li>光强：观察者从光源接受的能量总和</li>
-<li>亮度：主观描绘子</li>
-</ul>
-<h3 id="2-彩色空间"><a href="#2-彩色空间" class="headerlink" title="2.彩色空间"></a>2.彩色空间</h3><p><strong>RGB****（红绿蓝）</strong></p>
-<ul>
-<li>CCD技术直接感知R,G,B三个分量</li>
-<li>是图像成像、显示、打印等设备的基础</li>
-</ul>
-<p><strong>CMY（青、深红、黄）、CMYK（青、深红、黄、黑）</strong></p>
-<ul>
-<li>运用在大多数在纸上沉淀彩色颜料的设备，如彩色打印机和复印机</li>
-</ul>
-<p>CMYK</p>
-<ul>
-<li>打印中的主要颜色是黑色</li>
-<li>等量的CMY原色产生黑色，但不纯</li>
-<li>在CMY基础上，加入黑色，形成CMYK彩色空间</li>
-</ul>
-<p>HSI（色调、饱和度、亮度）</p>
-<ul>
-<li><p>两个特点：</p>
-<ul>
-<li><p>I分量与图像的彩色信息无关</p>
-</li>
-<li><p>H和S分量与人感受颜色的方式是紧密相连的</p>
-</li>
-</ul>
-</li>
-<li><p>将亮度（I）与色调（H）和饱和度（S）分开</p>
-</li>
-<li><p>避免颜色受到光照明暗（I)等条件的干扰</p>
-</li>
-<li><p>仅仅分析反映色彩本质的色调和饱和度</p>
-</li>
-<li><p>广泛用于计算机视觉、图像检索和视频检索</p>
-</li>
-</ul>
-<p>YIQ</p>
-<ul>
-<li>Y指亮度，即灰度值</li>
-<li>I和Q指色调，描述色彩及饱和度</li>
-<li>用于彩色电视广播，被北美的电视系统所采用（属于NTSC系统）</li>
-<li>Y分量可提供黑白电视机的所有影像信息</li>
-</ul>
-<p>YUV</p>
-<ul>
-<li>Y指亮度，与YIQ的Y相同</li>
-<li>U和V也指色调，不同于YIQ的I和Q</li>
-<li>用于彩色电视广播，被欧洲的电视系统所采用（属于PAL系统）</li>
-<li>Y分量也可提供黑白电视机的所有影像信息</li>
-</ul>
-<p>YCbCr</p>
-<ul>
-<li>Y指亮度，与YIQ和YUV的Y相同</li>
-<li>Cb和Cr由U和V调整得到</li>
-<li>JPEG采用的彩色空间</li>
-</ul>
-<h3 id="3-伪彩色图像处理-全彩色图像处理"><a href="#3-伪彩色图像处理-全彩色图像处理" class="headerlink" title="3.伪彩色图像处理&amp;全彩色图像处理"></a>3.伪彩色图像处理&amp;全彩色图像处理</h3><p>伪彩色图像处理</p>
-<ul>
-<li>也叫假彩色图像处理</li>
-<li>根据一定的准则对灰度值赋以彩色的处理</li>
-<li>区分：伪彩色图像、真彩色图像、单色图像</li>
-</ul>
-<p>为什么需要伪彩色图像处理？</p>
-<ul>
-<li>人类可以辨别上千种颜色和强度</li>
-<li>只能辨别二十几种灰度</li>
-</ul>
-<p>伪彩色图像处理：</p>
-<ul>
-<li>应用：为人们观察和解释图像中的灰度目标</li>
-</ul>
-<p>怎样进行伪彩色图像处理？</p>
-<ul>
-<li>强度分层技术</li>
-<li>灰度级到彩色转换技术</li>
-</ul>
-<p>全彩色图像处理研究分为两大类：</p>
-<ul>
-<li><p><em>分别处理每一分量图像</em>，然后合成彩色图像</p>
-</li>
-<li><p>直接对彩色像素处理：3个颜色分量表示像素向量。令c代表RGB彩色空间中的任意向量</p>
-</li>
-</ul>
-<p>补色：在如图所示的彩色环上，与一种色调直接相对应的另一种色调称为补色</p>
-<p>作用：增强嵌在彩色图像暗区的细节</p>
-<h2 id="第四章"><a href="#第四章" class="headerlink" title="第四章"></a>第四章</h2><h3 id="1-频率域图像增强"><a href="#1-频率域图像增强" class="headerlink" title="1.频率域图像增强"></a>1.频率域图像增强</h3><p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693387333261.png" alt="1693387333261"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693387389637.png" alt="1693387389637"></p>
-<h3 id="2-一维DFT及其反变换"><a href="#2-一维DFT及其反变换" class="headerlink" title="2.一维DFT及其反变换"></a>2.一维DFT及其反变换</h3><p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693552262191.png" alt="1693552262191"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693552279469.png" alt="1693552279469"></p>
-<p><strong>傅里叶变换将信号分成不同频率成份</strong>。类似光学中的分色棱镜把白光按波长(频率)分成不同颜色，称数学棱镜。</p>
-<p>傅里叶变换的成份：<strong>直流分量和交流分量</strong></p>
-<p>信号变化的快慢与频率域的频率有关。噪声、边缘、跳跃部分代表图像的<strong>高频</strong>分量；背景区域和慢变部分代表图像的<strong>低频</strong>分量</p>
-<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693552370690.png" alt="1693552370690"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693552390253.png" alt="1693552390253"></p>
-<h2 id="第五章"><a href="#第五章" class="headerlink" title="第五章"></a>第五章</h2><h3 id="1-为什么要在频率域研究图像增强"><a href="#1-为什么要在频率域研究图像增强" class="headerlink" title="1.为什么要在频率域研究图像增强"></a>1.为什么要在频率域研究图像增强</h3><ul>
-<li><strong>可以利用频率成分和图像外表之间的对应关系。一些在空间域表述困难的增强任务，在频率域中变得非常普通</strong></li>
-<li><strong>频域滤波在频率域更为直观，它可以解释空间域滤波的某些性质</strong></li>
-<li>给出一个问题，寻找某个滤波器解决该问题，频率域处理对于试验、迅速而全面地控制滤波器参数是一个理想工具</li>
-<li>一旦找到一个特殊应用的滤波器，通常在空间域采用硬件实现它</li>
-</ul>
-<h3 id="2-一些基本的滤波器"><a href="#2-一些基本的滤波器" class="headerlink" title="2.一些基本的滤波器"></a>2.一些基本的滤波器</h3><h4 id="低通滤波器：低频通过而使高频衰减的滤波器"><a href="#低通滤波器：低频通过而使高频衰减的滤波器" class="headerlink" title="低通滤波器：低频通过而使高频衰减的滤波器"></a>低通滤波器：低频通过而使高频衰减的滤波器</h4><ul>
-<li>被低通滤波的图像比原始图像少尖锐的细节部分而突出平滑过渡部分</li>
-<li>对比空间域滤波的平滑处理，如均值滤波器</li>
-</ul>
-<h4 id="高通滤波器：使高频通过而使低频衰减的滤波器"><a href="#高通滤波器：使高频通过而使低频衰减的滤波器" class="headerlink" title="高通滤波器：使高频通过而使低频衰减的滤波器"></a>高通滤波器：使高频通过而使低频衰减的滤波器</h4><ul>
-<li>被高通滤波的图像比原始图像少灰度级的平滑过渡而突出边缘等细节部分</li>
-<li>对比空间域的梯度算子、拉普拉斯算子</li>
-</ul>
-<h3 id="3-频率域图像增强"><a href="#3-频率域图像增强" class="headerlink" title="3.频率域图像增强"></a>3.频率域图像增强</h3><p>频率域平滑滤波器：</p>
-<ul>
-<li>边缘和噪声等尖锐变化处于傅里叶变换的高频部分<ul>
-<li>平滑可以通过衰减高频成分的范围来实现</li>
-<li>理想低通滤波器：尖锐</li>
-</ul>
-</li>
-<li>巴特沃思低通滤波器：处于理想和高斯滤波器之间<ul>
-<li>高斯低通滤波器：平滑</li>
-</ul>
-</li>
-</ul>
-<h3 id="4-振铃现象"><a href="#4-振铃现象" class="headerlink" title="4.振铃现象"></a>4.振铃现象</h3><p>图像处理中，对一幅图像进行滤波处理，若选用的<strong>频域滤波器具有陡峭的变化</strong>，则会使滤波图像<strong>产生“振铃”</strong>，所谓“振铃”，就是指输出图像的灰度剧烈变化处产生的震荡，就好像钟被敲击后产生的空气震荡。如下图：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693535302806.png" alt="1693535302806"></p>
-<p>振铃现象产生的主要原因是图像处理中的<strong>过度增强或过度滤波</strong>。</p>
-<p>凡具有接近窗函数的滤波器，IFT之后，其<strong>空域函数</strong>式多少接近sinc函数。<strong>sinc是进行图像滤波的主要因素，两边的余波将对图像产生振铃现象</strong>。</p>
-<h3 id="5-低通滤波器的应用"><a href="#5-低通滤波器的应用" class="headerlink" title="5.低通滤波器的应用"></a>5.低通滤波器的应用</h3><p>低通滤波器的应用实例：模糊,平滑等</p>
-<ul>
-<li>字符识别：通过模糊图像，桥接断裂字符的裂缝</li>
-<li>印刷和出版业：从一幅尖锐的原始图像产生平滑、柔和的外观，如人脸，减少皮肤细纹的锐化程度和小斑点</li>
-<li>处理卫星和航空图像：尽可能模糊细节，而保留大的可识别特征。低通滤波通过消除不重要的特征来简化感兴趣特征的分析</li>
-</ul>
-<h3 id="6-为什么要进行高频提升和高频加强？"><a href="#6-为什么要进行高频提升和高频加强？" class="headerlink" title="6.为什么要进行高频提升和高频加强？"></a>6.为什么要进行高频提升和高频加强？</h3><ul>
-<li><p>高频滤波后的图像，其背景平均强度减小到接近黑色（因为高通滤波器滤除了傅里叶变换的零频率成分:  F(0,0)&#x3D;f(x,y)&#x3D;0）</p>
-</li>
-<li><p>解决办法：把原始图像加到过滤后的 结果，如拉普拉斯算子增强，这种处理称为高频提升过滤</p>
-</li>
-</ul>
-<h2 id="第六章"><a href="#第六章" class="headerlink" title="第六章"></a>第六章</h2><h3 id="1-图像增强和图像复原的异同"><a href="#1-图像增强和图像复原的异同" class="headerlink" title="1.图像增强和图像复原的异同"></a>1.图像增强和图像复原的异同</h3><p>同：与图像增强相似，图像复原的目的也是改善 图像质量</p>
-<p>异：<strong>图像增强</strong>主要是一个主观过程，而<strong>图像复原</strong>主要是一个客观过程</p>
-<h3 id="2-一些重要的噪声"><a href="#2-一些重要的噪声" class="headerlink" title="2.一些重要的噪声"></a>2.一些重要的噪声</h3><p><strong>高斯噪声</strong>：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693532779179.png" alt="1693532779179"></p>
-<p>高斯噪声源于<strong>电子电路噪声</strong>和<strong>由低照明度或高温带来的传感器噪声</strong></p>
-<p><strong>瑞利噪声：</strong></p>
-<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693532806464.png" alt="1693532806464"></p>
-<p>瑞利噪声<strong>对于表征远距离成像</strong>噪声有用</p>
-<p><strong>伽马（爱尔兰）噪声：</strong></p>
-<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693532839096.png" alt="1693532839096"></p>
-<p><strong>指数分布噪声：</strong></p>
-<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693532882837.png" alt="1693532882837"></p>
-<p>伽马分布和指数分布用于<strong>表征激光成像噪声</strong></p>
-<p><strong>均匀分布噪声：</strong></p>
-<p>![1693532897917](D:\Wechat Files\WeChat Files\wxid_3c6w0ld0qob622\FileStorage\Temp\1693532897917.png)</p>
-<p><strong>脉冲噪声：</strong></p>
-<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693532951082.png" alt="1693532951082"></p>
-<ul>
-<li>脉冲噪声可以为正，也可为负</li>
-<li>标定以后，脉冲噪声总是数字化为最大值（纯黑或纯白）</li>
-<li>通常，负脉冲以黑点（胡椒点）出现，正脉冲以白点（盐点）出现</li>
-<li>脉冲噪声用于成像中的短暂停留中，如错误的开关操作</li>
-</ul>
-<h3 id="3-图像复原的空间滤波器"><a href="#3-图像复原的空间滤波器" class="headerlink" title="3.图像复原的空间滤波器"></a>3.图像复原的空间滤波器</h3><h4 id="均值滤波器"><a href="#均值滤波器" class="headerlink" title="均值滤波器"></a>均值滤波器</h4><p>算术均值滤波器：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693533188096.png" alt="1693533188096"></p>
-<p>几何均值滤波器：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693533265769.png" alt="1693533265769"></p>
-<p>谐波均值滤波器：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693533305015.png" alt="1693533305015"></p>
-<p>逆谐波均值滤波器：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693533325399.png" alt="1693533325399"></p>
-<p><strong>总结：</strong></p>
-<ul>
-<li><strong>算术均值滤波器</strong>和<strong>几何均值滤波器</strong>适合于处理高斯或均匀等随机噪声</li>
-<li>谐波均值滤波器适合于处理脉冲噪声</li>
-<li>缺点：必须事先知道噪声是暗噪声还是亮噪声，以便于选择合适的Q符号</li>
-</ul>
-<h4 id="顺序统计滤波器"><a href="#顺序统计滤波器" class="headerlink" title="顺序统计滤波器"></a>顺序统计滤波器</h4><p>中值滤波器：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693533460466.png" alt="1693533460466"></p>
-<p>最大值滤波器：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693533503256.png" alt="1693533503256"></p>
-<p>最小值滤波器：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693533538686.png" alt="1693533538686"></p>
-<p>中点滤波器：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693533570811.png" alt="1693533570811"></p>
-<p>修正后的阿尔法均值滤波器：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693533603203.png" alt="1693533603203"></p>
-<h4 id="自适应滤波器"><a href="#自适应滤波器" class="headerlink" title="自适应滤波器"></a>自适应滤波器</h4><p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693533647234.png" alt="1693533647234"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693533661486.png" alt="1693533661486"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693533683064.png" alt="1693533683064"></p>
-<h3 id="4-图像复原·带阻滤波器"><a href="#4-图像复原·带阻滤波器" class="headerlink" title="4.图像复原·带阻滤波器"></a>4.图像复原·带阻滤波器</h3><p>带阻滤波器：阻止一定频率范围内的信号通过而允许其它频率范围内的信号通 过，消除或衰减傅里叶变换原点处的频段</p>
-<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693533931007.png" alt="1693533931007"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693533953504.png" alt="1693533953504"></p>
-<h3 id="5-图像复原·带通滤波器"><a href="#5-图像复原·带通滤波器" class="headerlink" title="5.图像复原·带通滤波器"></a>5.图像复原·带通滤波器</h3><p>带通滤波器：允许一定频率范围内的信 号通过而阻止其它频率范围内的信号通过</p>
-<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693534003686.png" alt="1693534003686"></p>
-<p>Hbp(u,v)表示带通滤波器，Hbr(u,v)表示相应的带阻滤波器</p>
-<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693534028245.png" alt="1693534028245"></p>
-<h2 id="第七章"><a href="#第七章" class="headerlink" title="第七章"></a>第七章</h2><h3 id="1-图像压缩的方法分类"><a href="#1-图像压缩的方法分类" class="headerlink" title="1.图像压缩的方法分类"></a>1.图像压缩的方法分类</h3><ul>
-<li>无损压缩：在压缩和解压缩过程中没有信息损失</li>
-<li>有损压缩：能取得较高的压缩率，但压缩后不能通过解压缩恢复原状</li>
-<li>其它：如根据需要，既可进行无损，也可进行有损压缩的技术；准无损技术</li>
-</ul>
-<h3 id="2-三种基本的数据冗余"><a href="#2-三种基本的数据冗余" class="headerlink" title="2.三种基本的数据冗余"></a>2.三种基本的数据冗余</h3><p>编码冗余：如果一个图像的灰度级编码，使用了多于实 际需要的编码符号，就称该图像包含了编码冗余</p>
-<p>像素间冗余：因为任何给定像素的值可以根据与这个像素相邻的像素进行预测，所以单个像素携带的信息相对较少。对于一幅图像，很多单个像素对视觉的贡献是冗余的。它的值可以通过与它相邻的像素值为基础进行预测</p>
-<p>心理视觉冗余：眼睛对所有视觉信息感受的灵敏度不同。在正常视觉处理过程中各种信息的相对重要程度不同。有些信息在通常的视觉过程中与另外一些信息相比并不那么重要，这些信息被认为是心理视觉冗余的，去除这些信息并不会明显降低图像质量</p>
-<h3 id="3-保真度原则"><a href="#3-保真度原则" class="headerlink" title="3.保真度原则"></a>3.保真度原则</h3><p>需要评价信息损失的测度以描述解码图像相 对于原始图像的偏离程度，这些测度称为保真度准则</p>
-<p>分类：</p>
-<ul>
-<li>客观保真度准则</li>
-<li>主观保真度准则</li>
-</ul>
-<p><strong>客观保真度准则：</strong></p>
-<p>当所损失的信息量可以用编码输入图像与编码输出图像的函数表示时，它就是基于客观保真度准则的</p>
-<p>常用的两种客观保真度准则</p>
-<ul>
-<li>均方根误差</li>
-<li>均方信噪比</li>
-</ul>
-<h3 id="4-图像压缩模型"><a href="#4-图像压缩模型" class="headerlink" title="4.图像压缩模型"></a>4.图像压缩模型</h3><p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693552048703.png" alt="1693552048703"></p>
-<h3 id="5-霍夫曼编码"><a href="#5-霍夫曼编码" class="headerlink" title="5.霍夫曼编码"></a>5.霍夫曼编码</h3><p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693552090957.png" alt="1693552090957"></p>
-<h3 id="6-算术编码"><a href="#6-算术编码" class="headerlink" title="6.算术编码"></a>6.算术编码</h3><p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693552133112.png" alt="1693552133112"></p>
-<h3 id="7-LZW编码"><a href="#7-LZW编码" class="headerlink" title="7.LZW编码"></a>7.LZW编码</h3><p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693552190203.png" alt="1693552190203"></p>
-<h2 id="第八章"><a href="#第八章" class="headerlink" title="第八章"></a>第八章</h2><h3 id="腐蚀"><a href="#腐蚀" class="headerlink" title="腐蚀"></a>腐蚀</h3><p>腐蚀：使图像缩小 A和B是两个集合</p>
-<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693551564033.png" alt="1693551564033"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693551593326.png" alt="1693551593326"></p>
-<h3 id="膨胀"><a href="#膨胀" class="headerlink" title="膨胀"></a>膨胀</h3><p>膨胀：使图像扩大</p>
-<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693551627639.png" alt="1693551627639"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/image-20230901150042428.png" alt="image-20230901150042428"></p>
-<h3 id="开操作和闭操作"><a href="#开操作和闭操作" class="headerlink" title="开操作和闭操作"></a>开操作和闭操作</h3><p><strong>开操作</strong>：使图像的轮廓变得光滑，断开狭窄的间断和消除细的突出物   <strong>先用B对A腐蚀，然后用B对结果膨胀</strong></p>
-<p><strong>闭操作：</strong>同样使图像的轮廓变得光滑，但开操作相反，它能消除狭窄的间断和长细的鸿沟，消除小的孔洞，并填补轮廓线中的裂痕 <strong>先用B对A膨胀，然后用B对结果腐蚀</strong></p>
-<h2 id="第九章"><a href="#第九章" class="headerlink" title="第九章"></a>第九章</h2><h3 id="1-间断检测"><a href="#1-间断检测" class="headerlink" title="1.间断检测"></a>1.间断检测</h3><p>分为：点检测、线检测、边缘检测</p>
-<p>寻找间断的一般方法：模板检测</p>
-<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693536055432.png" alt="1693536055432"></p>
-<p>结论：孤立点可以通过检测模板并设置阈值进行检测</p>
-<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693536100705.png" alt="1693536100705"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693536118694.png" alt="1693536118694"></p>
-<p>边缘检测：</p>
-<p>边缘：一组相连的像素集合，这些像素位于两个区域的边界上</p>
-<p>结论：</p>
-<ul>
-<li>一阶导数可用于检测图像中的一个点是否在边缘上</li>
-<li>二阶导数可以判断一个边缘像素是在边缘亮的一边还是暗的一边</li>
-<li>一条连接二阶导数正值和负值的虚构直线将在边缘中点附近穿过零点</li>
-<li>一阶导数使用梯度算子，二阶导数使用拉普拉斯算子</li>
-</ul>
-<p>梯度算子：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693536393214.png" alt="1693536393214"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693536597101.png" alt="1693536597101"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693536608924.png" alt="1693536608924"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693536619545.png" alt="1693536619545"></p>
-<p>结论：</p>
-<ul>
-<li>Prewitt和Sobel算子是计算数字梯度时最常用的算子</li>
-<li>Prewitt模板比Sobel模板简单，但Sobel模板能够有效抑制噪声</li>
-</ul>
-<p>Roberts：<strong>对具有陡峭的低噪声的图像处理效果比较好</strong>，但利用Roberts算子提取边缘的结果是边缘比较粗，因此<strong>边缘定位不是很准确</strong>。</p>
-<p>Sobel：对灰度渐变和噪声较多的图像处理效果比较好，<strong>Sobel算子对边缘定位比较准确</strong></p>
-<p>Kirsh：对灰度渐变和噪声较多的图像处理效果较好。</p>
-<p>Prewitt:对灰度渐变和噪声较多的图像处理效果较好。</p>
-<p>Laplacian：<strong>对图像中的阶跃性边缘点定位准确，对噪声非常敏感</strong>，丢失一部分边缘的方向信息，造成一些不连续的检测边缘。</p>
-<p>LoG：LoG算子经常出现双边缘像素边界，而且该检测方法对噪声比较敏感，所以很少用LoG算子检测边缘，而是用来<strong>判断边缘像素是位于图像的明区还是暗区</strong>。</p>
-<p>Canny：<strong>此方法不容易受噪声干扰，能够检测到真正的弱边缘。</strong>在edge函数中，最有效的边缘检测方法是Canny方法。该方法的优点在于使用两种不同的阈值分别检测强边缘和弱边缘，并且仅当弱边缘与强边缘相连时，才将弱边缘包含在输出图像中。这种方法更容易检测出真正的弱边缘。</p>
-<p><strong>拉普拉斯算子：</strong></p>
-<p>缺点：</p>
-<ul>
-<li>拉普拉斯算子对噪声具有<strong>敏感性</strong></li>
-<li>拉普拉斯算子的幅值产生<strong>双边缘</strong></li>
-<li>拉普拉斯算子不能检测边缘的方向</li>
-</ul>
-<p>优点：</p>
-<ul>
-<li>可以利用零交叉的性质进行<strong>边缘定位</strong></li>
-<li>可以确定一个像素是在边缘暗的一边还是亮的 一边</li>
-</ul>
-<h3 id="高斯型拉普拉斯算子总结："><a href="#高斯型拉普拉斯算子总结：" class="headerlink" title="高斯型拉普拉斯算子总结："></a>高斯型拉普拉斯算子总结：</h3><ul>
-<li>高斯型函数的目的是对图像进行平滑</li>
-<li>处理拉普拉斯算子的目的是提供一幅用零交叉确定边缘位置的图像</li>
-<li>平滑处理减少了噪声的影响</li>
-</ul>
-<h3 id="2-边缘连接和边界检测"><a href="#2-边缘连接和边界检测" class="headerlink" title="2.边缘连接和边界检测"></a>2.边缘连接和边界检测</h3><h3 id="3-阈值处理"><a href="#3-阈值处理" class="headerlink" title="3.阈值处理"></a>3.阈值处理</h3><p>基本自适应阈值：</p>
-<p>单一全局阈值存在的问题：不均匀亮度图像无法有效分割</p>
-<p>方法：</p>
-<ul>
-<li>将图像进一步细分为子图像，并对不同的子图像使用不同的阈值处理</li>
-<li>解决的关键问题：如何将图像进行细分和如何为得到的子图像估计阈值</li>
-<li>自适应阈值：取决于像素在子图像中的位置</li>
-</ul>
 ]]></content>
       <categories>
         <category>复习资料</category>
