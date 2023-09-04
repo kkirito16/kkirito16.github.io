@@ -1551,4 +1551,479 @@
         <tag>Vue3</tag>
       </tags>
   </entry>
+  <entry>
+    <title>数字图像处理复习笔记</title>
+    <url>/2023/09/04/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E5%A4%8D%E4%B9%A0/</url>
+    <content><![CDATA[<h2 id="数字图像处理速通复习整理"><a href="#数字图像处理速通复习整理" class="headerlink" title="数字图像处理速通复习整理"></a>数字图像处理速通复习整理</h2><h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><h3 id="1-什么是数字图像？"><a href="#1-什么是数字图像？" class="headerlink" title="1.什么是数字图像？"></a>1.什么是数字图像？</h3><p>数字图像由二维的元素组成，每一个元素具有一个 特定的位置（x,y）和幅值f(x,y),这些元素就称为像素</p>
+<h3 id="2-图像处理系统的基本组成结构"><a href="#2-图像处理系统的基本组成结构" class="headerlink" title="2.图像处理系统的基本组成结构"></a>2.图像处理系统的基本组成结构</h3><p>主要由三大部分组成</p>
+<ul>
+<li><p>图像数字化设备，包括数码相机、数码摄像机、带照相和&#x2F;或摄像功能的手机 等</p>
+</li>
+<li><p>图像处理设备，包括计算机和存储系 统</p>
+</li>
+<li><p>图像输出设备，包括打印机，也可以 输出到Internet上的其它设备</p>
+</li>
+</ul>
+<h3 id="3-取样-量化"><a href="#3-取样-量化" class="headerlink" title="3.取样&amp;量化"></a>3.取样&amp;量化</h3><p>大多数传感器的输出是连续电压波形。为了产生一幅数字图像，需要把连续的感知数据转化为数字形式。这包括了两种处理操作</p>
+<ul>
+<li>取样：图像空间坐标的数字化</li>
+<li>量化：图像函数值（灰度值）的数字化</li>
+</ul>
+<p><strong>非统一的采样</strong>：在灰度级变化尖锐的区域，用细腻的采样， 在灰度级比较平滑的区域，用粗糙的采样</p>
+<p><strong>非统一的图像的量化</strong>：在边界附近使用较少的灰度级。剩余的灰度级可以用于灰度级变化比较平滑的区域</p>
+<p>避免或减少由于量化的太粗糙，在灰度级变化比较平滑的区域出现加假轮廓 的现象。</p>
+<h3 id="4-数字图像的表示"><a href="#4-数字图像的表示" class="headerlink" title="4.数字图像的表示"></a>4.数字图像的表示</h3><p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693193253045.png" alt="1693193253045"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693193276564.png" alt="1693193276564"></p>
+<ul>
+<li>对于2色位图，1位表示一个像素颜色，所以一个字节表示8个像素</li>
+<li>对于16色位图，4位表示一个像素颜色， 所以一个字节表示2个像素</li>
+<li>对于256色位图，1个字节表示1个像素</li>
+<li>对于真彩色图，3个字节表示一个像素</li>
+</ul>
+<h3 id="5-灰度级-层次"><a href="#5-灰度级-层次" class="headerlink" title="5.灰度级&amp;层次"></a>5.灰度级&amp;层次</h3><p>灰度级：表示像素明暗程度的整数量   eg.像素的取值范围为0-255,就称该图像为256个灰度级的图像</p>
+<p>层次：表示图像实际拥有的灰度级的数量  eg.具有32种不同取值的图像，可称该图像具有32个层次</p>
+<p><strong>图像数据的实际层次越多，视觉效果就越好</strong></p>
+<h3 id="6-对比度"><a href="#6-对比度" class="headerlink" title="6.对比度"></a>6.对比度</h3><p>对比度：是指一幅图像中灰度反差的大小 <strong>对比度&#x3D;最大亮度&#x2F;最小亮度</strong></p>
+<p><strong>与清晰度相关的主要因素</strong>：亮度、对比度、尺寸大小、细微层次、颜色饱和度</p>
+<h3 id="7-4邻域-D邻域-8邻域"><a href="#7-4邻域-D邻域-8邻域" class="headerlink" title="7.4邻域&amp;D邻域&amp;8邻域"></a>7.4邻域&amp;D邻域&amp;8邻域</h3><p>4邻域：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693194492592.png" alt="1693194492592"></p>
+<p>D邻域：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693194515906.png" alt="1693194515906"></p>
+<p>8邻域：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693194538478.png" alt="1693194538478"></p>
+<h3 id="8-4邻接-8邻接-m邻接"><a href="#8-4邻接-8邻接-m邻接" class="headerlink" title="8.4邻接&amp;8邻接&amp;m邻接"></a>8.4邻接&amp;8邻接&amp;m邻接</h3><p>4邻接：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693194592283.png" alt="1693194592283"></p>
+<p>8邻接：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693194603839.png" alt="1693194603839"></p>
+<p>m邻接：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693194618775.png" alt="1693194618775"></p>
+<h3 id="9-通路-连通"><a href="#9-通路-连通" class="headerlink" title="9.通路&amp;连通"></a>9.通路&amp;连通</h3><ul>
+<li>通路：如果从（x0,y0）点到（xn,yn）点，其中的每个点与前后都是K邻接的（K代表4、8、m），则说这两个点之间存在一条K通路，n是这个通路的长度，如果（x0,y0）和（xn,yn）是重合的，那么说这是一条闭合通路。</li>
+<li>连通：对于图像中的某一个像素子集U和其中的两个点p和q，如果p和q之间有一个有U中全部元素构成的通路，那就说p和q是连通的。</li>
+</ul>
+<p><strong>主要是对m邻接的含义的理解！！</strong></p>
+<p>eg.</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693195176445.png" alt="1693195176445"></p>
+<p><strong>m连通：</strong> 如果两个节点是m邻接的，<strong>并且存在一条由一系列m邻接的节点组成的路径连接它们，那么这两个节点是m连通的。</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693195364478.png" alt="1693195364478"></p>
+<h3 id="10-城市距离-棋盘距离"><a href="#10-城市距离-棋盘距离" class="headerlink" title="10.城市距离&amp;棋盘距离"></a>10.城市距离&amp;棋盘距离</h3><p><strong>D4距离（城市距离）：</strong></p>
+<p>像素p(x,y)和q(s,t)之间的D4距离定义为：D4(p,q)&#x3D;|x–s|+|y–t|</p>
+<p><strong>D8距离（棋盘距离）：</strong></p>
+<p>像素p(x,y)和q(s,t)之间的D8距离定义为：D8(p,q)&#x3D;max(|x–s|,|y–t|)</p>
+<h2 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h2><h3 id="1-图像处理"><a href="#1-图像处理" class="headerlink" title="1.图像处理"></a>1.图像处理</h3><p><strong>图像处理流程：</strong>图像采集-&gt;图像预处理-&gt;特征提取-&gt;识别与理解</p>
+<p>图像处理分为两大类：</p>
+<ul>
+<li>空间域：对原始图像的像素直接处理</li>
+<li>变换域：<ul>
+<li>原始图像变换到变换域</li>
+<li>变换域处理</li>
+<li>反变换回到空间域</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693205501263.png" alt="1693205501263"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693206167432.png" alt="1693206167432"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693206178716.png" alt="1693206178716"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693206771288.png" alt="1693206771288"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693206792692.png" alt="1693206792692"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693206814825.png" alt="1693206814825"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693206859240.png" alt="1693206859240"></p>
+<h4 id="位平面切片"><a href="#位平面切片" class="headerlink" title="位平面切片"></a>位平面切片</h4><p>作用：</p>
+<ul>
+<li>通过对特定位提高亮度，改善图像质量</li>
+<li>较高位（如前4位）包含大多数视觉重要数据</li>
+<li>较低位（如后4位）对图像中的微笑细节有作用</li>
+<li>分解为位平面，可以分析每一位在图像中的相对重要性</li>
+</ul>
+<h3 id="2-加法、减法、乘法、逻辑运算"><a href="#2-加法、减法、乘法、逻辑运算" class="headerlink" title="2.加法、减法、乘法、逻辑运算"></a>2.加法、减法、乘法、逻辑运算</h3><p>加法运算：<strong>去除叠加性噪声，生成图像叠加效果</strong></p>
+<p>减法运算：<strong>显示两幅图像的差异，去除不需要的叠加性图案，图像分割：如分割运动的车辆，减法去掉静止部分，剩余的是运动元素和噪声</strong></p>
+<p>乘法运算：<strong>图像的局部显示</strong></p>
+<p>逻辑运算：</p>
+<ul>
+<li>非：获得一个阴图像；获得一个子图像的补图像</li>
+<li>与：求两个子图像的相交子图</li>
+<li>或：合并子图像  模板运算：提取感兴趣的子图像</li>
+<li>异或：获得相交子图像</li>
+</ul>
+<h3 id="3-直方图的运算"><a href="#3-直方图的运算" class="headerlink" title="3.直方图的运算"></a>3.直方图的运算</h3><p><strong>图像直方图的定义</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693312315660.png" alt="1693312315660"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693312496792.png" alt="1693312496792"></p>
+<p>直方图均衡化：</p>
+<ul>
+<li>希望一幅图像的像素占有全部可能的灰度级且分布均匀，能够具有高对比度</li>
+<li>使用的方法是灰度级变换：s &#x3D; T(r)</li>
+<li>基本思想是把原始图的直方图变换为均匀分布的形式，这样就增加了像素灰度值的动态范围，从而达到增强图像整体对比度的效果</li>
+</ul>
+<p><strong>s&#x3D;T(r)	0≤r≤1</strong></p>
+<p>T(r)满足下列两个条件：</p>
+<p>（1）T(r)在区间0≤r≤1中为单值且单调递增</p>
+<p>（2）当0≤r≤1时,0≤T(r) ≤1</p>
+<p>条件1保证原图各灰度级在变换后依旧保持次序</p>
+<p>条件2保证变换前后灰度值动态范围的一致性</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693315515026.png" alt="1693315515026"></p>
+<p>这里的sk并的值的计算方式：sk计最近的n&#x2F;7便是sk并的值</p>
+<p>均衡化后：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693315857547.png" alt="1693315857547"></p>
+<p>直方图均衡化后的图像给人的直观感受会更好看，一般对比度也会得到增强，图片显得更清晰</p>
+<p>可以应用在水下摄影，雾天图像处理，卫星图像增强等</p>
+<h3 id="4-空间域-频率域"><a href="#4-空间域-频率域" class="headerlink" title="4.空间域&amp;频率域"></a>4.空间域&amp;频率域</h3><p><strong>空间域</strong>是直接对图像各像素进行处理； </p>
+<p><strong>频率域</strong>是对图像经傅立叶变换后的频谱成分进行处理，然后逆傅立叶变换获得所需的图像。 </p>
+<h3 id="5-空间域图像增强"><a href="#5-空间域图像增强" class="headerlink" title="5.空间域图像增强"></a>5.空间域图像增强</h3><p><strong>空间滤波</strong>：使用空间模板进行的图像处理，被称为空间滤波。模板本身被称为空间滤波器。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693316770655.png" alt="1693316770655"></p>
+<p>平滑空间滤波器的作用：</p>
+<ul>
+<li>模糊处理:去除图像中一些不重要的细节</li>
+<li>减小噪声</li>
+</ul>
+<p><strong>平滑空间滤波器的分类</strong>：</p>
+<ul>
+<li>线性滤波器：均值滤波器</li>
+<li>非线性滤波器<ul>
+<li>最大值滤波器：用像素领域内的最大值代替该像素</li>
+<li>中值滤波器：用像素领域内的中间值代替该像素</li>
+<li>最小值滤波器：用像素领域内的最小值代替该像素</li>
+</ul>
+</li>
+</ul>
+<p><strong>线性滤波器</strong>：</p>
+<ul>
+<li>减小图像灰度的“尖锐”变化，减小噪声</li>
+<li>由于图像边缘是由图像灰度尖锐变化 引起的，所以也存在边缘模糊的问题</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693316922303.png" alt="1693316922303"></p>
+<p><strong>统计排序滤波器</strong>：</p>
+<ul>
+<li>是一种非线性滤波器</li>
+<li>基于滤波器所在图像区域中像素的排序，由排序结果决定的值代替中心像素的值</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693317044198.png" alt="1693317044198"></p>
+<p><strong>中值滤波的原理：</strong></p>
+<p>用模板区域内像素的中间值，作为结果值；强迫突出的亮点（暗点）更象它周围的值， 以消除孤立的亮点（暗点）</p>
+<p><strong>中值滤波算法的特点：</strong></p>
+<ul>
+<li>在去除噪音的同时，可以比较好地保留边的锐度和图像的细节（优于均值 滤波器）</li>
+<li>能够有效去除脉冲噪声：以黑白点叠加在图像上</li>
+</ul>
+<p><strong>锐化滤波器主要用途：</strong></p>
+<ul>
+<li>突出图像中的细节，增强被模糊了的细节</li>
+<li>印刷中的细微层次强调。弥补扫描对图像的钝化</li>
+<li>超声探测成像，分辨率低，边缘模糊，通过锐化来改善</li>
+<li>图像识别中，分割前的边缘提取</li>
+<li>锐化处理恢复过度钝化、暴光不足的图像</li>
+<li>尖端武器的目标识别、定位</li>
+</ul>
+<p><strong>微分滤波器的原理：</strong></p>
+<ul>
+<li><strong>均值产生钝化</strong>的效果，而<strong>均值与积分</strong>相似，由此而联想到，<strong>微分</strong>能不能产生相反的效果，即<strong>锐化</strong>的效果？结论是肯定的。</li>
+<li>在图像处理中应用微分最常用的方法是计算<strong>梯度</strong>。函数f(x,y)在(x,y)处的梯度为一个向量：</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/image-20230829215319092.png" alt="image-20230829215319092"></p>
+<p>锐化滤波器的分类：</p>
+<ul>
+<li>二阶微分滤波器－拉普拉斯算子</li>
+<li>一阶微分滤波器－梯度算子</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693317298501.png" alt="1693317298501"></p>
+<h2 id="第三章"><a href="#第三章" class="headerlink" title="第三章"></a>第三章</h2><p>彩色图像处理</p>
+<ul>
+<li>全彩色处理（数码相机、数码摄像机、彩色扫描仪）</li>
+<li>伪彩色处理（对不同的灰度或灰度范围赋予不同的颜色）</li>
+</ul>
+<h3 id="1-彩色图像基础"><a href="#1-彩色图像基础" class="headerlink" title="1.彩色图像基础"></a>1.彩色图像基础</h3><p>光特性是颜色科学的核心</p>
+<p>描述彩色光的3个基本量：</p>
+<ul>
+<li>辐射率：从光源流出能量的总量，用瓦特（W）度量</li>
+<li>光强：观察者从光源接受的能量总和</li>
+<li>亮度：主观描绘子</li>
+</ul>
+<h3 id="2-彩色空间"><a href="#2-彩色空间" class="headerlink" title="2.彩色空间"></a>2.彩色空间</h3><p><strong>RGB****（红绿蓝）</strong></p>
+<ul>
+<li>CCD技术直接感知R,G,B三个分量</li>
+<li>是图像成像、显示、打印等设备的基础</li>
+</ul>
+<p><strong>CMY（青、深红、黄）、CMYK（青、深红、黄、黑）</strong></p>
+<ul>
+<li>运用在大多数在纸上沉淀彩色颜料的设备，如彩色打印机和复印机</li>
+</ul>
+<p>CMYK</p>
+<ul>
+<li>打印中的主要颜色是黑色</li>
+<li>等量的CMY原色产生黑色，但不纯</li>
+<li>在CMY基础上，加入黑色，形成CMYK彩色空间</li>
+</ul>
+<p>HSI（色调、饱和度、亮度）</p>
+<ul>
+<li><p>两个特点：</p>
+<ul>
+<li><p>I分量与图像的彩色信息无关</p>
+</li>
+<li><p>H和S分量与人感受颜色的方式是紧密相连的</p>
+</li>
+</ul>
+</li>
+<li><p>将亮度（I）与色调（H）和饱和度（S）分开</p>
+</li>
+<li><p>避免颜色受到光照明暗（I)等条件的干扰</p>
+</li>
+<li><p>仅仅分析反映色彩本质的色调和饱和度</p>
+</li>
+<li><p>广泛用于计算机视觉、图像检索和视频检索</p>
+</li>
+</ul>
+<p>YIQ</p>
+<ul>
+<li>Y指亮度，即灰度值</li>
+<li>I和Q指色调，描述色彩及饱和度</li>
+<li>用于彩色电视广播，被北美的电视系统所采用（属于NTSC系统）</li>
+<li>Y分量可提供黑白电视机的所有影像信息</li>
+</ul>
+<p>YUV</p>
+<ul>
+<li>Y指亮度，与YIQ的Y相同</li>
+<li>U和V也指色调，不同于YIQ的I和Q</li>
+<li>用于彩色电视广播，被欧洲的电视系统所采用（属于PAL系统）</li>
+<li>Y分量也可提供黑白电视机的所有影像信息</li>
+</ul>
+<p>YCbCr</p>
+<ul>
+<li>Y指亮度，与YIQ和YUV的Y相同</li>
+<li>Cb和Cr由U和V调整得到</li>
+<li>JPEG采用的彩色空间</li>
+</ul>
+<h3 id="3-伪彩色图像处理-全彩色图像处理"><a href="#3-伪彩色图像处理-全彩色图像处理" class="headerlink" title="3.伪彩色图像处理&amp;全彩色图像处理"></a>3.伪彩色图像处理&amp;全彩色图像处理</h3><p>伪彩色图像处理</p>
+<ul>
+<li>也叫假彩色图像处理</li>
+<li>根据一定的准则对灰度值赋以彩色的处理</li>
+<li>区分：伪彩色图像、真彩色图像、单色图像</li>
+</ul>
+<p>为什么需要伪彩色图像处理？</p>
+<ul>
+<li>人类可以辨别上千种颜色和强度</li>
+<li>只能辨别二十几种灰度</li>
+</ul>
+<p>伪彩色图像处理：</p>
+<ul>
+<li>应用：为人们观察和解释图像中的灰度目标</li>
+</ul>
+<p>怎样进行伪彩色图像处理？</p>
+<ul>
+<li>强度分层技术</li>
+<li>灰度级到彩色转换技术</li>
+</ul>
+<p>全彩色图像处理研究分为两大类：</p>
+<ul>
+<li><p><em>分别处理每一分量图像</em>，然后合成彩色图像</p>
+</li>
+<li><p>直接对彩色像素处理：3个颜色分量表示像素向量。令c代表RGB彩色空间中的任意向量</p>
+</li>
+</ul>
+<p>补色：在如图所示的彩色环上，与一种色调直接相对应的另一种色调称为补色</p>
+<p>作用：增强嵌在彩色图像暗区的细节</p>
+<h2 id="第四章"><a href="#第四章" class="headerlink" title="第四章"></a>第四章</h2><h3 id="1-频率域图像增强"><a href="#1-频率域图像增强" class="headerlink" title="1.频率域图像增强"></a>1.频率域图像增强</h3><p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693387333261.png" alt="1693387333261"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693387389637.png" alt="1693387389637"></p>
+<h3 id="2-一维DFT及其反变换"><a href="#2-一维DFT及其反变换" class="headerlink" title="2.一维DFT及其反变换"></a>2.一维DFT及其反变换</h3><p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693552262191.png" alt="1693552262191"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693552279469.png" alt="1693552279469"></p>
+<p><strong>傅里叶变换将信号分成不同频率成份</strong>。类似光学中的分色棱镜把白光按波长(频率)分成不同颜色，称数学棱镜。</p>
+<p>傅里叶变换的成份：<strong>直流分量和交流分量</strong></p>
+<p>信号变化的快慢与频率域的频率有关。噪声、边缘、跳跃部分代表图像的<strong>高频</strong>分量；背景区域和慢变部分代表图像的<strong>低频</strong>分量</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693552370690.png" alt="1693552370690"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693552390253.png" alt="1693552390253"></p>
+<h2 id="第五章"><a href="#第五章" class="headerlink" title="第五章"></a>第五章</h2><h3 id="1-为什么要在频率域研究图像增强"><a href="#1-为什么要在频率域研究图像增强" class="headerlink" title="1.为什么要在频率域研究图像增强"></a>1.为什么要在频率域研究图像增强</h3><ul>
+<li><strong>可以利用频率成分和图像外表之间的对应关系。一些在空间域表述困难的增强任务，在频率域中变得非常普通</strong></li>
+<li><strong>频域滤波在频率域更为直观，它可以解释空间域滤波的某些性质</strong></li>
+<li>给出一个问题，寻找某个滤波器解决该问题，频率域处理对于试验、迅速而全面地控制滤波器参数是一个理想工具</li>
+<li>一旦找到一个特殊应用的滤波器，通常在空间域采用硬件实现它</li>
+</ul>
+<h3 id="2-一些基本的滤波器"><a href="#2-一些基本的滤波器" class="headerlink" title="2.一些基本的滤波器"></a>2.一些基本的滤波器</h3><h4 id="低通滤波器：低频通过而使高频衰减的滤波器"><a href="#低通滤波器：低频通过而使高频衰减的滤波器" class="headerlink" title="低通滤波器：低频通过而使高频衰减的滤波器"></a>低通滤波器：低频通过而使高频衰减的滤波器</h4><ul>
+<li>被低通滤波的图像比原始图像少尖锐的细节部分而突出平滑过渡部分</li>
+<li>对比空间域滤波的平滑处理，如均值滤波器</li>
+</ul>
+<h4 id="高通滤波器：使高频通过而使低频衰减的滤波器"><a href="#高通滤波器：使高频通过而使低频衰减的滤波器" class="headerlink" title="高通滤波器：使高频通过而使低频衰减的滤波器"></a>高通滤波器：使高频通过而使低频衰减的滤波器</h4><ul>
+<li>被高通滤波的图像比原始图像少灰度级的平滑过渡而突出边缘等细节部分</li>
+<li>对比空间域的梯度算子、拉普拉斯算子</li>
+</ul>
+<h3 id="3-频率域图像增强"><a href="#3-频率域图像增强" class="headerlink" title="3.频率域图像增强"></a>3.频率域图像增强</h3><p>频率域平滑滤波器：</p>
+<ul>
+<li>边缘和噪声等尖锐变化处于傅里叶变换的高频部分<ul>
+<li>平滑可以通过衰减高频成分的范围来实现</li>
+<li>理想低通滤波器：尖锐</li>
+</ul>
+</li>
+<li>巴特沃思低通滤波器：处于理想和高斯滤波器之间<ul>
+<li>高斯低通滤波器：平滑</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-振铃现象"><a href="#4-振铃现象" class="headerlink" title="4.振铃现象"></a>4.振铃现象</h3><p>图像处理中，对一幅图像进行滤波处理，若选用的<strong>频域滤波器具有陡峭的变化</strong>，则会使滤波图像<strong>产生“振铃”</strong>，所谓“振铃”，就是指输出图像的灰度剧烈变化处产生的震荡，就好像钟被敲击后产生的空气震荡。如下图：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693535302806.png" alt="1693535302806"></p>
+<p>振铃现象产生的主要原因是图像处理中的<strong>过度增强或过度滤波</strong>。</p>
+<p>凡具有接近窗函数的滤波器，IFT之后，其<strong>空域函数</strong>式多少接近sinc函数。<strong>sinc是进行图像滤波的主要因素，两边的余波将对图像产生振铃现象</strong>。</p>
+<h3 id="5-低通滤波器的应用"><a href="#5-低通滤波器的应用" class="headerlink" title="5.低通滤波器的应用"></a>5.低通滤波器的应用</h3><p>低通滤波器的应用实例：模糊,平滑等</p>
+<ul>
+<li>字符识别：通过模糊图像，桥接断裂字符的裂缝</li>
+<li>印刷和出版业：从一幅尖锐的原始图像产生平滑、柔和的外观，如人脸，减少皮肤细纹的锐化程度和小斑点</li>
+<li>处理卫星和航空图像：尽可能模糊细节，而保留大的可识别特征。低通滤波通过消除不重要的特征来简化感兴趣特征的分析</li>
+</ul>
+<h3 id="6-为什么要进行高频提升和高频加强？"><a href="#6-为什么要进行高频提升和高频加强？" class="headerlink" title="6.为什么要进行高频提升和高频加强？"></a>6.为什么要进行高频提升和高频加强？</h3><ul>
+<li><p>高频滤波后的图像，其背景平均强度减小到接近黑色（因为高通滤波器滤除了傅里叶变换的零频率成分:  F(0,0)&#x3D;f(x,y)&#x3D;0）</p>
+</li>
+<li><p>解决办法：把原始图像加到过滤后的 结果，如拉普拉斯算子增强，这种处理称为高频提升过滤</p>
+</li>
+</ul>
+<h2 id="第六章"><a href="#第六章" class="headerlink" title="第六章"></a>第六章</h2><h3 id="1-图像增强和图像复原的异同"><a href="#1-图像增强和图像复原的异同" class="headerlink" title="1.图像增强和图像复原的异同"></a>1.图像增强和图像复原的异同</h3><p>同：与图像增强相似，图像复原的目的也是改善 图像质量</p>
+<p>异：<strong>图像增强</strong>主要是一个主观过程，而<strong>图像复原</strong>主要是一个客观过程</p>
+<h3 id="2-一些重要的噪声"><a href="#2-一些重要的噪声" class="headerlink" title="2.一些重要的噪声"></a>2.一些重要的噪声</h3><p><strong>高斯噪声</strong>：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693532779179.png" alt="1693532779179"></p>
+<p>高斯噪声源于<strong>电子电路噪声</strong>和<strong>由低照明度或高温带来的传感器噪声</strong></p>
+<p><strong>瑞利噪声：</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693532806464.png" alt="1693532806464"></p>
+<p>瑞利噪声<strong>对于表征远距离成像</strong>噪声有用</p>
+<p><strong>伽马（爱尔兰）噪声：</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693532839096.png" alt="1693532839096"></p>
+<p><strong>指数分布噪声：</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693532882837.png" alt="1693532882837"></p>
+<p>伽马分布和指数分布用于<strong>表征激光成像噪声</strong></p>
+<p><strong>均匀分布噪声：</strong></p>
+<p>![1693532897917](D:\Wechat Files\WeChat Files\wxid_3c6w0ld0qob622\FileStorage\Temp\1693532897917.png)</p>
+<p><strong>脉冲噪声：</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693532951082.png" alt="1693532951082"></p>
+<ul>
+<li>脉冲噪声可以为正，也可为负</li>
+<li>标定以后，脉冲噪声总是数字化为最大值（纯黑或纯白）</li>
+<li>通常，负脉冲以黑点（胡椒点）出现，正脉冲以白点（盐点）出现</li>
+<li>脉冲噪声用于成像中的短暂停留中，如错误的开关操作</li>
+</ul>
+<h3 id="3-图像复原的空间滤波器"><a href="#3-图像复原的空间滤波器" class="headerlink" title="3.图像复原的空间滤波器"></a>3.图像复原的空间滤波器</h3><h4 id="均值滤波器"><a href="#均值滤波器" class="headerlink" title="均值滤波器"></a>均值滤波器</h4><p>算术均值滤波器：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693533188096.png" alt="1693533188096"></p>
+<p>几何均值滤波器：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693533265769.png" alt="1693533265769"></p>
+<p>谐波均值滤波器：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693533305015.png" alt="1693533305015"></p>
+<p>逆谐波均值滤波器：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693533325399.png" alt="1693533325399"></p>
+<p><strong>总结：</strong></p>
+<ul>
+<li><strong>算术均值滤波器</strong>和<strong>几何均值滤波器</strong>适合于处理高斯或均匀等随机噪声</li>
+<li>谐波均值滤波器适合于处理脉冲噪声</li>
+<li>缺点：必须事先知道噪声是暗噪声还是亮噪声，以便于选择合适的Q符号</li>
+</ul>
+<h4 id="顺序统计滤波器"><a href="#顺序统计滤波器" class="headerlink" title="顺序统计滤波器"></a>顺序统计滤波器</h4><p>中值滤波器：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693533460466.png" alt="1693533460466"></p>
+<p>最大值滤波器：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693533503256.png" alt="1693533503256"></p>
+<p>最小值滤波器：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693533538686.png" alt="1693533538686"></p>
+<p>中点滤波器：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693533570811.png" alt="1693533570811"></p>
+<p>修正后的阿尔法均值滤波器：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693533603203.png" alt="1693533603203"></p>
+<h4 id="自适应滤波器"><a href="#自适应滤波器" class="headerlink" title="自适应滤波器"></a>自适应滤波器</h4><p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693533647234.png" alt="1693533647234"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693533661486.png" alt="1693533661486"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693533683064.png" alt="1693533683064"></p>
+<h3 id="4-图像复原·带阻滤波器"><a href="#4-图像复原·带阻滤波器" class="headerlink" title="4.图像复原·带阻滤波器"></a>4.图像复原·带阻滤波器</h3><p>带阻滤波器：阻止一定频率范围内的信号通过而允许其它频率范围内的信号通 过，消除或衰减傅里叶变换原点处的频段</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693533931007.png" alt="1693533931007"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693533953504.png" alt="1693533953504"></p>
+<h3 id="5-图像复原·带通滤波器"><a href="#5-图像复原·带通滤波器" class="headerlink" title="5.图像复原·带通滤波器"></a>5.图像复原·带通滤波器</h3><p>带通滤波器：允许一定频率范围内的信 号通过而阻止其它频率范围内的信号通过</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693534003686.png" alt="1693534003686"></p>
+<p>Hbp(u,v)表示带通滤波器，Hbr(u,v)表示相应的带阻滤波器</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693534028245.png" alt="1693534028245"></p>
+<h2 id="第七章"><a href="#第七章" class="headerlink" title="第七章"></a>第七章</h2><h3 id="1-图像压缩的方法分类"><a href="#1-图像压缩的方法分类" class="headerlink" title="1.图像压缩的方法分类"></a>1.图像压缩的方法分类</h3><ul>
+<li>无损压缩：在压缩和解压缩过程中没有信息损失</li>
+<li>有损压缩：能取得较高的压缩率，但压缩后不能通过解压缩恢复原状</li>
+<li>其它：如根据需要，既可进行无损，也可进行有损压缩的技术；准无损技术</li>
+</ul>
+<h3 id="2-三种基本的数据冗余"><a href="#2-三种基本的数据冗余" class="headerlink" title="2.三种基本的数据冗余"></a>2.三种基本的数据冗余</h3><p>编码冗余：如果一个图像的灰度级编码，使用了多于实 际需要的编码符号，就称该图像包含了编码冗余</p>
+<p>像素间冗余：因为任何给定像素的值可以根据与这个像素相邻的像素进行预测，所以单个像素携带的信息相对较少。对于一幅图像，很多单个像素对视觉的贡献是冗余的。它的值可以通过与它相邻的像素值为基础进行预测</p>
+<p>心理视觉冗余：眼睛对所有视觉信息感受的灵敏度不同。在正常视觉处理过程中各种信息的相对重要程度不同。有些信息在通常的视觉过程中与另外一些信息相比并不那么重要，这些信息被认为是心理视觉冗余的，去除这些信息并不会明显降低图像质量</p>
+<h3 id="3-保真度原则"><a href="#3-保真度原则" class="headerlink" title="3.保真度原则"></a>3.保真度原则</h3><p>需要评价信息损失的测度以描述解码图像相 对于原始图像的偏离程度，这些测度称为保真度准则</p>
+<p>分类：</p>
+<ul>
+<li>客观保真度准则</li>
+<li>主观保真度准则</li>
+</ul>
+<p><strong>客观保真度准则：</strong></p>
+<p>当所损失的信息量可以用编码输入图像与编码输出图像的函数表示时，它就是基于客观保真度准则的</p>
+<p>常用的两种客观保真度准则</p>
+<ul>
+<li>均方根误差</li>
+<li>均方信噪比</li>
+</ul>
+<h3 id="4-图像压缩模型"><a href="#4-图像压缩模型" class="headerlink" title="4.图像压缩模型"></a>4.图像压缩模型</h3><p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693552048703.png" alt="1693552048703"></p>
+<h3 id="5-霍夫曼编码"><a href="#5-霍夫曼编码" class="headerlink" title="5.霍夫曼编码"></a>5.霍夫曼编码</h3><p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693552090957.png" alt="1693552090957"></p>
+<h3 id="6-算术编码"><a href="#6-算术编码" class="headerlink" title="6.算术编码"></a>6.算术编码</h3><p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693552133112.png" alt="1693552133112"></p>
+<h3 id="7-LZW编码"><a href="#7-LZW编码" class="headerlink" title="7.LZW编码"></a>7.LZW编码</h3><p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693552190203.png" alt="1693552190203"></p>
+<h2 id="第八章"><a href="#第八章" class="headerlink" title="第八章"></a>第八章</h2><h3 id="腐蚀"><a href="#腐蚀" class="headerlink" title="腐蚀"></a>腐蚀</h3><p>腐蚀：使图像缩小 A和B是两个集合</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693551564033.png" alt="1693551564033"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693551593326.png" alt="1693551593326"></p>
+<h3 id="膨胀"><a href="#膨胀" class="headerlink" title="膨胀"></a>膨胀</h3><p>膨胀：使图像扩大</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693551627639.png" alt="1693551627639"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/image-20230901150042428.png" alt="image-20230901150042428"></p>
+<h3 id="开操作和闭操作"><a href="#开操作和闭操作" class="headerlink" title="开操作和闭操作"></a>开操作和闭操作</h3><p><strong>开操作</strong>：使图像的轮廓变得光滑，断开狭窄的间断和消除细的突出物   <strong>先用B对A腐蚀，然后用B对结果膨胀</strong></p>
+<p><strong>闭操作：</strong>同样使图像的轮廓变得光滑，但开操作相反，它能消除狭窄的间断和长细的鸿沟，消除小的孔洞，并填补轮廓线中的裂痕 <strong>先用B对A膨胀，然后用B对结果腐蚀</strong></p>
+<h2 id="第九章"><a href="#第九章" class="headerlink" title="第九章"></a>第九章</h2><h3 id="1-间断检测"><a href="#1-间断检测" class="headerlink" title="1.间断检测"></a>1.间断检测</h3><p>分为：点检测、线检测、边缘检测</p>
+<p>寻找间断的一般方法：模板检测</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693536055432.png" alt="1693536055432"></p>
+<p>结论：孤立点可以通过检测模板并设置阈值进行检测</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693536100705.png" alt="1693536100705"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693536118694.png" alt="1693536118694"></p>
+<p>边缘检测：</p>
+<p>边缘：一组相连的像素集合，这些像素位于两个区域的边界上</p>
+<p>结论：</p>
+<ul>
+<li>一阶导数可用于检测图像中的一个点是否在边缘上</li>
+<li>二阶导数可以判断一个边缘像素是在边缘亮的一边还是暗的一边</li>
+<li>一条连接二阶导数正值和负值的虚构直线将在边缘中点附近穿过零点</li>
+<li>一阶导数使用梯度算子，二阶导数使用拉普拉斯算子</li>
+</ul>
+<p>梯度算子：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693536393214.png" alt="1693536393214"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693536597101.png" alt="1693536597101"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693536608924.png" alt="1693536608924"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1693536619545.png" alt="1693536619545"></p>
+<p>结论：</p>
+<ul>
+<li>Prewitt和Sobel算子是计算数字梯度时最常用的算子</li>
+<li>Prewitt模板比Sobel模板简单，但Sobel模板能够有效抑制噪声</li>
+</ul>
+<p>Roberts：<strong>对具有陡峭的低噪声的图像处理效果比较好</strong>，但利用Roberts算子提取边缘的结果是边缘比较粗，因此<strong>边缘定位不是很准确</strong>。</p>
+<p>Sobel：对灰度渐变和噪声较多的图像处理效果比较好，<strong>Sobel算子对边缘定位比较准确</strong></p>
+<p>Kirsh：对灰度渐变和噪声较多的图像处理效果较好。</p>
+<p>Prewitt:对灰度渐变和噪声较多的图像处理效果较好。</p>
+<p>Laplacian：<strong>对图像中的阶跃性边缘点定位准确，对噪声非常敏感</strong>，丢失一部分边缘的方向信息，造成一些不连续的检测边缘。</p>
+<p>LoG：LoG算子经常出现双边缘像素边界，而且该检测方法对噪声比较敏感，所以很少用LoG算子检测边缘，而是用来<strong>判断边缘像素是位于图像的明区还是暗区</strong>。</p>
+<p>Canny：<strong>此方法不容易受噪声干扰，能够检测到真正的弱边缘。</strong>在edge函数中，最有效的边缘检测方法是Canny方法。该方法的优点在于使用两种不同的阈值分别检测强边缘和弱边缘，并且仅当弱边缘与强边缘相连时，才将弱边缘包含在输出图像中。这种方法更容易检测出真正的弱边缘。</p>
+<p><strong>拉普拉斯算子：</strong></p>
+<p>缺点：</p>
+<ul>
+<li>拉普拉斯算子对噪声具有<strong>敏感性</strong></li>
+<li>拉普拉斯算子的幅值产生<strong>双边缘</strong></li>
+<li>拉普拉斯算子不能检测边缘的方向</li>
+</ul>
+<p>优点：</p>
+<ul>
+<li>可以利用零交叉的性质进行<strong>边缘定位</strong></li>
+<li>可以确定一个像素是在边缘暗的一边还是亮的 一边</li>
+</ul>
+<h3 id="高斯型拉普拉斯算子总结："><a href="#高斯型拉普拉斯算子总结：" class="headerlink" title="高斯型拉普拉斯算子总结："></a>高斯型拉普拉斯算子总结：</h3><ul>
+<li>高斯型函数的目的是对图像进行平滑</li>
+<li>处理拉普拉斯算子的目的是提供一幅用零交叉确定边缘位置的图像</li>
+<li>平滑处理减少了噪声的影响</li>
+</ul>
+<h3 id="2-边缘连接和边界检测"><a href="#2-边缘连接和边界检测" class="headerlink" title="2.边缘连接和边界检测"></a>2.边缘连接和边界检测</h3><h3 id="3-阈值处理"><a href="#3-阈值处理" class="headerlink" title="3.阈值处理"></a>3.阈值处理</h3><p>基本自适应阈值：</p>
+<p>单一全局阈值存在的问题：不均匀亮度图像无法有效分割</p>
+<p>方法：</p>
+<ul>
+<li>将图像进一步细分为子图像，并对不同的子图像使用不同的阈值处理</li>
+<li>解决的关键问题：如何将图像进行细分和如何为得到的子图像估计阈值</li>
+<li>自适应阈值：取决于像素在子图像中的位置</li>
+</ul>
+]]></content>
+      <categories>
+        <category>复习资料</category>
+      </categories>
+      <tags>
+        <tag>Markdown</tag>
+      </tags>
+  </entry>
 </search>
