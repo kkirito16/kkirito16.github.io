@@ -1509,4 +1509,33 @@
         <tag>Markdown</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Ant Design Vue 解决表单验证＋多选框引发的输入值不生效问题</title>
+    <url>/2024/08/05/Ant%20Design%20Vue%20%E8%A7%A3%E5%86%B3%E8%A1%A8%E5%8D%95%E9%AA%8C%E8%AF%81%EF%BC%8B%E5%A4%9A%E9%80%89%E6%A1%86%E5%BC%95%E5%8F%91%E7%9A%84%E8%BE%93%E5%85%A5%E5%80%BC%E4%B8%8D%E7%94%9F%E6%95%88%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h1 id="Ant-Design-Vue-解决表单验证＋多选框引发的输入值不生效问题"><a href="#Ant-Design-Vue-解决表单验证＋多选框引发的输入值不生效问题" class="headerlink" title="Ant Design Vue 解决表单验证＋多选框引发的输入值不生效问题"></a>Ant Design Vue 解决表单验证＋多选框引发的输入值不生效问题</h1><h2 id="开发环境"><a href="#开发环境" class="headerlink" title="开发环境"></a>开发环境</h2><blockquote>
+<p>Vue 2</p>
+<p>Ant-Design-Vue 1.7.1</p>
+</blockquote>
+<h2 id="问题复现"><a href="#问题复现" class="headerlink" title="问题复现"></a>问题复现</h2><p>一个弹框组件采用了Ant Design Vue，包含一个多选框和一个输入框，整体格式为：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;a-form-model</span><br><span class="line"> ref=&quot;ruleForm&quot;</span><br><span class="line"> :model=&quot;form&quot;</span><br><span class="line"> :rules=&quot;rules&quot;</span><br><span class="line"> :label-col=&quot;labelCol&quot;</span><br><span class="line"> :wrapper-col=&quot;wrapperCol&quot;</span><br><span class="line">&gt;</span><br><span class="line">	&lt;a-form-model-item prop=&quot;nation&quot;&gt;</span><br><span class="line">     	&lt;a-select</span><br><span class="line">               mode=&quot;multiple&quot;</span><br><span class="line">               v-model=&quot;nation&quot;</span><br><span class="line">               :options=&quot;regionOptions&quot;</span><br><span class="line">               @change=&quot;onNationChange&quot;</span><br><span class="line">               style=&quot;width:600px;&quot;&gt;</span><br><span class="line">     	&lt;/a-select&gt;</span><br><span class="line">    &lt;/a-form-model-item&gt;</span><br><span class="line">    &lt;a-form-model-item prop=&quot;bidFloor&quot;&gt;</span><br><span class="line">        &lt;a-input v-model=&quot;form.bidFloor&quot; type=&quot;number&quot; style=&quot;width:600px;&quot;/&gt;</span><br><span class="line">    &lt;/a-form-model-item&gt;</span><br><span class="line">&lt;/a-form-model&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rules: &#123;</span><br><span class="line">	country: [&#123; required: true, message: this.$t(&#x27;mintAdNetwork.nationRegionErrorMessage&#x27;), trigger: &#x27;change&#x27;&#125;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>出现问题</strong>：当选择国家时，不管是否有选项都提示<code>nation is required</code>  而取消掉验证规则的<code>required: true</code>发现发送的接口信息里<code>nation</code>是有值的</p>
+<p>可能会有疑问：这里为什么不用<code>form.nation</code>：因为<code>Ant Design Vue</code> 的多选框<code>v-model</code>必须绑定一级字段，否则出现无法特定情况下无法点击选项的<code>bug </code>所以这里采用了<code>nation</code>这个中间值并且在<code>onNationChange</code>方法里对<code>form.country</code>进行赋值</p>
+<p>但矛盾的是，<code>prop</code>的<code>nation</code>又是在<code>form</code>里找的</p>
+<p>所以问题发现了：在<code>prop</code>的<code>nation</code>中找不到<code>form</code></p>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p><strong>将<code>prop=&quot;nation&quot;</code>改成<code>prop=&quot;country&quot;</code> 直接跳过中间值验证即可，注意规则里也应该对应修改</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;a-form-model</span><br><span class="line"> ref=&quot;ruleForm&quot;</span><br><span class="line"> :model=&quot;form&quot;</span><br><span class="line"> :rules=&quot;rules&quot;</span><br><span class="line"> :label-col=&quot;labelCol&quot;</span><br><span class="line"> :wrapper-col=&quot;wrapperCol&quot;</span><br><span class="line">&gt;</span><br><span class="line">	&lt;a-form-model-item prop=&quot;country&quot;&gt;</span><br><span class="line">     	&lt;a-select</span><br><span class="line">               mode=&quot;multiple&quot;</span><br><span class="line">               v-model=&quot;nation&quot;</span><br><span class="line">               :options=&quot;regionOptions&quot;</span><br><span class="line">               @change=&quot;onNationChange&quot;</span><br><span class="line">               style=&quot;width:600px;&quot;&gt;</span><br><span class="line">     	&lt;/a-select&gt;</span><br><span class="line">    &lt;/a-form-model-item&gt;</span><br><span class="line">    &lt;a-form-model-item prop=&quot;bidFloor&quot;&gt;</span><br><span class="line">        &lt;a-input v-model=&quot;form.bidFloor&quot; type=&quot;number&quot; style=&quot;width:600px;&quot;/&gt;</span><br><span class="line">    &lt;/a-form-model-item&gt;</span><br><span class="line">&lt;/a-form-model&gt;</span><br></pre></td></tr></table></figure>
+
+<p>解决问题!!</p>
+]]></content>
+      <categories>
+        <category>技术文档</category>
+      </categories>
+      <tags>
+        <tag>Markdown</tag>
+        <tag>前端</tag>
+      </tags>
+  </entry>
 </search>
