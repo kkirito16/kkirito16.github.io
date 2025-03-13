@@ -1964,4 +1964,134 @@
         <tag>前端</tag>
       </tags>
   </entry>
+  <entry>
+    <title>V8垃圾回收机制</title>
+    <url>/2025/03/13/V8%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/</url>
+    <content><![CDATA[<h1 id="V8垃圾回收机制"><a href="#V8垃圾回收机制" class="headerlink" title="V8垃圾回收机制"></a>V8垃圾回收机制</h1><h2 id="垃圾回收机制"><a href="#垃圾回收机制" class="headerlink" title="垃圾回收机制"></a>垃圾回收机制</h2><p>目标：清除不再使用的对象，使腾退出所占用的内存</p>
+<p>在浏览器的发展历史上有两种解决策略：</p>
+<ul>
+<li>标记清除</li>
+<li>引用计数</li>
+</ul>
+<h3 id="标记清除"><a href="#标记清除" class="headerlink" title="标记清除"></a>标记清除</h3><p>标记清除分为：标记阶段和清除阶段。</p>
+<p>首先它会遍历堆内存上所有的对象，分别给它们打上标记，然后在代码执行过程结束之后，对所使用过的变量取消标记。在清除阶段再把具有标记的内存对象进行整体清除，从而释放内存空间。</p>
+<p>使用标记清除策略的最重要的优点在于简单，无非是标记和不标记的差异。通过标记清除之后，剩余的对象内存位置是不变的，也会导致空闲内存空间是不连续的，这就造成出现内存碎片的问题。内存碎片多了后，如果要存储一个新的需要占据较大内存空间的对象，就会造成影响。对于通过标记清除产生的内存碎片，还是需要通过标记整理策略进行解决。</p>
+<p>简而言之：</p>
+<ul>
+<li>优点：简单</li>
+<li>缺点：内存碎片化、分配速度慢</li>
+</ul>
+<h3 id="标记整理"><a href="#标记整理" class="headerlink" title="标记整理"></a>标记整理</h3><p>经过标记清除策略整理后，老生代内存中因此产生了许多内存碎片，如果不进行清理内存碎片，就会对存储造成影响。</p>
+<p><strong>标记整理（Mark-Compact）算法</strong> 就可以有效地解决标记清除的两个缺点。它的标记阶段和标记清除算法没有什么不同，只是标记结束后，标记整理算法会将活着的对象（即不需要清理的对象）向内存的一端移动，最后清理掉边界的内存。</p>
+<h3 id="引用计数"><a href="#引用计数" class="headerlink" title="引用计数"></a>引用计数</h3><p>引用计数是一种不常见的垃圾回收策略，其思路就是对每个值都记录其的引用次数。具体的：</p>
+<ul>
+<li>当变量进行声明并赋值后，值的引用数为1。</li>
+<li>当同一个值被赋值给另一个变量时，引用数+1</li>
+<li>当保存该值引用的变量被其它值覆盖时，引用数-1</li>
+<li>当该值的引用数为0时，表示无法再访问该值了，此时就可以放心地将其清除并回收内存。</li>
+</ul>
+<p>这种回收策略看起来很方便，<strong>但是当其进行循环引用时就会出现问题，会造成大量的内存不会被释放。</strong>当函数结束后，两个对象都不在作用域中，A 和 B 都会被当作非活动对象来清除掉，相比之下，引用计数则不会释放，也就会造成大量无用内存占用，这也是后来放弃引用计数，使用标记清除的原因之一。</p>
+<h2 id="V8对于垃圾回收机制的优化"><a href="#V8对于垃圾回收机制的优化" class="headerlink" title="V8对于垃圾回收机制的优化"></a>V8对于垃圾回收机制的优化</h2><h3 id="分代式垃圾回收"><a href="#分代式垃圾回收" class="headerlink" title="分代式垃圾回收"></a>分代式垃圾回收</h3><p>V8 的垃圾回收策略主要基于分代式垃圾回收机制，V8 中将堆内存分为新生代和老生代两区域，采用不同的垃圾回收器也就是不同的策略管理垃圾回收。</p>
+<p>新生代的对象为存活时间较短的对象，简单来说就是新产生的对象，通常只支持 1～8M 的容量，而老生代的对象为存活事件较长或常驻内存的对象，简单来说就是经历过新生代垃圾回收后还存活下来的对象，容量通常比较大。</p>
+<p>V8 整个堆内存的大小就等于新生代加上老生代的内存，对于新老两块内存区域的垃圾回收，V8 采用了两个垃圾回收器来管控。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/image-20231109155126666.png" alt="image-20231109155126666"></p>
+<p>新生代内存回收的原理是：</p>
+<ul>
+<li>新加入的对象都会存放在使用区，当使用区快写满时就进行一次垃圾清理操作。</li>
+<li>在开始进行垃圾回收时，新生代回收器会对使用区内的对象进行标记</li>
+<li>标记完成后，需要对使用区内的活动对象拷贝到空闲区进行排序</li>
+<li>而后进入垃圾清理阶段，将非活动对象占用的内存空间进行清理</li>
+<li>最后对使用区和空闲区进行交换，使用区-&gt;空闲区，空闲区-&gt;使用区</li>
+</ul>
+<p>老生代内存回收的原理是：使用Mark-Sweep（标记清除）和Mark-Compact（标记整理）的策略</p>
+<p>首先是标记阶段，从一组根元素开始，递归遍历这组根元素，遍历过程中能到达的元素称为活动对象，没有到达的元素就可以判断为非活动对象。清除阶段老生代垃圾回收器会直接将非活动对象，也就是数据清理掉。</p>
+<p>同样的标记清除策略会产生内存碎片，因此还需要进行标记整理策略进行优化。</p>
+<p>另外，因为JS是单线程语言，所以在执行垃圾回收机制的时候，JS执行会被暂停，称为全停顿。而V8机制对这种情况做了一定的优化，垃圾回收机制支持多线程并行回收，提高了垃圾回收的效率。但是仍然会阻塞JS的执行，所以就诞生了增量标记。增量标记可以使得垃圾回收可以分段执行，最大化保证了JS的执行。V8机制还支持了并发回收。JS在主线程执行，垃圾回收在辅助线程执行</p>
+]]></content>
+      <categories>
+        <category>技术文档</category>
+      </categories>
+      <tags>
+        <tag>Markdown</tag>
+        <tag>前端</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2025/03/13/%E5%9B%9E%E6%B5%81%E9%87%8D%E7%BB%98%E4%BB%A5%E5%8F%8A%E4%BC%98%E5%8C%96%E6%96%B9%E6%A1%88%E7%90%86%E8%A7%A3/</url>
+    <content><![CDATA[<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">title: 回流重绘以及优化方案理解</span><br><span class="line">tags: [前端,Markdown]</span><br><span class="line">categories: 自学资料</span><br></pre></td></tr></table></figure>
+
+<h1 id="回流重绘以及优化方案理解"><a href="#回流重绘以及优化方案理解" class="headerlink" title="回流重绘以及优化方案理解"></a>回流重绘以及优化方案理解</h1><h2 id="回流重绘"><a href="#回流重绘" class="headerlink" title="回流重绘"></a>回流重绘</h2><p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/image-20231109142916345.png" alt="image-20231109142916345"></p>
+<p>回流：当浏览器计算元素的位置和几何属性时，重新布局页面的过程（重新计算元素的形状、位置大小）</p>
+<p>重绘：指的是当元素的外观属性（如颜色、背景、边框等）发生改变时，浏览器会重新绘制元素的外观，但不会改变元素的布局。（转化为屏幕上的实际像素来达到页面展现的目的） </p>
+<p>回流，重点在于“流”，倾向于结构调整，对性能影响更大</p>
+<p>重绘，重点在于“绘”，倾向于样式调整，对性能影响较小</p>
+<p>回流一定会触发重绘，而重绘不一定会回流</p>
+<h2 id="回流的优化"><a href="#回流的优化" class="headerlink" title="回流的优化"></a>回流的优化</h2><ul>
+<li>避免频繁操作样式：批量修改样式属性，可以通过修改元素的<code>class</code>属性，一次性应用多个样式变化，减少回流次数。</li>
+<li>避免频繁操作DOM：使用<code>documentFragment</code>进行 DOM 操作，可以将多次 DOM 操作合并为一次，减少回流和重绘的次数。</li>
+<li>复杂动画：使用绝对定位脱离文档流</li>
+<li>触发CSS3硬件加速：使用 CSS3 的硬件加速（如<code>transform</code>属性的<code>translate3d</code>），可以减少回流和重绘的开销。</li>
+<li>避免在布局中使用过多的表格布局或浮动布局，它们比较容易触发回流。</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>vue中的Diff算法的理解</title>
+    <url>/2025/03/13/vue%E4%B8%AD%E7%9A%84Diff%E7%AE%97%E6%B3%95%E7%9A%84%E7%90%86%E8%A7%A3/</url>
+    <content><![CDATA[<h1 id="vue中的Diff算法的理解"><a href="#vue中的Diff算法的理解" class="headerlink" title="vue中的Diff算法的理解"></a>vue中的Diff算法的理解</h1><h2 id="Diff算法"><a href="#Diff算法" class="headerlink" title="Diff算法"></a>Diff算法</h2><p>虚拟dom：表示真实DOM的JS对象</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/image-20231113145619788.png" alt="image-20231113145619788"></p>
+<p><strong>Diff算法是一种对比算法</strong>。对比两者是<code>旧虚拟DOM和新虚拟DOM</code>，对比出是哪个<code>虚拟节点</code>更改了，找出这个<code>虚拟节点</code>，并只更新这个虚拟节点所对应的<code>真实节点</code>，而不用更新其他数据没发生改变的节点，实现<code>精准</code>地更新真实DOM，进而<code>提高效率</code>。</p>
+<p><code>使用虚拟DOM算法的损耗计算</code>： 总损耗 &#x3D; 虚拟DOM增删改+（与Diff算法效率有关）真实DOM差异增删改+（较少的节点）排版与重绘</p>
+<p><code>直接操作真实DOM的损耗计算</code>： 总损耗 &#x3D; 真实DOM完全增删改+（可能较多的节点）排版与重绘</p>
+<h2 id="Diff算法的原理"><a href="#Diff算法的原理" class="headerlink" title="Diff算法的原理"></a>Diff算法的原理</h2><p>新旧虚拟DOM对比的时候，Diff算法比较只会在同层级进行, 不会跨层级比较。 所以Diff算法是:<code>深度优先算法</code>。 时间复杂度:<code>O(n)</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/5ca3d338e5a445ab80e40042c50ac79a~tplv-k3u1fbpfcp-zoom-in-crop-mark%3A1512%3A0%3A0%3A0.awebp" alt="截屏2021-08-08 上午11.32.47.png"></p>
+<h3 id="Diff对比流程"><a href="#Diff对比流程" class="headerlink" title="Diff对比流程"></a>Diff对比流程</h3><p>当数据改变时，会触发<code>setter</code>，并且通过<code>Dep.notify</code>去通知所有<code>订阅者Watcher</code>，订阅者们就会调用<code>patch方法</code>，给真实DOM打补丁，更新相应的视图。</p>
+<p><code>newVnode和oldVnode</code>：同层的新旧虚拟节点</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1db54647698e4c76b6fc38a02067ad72~tplv-k3u1fbpfcp-zoom-in-crop-mark%3A1512%3A0%3A0%3A0.awebp" alt="截屏2021-08-08 上午11.49.38.png"></p>
+<h3 id="patch方法"><a href="#patch方法" class="headerlink" title="patch方法"></a>patch方法</h3><p>这个方法作用就是，对比当前同层的虚拟节点是否为同一种类型的标签<code>(同一类型的标准，下面会讲)</code>：</p>
+<ul>
+<li>是：继续执行<code>patchVnode方法</code>进行深层比对</li>
+<li>否：没必要比对了，直接整个节点替换成<code>新虚拟节点</code></li>
+</ul>
+<p><code>patch</code>的核心原理代码：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">patch</span>(<span class="params">oldVnode, newVnode</span>) &#123;</span><br><span class="line">  <span class="comment">// 比较是否为一个类型的节点</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="title function_">sameVnode</span>(oldVnode, newVnode)) &#123;</span><br><span class="line">    <span class="comment">// 是：继续进行深层比较</span></span><br><span class="line">    <span class="title function_">patchVnode</span>(oldVnode, newVnode)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// 否</span></span><br><span class="line">    <span class="keyword">const</span> oldEl = oldVnode.<span class="property">el</span> <span class="comment">// 旧虚拟节点的真实DOM节点</span></span><br><span class="line">    <span class="keyword">const</span> parentEle = api.<span class="title function_">parentNode</span>(oldEl) <span class="comment">// 获取父节点</span></span><br><span class="line">    <span class="title function_">createEle</span>(newVnode) <span class="comment">// 创建新虚拟节点对应的真实DOM节点</span></span><br><span class="line">    <span class="keyword">if</span> (parentEle !== <span class="literal">null</span>) &#123;</span><br><span class="line">      api.<span class="title function_">insertBefore</span>(parentEle, vnode.<span class="property">el</span>, api.<span class="title function_">nextSibling</span>(oEl)) <span class="comment">// 将新元素添加进父元素</span></span><br><span class="line">      api.<span class="title function_">removeChild</span>(parentEle, oldVnode.<span class="property">el</span>)  <span class="comment">// 移除以前的旧元素节点</span></span><br><span class="line">      <span class="comment">// 设置null，释放内存</span></span><br><span class="line">      oldVnode = <span class="literal">null</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> newVnode</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="sameVnode方法"><a href="#sameVnode方法" class="headerlink" title="sameVnode方法"></a>sameVnode方法</h3><p>patch关键的一步就是<code>sameVnode方法判断是否为同一类型节点</code>，那问题来了，怎么才算是同一类型节点呢？这个<code>类型</code>的标准是什么呢？</p>
+<p>sameVnode方法的核心原理代码:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">sameVnode</span>(<span class="params">oldVnode, newVnode</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    oldVnode.<span class="property">key</span> === newVnode.<span class="property">key</span> &amp;&amp; <span class="comment">// key值是否一样</span></span><br><span class="line">    oldVnode.<span class="property">tagName</span> === newVnode.<span class="property">tagName</span> &amp;&amp; <span class="comment">// 标签名是否一样</span></span><br><span class="line">    oldVnode.<span class="property">isComment</span> === newVnode.<span class="property">isComment</span> &amp;&amp; <span class="comment">// 是否都为注释节点</span></span><br><span class="line">    <span class="title function_">isDef</span>(oldVnode.<span class="property">data</span>) === <span class="title function_">isDef</span>(newVnode.<span class="property">data</span>) &amp;&amp; <span class="comment">// 是否都定义了data</span></span><br><span class="line">    <span class="title function_">sameInputType</span>(oldVnode, newVnode) <span class="comment">// 当标签为input时，type必须是否相同</span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="patchVnode方法"><a href="#patchVnode方法" class="headerlink" title="patchVnode方法"></a>patchVnode方法</h3><p>这个函数做了以下事情：</p>
+<ul>
+<li>找到对应的<code>真实DOM</code>，称为<code>el</code></li>
+<li>判断<code>newVnode</code>和<code>oldVnode</code>是否指向同一个对象，如果是，那么直接<code>return</code></li>
+<li>如果他们都有文本节点并且不相等，那么将<code>el</code>的文本节点设置为<code>newVnode</code>的文本节点。</li>
+<li>如果<code>oldVnode</code>有子节点而<code>newVnode</code>没有，则删除<code>el</code>的子节点</li>
+<li>如果<code>oldVnode</code>没有子节点而<code>newVnode</code>有，则将<code>newVnode</code>的子节点真实化之后添加到<code>el</code></li>
+<li>如果两者都有子节点，则执行<code>updateChildren</code>函数比较子节点，这一步很重要</li>
+</ul>
+<h3 id="updateChildren方法"><a href="#updateChildren方法" class="headerlink" title="updateChildren方法"></a>updateChildren方法</h3><p>这是<code>patchVnode</code>里最重要的一个方法，新旧虚拟节点的子节点对比，就是发生在<code>updateChildren方法</code>中，接下来就结合一些图来讲，让大家更好理解吧</p>
+<p>是怎么样一个对比方法呢？就是<code>首尾指针法</code>，新的子节点集合和旧的子节点集合，各有首尾两个指针。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>a<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>b<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>c<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"></span><br><span class="line">修改数据后</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>b<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>c<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>e<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>a<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>那么新旧两个子节点集合以及其首尾指针为：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/3eb33b1b28e7461f9aedb857736a142c~tplv-k3u1fbpfcp-zoom-in-crop-mark%3A1512%3A0%3A0%3A0.awebp" alt="截屏2021-08-08 下午2.55.26.png"></p>
+<p>然后会进行互相进行比较，总共有五种比较情况：</p>
+<ul>
+<li>1、<code>oldS 和 newS </code>使用<code>sameVnode方法</code>进行比较，<code>sameVnode(oldS, newS)</code></li>
+<li>2、<code>oldS 和 newE </code>使用<code>sameVnode方法</code>进行比较，<code>sameVnode(oldS, newE)</code></li>
+<li>3、<code>oldE 和 newS </code>使用<code>sameVnode方法</code>进行比较，<code>sameVnode(oldE, newS)</code></li>
+<li>4、<code>oldE 和 newE </code>使用<code>sameVnode方法</code>进行比较，<code>sameVnode(oldE, newE)</code></li>
+<li>5、如果以上逻辑都匹配不到，再把所有旧子节点的 <code>key</code> 做一个映射到旧节点下标的 <code>key -&gt; index</code> 表，然后用新 <code>vnode</code> 的 <code>key</code> 去找出在旧节点中可以复用的位置。</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/727b5dd8a3424d22afd9dc5cf0dae05e~tplv-k3u1fbpfcp-zoom-in-crop-mark%3A1512%3A0%3A0%3A0.awebp" alt="截屏2021-08-08 下午2.57.22.png"></p>
+]]></content>
+      <categories>
+        <category>个人经验文章</category>
+      </categories>
+      <tags>
+        <tag>Markdown</tag>
+        <tag>Vue3</tag>
+      </tags>
+  </entry>
 </search>
