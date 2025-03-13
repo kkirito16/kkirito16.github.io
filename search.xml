@@ -2017,11 +2017,9 @@
       </tags>
   </entry>
   <entry>
-    <title></title>
+    <title>回流重绘以及优化方案理解</title>
     <url>/2025/03/13/%E5%9B%9E%E6%B5%81%E9%87%8D%E7%BB%98%E4%BB%A5%E5%8F%8A%E4%BC%98%E5%8C%96%E6%96%B9%E6%A1%88%E7%90%86%E8%A7%A3/</url>
-    <content><![CDATA[<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">title: 回流重绘以及优化方案理解</span><br><span class="line">tags: [前端,Markdown]</span><br><span class="line">categories: 自学资料</span><br></pre></td></tr></table></figure>
-
-<h1 id="回流重绘以及优化方案理解"><a href="#回流重绘以及优化方案理解" class="headerlink" title="回流重绘以及优化方案理解"></a>回流重绘以及优化方案理解</h1><h2 id="回流重绘"><a href="#回流重绘" class="headerlink" title="回流重绘"></a>回流重绘</h2><p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/image-20231109142916345.png" alt="image-20231109142916345"></p>
+    <content><![CDATA[<h1 id="回流重绘以及优化方案理解"><a href="#回流重绘以及优化方案理解" class="headerlink" title="回流重绘以及优化方案理解"></a>回流重绘以及优化方案理解</h1><h2 id="回流重绘"><a href="#回流重绘" class="headerlink" title="回流重绘"></a>回流重绘</h2><p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/image-20231109142916345.png" alt="image-20231109142916345"></p>
 <p>回流：当浏览器计算元素的位置和几何属性时，重新布局页面的过程（重新计算元素的形状、位置大小）</p>
 <p>重绘：指的是当元素的外观属性（如颜色、背景、边框等）发生改变时，浏览器会重新绘制元素的外观，但不会改变元素的布局。（转化为屏幕上的实际像素来达到页面展现的目的） </p>
 <p>回流，重点在于“流”，倾向于结构调整，对性能影响更大</p>
@@ -2035,6 +2033,13 @@
 <li>避免在布局中使用过多的表格布局或浮动布局，它们比较容易触发回流。</li>
 </ul>
 ]]></content>
+      <categories>
+        <category>技术文档</category>
+      </categories>
+      <tags>
+        <tag>Markdown</tag>
+        <tag>前端</tag>
+      </tags>
   </entry>
   <entry>
     <title>vue中的Diff算法的理解</title>
