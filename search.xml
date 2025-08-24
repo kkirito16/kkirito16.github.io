@@ -98,7 +98,7 @@
       </tags>
   </entry>
   <entry>
-    <title></title>
+    <title>JS异步</title>
     <url>/2023/11/15/JS%E5%BC%82%E6%AD%A5/</url>
     <content><![CDATA[<h1 id="JS异步"><a href="#JS异步" class="headerlink" title="JS异步"></a>JS异步</h1><h2 id="并发-并行"><a href="#并发-并行" class="headerlink" title="并发&amp;并行"></a>并发&amp;并行</h2><p>并发是宏观概念，我分别有任务 A 和任务 B，在一段时间内通过任务间的切换完成了这两个任务，这种情况就可以称之为并发。</p>
 <p>并行是微观概念，假设 CPU 中存在两个核心，那么我就可以同时完成任务 A、B。同时完成多个任务的情况就可以称之为并行。</p>
@@ -124,6 +124,13 @@
 <p>以下是async和await的简单用法：</p>
 <p>async function fetchData() { try {  const response &#x3D; await fetch(‘<a href="https://api.example.com/data">https://api.example.com/data</a>‘);  const data &#x3D; await response.json();  console.log(data); } catch (error) {  console.log(‘Error:’, error); }}fetchData();</p>
 ]]></content>
+      <categories>
+        <category>技术文档</category>
+      </categories>
+      <tags>
+        <tag>前端</tag>
+        <tag>Markdown</tag>
+      </tags>
   </entry>
   <entry>
     <title>V8垃圾回收机制</title>
