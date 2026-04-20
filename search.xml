@@ -30,6 +30,102 @@
       </tags>
   </entry>
   <entry>
+    <title>JS基于原型的继承理解</title>
+    <url>/2025/03/13/JS%E5%9F%BA%E4%BA%8E%E5%8E%9F%E5%9E%8B%E7%9A%84%E7%BB%A7%E6%89%BF%E7%90%86%E8%A7%A3/</url>
+    <content><![CDATA[<h1 id="JS基于原型的继承理解"><a href="#JS基于原型的继承理解" class="headerlink" title="JS基于原型的继承理解"></a>JS基于原型的继承理解</h1><h2 id="原型＆原型链"><a href="#原型＆原型链" class="headerlink" title="原型＆原型链"></a>原型＆原型链</h2><p>JavaScript 只有一种结构：对象。每个对象（object）都有一个私有属性指向另一个名为<strong>原型</strong>（prototype）的对象。原型对象也有一个自己的原型，层层向上直到一个对象的原型为 <code>null</code>。根据定义，<code>null</code> 没有原型，并作为这个<strong>原型链</strong>（prototype chain）中的最后一个环节。</p>
+<p>JavaScript 对象是动态的属性（指<strong>其自有属性</strong>）“包”。JavaScript 对象有一个指向一个原型对象的链。当试图访问一个对象的属性时，它不仅仅在该对象上搜寻，还会搜寻该对象的原型，以及原型的原型，依次层层向上搜索，直到找到一个名字匹配的属性或到达原型链的末尾。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">student.<span class="property">_proto_</span> === <span class="title class_">Student</span>.<span class="property"><span class="keyword">prototype</span></span> </span><br><span class="line"><span class="comment">//  隐式原型             显示原型</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Person</span>&#123;</span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params">name</span>)&#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">name</span> = name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="title function_">drink</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;喝水&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;	</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Teacher</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Person</span>&#123;</span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params">name,subject</span>)&#123;</span><br><span class="line">        <span class="variable language_">super</span>(name);</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">subject</span> = subject;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="title function_">teach</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`我是$(this.name),教$(this.subject)。`</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> teacher = <span class="keyword">new</span> <span class="title class_">Teacher</span>(<span class="string">&#x27;哈默&#x27;</span>,<span class="string">&#x27;前端开发&#x27;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;teacher&#x27;</span>,teacher);</span><br><span class="line">teacher.<span class="title function_">teach</span>();</span><br><span class="line">teacher.<span class="title function_">drink</span>();</span><br></pre></td></tr></table></figure>
+
+<p>代码对应原型链如图：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/image-20231106141020167.png" alt="image-20231106141020167"></p>
+<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><p>super关键字：</p>
+<p>super 关键字用于访问和调用一个对象的父对象上的函数。在构造函数中使用时，super关键字将单独出现，并且必须在使用 this 关键字之前使用。super 关键字也可以用来调用父对象上的函数。</p>
+<p>语法：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">super</span>(<span class="variable language_">arguments</span>);  <span class="comment">// 调用父构造函数</span></span><br><span class="line"><span class="variable language_">super</span>.<span class="title function_">parentMethod</span>(<span class="variable language_">arguments</span>);  <span class="comment">// 调用父方法</span></span><br></pre></td></tr></table></figure>
+
+<p>在类中使用super实例：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Polygon</span> &#123;</span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params">height, width</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">name</span> = <span class="string">&#x27;Rectangle&#x27;</span>;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">height</span> = height;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">width</span> = width;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="title function_">sayName</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;Hi, I am a &#x27;</span> + <span class="variable language_">this</span>.<span class="property">name</span> + <span class="string">&#x27;.&#x27;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">get</span> <span class="title function_">area</span>() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">height</span> * <span class="variable language_">this</span>.<span class="property">width</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">set</span> <span class="title function_">area</span>(<span class="params">value</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">_area</span> = value;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Square</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Polygon</span> &#123;</span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params">length</span>) &#123;</span><br><span class="line">    <span class="comment">// 这里，它调用父类的构造函数的，</span></span><br><span class="line">    <span class="comment">// 作为 Polygon 的 height, width</span></span><br><span class="line">    <span class="variable language_">super</span>(length, length);</span><br><span class="line">      </span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">height</span>; <span class="comment">// 需要放在 super 后面，不然引发 ReferenceErro</span></span><br><span class="line"> </span><br><span class="line">    <span class="comment">// 注意：在派生的类中，在你可以使用&#x27;this&#x27;之前，必须先调用 super()。</span></span><br><span class="line">    <span class="comment">// 忽略这，这将导致引用错误。</span></span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">name</span> = <span class="string">&#x27;Square&#x27;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>自学资料</category>
+      </categories>
+      <tags>
+        <tag>前端</tag>
+        <tag>Markdown</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JS实现仿京东首页商品轮播图</title>
+    <url>/2025/03/13/JS%E5%AE%9E%E7%8E%B0%E4%BB%BF%E4%BA%AC%E4%B8%9C%E9%A6%96%E9%A1%B5%E5%95%86%E5%93%81%E8%BD%AE%E6%92%AD%E5%9B%BE/</url>
+    <content><![CDATA[<h1 id="JS实现仿京东首页商品轮播图"><a href="#JS实现仿京东首页商品轮播图" class="headerlink" title="JS实现仿京东首页商品轮播图"></a>JS实现仿京东首页商品轮播图</h1><p>近期做了一个面试题，仿照京东首页商品轮播图实现一个轮播图</p>
+<h3 id="1-HTML-结构搭建"><a href="#1-HTML-结构搭建" class="headerlink" title="1. HTML 结构搭建"></a>1. HTML 结构搭建</h3><p>HTML 部分主要负责构建轮播图的整体结构，包含一个轮播图容器、图片展示区域以及分页器容器：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;carousel&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;carousel-images&quot;</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 多个图片项 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;carousel-image active&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;1.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;Image 1&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;carousel-image&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;2.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;Image 2&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 更多图片... --&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;pagination&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>.carousel</code>：作为轮播图的整体容器，用于包裹图片展示区域和分页器。</li>
+<li><code>.carousel-images</code>：用于存放所有轮播图片的容器。</li>
+<li><code>.carousel-image</code>：每个图片项的容器，初始状态下只有带有 <code>active</code> 类的图片项会显示。</li>
+<li><code>.pagination</code>：分页器容器，后续会通过 JavaScript 动态创建分页点。</li>
+</ul>
+<h3 id="2-CSS-样式设计"><a href="#2-CSS-样式设计" class="headerlink" title="2. CSS 样式设计"></a>2. CSS 样式设计</h3><p>CSS 部分为轮播图添加样式，实现布局和渐隐渐显效果：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.carousel</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">80%</span>;</span><br><span class="line">    <span class="attribute">margin</span>: auto;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">2px</span> <span class="number">10px</span> <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.1</span>);</span><br><span class="line">    <span class="attribute">overflow</span>: hidden;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">750px</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">522px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.carousel-image</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">opacity</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">transition</span>: opacity <span class="number">1s</span> ease;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.carousel-image</span><span class="selector-class">.active</span> &#123;</span><br><span class="line">    <span class="attribute">opacity</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>.carousel</code>：设置相对定位，方便内部元素进行绝对定位，同时设置宽度、边距、圆角、阴影和溢出隐藏等样式。</li>
+<li><code>.carousel-image</code>：设置绝对定位，使其重叠显示，初始透明度为 0，通过 <code>transition</code> 属性实现渐隐渐显效果。</li>
+<li><code>.carousel-image.active</code>：当图片项带有 <code>active</code> 类时，透明度为 1，即显示该图片。</li>
+</ul>
+<h3 id="3-JavaScript-功能实现"><a href="#3-JavaScript-功能实现" class="headerlink" title="3. JavaScript 功能实现"></a>3. JavaScript 功能实现</h3><h4 id="3-1-变量初始化"><a href="#3-1-变量初始化" class="headerlink" title="3.1 变量初始化"></a>3.1 变量初始化</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> images = <span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&#x27;.carousel-image&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> pagination = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;.pagination&#x27;</span>);</span><br><span class="line"><span class="keyword">let</span> currentIndex = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">let</span> timer;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>images</code>：获取所有的图片项元素。</li>
+<li><code>pagination</code>：获取分页器容器元素。</li>
+<li><code>currentIndex</code>：记录当前显示图片的索引，初始值为 0。</li>
+<li><code>timer</code>：用于存储自动播放的定时器 ID。</li>
+</ul>
+<h4 id="3-2-分页器创建"><a href="#3-2-分页器创建" class="headerlink" title="3.2 分页器创建"></a>3.2 分页器创建</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">images.<span class="title function_">forEach</span>(<span class="function">(<span class="params">_, index</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> dot = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;span&#x27;</span>);</span><br><span class="line">    dot.<span class="property">classList</span>.<span class="title function_">add</span>(<span class="string">&#x27;dot&#x27;</span>);</span><br><span class="line">    dot.<span class="property">dataset</span>.<span class="property">index</span> = index;</span><br><span class="line">    dot.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">clearInterval</span>(timer);</span><br><span class="line">        currentIndex = index;</span><br><span class="line">        <span class="title function_">updateCarousel</span>();</span><br><span class="line">        <span class="title function_">startAutoPlay</span>();</span><br><span class="line">    &#125;);</span><br><span class="line">    pagination.<span class="title function_">appendChild</span>(dot);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>遍历所有图片项，为每个图片项创建一个分页点（<code>&lt;span&gt;</code> 元素），并添加 <code>dot</code> 类。</li>
+<li>为每个分页点设置 <code>data-index</code> 属性，用于记录其对应的图片索引。</li>
+<li>为每个分页点添加点击事件监听器，点击时清除当前定时器，更新 <code>currentIndex</code> 为点击的分页点对应的索引，调用 <code>updateCarousel()</code> 函数切换图片，然后重新启动定时器。</li>
+</ul>
+<h4 id="3-3-图片切换函数"><a href="#3-3-图片切换函数" class="headerlink" title="3.3 图片切换函数"></a>3.3 图片切换函数</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">updateCarousel</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">    images.<span class="title function_">forEach</span>(<span class="function">(<span class="params">image, index</span>) =&gt;</span> &#123;</span><br><span class="line">        image.<span class="property">classList</span>.<span class="title function_">remove</span>(<span class="string">&#x27;active&#x27;</span>);</span><br><span class="line">        <span class="keyword">if</span> (index === currentIndex) &#123;</span><br><span class="line">            image.<span class="property">classList</span>.<span class="title function_">add</span>(<span class="string">&#x27;active&#x27;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&#x27;.dot&#x27;</span>).<span class="title function_">forEach</span>(<span class="function"><span class="params">dot</span> =&gt;</span> dot.<span class="property">classList</span>.<span class="title function_">remove</span>(<span class="string">&#x27;active&#x27;</span>));</span><br><span class="line">    <span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&#x27;.dot&#x27;</span>)[currentIndex].<span class="property">classList</span>.<span class="title function_">add</span>(<span class="string">&#x27;active&#x27;</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>遍历所有图片项，移除所有图片项的 <code>active</code> 类，然后为当前索引对应的图片项添加 <code>active</code> 类，实现图片的切换。</li>
+<li>同样，遍历所有分页点，移除所有分页点的 <code>active</code> 类，然后为当前索引对应的分页点添加 <code>active</code> 类，更新分页器状态。</li>
+</ul>
+<h4 id="3-4-自动播放函数"><a href="#3-4-自动播放函数" class="headerlink" title="3.4 自动播放函数"></a>3.4 自动播放函数</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">startAutoPlay</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">    timer = <span class="built_in">setInterval</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        currentIndex = (currentIndex + <span class="number">1</span>) % images.<span class="property">length</span>;</span><br><span class="line">        <span class="title function_">updateCarousel</span>();</span><br><span class="line">    &#125;, <span class="number">1000</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>使用 <code>setInterval</code> 函数创建一个定时器，每隔 1 秒执行一次回调函数。</li>
+<li>在回调函数中，更新 <code>currentIndex</code> 为下一张图片的索引（使用取模运算符确保索引不会越界），然后调用 <code>updateCarousel()</code> 函数切换图片。</li>
+</ul>
+<h4 id="3-5-初始化操作"><a href="#3-5-初始化操作" class="headerlink" title="3.5 初始化操作"></a>3.5 初始化操作</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="title function_">updateCarousel</span>();</span><br><span class="line"><span class="title function_">startAutoPlay</span>();</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>调用 <code>updateCarousel()</code> 函数进行初始化，显示第一张图片并更新分页器状态。</li>
+<li>调用 <code>startAutoPlay()</code> 函数启动自动播放功能。</li>
+</ul>
+<p>综上所述，通过 HTML 构建结构、CSS 设置样式和 JavaScript 实现交互逻辑，完成了一个具有渐隐渐显效果、支持自动播放和手动切换的轮播图。</p>
+<h3 id="4-全部代码"><a href="#4-全部代码" class="headerlink" title="4.全部代码"></a>4.全部代码</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;zh&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>水平轮播图<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-tag">body</span> &#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">font-family</span>: Arial, sans-serif;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">background-color</span>: <span class="number">#f5f5f5</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">margin</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">padding</span>: <span class="number">50px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">text-align</span>: center;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">width</span>: <span class="number">522px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">height</span>: <span class="number">750px</span>;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.carousel</span> &#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">position</span>: relative;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">width</span>: <span class="number">80%</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">margin</span>: auto; </span></span><br><span class="line"><span class="language-css">            <span class="attribute">border-radius</span>: <span class="number">10px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">2px</span> <span class="number">10px</span> <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.1</span>);</span></span><br><span class="line"><span class="language-css">            <span class="attribute">overflow</span>: hidden;</span></span><br><span class="line"><span class="language-css">            <span class="comment">/* 设置一个合适的高度，可根据实际图片比例调整 */</span></span></span><br><span class="line"><span class="language-css">            <span class="attribute">height</span>: <span class="number">750px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">width</span>: <span class="number">522px</span>;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.carousel-images</span> &#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">position</span>: relative;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">width</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">height</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.carousel-image</span> &#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">position</span>: absolute;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">width</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">height</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">opacity</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">transition</span>: opacity <span class="number">1s</span> ease;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.carousel-image</span><span class="selector-class">.active</span> &#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">opacity</span>: <span class="number">1</span>;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.carousel</span> <span class="selector-tag">img</span> &#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">width</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">height</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">object-fit</span>: cover;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">border-radius</span>: <span class="number">10px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">display</span>: block;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.pagination</span> &#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">position</span>: absolute;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">bottom</span>: <span class="number">20px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">left</span>: <span class="number">50%</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">transform</span>: <span class="built_in">translateX</span>(-<span class="number">50%</span>);</span></span><br><span class="line"><span class="language-css">            <span class="attribute">text-align</span>: center;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">z-index</span>: <span class="number">1</span>;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.dot</span> &#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">display</span>: inline-block;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">width</span>: <span class="number">10px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">height</span>: <span class="number">10px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">margin</span>: <span class="number">0</span> <span class="number">5px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">border-radius</span>: <span class="number">50%</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">background-color</span>: <span class="number">#bbb</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">cursor</span>: pointer;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.dot</span><span class="selector-class">.active</span> &#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">background-color</span>: <span class="number">#717171</span>;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;carousel&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;carousel-images&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;carousel-image active&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;1.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;Image 1&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;carousel-image&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;2.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;Image 2&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;carousel-image&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;3.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;Image 3&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;carousel-image&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;4.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;Image 4&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;carousel-image&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;5.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;Image 5&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;carousel-image&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;6.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;Image 6&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;pagination&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">const</span> images = <span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&#x27;.carousel-image&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">const</span> pagination = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;.pagination&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">let</span> currentIndex = <span class="number">0</span>;</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">let</span> timer;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// 创建分页器</span></span></span><br><span class="line"><span class="language-javascript">        images.<span class="title function_">forEach</span>(<span class="function">(<span class="params">_, index</span>) =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">const</span> dot = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;span&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">            dot.<span class="property">classList</span>.<span class="title function_">add</span>(<span class="string">&#x27;dot&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">            dot.<span class="property">dataset</span>.<span class="property">index</span> = index;</span></span><br><span class="line"><span class="language-javascript">            dot.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="comment">// 清除当前定时器</span></span></span><br><span class="line"><span class="language-javascript">                <span class="built_in">clearInterval</span>(timer);</span></span><br><span class="line"><span class="language-javascript">                currentIndex = index;</span></span><br><span class="line"><span class="language-javascript">                <span class="title function_">updateCarousel</span>();</span></span><br><span class="line"><span class="language-javascript">                <span class="comment">// 重新启动定时器</span></span></span><br><span class="line"><span class="language-javascript">                <span class="title function_">startAutoPlay</span>();</span></span><br><span class="line"><span class="language-javascript">            &#125;);</span></span><br><span class="line"><span class="language-javascript">            pagination.<span class="title function_">appendChild</span>(dot);</span></span><br><span class="line"><span class="language-javascript">        &#125;);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">const</span> <span class="title function_">updateCarousel</span> = (<span class="params"></span>) =&gt; &#123;</span></span><br><span class="line"><span class="language-javascript">            images.<span class="title function_">forEach</span>(<span class="function">(<span class="params">image, index</span>) =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">                image.<span class="property">classList</span>.<span class="title function_">remove</span>(<span class="string">&#x27;active&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">                <span class="keyword">if</span> (index === currentIndex) &#123;</span></span><br><span class="line"><span class="language-javascript">                    image.<span class="property">classList</span>.<span class="title function_">add</span>(<span class="string">&#x27;active&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">                &#125;</span></span><br><span class="line"><span class="language-javascript">            &#125;);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 更新分页器状态</span></span></span><br><span class="line"><span class="language-javascript">            <span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&#x27;.dot&#x27;</span>).<span class="title function_">forEach</span>(<span class="function"><span class="params">dot</span> =&gt;</span> dot.<span class="property">classList</span>.<span class="title function_">remove</span>(<span class="string">&#x27;active&#x27;</span>));</span></span><br><span class="line"><span class="language-javascript">            <span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&#x27;.dot&#x27;</span>)[currentIndex].<span class="property">classList</span>.<span class="title function_">add</span>(<span class="string">&#x27;active&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">        &#125;;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">const</span> <span class="title function_">startAutoPlay</span> = (<span class="params"></span>) =&gt; &#123;</span></span><br><span class="line"><span class="language-javascript">            timer = <span class="built_in">setInterval</span>(<span class="function">() =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">                currentIndex = (currentIndex + <span class="number">1</span>) % images.<span class="property">length</span>;</span></span><br><span class="line"><span class="language-javascript">                <span class="title function_">updateCarousel</span>();</span></span><br><span class="line"><span class="language-javascript">            &#125;, <span class="number">1000</span>);</span></span><br><span class="line"><span class="language-javascript">        &#125;;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// 初始化</span></span></span><br><span class="line"><span class="language-javascript">        <span class="title function_">updateCarousel</span>();</span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// 启动自动播放</span></span></span><br><span class="line"><span class="language-javascript">        <span class="title function_">startAutoPlay</span>();</span></span><br><span class="line"><span class="language-javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+]]></content>
+      <categories>
+        <category>技术文档</category>
+      </categories>
+      <tags>
+        <tag>前端</tag>
+        <tag>Markdown</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>JS异步</title>
     <url>/2025/08/24/JS%E5%BC%82%E6%AD%A5/</url>
     <content><![CDATA[<h1 id="JS异步"><a href="#JS异步" class="headerlink" title="JS异步"></a>JS异步</h1><h2 id="并发-并行"><a href="#并发-并行" class="headerlink" title="并发&amp;并行"></a>并发&amp;并行</h2><p>并发是宏观概念，我分别有任务 A 和任务 B，在一段时间内通过任务间的切换完成了这两个任务，这种情况就可以称之为并发。</p>
@@ -55,6 +151,58 @@
 <p>而await关键字只能在异步函数内部使用。它可以放在一个返回Promise对象的表达式前面，暂停异步函数的执行，直到该Promise对象解决为止。在等待期间，JavaScript引擎可以继续执行其他任务，以避免阻塞线程。一旦Promise对象解决，await表达式会返回解决的值，并且异步函数会继续执行。</p>
 <p>以下是async和await的简单用法：</p>
 <p>async function fetchData() { try {  const response &#x3D; await fetch(‘<a href="https://api.example.com/data">https://api.example.com/data</a>‘);  const data &#x3D; await response.json();  console.log(data); } catch (error) {  console.log(‘Error:’, error); }}fetchData();</p>
+]]></content>
+      <categories>
+        <category>技术文档</category>
+      </categories>
+      <tags>
+        <tag>前端</tag>
+        <tag>Markdown</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>V8垃圾回收机制</title>
+    <url>/2025/03/13/V8%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/</url>
+    <content><![CDATA[<h1 id="V8垃圾回收机制"><a href="#V8垃圾回收机制" class="headerlink" title="V8垃圾回收机制"></a>V8垃圾回收机制</h1><h2 id="垃圾回收机制"><a href="#垃圾回收机制" class="headerlink" title="垃圾回收机制"></a>垃圾回收机制</h2><p>目标：清除不再使用的对象，使腾退出所占用的内存</p>
+<p>在浏览器的发展历史上有两种解决策略：</p>
+<ul>
+<li>标记清除</li>
+<li>引用计数</li>
+</ul>
+<h3 id="标记清除"><a href="#标记清除" class="headerlink" title="标记清除"></a>标记清除</h3><p>标记清除分为：标记阶段和清除阶段。</p>
+<p>首先它会遍历堆内存上所有的对象，分别给它们打上标记，然后在代码执行过程结束之后，对所使用过的变量取消标记。在清除阶段再把具有标记的内存对象进行整体清除，从而释放内存空间。</p>
+<p>使用标记清除策略的最重要的优点在于简单，无非是标记和不标记的差异。通过标记清除之后，剩余的对象内存位置是不变的，也会导致空闲内存空间是不连续的，这就造成出现内存碎片的问题。内存碎片多了后，如果要存储一个新的需要占据较大内存空间的对象，就会造成影响。对于通过标记清除产生的内存碎片，还是需要通过标记整理策略进行解决。</p>
+<p>简而言之：</p>
+<ul>
+<li>优点：简单</li>
+<li>缺点：内存碎片化、分配速度慢</li>
+</ul>
+<h3 id="标记整理"><a href="#标记整理" class="headerlink" title="标记整理"></a>标记整理</h3><p>经过标记清除策略整理后，老生代内存中因此产生了许多内存碎片，如果不进行清理内存碎片，就会对存储造成影响。</p>
+<p><strong>标记整理（Mark-Compact）算法</strong> 就可以有效地解决标记清除的两个缺点。它的标记阶段和标记清除算法没有什么不同，只是标记结束后，标记整理算法会将活着的对象（即不需要清理的对象）向内存的一端移动，最后清理掉边界的内存。</p>
+<h3 id="引用计数"><a href="#引用计数" class="headerlink" title="引用计数"></a>引用计数</h3><p>引用计数是一种不常见的垃圾回收策略，其思路就是对每个值都记录其的引用次数。具体的：</p>
+<ul>
+<li>当变量进行声明并赋值后，值的引用数为1。</li>
+<li>当同一个值被赋值给另一个变量时，引用数+1</li>
+<li>当保存该值引用的变量被其它值覆盖时，引用数-1</li>
+<li>当该值的引用数为0时，表示无法再访问该值了，此时就可以放心地将其清除并回收内存。</li>
+</ul>
+<p>这种回收策略看起来很方便，<strong>但是当其进行循环引用时就会出现问题，会造成大量的内存不会被释放。</strong>当函数结束后，两个对象都不在作用域中，A 和 B 都会被当作非活动对象来清除掉，相比之下，引用计数则不会释放，也就会造成大量无用内存占用，这也是后来放弃引用计数，使用标记清除的原因之一。</p>
+<h2 id="V8对于垃圾回收机制的优化"><a href="#V8对于垃圾回收机制的优化" class="headerlink" title="V8对于垃圾回收机制的优化"></a>V8对于垃圾回收机制的优化</h2><h3 id="分代式垃圾回收"><a href="#分代式垃圾回收" class="headerlink" title="分代式垃圾回收"></a>分代式垃圾回收</h3><p>V8 的垃圾回收策略主要基于分代式垃圾回收机制，V8 中将堆内存分为新生代和老生代两区域，采用不同的垃圾回收器也就是不同的策略管理垃圾回收。</p>
+<p>新生代的对象为存活时间较短的对象，简单来说就是新产生的对象，通常只支持 1～8M 的容量，而老生代的对象为存活事件较长或常驻内存的对象，简单来说就是经历过新生代垃圾回收后还存活下来的对象，容量通常比较大。</p>
+<p>V8 整个堆内存的大小就等于新生代加上老生代的内存，对于新老两块内存区域的垃圾回收，V8 采用了两个垃圾回收器来管控。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/image-20231109155126666.png" alt="image-20231109155126666"></p>
+<p>新生代内存回收的原理是：</p>
+<ul>
+<li>新加入的对象都会存放在使用区，当使用区快写满时就进行一次垃圾清理操作。</li>
+<li>在开始进行垃圾回收时，新生代回收器会对使用区内的对象进行标记</li>
+<li>标记完成后，需要对使用区内的活动对象拷贝到空闲区进行排序</li>
+<li>而后进入垃圾清理阶段，将非活动对象占用的内存空间进行清理</li>
+<li>最后对使用区和空闲区进行交换，使用区-&gt;空闲区，空闲区-&gt;使用区</li>
+</ul>
+<p>老生代内存回收的原理是：使用Mark-Sweep（标记清除）和Mark-Compact（标记整理）的策略</p>
+<p>首先是标记阶段，从一组根元素开始，递归遍历这组根元素，遍历过程中能到达的元素称为活动对象，没有到达的元素就可以判断为非活动对象。清除阶段老生代垃圾回收器会直接将非活动对象，也就是数据清理掉。</p>
+<p>同样的标记清除策略会产生内存碎片，因此还需要进行标记整理策略进行优化。</p>
+<p>另外，因为JS是单线程语言，所以在执行垃圾回收机制的时候，JS执行会被暂停，称为全停顿。而V8机制对这种情况做了一定的优化，垃圾回收机制支持多线程并行回收，提高了垃圾回收的效率。但是仍然会阻塞JS的执行，所以就诞生了增量标记。增量标记可以使得垃圾回收可以分段执行，最大化保证了JS的执行。V8机制还支持了并发回收。JS在主线程执行，垃圾回收在辅助线程执行</p>
 ]]></content>
       <categories>
         <category>技术文档</category>
@@ -484,58 +632,6 @@
       </tags>
   </entry>
   <entry>
-    <title>V8垃圾回收机制</title>
-    <url>/2025/03/13/V8%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/</url>
-    <content><![CDATA[<h1 id="V8垃圾回收机制"><a href="#V8垃圾回收机制" class="headerlink" title="V8垃圾回收机制"></a>V8垃圾回收机制</h1><h2 id="垃圾回收机制"><a href="#垃圾回收机制" class="headerlink" title="垃圾回收机制"></a>垃圾回收机制</h2><p>目标：清除不再使用的对象，使腾退出所占用的内存</p>
-<p>在浏览器的发展历史上有两种解决策略：</p>
-<ul>
-<li>标记清除</li>
-<li>引用计数</li>
-</ul>
-<h3 id="标记清除"><a href="#标记清除" class="headerlink" title="标记清除"></a>标记清除</h3><p>标记清除分为：标记阶段和清除阶段。</p>
-<p>首先它会遍历堆内存上所有的对象，分别给它们打上标记，然后在代码执行过程结束之后，对所使用过的变量取消标记。在清除阶段再把具有标记的内存对象进行整体清除，从而释放内存空间。</p>
-<p>使用标记清除策略的最重要的优点在于简单，无非是标记和不标记的差异。通过标记清除之后，剩余的对象内存位置是不变的，也会导致空闲内存空间是不连续的，这就造成出现内存碎片的问题。内存碎片多了后，如果要存储一个新的需要占据较大内存空间的对象，就会造成影响。对于通过标记清除产生的内存碎片，还是需要通过标记整理策略进行解决。</p>
-<p>简而言之：</p>
-<ul>
-<li>优点：简单</li>
-<li>缺点：内存碎片化、分配速度慢</li>
-</ul>
-<h3 id="标记整理"><a href="#标记整理" class="headerlink" title="标记整理"></a>标记整理</h3><p>经过标记清除策略整理后，老生代内存中因此产生了许多内存碎片，如果不进行清理内存碎片，就会对存储造成影响。</p>
-<p><strong>标记整理（Mark-Compact）算法</strong> 就可以有效地解决标记清除的两个缺点。它的标记阶段和标记清除算法没有什么不同，只是标记结束后，标记整理算法会将活着的对象（即不需要清理的对象）向内存的一端移动，最后清理掉边界的内存。</p>
-<h3 id="引用计数"><a href="#引用计数" class="headerlink" title="引用计数"></a>引用计数</h3><p>引用计数是一种不常见的垃圾回收策略，其思路就是对每个值都记录其的引用次数。具体的：</p>
-<ul>
-<li>当变量进行声明并赋值后，值的引用数为1。</li>
-<li>当同一个值被赋值给另一个变量时，引用数+1</li>
-<li>当保存该值引用的变量被其它值覆盖时，引用数-1</li>
-<li>当该值的引用数为0时，表示无法再访问该值了，此时就可以放心地将其清除并回收内存。</li>
-</ul>
-<p>这种回收策略看起来很方便，<strong>但是当其进行循环引用时就会出现问题，会造成大量的内存不会被释放。</strong>当函数结束后，两个对象都不在作用域中，A 和 B 都会被当作非活动对象来清除掉，相比之下，引用计数则不会释放，也就会造成大量无用内存占用，这也是后来放弃引用计数，使用标记清除的原因之一。</p>
-<h2 id="V8对于垃圾回收机制的优化"><a href="#V8对于垃圾回收机制的优化" class="headerlink" title="V8对于垃圾回收机制的优化"></a>V8对于垃圾回收机制的优化</h2><h3 id="分代式垃圾回收"><a href="#分代式垃圾回收" class="headerlink" title="分代式垃圾回收"></a>分代式垃圾回收</h3><p>V8 的垃圾回收策略主要基于分代式垃圾回收机制，V8 中将堆内存分为新生代和老生代两区域，采用不同的垃圾回收器也就是不同的策略管理垃圾回收。</p>
-<p>新生代的对象为存活时间较短的对象，简单来说就是新产生的对象，通常只支持 1～8M 的容量，而老生代的对象为存活事件较长或常驻内存的对象，简单来说就是经历过新生代垃圾回收后还存活下来的对象，容量通常比较大。</p>
-<p>V8 整个堆内存的大小就等于新生代加上老生代的内存，对于新老两块内存区域的垃圾回收，V8 采用了两个垃圾回收器来管控。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/image-20231109155126666.png" alt="image-20231109155126666"></p>
-<p>新生代内存回收的原理是：</p>
-<ul>
-<li>新加入的对象都会存放在使用区，当使用区快写满时就进行一次垃圾清理操作。</li>
-<li>在开始进行垃圾回收时，新生代回收器会对使用区内的对象进行标记</li>
-<li>标记完成后，需要对使用区内的活动对象拷贝到空闲区进行排序</li>
-<li>而后进入垃圾清理阶段，将非活动对象占用的内存空间进行清理</li>
-<li>最后对使用区和空闲区进行交换，使用区-&gt;空闲区，空闲区-&gt;使用区</li>
-</ul>
-<p>老生代内存回收的原理是：使用Mark-Sweep（标记清除）和Mark-Compact（标记整理）的策略</p>
-<p>首先是标记阶段，从一组根元素开始，递归遍历这组根元素，遍历过程中能到达的元素称为活动对象，没有到达的元素就可以判断为非活动对象。清除阶段老生代垃圾回收器会直接将非活动对象，也就是数据清理掉。</p>
-<p>同样的标记清除策略会产生内存碎片，因此还需要进行标记整理策略进行优化。</p>
-<p>另外，因为JS是单线程语言，所以在执行垃圾回收机制的时候，JS执行会被暂停，称为全停顿。而V8机制对这种情况做了一定的优化，垃圾回收机制支持多线程并行回收，提高了垃圾回收的效率。但是仍然会阻塞JS的执行，所以就诞生了增量标记。增量标记可以使得垃圾回收可以分段执行，最大化保证了JS的执行。V8机制还支持了并发回收。JS在主线程执行，垃圾回收在辅助线程执行</p>
-]]></content>
-      <categories>
-        <category>技术文档</category>
-      </categories>
-      <tags>
-        <tag>前端</tag>
-        <tag>Markdown</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Vue2.7.14下的单元测试环境搭建</title>
     <url>/2024/08/06/Vue2.7.14%E4%B8%8B%E7%9A%84%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</url>
     <content><![CDATA[<h1 id="Vue2-7-14下的单元测试环境搭建"><a href="#Vue2-7-14下的单元测试环境搭建" class="headerlink" title="Vue2.7.14下的单元测试环境搭建"></a>Vue2.7.14下的单元测试环境搭建</h1><h2 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h2><blockquote>
@@ -770,6 +866,61 @@
       </tags>
   </entry>
   <entry>
+    <title>为什么我在Zoom网页复制不全？原来是被“虚拟滚动”骗了！</title>
+    <url>/2025/11/04/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E5%9C%A8%20Zoom%20%E7%BD%91%E9%A1%B5%E5%A4%8D%E5%88%B6%E4%B8%8D%E5%85%A8%EF%BC%9F%E5%8E%9F%E6%9D%A5%E6%98%AF%E8%A2%AB%E2%80%9C%E8%99%9A%E6%8B%9F%E6%BB%9A%E5%8A%A8%E2%80%9D%E9%AA%97%E4%BA%86%EF%BC%81/</url>
+    <content><![CDATA[<h1 id="为什么我在Zoom网页复制不全？原来是被“虚拟滚动”骗了！"><a href="#为什么我在Zoom网页复制不全？原来是被“虚拟滚动”骗了！" class="headerlink" title="为什么我在Zoom网页复制不全？原来是被“虚拟滚动”骗了！"></a><strong>为什么我在Zoom网页复制不全？原来是被“虚拟滚动”骗了！</strong></h1><h2 id="💭-故事起因：一次复制失败的奇遇"><a href="#💭-故事起因：一次复制失败的奇遇" class="headerlink" title="💭 故事起因：一次复制失败的奇遇"></a>💭 <strong>故事起因：一次复制失败的奇遇</strong></h2><p>主包读这个海硕一直有着录课然后用转文字内容进行总结和复习的习惯，在最近的dl课上忘记了自己录，只能靠着zoom的recording转录文字进行总结了。于是我尝试在zoom上把整份文字复制下来，但发现了一个神奇的事情——CA操作后，肉眼看到确实<strong>全蓝选中</strong>，可粘贴后——只剩视口展示的几行？！</p>
+<p>我第一反应：“这肯定是zoom处理了复制事件吧？”但是转念一想，如果想要限制我们复制，为啥不直接像一些网站直接禁止复制事件？于是我进行了验证，打开控制台加监听：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;copy&#x27;</span>, <span class="function">() =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;copy event triggered&#x27;</span>))</span><br></pre></td></tr></table></figure>
+
+<p>结果果然复制事件照常触发，没有被拦截。</p>
+<p>那……问题来了，<strong>既然复制事件没被拦截，那剩下的文字去哪了？</strong></p>
+<p>作为一位前端开发者，这样的问题当然值得去思考和解决</p>
+<h2 id="🕵️‍♀️-真相：不是没复制，而是根本没“存在”"><a href="#🕵️‍♀️-真相：不是没复制，而是根本没“存在”" class="headerlink" title="🕵️‍♀️ 真相：不是没复制，而是根本没“存在”"></a>🕵️‍♀️ <strong>真相：不是没复制，而是根本没“存在”</strong></h2><p>经过一些探索和思考后，我通过开发者工具往DOM里一看，发现 Zoom 的这块“文字记录面板”用的是一个叫<strong>vue-recycle-scroller</strong> 的组件。</p>
+<p>然后我突然明白了——这其实是前端开发里的老朋友：</p>
+<p><strong>虚拟滚动（Virtual Scrolling） + 惰性渲染（Lazy Rendering）</strong></p>
+<h2 id="🧩-那这俩是啥？为什么要用"><a href="#🧩-那这俩是啥？为什么要用" class="headerlink" title="🧩 那这俩是啥？为什么要用"></a>🧩 <strong>那这俩是啥？为什么要用</strong></h2><h3 id="🚀-虚拟滚动：只渲染“正在看”的部分"><a href="#🚀-虚拟滚动：只渲染“正在看”的部分" class="headerlink" title="🚀 虚拟滚动：只渲染“正在看”的部分"></a>🚀 <strong>虚拟滚动：只渲染“正在看”的部分</strong></h3><p>想象一下——如果一个会议转录有 <strong>几千行</strong>，浏览器一次性渲染所有内容，不仅内存爆炸，滚动还会卡成 PPT。</p>
+<p>于是前端工程师用了一个聪明的办法：</p>
+<p><strong>“只渲染用户眼前看到的部分，别的先不画。”</strong></p>
+<p>这就是「虚拟滚动」。</p>
+<p>当你往下滚时，前面的内容会被卸载（从 DOM 里删掉），后面的再被动态创建并显示。它就像电影院的卷轴，只露出一小段影片，其他还在卷起来的胶片里。</p>
+<p><strong>优点：</strong></p>
+<p>•性能大幅提升；</p>
+<p>•页面加载更快、内存占用更低。</p>
+<p><strong>副作用：</strong></p>
+<p>•<strong>复制全选时只能复制到当前“存在”的那几条</strong>；</p>
+<p>•自动化脚本或插件也只能看到可视范围的数据。</p>
+<h3 id="🌙-惰性渲染：能不画的先不画"><a href="#🌙-惰性渲染：能不画的先不画" class="headerlink" title="🌙 惰性渲染：能不画的先不画"></a>🌙 <strong>惰性渲染：能不画的先不画</strong></h3><p>惰性渲染（Lazy Rendering）其实是“按需显示”的理念。</p>
+<p>比如打开页面时，只先加载<strong>首屏内容</strong>；</p>
+<p>等你滚动、点击或交互时，<strong>再动态加载其他模块</strong>。就像视频网站，先播前几秒，后面的边看边下。</p>
+<p><strong>优点：</strong></p>
+<p>•提升首屏加载速度；</p>
+<p>•节约带宽和系统资源。</p>
+<p><strong>副作用：</strong></p>
+<p>•如果脚本要一次性抓取全部内容，就得想办法“唤醒”那些未渲染的部分。</p>
+<h2 id="🧠-那我怎么解决的？"><a href="#🧠-那我怎么解决的？" class="headerlink" title="🧠 那我怎么解决的？"></a>🧠 <strong>那我怎么解决的？</strong></h2><p>理解了这两个机制后，我就知道：问题不在“复制”，而在“还没渲染”。</p>
+<p>所以我写了一个小脚本，让浏览器<strong>自动滚动到底部</strong>，</p>
+<p>边滚边采集当前加载的文字段落，最后拼成一份完整文本。</p>
+<p>脚本主要思路：</p>
+<p>1️⃣ 配置好开始和结束锚点（只取我想要的区间）；</p>
+<p>2️⃣ 模拟滚动加载（让虚拟列表把内容都渲染出来）；</p>
+<p>3️⃣ 清洗文本、按句子切分；</p>
+<p>4️⃣ 用相似度算法去重（毕竟Zoom转录有时会重复一句话两次）。</p>
+<p>最后一键导出，完整无缺，干干净净。</p>
+<h2 id="💬-最后想说"><a href="#💬-最后想说" class="headerlink" title="💬 最后想说"></a>💬 <strong>最后想说</strong></h2><p>前端优化方案都在<strong>性能</strong>和<strong>体验</strong>之间找平衡。虚拟滚动、惰性渲染帮我们更快地看网页，但也意味着：有时候你看到的“全部”，其实只是“正在被渲染的那一小部分”。</p>
+<p>所以下次再遇到“复制不全”的网页，不妨想想：</p>
+<p>——是不是该滚一滚，看一看？</p>
+<h2 id="脚本"><a href="#脚本" class="headerlink" title="脚本"></a>脚本</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">(<span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">    <span class="comment">// ===== 自定义区域 =====</span></span><br><span class="line">    <span class="comment">// 需要把START_ANCHOR和END_ANCHOR替换为实际的第一句和最后一句的文本</span></span><br><span class="line">    <span class="keyword">const</span> <span class="variable constant_">START_ANCHOR</span> = <span class="string">&quot;Hello, everybody. So welcome back to our course.&quot;</span>;</span><br><span class="line">    <span class="keyword">const</span> <span class="variable constant_">END_ANCHOR</span> = <span class="string">&quot;Oh, thank you. Thank you.&quot;</span>;</span><br><span class="line">    <span class="keyword">const</span> <span class="variable constant_">CASE_INSENSITIVE</span> = <span class="literal">true</span>; <span class="comment">// 锚点匹配是否忽略大小写</span></span><br><span class="line">    <span class="keyword">const</span> <span class="variable constant_">SIM_THRESHOLD</span> = <span class="number">0.90</span>; <span class="comment">// 近似去重阈值(0~1)，越大越严格</span></span><br><span class="line">    <span class="keyword">const</span> <span class="variable constant_">WINDOW_BACK</span> = <span class="number">5</span>;    <span class="comment">// 与前面最近的 N 句比相似</span></span><br><span class="line">    <span class="keyword">const</span> <span class="variable constant_">EXPORT_AS</span> = <span class="string">&quot;download&quot;</span>; <span class="comment">// &quot;download&quot; | &quot;clipboard&quot;</span></span><br><span class="line">    <span class="comment">// =====================</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 找滚动容器</span></span><br><span class="line">    <span class="keyword">let</span> scroller =</span><br><span class="line">        (<span class="keyword">typeof</span> temp1 !== <span class="string">&#x27;undefined&#x27;</span> &amp;&amp; temp1) ||</span><br><span class="line">        <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;.vue-recycle-scroller&#x27;</span>) ||</span><br><span class="line">        <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;[class*=&quot;recycle-scroller&quot;]&#x27;</span>) ||</span><br><span class="line">        <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;[class*=&quot;virtual&quot;], [data-virtual]&#x27;</span>);</span><br><span class="line">    <span class="keyword">if</span> (!scroller) <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&#x27;未找到滚动容器：请先在 Elements 选中滚动区域并“Store as global variable”为 temp1。&#x27;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> <span class="title function_">sleep</span> = ms =&gt; <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function"><span class="params">r</span> =&gt;</span> <span class="built_in">setTimeout</span>(r, ms));</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 采集：用 data-index 去重</span></span><br><span class="line">    <span class="keyword">const</span> seen = <span class="keyword">new</span> <span class="title class_">Map</span>();</span><br><span class="line">    <span class="keyword">function</span> <span class="title function_">harvest</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="keyword">const</span> items = scroller.<span class="title function_">querySelectorAll</span>(</span><br><span class="line">            <span class="string">&#x27;.transcript-list-item, .vue-recycle-scroller__item-view, [data-index]&#x27;</span></span><br><span class="line">        );</span><br><span class="line">        items.<span class="title function_">forEach</span>(<span class="function"><span class="params">el</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">const</span> idx = el.<span class="title function_">getAttribute</span>(<span class="string">&#x27;data-index&#x27;</span>) || el.<span class="property">id</span> || (el.<span class="property">innerText</span> || <span class="string">&#x27;&#x27;</span>).<span class="title function_">slice</span>(<span class="number">0</span>, <span class="number">80</span>);</span><br><span class="line">            <span class="keyword">const</span> txtEl = el.<span class="title function_">querySelector</span>(<span class="string">&#x27;.text&#x27;</span>) || el.<span class="title function_">querySelector</span>(<span class="string">&#x27;[class*=text]&#x27;</span>) || el;</span><br><span class="line">            <span class="keyword">let</span> text = (txtEl?.<span class="property">innerText</span> || <span class="string">&#x27;&#x27;</span>).<span class="title function_">trim</span>();</span><br><span class="line">            <span class="keyword">if</span> (!text) <span class="keyword">return</span>;</span><br><span class="line">            <span class="keyword">const</span> tEl = el.<span class="title function_">querySelector</span>(<span class="string">&#x27;.time&#x27;</span>) || el.<span class="title function_">querySelector</span>(<span class="string">&#x27;[class*=time], [data-role*=time]&#x27;</span>);</span><br><span class="line">            <span class="keyword">const</span> time = (tEl?.<span class="property">innerText</span> || <span class="string">&#x27;&#x27;</span>).<span class="title function_">trim</span>().<span class="title function_">replace</span>(<span class="regexp">/\s+/g</span>, <span class="string">&#x27; &#x27;</span>);</span><br><span class="line">            <span class="keyword">const</span> withTime = time ? <span class="string">`<span class="subst">$&#123;time&#125;</span>  <span class="subst">$&#123;text&#125;</span>`</span> : text;</span><br><span class="line">            <span class="keyword">if</span> (!seen.<span class="title function_">has</span>(idx)) seen.<span class="title function_">set</span>(idx, &#123; withTime, text &#125;);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 滚动加载</span></span><br><span class="line">    scroller.<span class="property">scrollTop</span> = <span class="number">0</span>; <span class="keyword">await</span> <span class="title function_">sleep</span>(<span class="number">200</span>); <span class="title function_">harvest</span>();</span><br><span class="line">    <span class="keyword">let</span> lastTop = -<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">        scroller.<span class="property">scrollTop</span> += <span class="title class_">Math</span>.<span class="title function_">max</span>(<span class="number">500</span>, scroller.<span class="property">clientHeight</span> * <span class="number">0.9</span>);</span><br><span class="line">        <span class="keyword">await</span> <span class="title function_">sleep</span>(<span class="number">150</span>); <span class="title function_">harvest</span>();</span><br><span class="line">        <span class="keyword">const</span> atBottom = scroller.<span class="property">scrollTop</span> + scroller.<span class="property">clientHeight</span> &gt;= scroller.<span class="property">scrollHeight</span> - <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">const</span> stuck = scroller.<span class="property">scrollTop</span> === lastTop;</span><br><span class="line">        <span class="keyword">if</span> (atBottom || stuck) <span class="keyword">break</span>;</span><br><span class="line">        lastTop = scroller.<span class="property">scrollTop</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 排序</span></span><br><span class="line">    <span class="keyword">let</span> entries = [...seen.<span class="title function_">entries</span>()];</span><br><span class="line">    <span class="keyword">const</span> numeric = entries.<span class="title function_">every</span>(<span class="function">(<span class="params">[k]</span>) =&gt;</span> !<span class="built_in">isNaN</span>(+k));</span><br><span class="line">    <span class="keyword">if</span> (numeric) entries.<span class="title function_">sort</span>(<span class="function">(<span class="params">a, b</span>) =&gt;</span> (+a[<span class="number">0</span>]) - (+b[<span class="number">0</span>]));</span><br><span class="line">    <span class="keyword">const</span> rows = entries.<span class="title function_">map</span>(<span class="function">(<span class="params">[, v]</span>) =&gt;</span> v);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 锚点定位（含起止）</span></span><br><span class="line">    <span class="keyword">const</span> <span class="title function_">norm</span> = s =&gt; <span class="variable constant_">CASE_INSENSITIVE</span> ? s.<span class="title function_">toLowerCase</span>() : s;</span><br><span class="line">    <span class="keyword">const</span> <span class="title function_">findIdx</span> = (<span class="params">arr, needle, fromEnd = <span class="literal">false</span></span>) =&gt; &#123;</span><br><span class="line">        <span class="keyword">if</span> (!needle) <span class="keyword">return</span> fromEnd ? arr.<span class="property">length</span> - <span class="number">1</span> : <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">const</span> tgt = <span class="title function_">norm</span>(needle);</span><br><span class="line">        <span class="keyword">if</span> (fromEnd) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">let</span> i = arr.<span class="property">length</span> - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">                <span class="keyword">const</span> a = <span class="title function_">norm</span>(arr[i].<span class="property">text</span>), b = <span class="title function_">norm</span>(arr[i].<span class="property">withTime</span>);</span><br><span class="line">                <span class="keyword">if</span> (a.<span class="title function_">includes</span>(tgt) || b.<span class="title function_">includes</span>(tgt)) <span class="keyword">return</span> i;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> arr.<span class="property">length</span> - <span class="number">1</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arr.<span class="property">length</span>; i++) &#123;</span><br><span class="line">                <span class="keyword">const</span> a = <span class="title function_">norm</span>(arr[i].<span class="property">text</span>), b = <span class="title function_">norm</span>(arr[i].<span class="property">withTime</span>);</span><br><span class="line">                <span class="keyword">if</span> (a.<span class="title function_">includes</span>(tgt) || b.<span class="title function_">includes</span>(tgt)) <span class="keyword">return</span> i;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">const</span> sIdx = <span class="title function_">findIdx</span>(rows, <span class="variable constant_">START_ANCHOR</span>, <span class="literal">false</span>);</span><br><span class="line">    <span class="keyword">const</span> eIdx = <span class="title function_">findIdx</span>(rows, <span class="variable constant_">END_ANCHOR</span>, <span class="literal">true</span>);</span><br><span class="line">    <span class="keyword">const</span> slice = rows.<span class="title function_">slice</span>(<span class="title class_">Math</span>.<span class="title function_">min</span>(sIdx, rows.<span class="property">length</span> - <span class="number">1</span>), <span class="title class_">Math</span>.<span class="title function_">min</span>(eIdx + <span class="number">1</span>, rows.<span class="property">length</span>));</span><br><span class="line"></span><br><span class="line">    <span class="comment">// ===== 归一化 &amp; 句子切分 =====</span></span><br><span class="line">    <span class="keyword">const</span> <span class="title function_">normalizeLine</span> = (<span class="params">s</span>) =&gt; &#123;</span><br><span class="line">        <span class="keyword">return</span> s</span><br><span class="line">            .<span class="title function_">replace</span>(<span class="regexp">/^\s*\d&#123;1,2&#125;:\d&#123;2&#125;:\d&#123;2&#125;\s*/</span>, <span class="string">&#x27;&#x27;</span>)  <span class="comment">// 去时间戳（前缀）</span></span><br><span class="line">            .<span class="title function_">replace</span>(<span class="regexp">/[.…]+/g</span>, <span class="string">&#x27; … &#x27;</span>)                 <span class="comment">// 统一省略号</span></span><br><span class="line">            .<span class="title function_">replace</span>(<span class="regexp">/\s+/g</span>, <span class="string">&#x27; &#x27;</span>)                     <span class="comment">// 压空白</span></span><br><span class="line">            .<span class="title function_">replace</span>(<span class="regexp">/([?!,;:])(?=\S)/g</span>, <span class="string">&#x27;$1 &#x27;</span>)       <span class="comment">// 标点后补空格</span></span><br><span class="line">            .<span class="title function_">replace</span>(<span class="regexp">/[“”]/g</span>, <span class="string">&#x27;&quot;&#x27;</span>).<span class="title function_">replace</span>(<span class="regexp">/[‘’]/g</span>, <span class="string">&quot;&#x27;&quot;</span>)<span class="comment">// 统一引号</span></span><br><span class="line">            .<span class="title function_">replace</span>(<span class="regexp">/\b(\w+)\s+(?:…\s+)?\1\b/gi</span>, <span class="string">&#x27;$1&#x27;</span>) <span class="comment">// 连续重复词（含 “… …”）压缩</span></span><br><span class="line">            .<span class="title function_">trim</span>();</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 把条目合并后按句子切分</span></span><br><span class="line">    <span class="keyword">const</span> fullText = slice.<span class="title function_">map</span>(<span class="function"><span class="params">r</span> =&gt;</span> <span class="title function_">normalizeLine</span>(r.<span class="property">text</span>)).<span class="title function_">join</span>(<span class="string">&#x27; &#x27;</span>);</span><br><span class="line">    <span class="keyword">const</span> sentences = fullText</span><br><span class="line">        .<span class="title function_">split</span>(<span class="regexp">/(?&lt;=[.!?])\s+(?=[A-Z0-9&quot;&#x27;])|(?:\s+…\s+)/</span>) <span class="comment">// 句末标点或省略号切分</span></span><br><span class="line">        .<span class="title function_">map</span>(<span class="function"><span class="params">s</span> =&gt;</span> <span class="title function_">normalizeLine</span>(s))</span><br><span class="line">        .<span class="title function_">filter</span>(<span class="function"><span class="params">s</span> =&gt;</span> s &amp;&amp; <span class="regexp">/[a-zA-Z]/</span>.<span class="title function_">test</span>(s));            <span class="comment">// 过滤空句/非英文噪声</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// ===== 近似去重（Jaccard + 相邻压缩）=====</span></span><br><span class="line">    <span class="keyword">const</span> <span class="title function_">toTokens</span> = (<span class="params">s</span>) =&gt; s</span><br><span class="line">        .<span class="title function_">toLowerCase</span>()</span><br><span class="line">        .<span class="title function_">replace</span>(<span class="regexp">/[^a-z0-9&#x27;\s]/g</span>, <span class="string">&#x27; &#x27;</span>)</span><br><span class="line">        .<span class="title function_">replace</span>(<span class="regexp">/\s+/g</span>, <span class="string">&#x27; &#x27;</span>)</span><br><span class="line">        .<span class="title function_">trim</span>()</span><br><span class="line">        .<span class="title function_">split</span>(<span class="string">&#x27; &#x27;</span>)</span><br><span class="line">        .<span class="title function_">filter</span>(<span class="title class_">Boolean</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> <span class="title function_">jaccard</span> = (<span class="params">a, b</span>) =&gt; &#123;</span><br><span class="line">        <span class="keyword">const</span> A = <span class="keyword">new</span> <span class="title class_">Set</span>(a), B = <span class="keyword">new</span> <span class="title class_">Set</span>(b);</span><br><span class="line">        <span class="keyword">const</span> inter = [...A].<span class="title function_">filter</span>(<span class="function"><span class="params">x</span> =&gt;</span> B.<span class="title function_">has</span>(x)).<span class="property">length</span>;</span><br><span class="line">        <span class="keyword">const</span> uni = <span class="keyword">new</span> <span class="title class_">Set</span>([...A, ...B]).<span class="property">size</span> || <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> inter / uni;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> dedup = [];</span><br><span class="line">    <span class="keyword">const</span> tokenCache = [];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; sentences.<span class="property">length</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">const</span> s = sentences[i];</span><br><span class="line">        <span class="keyword">if</span> (!s) <span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">const</span> tok = <span class="title function_">toTokens</span>(s);</span><br><span class="line">        <span class="keyword">if</span> (!tok.<span class="property">length</span>) <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 与前一条完全相同（字符串级）跳过</span></span><br><span class="line">        <span class="keyword">if</span> (dedup.<span class="property">length</span> &amp;&amp; s === dedup[dedup.<span class="property">length</span> - <span class="number">1</span>]) <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 与前 WINDOW_BACK 条任一条 Jaccard 相似度&gt;=阈值则认为重复</span></span><br><span class="line">        <span class="keyword">let</span> dup = <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> k = <span class="number">1</span>; k &lt;= <span class="title class_">Math</span>.<span class="title function_">min</span>(<span class="variable constant_">WINDOW_BACK</span>, tokenCache.<span class="property">length</span>); k++) &#123;</span><br><span class="line">            <span class="keyword">const</span> prevTok = tokenCache[tokenCache.<span class="property">length</span> - k];</span><br><span class="line">            <span class="keyword">if</span> (<span class="title function_">jaccard</span>(tok, prevTok) &gt;= <span class="variable constant_">SIM_THRESHOLD</span>) &#123; dup = <span class="literal">true</span>; <span class="keyword">break</span>; &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (dup) <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">        dedup.<span class="title function_">push</span>(s);</span><br><span class="line">        tokenCache.<span class="title function_">push</span>(tok);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// ===== 重新拼回文本 =====</span></span><br><span class="line">    <span class="keyword">const</span> outputText = dedup.<span class="title function_">join</span>(<span class="string">&#x27;\n&#x27;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 导出</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="variable constant_">EXPORT_AS</span> === <span class="string">&#x27;clipboard&#x27;</span> &amp;&amp; navigator.<span class="property">clipboard</span>) &#123;</span><br><span class="line">        <span class="keyword">await</span> navigator.<span class="property">clipboard</span>.<span class="title function_">writeText</span>(outputText);</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`✅ 已复制到剪贴板：<span class="subst">$&#123;dedup.length&#125;</span> 句`</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> blob = <span class="keyword">new</span> <span class="title class_">Blob</span>([outputText], &#123; <span class="attr">type</span>: <span class="string">&#x27;text/plain;charset=utf-8&#x27;</span> &#125;);</span><br><span class="line">        <span class="keyword">const</span> a = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;a&#x27;</span>);</span><br><span class="line">        a.<span class="property">href</span> = <span class="variable constant_">URL</span>.<span class="title function_">createObjectURL</span>(blob);</span><br><span class="line">        a.<span class="property">download</span> = <span class="string">&#x27;zoom_transcript_clean.txt&#x27;</span>;</span><br><span class="line">        <span class="variable language_">document</span>.<span class="property">body</span>.<span class="title function_">appendChild</span>(a); a.<span class="title function_">click</span>();</span><br><span class="line">        <span class="variable constant_">URL</span>.<span class="title function_">revokeObjectURL</span>(a.<span class="property">href</span>); a.<span class="title function_">remove</span>();</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`✅ 已下载：<span class="subst">$&#123;dedup.length&#125;</span> 句`</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>自学资料</category>
+      </categories>
+      <tags>
+        <tag>前端</tag>
+        <tag>Markdown</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>前端版本更新提示技术方案调研与实现</title>
     <url>/2024/08/06/%E5%89%8D%E7%AB%AF%E7%89%88%E6%9C%AC%E6%9B%B4%E6%96%B0%E6%8F%90%E7%A4%BA%E6%8A%80%E6%9C%AF%E6%96%B9%E6%A1%88%E8%B0%83%E7%A0%94%E4%B8%8E%E5%AE%9E%E7%8E%B0/</url>
     <content><![CDATA[<h1 id="前端版本更新提示技术方案调研与实现"><a href="#前端版本更新提示技术方案调研与实现" class="headerlink" title="前端版本更新提示技术方案调研与实现"></a>前端版本更新提示技术方案调研与实现</h1><h2 id="需求场景"><a href="#需求场景" class="headerlink" title="需求场景"></a>需求场景</h2><p>项目迭代频繁，如果用户打网页后，长时间不关闭对应标签页，也不刷新页面，而此期间有新的版本已经上线了，需要用户手动刷新，不然会出现一直使用旧版本以及会出现一些不可预知的错误</p>
@@ -952,54 +1103,367 @@
       </tags>
   </entry>
   <entry>
-    <title>为什么我在Zoom网页复制不全？原来是被“虚拟滚动”骗了！</title>
-    <url>/2025/11/04/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E5%9C%A8%20Zoom%20%E7%BD%91%E9%A1%B5%E5%A4%8D%E5%88%B6%E4%B8%8D%E5%85%A8%EF%BC%9F%E5%8E%9F%E6%9D%A5%E6%98%AF%E8%A2%AB%E2%80%9C%E8%99%9A%E6%8B%9F%E6%BB%9A%E5%8A%A8%E2%80%9D%E9%AA%97%E4%BA%86%EF%BC%81/</url>
-    <content><![CDATA[<h1 id="为什么我在Zoom网页复制不全？原来是被“虚拟滚动”骗了！"><a href="#为什么我在Zoom网页复制不全？原来是被“虚拟滚动”骗了！" class="headerlink" title="为什么我在Zoom网页复制不全？原来是被“虚拟滚动”骗了！"></a><strong>为什么我在Zoom网页复制不全？原来是被“虚拟滚动”骗了！</strong></h1><h2 id="💭-故事起因：一次复制失败的奇遇"><a href="#💭-故事起因：一次复制失败的奇遇" class="headerlink" title="💭 故事起因：一次复制失败的奇遇"></a>💭 <strong>故事起因：一次复制失败的奇遇</strong></h2><p>主包读这个海硕一直有着录课然后用转文字内容进行总结和复习的习惯，在最近的dl课上忘记了自己录，只能靠着zoom的recording转录文字进行总结了。于是我尝试在zoom上把整份文字复制下来，但发现了一个神奇的事情——CA操作后，肉眼看到确实<strong>全蓝选中</strong>，可粘贴后——只剩视口展示的几行？！</p>
-<p>我第一反应：“这肯定是zoom处理了复制事件吧？”但是转念一想，如果想要限制我们复制，为啥不直接像一些网站直接禁止复制事件？于是我进行了验证，打开控制台加监听：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;copy&#x27;</span>, <span class="function">() =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;copy event triggered&#x27;</span>))</span><br></pre></td></tr></table></figure>
-
-<p>结果果然复制事件照常触发，没有被拦截。</p>
-<p>那……问题来了，<strong>既然复制事件没被拦截，那剩下的文字去哪了？</strong></p>
-<p>作为一位前端开发者，这样的问题当然值得去思考和解决</p>
-<h2 id="🕵️‍♀️-真相：不是没复制，而是根本没“存在”"><a href="#🕵️‍♀️-真相：不是没复制，而是根本没“存在”" class="headerlink" title="🕵️‍♀️ 真相：不是没复制，而是根本没“存在”"></a>🕵️‍♀️ <strong>真相：不是没复制，而是根本没“存在”</strong></h2><p>经过一些探索和思考后，我通过开发者工具往DOM里一看，发现 Zoom 的这块“文字记录面板”用的是一个叫<strong>vue-recycle-scroller</strong> 的组件。</p>
-<p>然后我突然明白了——这其实是前端开发里的老朋友：</p>
-<p><strong>虚拟滚动（Virtual Scrolling） + 惰性渲染（Lazy Rendering）</strong></p>
-<h2 id="🧩-那这俩是啥？为什么要用"><a href="#🧩-那这俩是啥？为什么要用" class="headerlink" title="🧩 那这俩是啥？为什么要用"></a>🧩 <strong>那这俩是啥？为什么要用</strong></h2><h3 id="🚀-虚拟滚动：只渲染“正在看”的部分"><a href="#🚀-虚拟滚动：只渲染“正在看”的部分" class="headerlink" title="🚀 虚拟滚动：只渲染“正在看”的部分"></a>🚀 <strong>虚拟滚动：只渲染“正在看”的部分</strong></h3><p>想象一下——如果一个会议转录有 <strong>几千行</strong>，浏览器一次性渲染所有内容，不仅内存爆炸，滚动还会卡成 PPT。</p>
-<p>于是前端工程师用了一个聪明的办法：</p>
-<p><strong>“只渲染用户眼前看到的部分，别的先不画。”</strong></p>
-<p>这就是「虚拟滚动」。</p>
-<p>当你往下滚时，前面的内容会被卸载（从 DOM 里删掉），后面的再被动态创建并显示。它就像电影院的卷轴，只露出一小段影片，其他还在卷起来的胶片里。</p>
-<p><strong>优点：</strong></p>
-<p>•性能大幅提升；</p>
-<p>•页面加载更快、内存占用更低。</p>
-<p><strong>副作用：</strong></p>
-<p>•<strong>复制全选时只能复制到当前“存在”的那几条</strong>；</p>
-<p>•自动化脚本或插件也只能看到可视范围的数据。</p>
-<h3 id="🌙-惰性渲染：能不画的先不画"><a href="#🌙-惰性渲染：能不画的先不画" class="headerlink" title="🌙 惰性渲染：能不画的先不画"></a>🌙 <strong>惰性渲染：能不画的先不画</strong></h3><p>惰性渲染（Lazy Rendering）其实是“按需显示”的理念。</p>
-<p>比如打开页面时，只先加载<strong>首屏内容</strong>；</p>
-<p>等你滚动、点击或交互时，<strong>再动态加载其他模块</strong>。就像视频网站，先播前几秒，后面的边看边下。</p>
-<p><strong>优点：</strong></p>
-<p>•提升首屏加载速度；</p>
-<p>•节约带宽和系统资源。</p>
-<p><strong>副作用：</strong></p>
-<p>•如果脚本要一次性抓取全部内容，就得想办法“唤醒”那些未渲染的部分。</p>
-<h2 id="🧠-那我怎么解决的？"><a href="#🧠-那我怎么解决的？" class="headerlink" title="🧠 那我怎么解决的？"></a>🧠 <strong>那我怎么解决的？</strong></h2><p>理解了这两个机制后，我就知道：问题不在“复制”，而在“还没渲染”。</p>
-<p>所以我写了一个小脚本，让浏览器<strong>自动滚动到底部</strong>，</p>
-<p>边滚边采集当前加载的文字段落，最后拼成一份完整文本。</p>
-<p>脚本主要思路：</p>
-<p>1️⃣ 配置好开始和结束锚点（只取我想要的区间）；</p>
-<p>2️⃣ 模拟滚动加载（让虚拟列表把内容都渲染出来）；</p>
-<p>3️⃣ 清洗文本、按句子切分；</p>
-<p>4️⃣ 用相似度算法去重（毕竟Zoom转录有时会重复一句话两次）。</p>
-<p>最后一键导出，完整无缺，干干净净。</p>
-<h2 id="💬-最后想说"><a href="#💬-最后想说" class="headerlink" title="💬 最后想说"></a>💬 <strong>最后想说</strong></h2><p>前端优化方案都在<strong>性能</strong>和<strong>体验</strong>之间找平衡。虚拟滚动、惰性渲染帮我们更快地看网页，但也意味着：有时候你看到的“全部”，其实只是“正在被渲染的那一小部分”。</p>
-<p>所以下次再遇到“复制不全”的网页，不妨想想：</p>
-<p>——是不是该滚一滚，看一看？</p>
-<h2 id="脚本"><a href="#脚本" class="headerlink" title="脚本"></a>脚本</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">(<span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">    <span class="comment">// ===== 自定义区域 =====</span></span><br><span class="line">    <span class="comment">// 需要把START_ANCHOR和END_ANCHOR替换为实际的第一句和最后一句的文本</span></span><br><span class="line">    <span class="keyword">const</span> <span class="variable constant_">START_ANCHOR</span> = <span class="string">&quot;Hello, everybody. So welcome back to our course.&quot;</span>;</span><br><span class="line">    <span class="keyword">const</span> <span class="variable constant_">END_ANCHOR</span> = <span class="string">&quot;Oh, thank you. Thank you.&quot;</span>;</span><br><span class="line">    <span class="keyword">const</span> <span class="variable constant_">CASE_INSENSITIVE</span> = <span class="literal">true</span>; <span class="comment">// 锚点匹配是否忽略大小写</span></span><br><span class="line">    <span class="keyword">const</span> <span class="variable constant_">SIM_THRESHOLD</span> = <span class="number">0.90</span>; <span class="comment">// 近似去重阈值(0~1)，越大越严格</span></span><br><span class="line">    <span class="keyword">const</span> <span class="variable constant_">WINDOW_BACK</span> = <span class="number">5</span>;    <span class="comment">// 与前面最近的 N 句比相似</span></span><br><span class="line">    <span class="keyword">const</span> <span class="variable constant_">EXPORT_AS</span> = <span class="string">&quot;download&quot;</span>; <span class="comment">// &quot;download&quot; | &quot;clipboard&quot;</span></span><br><span class="line">    <span class="comment">// =====================</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 找滚动容器</span></span><br><span class="line">    <span class="keyword">let</span> scroller =</span><br><span class="line">        (<span class="keyword">typeof</span> temp1 !== <span class="string">&#x27;undefined&#x27;</span> &amp;&amp; temp1) ||</span><br><span class="line">        <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;.vue-recycle-scroller&#x27;</span>) ||</span><br><span class="line">        <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;[class*=&quot;recycle-scroller&quot;]&#x27;</span>) ||</span><br><span class="line">        <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;[class*=&quot;virtual&quot;], [data-virtual]&#x27;</span>);</span><br><span class="line">    <span class="keyword">if</span> (!scroller) <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&#x27;未找到滚动容器：请先在 Elements 选中滚动区域并“Store as global variable”为 temp1。&#x27;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> <span class="title function_">sleep</span> = ms =&gt; <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function"><span class="params">r</span> =&gt;</span> <span class="built_in">setTimeout</span>(r, ms));</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 采集：用 data-index 去重</span></span><br><span class="line">    <span class="keyword">const</span> seen = <span class="keyword">new</span> <span class="title class_">Map</span>();</span><br><span class="line">    <span class="keyword">function</span> <span class="title function_">harvest</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="keyword">const</span> items = scroller.<span class="title function_">querySelectorAll</span>(</span><br><span class="line">            <span class="string">&#x27;.transcript-list-item, .vue-recycle-scroller__item-view, [data-index]&#x27;</span></span><br><span class="line">        );</span><br><span class="line">        items.<span class="title function_">forEach</span>(<span class="function"><span class="params">el</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">const</span> idx = el.<span class="title function_">getAttribute</span>(<span class="string">&#x27;data-index&#x27;</span>) || el.<span class="property">id</span> || (el.<span class="property">innerText</span> || <span class="string">&#x27;&#x27;</span>).<span class="title function_">slice</span>(<span class="number">0</span>, <span class="number">80</span>);</span><br><span class="line">            <span class="keyword">const</span> txtEl = el.<span class="title function_">querySelector</span>(<span class="string">&#x27;.text&#x27;</span>) || el.<span class="title function_">querySelector</span>(<span class="string">&#x27;[class*=text]&#x27;</span>) || el;</span><br><span class="line">            <span class="keyword">let</span> text = (txtEl?.<span class="property">innerText</span> || <span class="string">&#x27;&#x27;</span>).<span class="title function_">trim</span>();</span><br><span class="line">            <span class="keyword">if</span> (!text) <span class="keyword">return</span>;</span><br><span class="line">            <span class="keyword">const</span> tEl = el.<span class="title function_">querySelector</span>(<span class="string">&#x27;.time&#x27;</span>) || el.<span class="title function_">querySelector</span>(<span class="string">&#x27;[class*=time], [data-role*=time]&#x27;</span>);</span><br><span class="line">            <span class="keyword">const</span> time = (tEl?.<span class="property">innerText</span> || <span class="string">&#x27;&#x27;</span>).<span class="title function_">trim</span>().<span class="title function_">replace</span>(<span class="regexp">/\s+/g</span>, <span class="string">&#x27; &#x27;</span>);</span><br><span class="line">            <span class="keyword">const</span> withTime = time ? <span class="string">`<span class="subst">$&#123;time&#125;</span>  <span class="subst">$&#123;text&#125;</span>`</span> : text;</span><br><span class="line">            <span class="keyword">if</span> (!seen.<span class="title function_">has</span>(idx)) seen.<span class="title function_">set</span>(idx, &#123; withTime, text &#125;);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 滚动加载</span></span><br><span class="line">    scroller.<span class="property">scrollTop</span> = <span class="number">0</span>; <span class="keyword">await</span> <span class="title function_">sleep</span>(<span class="number">200</span>); <span class="title function_">harvest</span>();</span><br><span class="line">    <span class="keyword">let</span> lastTop = -<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">        scroller.<span class="property">scrollTop</span> += <span class="title class_">Math</span>.<span class="title function_">max</span>(<span class="number">500</span>, scroller.<span class="property">clientHeight</span> * <span class="number">0.9</span>);</span><br><span class="line">        <span class="keyword">await</span> <span class="title function_">sleep</span>(<span class="number">150</span>); <span class="title function_">harvest</span>();</span><br><span class="line">        <span class="keyword">const</span> atBottom = scroller.<span class="property">scrollTop</span> + scroller.<span class="property">clientHeight</span> &gt;= scroller.<span class="property">scrollHeight</span> - <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">const</span> stuck = scroller.<span class="property">scrollTop</span> === lastTop;</span><br><span class="line">        <span class="keyword">if</span> (atBottom || stuck) <span class="keyword">break</span>;</span><br><span class="line">        lastTop = scroller.<span class="property">scrollTop</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 排序</span></span><br><span class="line">    <span class="keyword">let</span> entries = [...seen.<span class="title function_">entries</span>()];</span><br><span class="line">    <span class="keyword">const</span> numeric = entries.<span class="title function_">every</span>(<span class="function">(<span class="params">[k]</span>) =&gt;</span> !<span class="built_in">isNaN</span>(+k));</span><br><span class="line">    <span class="keyword">if</span> (numeric) entries.<span class="title function_">sort</span>(<span class="function">(<span class="params">a, b</span>) =&gt;</span> (+a[<span class="number">0</span>]) - (+b[<span class="number">0</span>]));</span><br><span class="line">    <span class="keyword">const</span> rows = entries.<span class="title function_">map</span>(<span class="function">(<span class="params">[, v]</span>) =&gt;</span> v);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 锚点定位（含起止）</span></span><br><span class="line">    <span class="keyword">const</span> <span class="title function_">norm</span> = s =&gt; <span class="variable constant_">CASE_INSENSITIVE</span> ? s.<span class="title function_">toLowerCase</span>() : s;</span><br><span class="line">    <span class="keyword">const</span> <span class="title function_">findIdx</span> = (<span class="params">arr, needle, fromEnd = <span class="literal">false</span></span>) =&gt; &#123;</span><br><span class="line">        <span class="keyword">if</span> (!needle) <span class="keyword">return</span> fromEnd ? arr.<span class="property">length</span> - <span class="number">1</span> : <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">const</span> tgt = <span class="title function_">norm</span>(needle);</span><br><span class="line">        <span class="keyword">if</span> (fromEnd) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">let</span> i = arr.<span class="property">length</span> - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">                <span class="keyword">const</span> a = <span class="title function_">norm</span>(arr[i].<span class="property">text</span>), b = <span class="title function_">norm</span>(arr[i].<span class="property">withTime</span>);</span><br><span class="line">                <span class="keyword">if</span> (a.<span class="title function_">includes</span>(tgt) || b.<span class="title function_">includes</span>(tgt)) <span class="keyword">return</span> i;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> arr.<span class="property">length</span> - <span class="number">1</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arr.<span class="property">length</span>; i++) &#123;</span><br><span class="line">                <span class="keyword">const</span> a = <span class="title function_">norm</span>(arr[i].<span class="property">text</span>), b = <span class="title function_">norm</span>(arr[i].<span class="property">withTime</span>);</span><br><span class="line">                <span class="keyword">if</span> (a.<span class="title function_">includes</span>(tgt) || b.<span class="title function_">includes</span>(tgt)) <span class="keyword">return</span> i;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">const</span> sIdx = <span class="title function_">findIdx</span>(rows, <span class="variable constant_">START_ANCHOR</span>, <span class="literal">false</span>);</span><br><span class="line">    <span class="keyword">const</span> eIdx = <span class="title function_">findIdx</span>(rows, <span class="variable constant_">END_ANCHOR</span>, <span class="literal">true</span>);</span><br><span class="line">    <span class="keyword">const</span> slice = rows.<span class="title function_">slice</span>(<span class="title class_">Math</span>.<span class="title function_">min</span>(sIdx, rows.<span class="property">length</span> - <span class="number">1</span>), <span class="title class_">Math</span>.<span class="title function_">min</span>(eIdx + <span class="number">1</span>, rows.<span class="property">length</span>));</span><br><span class="line"></span><br><span class="line">    <span class="comment">// ===== 归一化 &amp; 句子切分 =====</span></span><br><span class="line">    <span class="keyword">const</span> <span class="title function_">normalizeLine</span> = (<span class="params">s</span>) =&gt; &#123;</span><br><span class="line">        <span class="keyword">return</span> s</span><br><span class="line">            .<span class="title function_">replace</span>(<span class="regexp">/^\s*\d&#123;1,2&#125;:\d&#123;2&#125;:\d&#123;2&#125;\s*/</span>, <span class="string">&#x27;&#x27;</span>)  <span class="comment">// 去时间戳（前缀）</span></span><br><span class="line">            .<span class="title function_">replace</span>(<span class="regexp">/[.…]+/g</span>, <span class="string">&#x27; … &#x27;</span>)                 <span class="comment">// 统一省略号</span></span><br><span class="line">            .<span class="title function_">replace</span>(<span class="regexp">/\s+/g</span>, <span class="string">&#x27; &#x27;</span>)                     <span class="comment">// 压空白</span></span><br><span class="line">            .<span class="title function_">replace</span>(<span class="regexp">/([?!,;:])(?=\S)/g</span>, <span class="string">&#x27;$1 &#x27;</span>)       <span class="comment">// 标点后补空格</span></span><br><span class="line">            .<span class="title function_">replace</span>(<span class="regexp">/[“”]/g</span>, <span class="string">&#x27;&quot;&#x27;</span>).<span class="title function_">replace</span>(<span class="regexp">/[‘’]/g</span>, <span class="string">&quot;&#x27;&quot;</span>)<span class="comment">// 统一引号</span></span><br><span class="line">            .<span class="title function_">replace</span>(<span class="regexp">/\b(\w+)\s+(?:…\s+)?\1\b/gi</span>, <span class="string">&#x27;$1&#x27;</span>) <span class="comment">// 连续重复词（含 “… …”）压缩</span></span><br><span class="line">            .<span class="title function_">trim</span>();</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 把条目合并后按句子切分</span></span><br><span class="line">    <span class="keyword">const</span> fullText = slice.<span class="title function_">map</span>(<span class="function"><span class="params">r</span> =&gt;</span> <span class="title function_">normalizeLine</span>(r.<span class="property">text</span>)).<span class="title function_">join</span>(<span class="string">&#x27; &#x27;</span>);</span><br><span class="line">    <span class="keyword">const</span> sentences = fullText</span><br><span class="line">        .<span class="title function_">split</span>(<span class="regexp">/(?&lt;=[.!?])\s+(?=[A-Z0-9&quot;&#x27;])|(?:\s+…\s+)/</span>) <span class="comment">// 句末标点或省略号切分</span></span><br><span class="line">        .<span class="title function_">map</span>(<span class="function"><span class="params">s</span> =&gt;</span> <span class="title function_">normalizeLine</span>(s))</span><br><span class="line">        .<span class="title function_">filter</span>(<span class="function"><span class="params">s</span> =&gt;</span> s &amp;&amp; <span class="regexp">/[a-zA-Z]/</span>.<span class="title function_">test</span>(s));            <span class="comment">// 过滤空句/非英文噪声</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// ===== 近似去重（Jaccard + 相邻压缩）=====</span></span><br><span class="line">    <span class="keyword">const</span> <span class="title function_">toTokens</span> = (<span class="params">s</span>) =&gt; s</span><br><span class="line">        .<span class="title function_">toLowerCase</span>()</span><br><span class="line">        .<span class="title function_">replace</span>(<span class="regexp">/[^a-z0-9&#x27;\s]/g</span>, <span class="string">&#x27; &#x27;</span>)</span><br><span class="line">        .<span class="title function_">replace</span>(<span class="regexp">/\s+/g</span>, <span class="string">&#x27; &#x27;</span>)</span><br><span class="line">        .<span class="title function_">trim</span>()</span><br><span class="line">        .<span class="title function_">split</span>(<span class="string">&#x27; &#x27;</span>)</span><br><span class="line">        .<span class="title function_">filter</span>(<span class="title class_">Boolean</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> <span class="title function_">jaccard</span> = (<span class="params">a, b</span>) =&gt; &#123;</span><br><span class="line">        <span class="keyword">const</span> A = <span class="keyword">new</span> <span class="title class_">Set</span>(a), B = <span class="keyword">new</span> <span class="title class_">Set</span>(b);</span><br><span class="line">        <span class="keyword">const</span> inter = [...A].<span class="title function_">filter</span>(<span class="function"><span class="params">x</span> =&gt;</span> B.<span class="title function_">has</span>(x)).<span class="property">length</span>;</span><br><span class="line">        <span class="keyword">const</span> uni = <span class="keyword">new</span> <span class="title class_">Set</span>([...A, ...B]).<span class="property">size</span> || <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> inter / uni;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> dedup = [];</span><br><span class="line">    <span class="keyword">const</span> tokenCache = [];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; sentences.<span class="property">length</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">const</span> s = sentences[i];</span><br><span class="line">        <span class="keyword">if</span> (!s) <span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">const</span> tok = <span class="title function_">toTokens</span>(s);</span><br><span class="line">        <span class="keyword">if</span> (!tok.<span class="property">length</span>) <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 与前一条完全相同（字符串级）跳过</span></span><br><span class="line">        <span class="keyword">if</span> (dedup.<span class="property">length</span> &amp;&amp; s === dedup[dedup.<span class="property">length</span> - <span class="number">1</span>]) <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 与前 WINDOW_BACK 条任一条 Jaccard 相似度&gt;=阈值则认为重复</span></span><br><span class="line">        <span class="keyword">let</span> dup = <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> k = <span class="number">1</span>; k &lt;= <span class="title class_">Math</span>.<span class="title function_">min</span>(<span class="variable constant_">WINDOW_BACK</span>, tokenCache.<span class="property">length</span>); k++) &#123;</span><br><span class="line">            <span class="keyword">const</span> prevTok = tokenCache[tokenCache.<span class="property">length</span> - k];</span><br><span class="line">            <span class="keyword">if</span> (<span class="title function_">jaccard</span>(tok, prevTok) &gt;= <span class="variable constant_">SIM_THRESHOLD</span>) &#123; dup = <span class="literal">true</span>; <span class="keyword">break</span>; &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (dup) <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">        dedup.<span class="title function_">push</span>(s);</span><br><span class="line">        tokenCache.<span class="title function_">push</span>(tok);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// ===== 重新拼回文本 =====</span></span><br><span class="line">    <span class="keyword">const</span> outputText = dedup.<span class="title function_">join</span>(<span class="string">&#x27;\n&#x27;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 导出</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="variable constant_">EXPORT_AS</span> === <span class="string">&#x27;clipboard&#x27;</span> &amp;&amp; navigator.<span class="property">clipboard</span>) &#123;</span><br><span class="line">        <span class="keyword">await</span> navigator.<span class="property">clipboard</span>.<span class="title function_">writeText</span>(outputText);</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`✅ 已复制到剪贴板：<span class="subst">$&#123;dedup.length&#125;</span> 句`</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> blob = <span class="keyword">new</span> <span class="title class_">Blob</span>([outputText], &#123; <span class="attr">type</span>: <span class="string">&#x27;text/plain;charset=utf-8&#x27;</span> &#125;);</span><br><span class="line">        <span class="keyword">const</span> a = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;a&#x27;</span>);</span><br><span class="line">        a.<span class="property">href</span> = <span class="variable constant_">URL</span>.<span class="title function_">createObjectURL</span>(blob);</span><br><span class="line">        a.<span class="property">download</span> = <span class="string">&#x27;zoom_transcript_clean.txt&#x27;</span>;</span><br><span class="line">        <span class="variable language_">document</span>.<span class="property">body</span>.<span class="title function_">appendChild</span>(a); a.<span class="title function_">click</span>();</span><br><span class="line">        <span class="variable constant_">URL</span>.<span class="title function_">revokeObjectURL</span>(a.<span class="property">href</span>); a.<span class="title function_">remove</span>();</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`✅ 已下载：<span class="subst">$&#123;dedup.length&#125;</span> 句`</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
-
-]]></content>
+    <title>当React最佳实践变成一个Skill，我尝试让它管管我的代码</title>
+    <url>/2026/04/20/%E5%BD%93React%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5%E5%8F%98%E6%88%90%E4%B8%80%E4%B8%AASkill%EF%BC%8C%E6%88%91%E5%B0%9D%E8%AF%95%E8%AE%A9%E5%AE%83%E7%AE%A1%E7%AE%A1%E6%88%91%E7%9A%84%E4%BB%A3%E7%A0%81/</url>
+    <content><![CDATA[<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><blockquote>
+<p>“传统的五子棋只是把五个子连成一条线，而技能五子棋则是在传统的五子棋中加入了技能。”</p>
+</blockquote>
+<p>几个月前，“技能五子棋”一度在社交平台出圈。</p>
+<p>它之所以有趣，并不只是玩法变复杂了，而是<strong>规则本身发生了变化</strong>：</p>
+<p>胜负不再只取决于落子，而是取决于你如何使用能力。</p>
+<p>有意思的是，类似的变化，也正在软件工程和AI领域发生。</p>
+<p>如果回看近几年的技术演进路径，会发现一个非常清晰的趋势：</p>
+<p>-<strong>2024年：Prompt工程</strong></p>
+<p>我们学习如何“把话说清楚”，让模型更好地理解意图。</p>
+<p>-<strong>2025年：上下文工程（Context Engineering）</strong></p>
+<p>我们开始关注如何构建长期、稳定、结构化的上下文，让模型“理解得更全面”。</p>
+<p>-<strong>2026年：Skills工程</strong></p>
+<p>不再只是临时指令，而是把经验、规则、最佳实践沉淀为<strong>可复用、可组合的能力单元</strong>。</p>
+<p>所谓<strong>Skills</strong>，本质上就是把“人脑里的经验”产品化、模块化。</p>
+<p>也正是在这样的背景下，一个由Vercel官方发布的<strong>React Best Practices</strong> Skill开始进入我的视野。</p>
+<p><img src="/images/%E5%BD%93React%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5%E5%8F%98%E6%88%90%E4%B8%80%E4%B8%AASkill%EF%BC%8C%E6%88%91%E5%B0%9D%E8%AF%95%E8%AE%A9%E5%AE%83%E7%AE%A1%E7%AE%A1%E6%88%91%E7%9A%84%E4%BB%A3%E7%A0%81-img_v3_02uc_0c0bcde5-1055-4e48-b94e-9020f79ef3fg.jpg"></p>
+<p><img src="/images/%E5%BD%93React%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5%E5%8F%98%E6%88%90%E4%B8%80%E4%B8%AASkill%EF%BC%8C%E6%88%91%E5%B0%9D%E8%AF%95%E8%AE%A9%E5%AE%83%E7%AE%A1%E7%AE%A1%E6%88%91%E7%9A%84%E4%BB%A3%E7%A0%81-image-2.png"></p>
+<h1 id="这个Skill是什么"><a href="#这个Skill是什么" class="headerlink" title="这个Skill是什么"></a>这个Skill是什么</h1><p><strong>React Best Practices Skill</strong>是一个将 React&#x2F;Next.js 常见最佳实践系统化的skill集合，核心目标是：</p>
+<blockquote>
+<p>👉在开发过程中，<strong>主动识别潜在问题，并给出可执行的最佳实践建议</strong></p>
+</blockquote>
+<p>覆盖的方向主要包括：</p>
+<ul>
+<li><p>数据获取（async&#x2F;并行&#x2F;cache）</p>
+</li>
+<li><p>Bundle&amp;构建优化</p>
+</li>
+<li><p>重渲染与渲染性能</p>
+</li>
+<li><p>第三方库加载时机</p>
+</li>
+<li><p>Next.js Server&#x2F;Client组件使用方式</p>
+</li>
+</ul>
+<h1 id="为什么这些问题总是反复出现"><a href="#为什么这些问题总是反复出现" class="headerlink" title="为什么这些问题总是反复出现"></a>为什么这些问题总是反复出现</h1><p>在实际工程中，React性能优化往往是<strong>被动的</strong>。</p>
+<p>一个常见的节奏是：</p>
+<ul>
+<li><p>发版之后，页面变慢了</p>
+</li>
+<li><p>指标下降，用户开始感知卡顿</p>
+</li>
+<li><p>团队开始“追症状”，到处补优化</p>
+</li>
+</ul>
+<p>这种方式不仅成本高，而且<strong>很容易优化错地方</strong>。</p>
+<p>而在多个真实生产代码库中，长期反复出现的根因其实高度一致：</p>
+<p>-<strong>本该并行的async工作，被无意中写成了串行</strong></p>
+<p>-<strong>客户端bundle体积随着迭代不断膨胀</strong></p>
+<p>-<strong>组件比实际需要渲染得更频繁</strong></p>
+<p>-<strong>不必要的计算和第三方代码在首屏就被加载</strong></p>
+<p>这些都不是“微优化”，而是会直接表现为：</p>
+<ul>
+<li><p>等待时间变长</p>
+</li>
+<li><p>页面jank</p>
+</li>
+<li><p>每一次用户会话都在反复支付的性能成本</p>
+</li>
+</ul>
+<h1 id="为什么会对它感兴趣"><a href="#为什么会对它感兴趣" class="headerlink" title="为什么会对它感兴趣"></a>为什么会对它感兴趣</h1><p>一个主要的原因是：<strong>它和当前官网项目的技术栈高度契合</strong>。</p>
+<p>在landing过程中接触到的官网项目：</p>
+<ul>
+<li><p>使用<strong>Next.js Page Router</strong></p>
+</li>
+<li><p>有SSR&#x2F;RSC&#x2F;性能指标要求</p>
+</li>
+<li><p>迭代周期短，需要在「规范性」和「开发效率」之间取得平衡</p>
+</li>
+</ul>
+<p>而React Best Practices Skill覆盖的内容，几乎正好命中了这些项目中最容易被忽略的部分：</p>
+<ul>
+<li><p>表面上“写得能跑”</p>
+</li>
+<li><p>但长期来看，会逐渐累积性能和维护成本的地方</p>
+</li>
+</ul>
+<p>其实，<strong>React Best Practices Skill并不是我接触到的第一个Skill</strong>。</p>
+<p>在此之前，我也了解过像<strong>UI UX Pro Max</strong>这类更偏设计与体验侧的Skill，它们在交互一致性和设计规范上同样很有价值。</p>
+<p>但<strong>React Best Practices Skill吸引我的是</strong>：</p>
+<ul>
+<li><p>它关注的不是抽象原则，而是具体到代码层面的决策</p>
+</li>
+<li><p>它解决的不是“好不好看”，而是“在当前技术栈下是不是一个更稳妥的实现”</p>
+</li>
+</ul>
+<h1 id="在Cursor中如何使用这个"><a href="#在Cursor中如何使用这个" class="headerlink" title="在Cursor中如何使用这个"></a>在Cursor中如何使用这个</h1><p>为了尽量贴近真实开发场景，我选择直接在<strong>Cursor</strong>中使用React Best Practices</p>
+<p>整个过程并不复杂</p>
+<h2 id="Step-1：切换到Nightly更新渠道"><a href="#Step-1：切换到Nightly更新渠道" class="headerlink" title="Step 1：切换到Nightly更新渠道"></a>Step 1：切换到Nightly更新渠道</h2><p>Skills功能目前需要Cursor的<strong>Nightly版本</strong>才能完整使用。</p>
+<p>操作步骤如下：</p>
+<ol>
+<li><p>打开Cursor设置</p>
+<ul>
+<li><p>macOS：<code>Cmd + Shift + J</code> &#x20;</p>
+</li>
+<li><p>Windows&#x2F;Linux：<code>Ctrl + Shift + J</code></p>
+</li>
+</ul>
+</li>
+<li><p>进入<strong>Beta</strong>选项卡</p>
+</li>
+</ol>
+<ol start="3">
+<li><p>将<strong>Update Channel</strong>切换为<code>Nightly</code></p>
+</li>
+<li><p>等待更新完成后<strong>重启Cursor</strong></p>
+</li>
+</ol>
+<blockquote>
+<p>⚠️注意：一定要确认已经更新到最新的Nightly版本，否则后续Skills相关配置可能不会生效。</p>
+</blockquote>
+<p><img src="/images/%E5%BD%93React%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5%E5%8F%98%E6%88%90%E4%B8%80%E4%B8%AASkill%EF%BC%8C%E6%88%91%E5%B0%9D%E8%AF%95%E8%AE%A9%E5%AE%83%E7%AE%A1%E7%AE%A1%E6%88%91%E7%9A%84%E4%BB%A3%E7%A0%81-image.png"></p>
+<p><img src="/images/%E5%BD%93React%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5%E5%8F%98%E6%88%90%E4%B8%80%E4%B8%AASkill%EF%BC%8C%E6%88%91%E5%B0%9D%E8%AF%95%E8%AE%A9%E5%AE%83%E7%AE%A1%E7%AE%A1%E6%88%91%E7%9A%84%E4%BB%A3%E7%A0%81-image-1.png"></p>
+<h2 id="Step-2：开启Skills功能（通过cursor-rules）"><a href="#Step-2：开启Skills功能（通过cursor-rules）" class="headerlink" title="Step 2：开启Skills功能（通过cursor rules）"></a>Step 2：开启Skills功能（通过cursor rules）</h2><p>更新完成后，需要在Cursor的rules中引入Skill。</p>
+<p>官方提供的React Best Practices已经被整理成通用的Agent Skills，可以安装到：</p>
+<ul>
+<li><p>Cursor</p>
+</li>
+<li><p>Claude Code</p>
+</li>
+<li><p>Codex</p>
+</li>
+<li><p>Opencode</p>
+</li>
+</ul>
+<p>等多种coding agent中。</p>
+<p>在<code>cursor-rules</code>（或对应规则配置文件）中，<strong>import React Best Practices Skill的GitHub项目地址</strong>，示意如下：</p>
+<p>或者使用提供的CLI安装Skill：</p>
+<p>该命令会自动：</p>
+<ul>
+<li><p>拉取vercel-labs&#x2F;agent-skills仓库</p>
+</li>
+<li><p>将React Best Practices等Skill安装到本地Agent配置中</p>
+</li>
+<li><p>使其可被Cursor等编辑器识别和使用</p>
+</li>
+</ul>
+<h2 id="Step3：在Prompt中显式启用Skill"><a href="#Step3：在Prompt中显式启用Skill" class="headerlink" title="Step3：在Prompt中显式启用Skill"></a><strong>Step3：在Prompt中显式启用Skill</strong></h2><p>完成rules配置后，还需要在实际使用时<strong>通过Prompt明确声明使用某个Skill</strong>。</p>
+<p>例如在对话或编辑指令中加入类似：</p>
+<blockquote>
+<p>使用React Best Practices Skill，帮我检查这段Next.js代码是否存在性能或最佳实践问题</p>
+</blockquote>
+<p>或者在重构场景中：</p>
+<blockquote>
+<p>基于React Best Practices Skill，优化当前组件的渲染和数据获取方式</p>
+</blockquote>
+<p>通过这种方式，Skill会在理解上下文时：</p>
+<ul>
+<li><p>以「React&#x2F;Next.js最佳实践」作为核心判断依据</p>
+</li>
+<li><p>主动识别潜在问题并给出针对性的建议</p>
+</li>
+</ul>
+<h1 id="实验设计：用Demo验证Skill的性能提升价值"><a href="#实验设计：用Demo验证Skill的性能提升价值" class="headerlink" title="实验设计：用Demo验证Skill的性能提升价值"></a>实验设计：用Demo验证Skill的性能提升价值</h1><h2 id="实验目标"><a href="#实验目标" class="headerlink" title="实验目标"></a>实验目标</h2><p>量化评估使用React Best Practices Skill前后，Next.js项目在以下方面的变化：</p>
+<ul>
+<li><p>构建性能</p>
+</li>
+<li><p>包体积</p>
+</li>
+<li><p>常见性能问题数量</p>
+</li>
+<li><p>开发过程中的问题暴露速度</p>
+</li>
+</ul>
+<h2 id="实验方案"><a href="#实验方案" class="headerlink" title="实验方案"></a>实验方案</h2><h3 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h3><p>我创建了两个功能完全一致的Next.js Demo：</p>
+<p>两者遵循：</p>
+<ul>
+<li><p>相同功能</p>
+</li>
+<li><p>相同依赖版本</p>
+</li>
+<li><p>相同测试环境</p>
+</li>
+</ul>
+<h3 id="典型测试场景"><a href="#典型测试场景" class="headerlink" title="典型测试场景"></a><strong>典型测试场景</strong></h3><p>实验中刻意覆盖了一些<strong>真实项目中非常常见的问题</strong>：</p>
+<ul>
+<li><p>串行数据请求导致的瀑布流</p>
+</li>
+<li><p>Barrel imports（如lodash）导致的bundle膨胀</p>
+</li>
+<li><p>重型组件在首屏被加载</p>
+</li>
+<li><p>缺少memo导致的重复渲染</p>
+</li>
+<li><p>第三方库过早初始化，阻塞hydration</p>
+</li>
+</ul>
+<p>这些问题有一个共同点：</p>
+<ul>
+<li><p>在单次开发中<strong>很容易被忽略</strong></p>
+</li>
+<li><p>但一旦进入主干，就会在每一次用户访问中持续放大成本</p>
+</li>
+</ul>
+<p>对应的优化方向全部来自skill给出的建议。</p>
+<h3 id="实验代码"><a href="#实验代码" class="headerlink" title="实验代码"></a>实验代码</h3><h4 id="被测Demo"><a href="#被测Demo" class="headerlink" title="被测Demo"></a>被测Demo</h4><p>基于Next.js 14+React 18+TypeScript实现功能</p>
+<ol>
+<li><p>服务端数据获取</p>
+<ol>
+<li>在服务端组件里调用fetchUserData、fetchProducts、fetchAnalytics（模拟 API），拿到用户、产品、分析数据。</li>
+</ol>
+</li>
+<li><p>混合渲染</p>
+<ol>
+<li><p>首页page.tsx：服务端组件，负责拉数据。</p>
+</li>
+<li><p>UserProfile、ProductList、Analytics：’use client’客户端组件，负责交互和展示。</p>
+</li>
+</ol>
+</li>
+<li><p>三个业务模块</p>
+<ol>
+<li><p>用户资料：头像、姓名、邮箱、计数按钮、在线状态切换。</p>
+</li>
+<li><p>产品列表：过滤（价格&gt;100）、排序、列表展示，并挂一个“重型组件”。</p>
+</li>
+<li><p>分析数据：展示浏览量、点击量、转化数，并模拟分析库打点（如page_view）。</p>
+</li>
+</ol>
+</li>
+<li><p>模拟API</p>
+<ol>
+<li>lib&#x2F;api.ts里用setTimeout模拟延迟（约400–600ms），返回固定结构的JSON，模拟真实接口。</li>
+</ol>
+</li>
+</ol>
+<h4 id="测试脚本"><a href="#测试脚本" class="headerlink" title="测试脚本"></a>测试脚本</h4><p><strong>measureBuildTime：测量构建耗时+成功状态</strong></p>
+<ul>
+<li><p>在跑build前后记录时间戳</p>
+</li>
+<li><p>用差值算buildTime（秒）</p>
+</li>
+<li><p>同时携带build是否成功（来自runCommand）</p>
+</li>
+</ul>
+<p><strong>calculateBundleSize：统计.next&#x2F;static产物体积</strong></p>
+<p>计算：</p>
+<ul>
+<li><p>.next&#x2F;static&#x2F;chunks的总大小（认为是JS）</p>
+</li>
+<li><p>.next&#x2F;static&#x2F;css的总大小（CSS）</p>
+</li>
+<li><p>并输出MB&#x2F;KB方便阅读</p>
+</li>
+</ul>
+<p><strong>measurePerformance：单个项目的完整流程编排</strong></p>
+<ol>
+<li><p>检查项目目录存在</p>
+</li>
+<li><p>检查node_modules是否存在，不存在就npm install</p>
+</li>
+<li><p>清理.next（防止上一次构建残留影响结果）</p>
+</li>
+<li><p>跑measureBuildTime</p>
+</li>
+<li><p>如果build成功，跑calculateBundleSize</p>
+</li>
+<li><p>把结果写入results&#x2F;&lt;project&gt;-metrics.json</p>
+</li>
+</ol>
+<p><strong>generateComparisonReport：对比两个项目并计算提升</strong></p>
+<p>读取两个JSON结果文件，然后计算对比：</p>
+<ul>
+<li><p>buildTime的提升百分比</p>
+</li>
+<li><p>bundleSize&#x2F;jsSize的提升百分比（如果baseline或optimized没bundle数据就N&#x2F;A）</p>
+</li>
+</ul>
+<p>提升公式：</p>
+<p>并且把对比JSON写入：</p>
+<ul>
+<li>results&#x2F;comparison-report.json</li>
+</ul>
+<p>同时也在控制台打印一个“报告摘要”，便于跑完立刻看到结果。</p>
+<p><strong>main：测两个项目+生成对比报告</strong></p>
+<ul>
+<li><p>逐个项目测量</p>
+</li>
+<li><p>两个项目都有结果才生成对比报告（避免其中一个失败导致报表数据不完整）</p>
+</li>
+</ul>
+<p>最后输出“测试完成”。</p>
+<h3 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a><strong>实验结果</strong></h3><h4 id="构建时间对比"><a href="#构建时间对比" class="headerlink" title="构建时间对比"></a><strong>构建时间对比</strong></h4><table>
+<thead>
+<tr>
+<th>项目</th>
+<th><strong>构建时间</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Baseline</td>
+<td>11.71s</td>
+</tr>
+<tr>
+<td>Optimized</td>
+<td>8.31s</td>
+</tr>
+<tr>
+<td>提升</td>
+<td><strong>≈ 29% ⬇️</strong></td>
+</tr>
+</tbody></table>
+<p>Skill在bundle拆分、动态导入等方面的建议，对构建时间的提升有明显帮助。</p>
+<h4 id="Bundle-体积变化（Optimized）"><a href="#Bundle-体积变化（Optimized）" class="headerlink" title="Bundle 体积变化（Optimized）"></a><strong>Bundle 体积变化（Optimized）</strong></h4><p>通过：</p>
+<ul>
+<li><p>移除lodash</p>
+</li>
+<li><p>使用原生方法</p>
+</li>
+<li><p>动态导入重型组件</p>
+</li>
+</ul>
+<p>有效控制了首屏负担。</p>
+<h4 id="性能问题数量对比"><a href="#性能问题数量对比" class="headerlink" title="性能问题数量对比"></a><strong>性能问题数量对比</strong></h4><table>
+<thead>
+<tr>
+<th><strong>问题类型</strong></th>
+<th><strong>Baseline</strong></th>
+<th><strong>Optimized</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>串行数据获取</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>Barrel Imports</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>不必要重渲染</td>
+<td>多处</td>
+<td>0</td>
+</tr>
+<tr>
+<td>过早加载第三方库</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+</tbody></table>
+<p>Skill在<strong>问题识别准确率上表现很好</strong>，基本都命中了我刻意埋下的“坑”。</p>
+<h2 id="结论与思考"><a href="#结论与思考" class="headerlink" title="结论与思考"></a><strong>结论与思考</strong></h2><h3 id="Skill的价值体现在哪里？"><a href="#Skill的价值体现在哪里？" class="headerlink" title="Skill的价值体现在哪里？"></a><strong>Skill的价值体现在哪里？</strong></h3><ol>
+<li><p><strong>将隐性经验显性化</strong></p>
+</li>
+<li><p>很多问题并不是“不会写”，而是“不容易意识到这是问题”。</p>
+</li>
+<li><p><strong>对Next.js项目尤其友好</strong></p>
+</li>
+<li><p>不只是React通用建议，而是结合了RSC&#x2F;Page&#x2F;App Router的真实场景。</p>
+</li>
+</ol>
+<h1 id="补充实验：用Demo验证Skill的工程价值"><a href="#补充实验：用Demo验证Skill的工程价值" class="headerlink" title="补充实验：用Demo验证Skill的工程价值"></a>补充实验：用Demo验证Skill的工程价值</h1><blockquote>
+<p>可能可以尝试，基于不同的模型，执行的同样的任务，看代码的输出是否一致</p>
+</blockquote>
+<h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1>]]></content>
       <categories>
-        <category>自学资料</category>
+        <category>复习资料</category>
       </categories>
       <tags>
         <tag>前端</tag>
@@ -1159,6 +1623,43 @@
         <category>复习资料</category>
       </categories>
       <tags>
+        <tag>Markdown</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>前端提效｜什么是Monorepo？</title>
+    <url>/2025/10/15/%F0%9F%92%A1%E5%89%8D%E7%AB%AF%E6%8F%90%E6%95%88%EF%BD%9C%E4%BB%80%E4%B9%88%E6%98%AFMonorepo%EF%BC%9F/</url>
+    <content><![CDATA[<h1 id="💡前端提效｜什么是Monorepo？"><a href="#💡前端提效｜什么是Monorepo？" class="headerlink" title="💡前端提效｜什么是Monorepo？"></a>💡<strong>前端提效｜什么是Monorepo？</strong></h1><p>最近在做新项目时再一次采用了Monorepo；于是借此机会便给组员分享了一下什么是Monorepo</p>
+<p>用一句话总结就是：<strong>Monorepo &#x3D; 一个仓库，装下多个独立项目。</strong></p>
+<h2 id="🔍-一句话解释"><a href="#🔍-一句话解释" class="headerlink" title="🔍 一句话解释"></a>🔍 一句话解释</h2><p>Monorepo（Monolithic Repository）直译叫“单体仓库”，</p>
+<p>它让多个项目（比如一个 React 主应用 + Vue 后台 + UI 组件库 + 工具库）共存在同一个 Git 仓库中，</p>
+<p>但每个项目都能独立开发、独立部署、互不干扰</p>
+<p>也就是说：</p>
+<p>它不是“把所有代码揉成一个”，而是“统一管理、灵活开发”。</p>
+<p>和“单体应用（Monolith）”完全不是一回事！</p>
+<h2 id="🚀-为什么越来越多前端团队选择-Monorepo？"><a href="#🚀-为什么越来越多前端团队选择-Monorepo？" class="headerlink" title="🚀 为什么越来越多前端团队选择 Monorepo？"></a>🚀 为什么越来越多前端团队选择 Monorepo？</h2><h3 id="1-代码共享无敌丝滑"><a href="#1-代码共享无敌丝滑" class="headerlink" title="1. 代码共享无敌丝滑"></a><strong>1. 代码共享无敌丝滑</strong></h3><p>组件库、工具函数、TS 类型……</p>
+<p>不需要发 npm 包，直接本地引入，修改即生效，开发体验极佳</p>
+<h3 id="2-依赖管理更干净"><a href="#2-依赖管理更干净" class="headerlink" title="2. 依赖管理更干净"></a><strong>2. 依赖管理更干净</strong></h3><p>一个仓库一个 node_modules。</p>
+<p>用 pnpm 管理 workspace，彻底告别“依赖地狱”。</p>
+<h3 id="3-一次提交搞定多个项目"><a href="#3-一次提交搞定多个项目" class="headerlink" title="3. 一次提交搞定多个项目"></a><strong>3. 一次提交搞定多个项目</strong></h3><p>需要同时改应用和组件库？</p>
+<p>一次 commit，全都搞定。追溯历史更清晰！</p>
+<h3 id="4-统一工具链"><a href="#4-统一工具链" class="headerlink" title="4. 统一工具链"></a><strong>4. 统一工具链</strong></h3><p>ESLint、Prettier、TypeScript、Jest……</p>
+<p>根目录配置一次，全仓库共享规则，团队协作更顺畅。</p>
+<h3 id="5-团队协作更透明"><a href="#5-团队协作更透明" class="headerlink" title="5. 团队协作更透明"></a><strong>5. 团队协作更透明</strong></h3><p>所有项目都在一个仓库，想看别的模块实现、做跨项目 review？so easy～</p>
+<h2 id="但它也有“坑”👇"><a href="#但它也有“坑”👇" class="headerlink" title="但它也有“坑”👇"></a>但它也有“坑”👇</h2><p>•工具链配置稍微复杂，需要学习 Lerna &#x2F; Nx &#x2F; Turborepo；</p>
+<p>•仓库太大会让 git 操作变慢；</p>
+<p>•权限控制要更细致，尤其大团队要注意！</p>
+<h2 id="⚙️-常见-Monorepo-工具推荐"><a href="#⚙️-常见-Monorepo-工具推荐" class="headerlink" title="⚙️ 常见 Monorepo 工具推荐"></a>⚙️ 常见 Monorepo 工具推荐</h2><h3 id="包管理器（必须）"><a href="#包管理器（必须）" class="headerlink" title="包管理器（必须）"></a>包管理器（必须）</h3><p>•pnpm：Monorepo 的天选之子，速度快、空间占用小、原生支持 workspace。</p>
+<p>•npm (v7+) &#x2F; yarn (v2+)：也可以，但性能略逊。</p>
+<h3 id="任务编排-构建系统（推荐）"><a href="#任务编排-构建系统（推荐）" class="headerlink" title="任务编排 &amp; 构建系统（推荐）"></a>任务编排 &amp; 构建系统（推荐）</h3><p>• Turborepo：由 Vercel 出品，智能任务调度 + 构建缓存，快得离谱。</p>
+<p>• Nx：更强大，带代码生成、依赖图可视化、插件生态，适合大型团队。</p>
+<h2 id="🧭-总结一句话"><a href="#🧭-总结一句话" class="headerlink" title="🧭 总结一句话"></a>🧭 总结一句话</h2><p>如果你在做中大型前端项目、团队协作频繁、想提升复用与效率——Monorepo 会是你团队的生产力倍增器～</p>
+]]></content>
+      <categories>
+        <category>复习资料</category>
+      </categories>
+      <tags>
+        <tag>前端</tag>
         <tag>Markdown</tag>
       </tags>
   </entry>
@@ -1856,111 +2357,6 @@
       </tags>
   </entry>
   <entry>
-    <title>前端提效｜什么是Monorepo？</title>
-    <url>/2025/10/15/%F0%9F%92%A1%E5%89%8D%E7%AB%AF%E6%8F%90%E6%95%88%EF%BD%9C%E4%BB%80%E4%B9%88%E6%98%AFMonorepo%EF%BC%9F/</url>
-    <content><![CDATA[<h1 id="💡前端提效｜什么是Monorepo？"><a href="#💡前端提效｜什么是Monorepo？" class="headerlink" title="💡前端提效｜什么是Monorepo？"></a>💡<strong>前端提效｜什么是Monorepo？</strong></h1><p>最近在做新项目时再一次采用了Monorepo；于是借此机会便给组员分享了一下什么是Monorepo</p>
-<p>用一句话总结就是：<strong>Monorepo &#x3D; 一个仓库，装下多个独立项目。</strong></p>
-<h2 id="🔍-一句话解释"><a href="#🔍-一句话解释" class="headerlink" title="🔍 一句话解释"></a>🔍 一句话解释</h2><p>Monorepo（Monolithic Repository）直译叫“单体仓库”，</p>
-<p>它让多个项目（比如一个 React 主应用 + Vue 后台 + UI 组件库 + 工具库）共存在同一个 Git 仓库中，</p>
-<p>但每个项目都能独立开发、独立部署、互不干扰</p>
-<p>也就是说：</p>
-<p>它不是“把所有代码揉成一个”，而是“统一管理、灵活开发”。</p>
-<p>和“单体应用（Monolith）”完全不是一回事！</p>
-<h2 id="🚀-为什么越来越多前端团队选择-Monorepo？"><a href="#🚀-为什么越来越多前端团队选择-Monorepo？" class="headerlink" title="🚀 为什么越来越多前端团队选择 Monorepo？"></a>🚀 为什么越来越多前端团队选择 Monorepo？</h2><h3 id="1-代码共享无敌丝滑"><a href="#1-代码共享无敌丝滑" class="headerlink" title="1. 代码共享无敌丝滑"></a><strong>1. 代码共享无敌丝滑</strong></h3><p>组件库、工具函数、TS 类型……</p>
-<p>不需要发 npm 包，直接本地引入，修改即生效，开发体验极佳</p>
-<h3 id="2-依赖管理更干净"><a href="#2-依赖管理更干净" class="headerlink" title="2. 依赖管理更干净"></a><strong>2. 依赖管理更干净</strong></h3><p>一个仓库一个 node_modules。</p>
-<p>用 pnpm 管理 workspace，彻底告别“依赖地狱”。</p>
-<h3 id="3-一次提交搞定多个项目"><a href="#3-一次提交搞定多个项目" class="headerlink" title="3. 一次提交搞定多个项目"></a><strong>3. 一次提交搞定多个项目</strong></h3><p>需要同时改应用和组件库？</p>
-<p>一次 commit，全都搞定。追溯历史更清晰！</p>
-<h3 id="4-统一工具链"><a href="#4-统一工具链" class="headerlink" title="4. 统一工具链"></a><strong>4. 统一工具链</strong></h3><p>ESLint、Prettier、TypeScript、Jest……</p>
-<p>根目录配置一次，全仓库共享规则，团队协作更顺畅。</p>
-<h3 id="5-团队协作更透明"><a href="#5-团队协作更透明" class="headerlink" title="5. 团队协作更透明"></a><strong>5. 团队协作更透明</strong></h3><p>所有项目都在一个仓库，想看别的模块实现、做跨项目 review？so easy～</p>
-<h2 id="但它也有“坑”👇"><a href="#但它也有“坑”👇" class="headerlink" title="但它也有“坑”👇"></a>但它也有“坑”👇</h2><p>•工具链配置稍微复杂，需要学习 Lerna &#x2F; Nx &#x2F; Turborepo；</p>
-<p>•仓库太大会让 git 操作变慢；</p>
-<p>•权限控制要更细致，尤其大团队要注意！</p>
-<h2 id="⚙️-常见-Monorepo-工具推荐"><a href="#⚙️-常见-Monorepo-工具推荐" class="headerlink" title="⚙️ 常见 Monorepo 工具推荐"></a>⚙️ 常见 Monorepo 工具推荐</h2><h3 id="包管理器（必须）"><a href="#包管理器（必须）" class="headerlink" title="包管理器（必须）"></a>包管理器（必须）</h3><p>•pnpm：Monorepo 的天选之子，速度快、空间占用小、原生支持 workspace。</p>
-<p>•npm (v7+) &#x2F; yarn (v2+)：也可以，但性能略逊。</p>
-<h3 id="任务编排-构建系统（推荐）"><a href="#任务编排-构建系统（推荐）" class="headerlink" title="任务编排 &amp; 构建系统（推荐）"></a>任务编排 &amp; 构建系统（推荐）</h3><p>• Turborepo：由 Vercel 出品，智能任务调度 + 构建缓存，快得离谱。</p>
-<p>• Nx：更强大，带代码生成、依赖图可视化、插件生态，适合大型团队。</p>
-<h2 id="🧭-总结一句话"><a href="#🧭-总结一句话" class="headerlink" title="🧭 总结一句话"></a>🧭 总结一句话</h2><p>如果你在做中大型前端项目、团队协作频繁、想提升复用与效率——Monorepo 会是你团队的生产力倍增器～</p>
-]]></content>
-      <categories>
-        <category>复习资料</category>
-      </categories>
-      <tags>
-        <tag>前端</tag>
-        <tag>Markdown</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>JS实现仿京东首页商品轮播图</title>
-    <url>/2025/03/13/JS%E5%AE%9E%E7%8E%B0%E4%BB%BF%E4%BA%AC%E4%B8%9C%E9%A6%96%E9%A1%B5%E5%95%86%E5%93%81%E8%BD%AE%E6%92%AD%E5%9B%BE/</url>
-    <content><![CDATA[<h1 id="JS实现仿京东首页商品轮播图"><a href="#JS实现仿京东首页商品轮播图" class="headerlink" title="JS实现仿京东首页商品轮播图"></a>JS实现仿京东首页商品轮播图</h1><p>近期做了一个面试题，仿照京东首页商品轮播图实现一个轮播图</p>
-<h3 id="1-HTML-结构搭建"><a href="#1-HTML-结构搭建" class="headerlink" title="1. HTML 结构搭建"></a>1. HTML 结构搭建</h3><p>HTML 部分主要负责构建轮播图的整体结构，包含一个轮播图容器、图片展示区域以及分页器容器：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;carousel&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;carousel-images&quot;</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 多个图片项 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;carousel-image active&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;1.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;Image 1&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;carousel-image&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;2.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;Image 2&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 更多图片... --&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;pagination&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><code>.carousel</code>：作为轮播图的整体容器，用于包裹图片展示区域和分页器。</li>
-<li><code>.carousel-images</code>：用于存放所有轮播图片的容器。</li>
-<li><code>.carousel-image</code>：每个图片项的容器，初始状态下只有带有 <code>active</code> 类的图片项会显示。</li>
-<li><code>.pagination</code>：分页器容器，后续会通过 JavaScript 动态创建分页点。</li>
-</ul>
-<h3 id="2-CSS-样式设计"><a href="#2-CSS-样式设计" class="headerlink" title="2. CSS 样式设计"></a>2. CSS 样式设计</h3><p>CSS 部分为轮播图添加样式，实现布局和渐隐渐显效果：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.carousel</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">80%</span>;</span><br><span class="line">    <span class="attribute">margin</span>: auto;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">2px</span> <span class="number">10px</span> <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.1</span>);</span><br><span class="line">    <span class="attribute">overflow</span>: hidden;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">750px</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">522px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.carousel-image</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">opacity</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">transition</span>: opacity <span class="number">1s</span> ease;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.carousel-image</span><span class="selector-class">.active</span> &#123;</span><br><span class="line">    <span class="attribute">opacity</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><code>.carousel</code>：设置相对定位，方便内部元素进行绝对定位，同时设置宽度、边距、圆角、阴影和溢出隐藏等样式。</li>
-<li><code>.carousel-image</code>：设置绝对定位，使其重叠显示，初始透明度为 0，通过 <code>transition</code> 属性实现渐隐渐显效果。</li>
-<li><code>.carousel-image.active</code>：当图片项带有 <code>active</code> 类时，透明度为 1，即显示该图片。</li>
-</ul>
-<h3 id="3-JavaScript-功能实现"><a href="#3-JavaScript-功能实现" class="headerlink" title="3. JavaScript 功能实现"></a>3. JavaScript 功能实现</h3><h4 id="3-1-变量初始化"><a href="#3-1-变量初始化" class="headerlink" title="3.1 变量初始化"></a>3.1 变量初始化</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> images = <span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&#x27;.carousel-image&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> pagination = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;.pagination&#x27;</span>);</span><br><span class="line"><span class="keyword">let</span> currentIndex = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">let</span> timer;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><code>images</code>：获取所有的图片项元素。</li>
-<li><code>pagination</code>：获取分页器容器元素。</li>
-<li><code>currentIndex</code>：记录当前显示图片的索引，初始值为 0。</li>
-<li><code>timer</code>：用于存储自动播放的定时器 ID。</li>
-</ul>
-<h4 id="3-2-分页器创建"><a href="#3-2-分页器创建" class="headerlink" title="3.2 分页器创建"></a>3.2 分页器创建</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">images.<span class="title function_">forEach</span>(<span class="function">(<span class="params">_, index</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> dot = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;span&#x27;</span>);</span><br><span class="line">    dot.<span class="property">classList</span>.<span class="title function_">add</span>(<span class="string">&#x27;dot&#x27;</span>);</span><br><span class="line">    dot.<span class="property">dataset</span>.<span class="property">index</span> = index;</span><br><span class="line">    dot.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">clearInterval</span>(timer);</span><br><span class="line">        currentIndex = index;</span><br><span class="line">        <span class="title function_">updateCarousel</span>();</span><br><span class="line">        <span class="title function_">startAutoPlay</span>();</span><br><span class="line">    &#125;);</span><br><span class="line">    pagination.<span class="title function_">appendChild</span>(dot);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>遍历所有图片项，为每个图片项创建一个分页点（<code>&lt;span&gt;</code> 元素），并添加 <code>dot</code> 类。</li>
-<li>为每个分页点设置 <code>data-index</code> 属性，用于记录其对应的图片索引。</li>
-<li>为每个分页点添加点击事件监听器，点击时清除当前定时器，更新 <code>currentIndex</code> 为点击的分页点对应的索引，调用 <code>updateCarousel()</code> 函数切换图片，然后重新启动定时器。</li>
-</ul>
-<h4 id="3-3-图片切换函数"><a href="#3-3-图片切换函数" class="headerlink" title="3.3 图片切换函数"></a>3.3 图片切换函数</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">updateCarousel</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">    images.<span class="title function_">forEach</span>(<span class="function">(<span class="params">image, index</span>) =&gt;</span> &#123;</span><br><span class="line">        image.<span class="property">classList</span>.<span class="title function_">remove</span>(<span class="string">&#x27;active&#x27;</span>);</span><br><span class="line">        <span class="keyword">if</span> (index === currentIndex) &#123;</span><br><span class="line">            image.<span class="property">classList</span>.<span class="title function_">add</span>(<span class="string">&#x27;active&#x27;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&#x27;.dot&#x27;</span>).<span class="title function_">forEach</span>(<span class="function"><span class="params">dot</span> =&gt;</span> dot.<span class="property">classList</span>.<span class="title function_">remove</span>(<span class="string">&#x27;active&#x27;</span>));</span><br><span class="line">    <span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&#x27;.dot&#x27;</span>)[currentIndex].<span class="property">classList</span>.<span class="title function_">add</span>(<span class="string">&#x27;active&#x27;</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>遍历所有图片项，移除所有图片项的 <code>active</code> 类，然后为当前索引对应的图片项添加 <code>active</code> 类，实现图片的切换。</li>
-<li>同样，遍历所有分页点，移除所有分页点的 <code>active</code> 类，然后为当前索引对应的分页点添加 <code>active</code> 类，更新分页器状态。</li>
-</ul>
-<h4 id="3-4-自动播放函数"><a href="#3-4-自动播放函数" class="headerlink" title="3.4 自动播放函数"></a>3.4 自动播放函数</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">startAutoPlay</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">    timer = <span class="built_in">setInterval</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        currentIndex = (currentIndex + <span class="number">1</span>) % images.<span class="property">length</span>;</span><br><span class="line">        <span class="title function_">updateCarousel</span>();</span><br><span class="line">    &#125;, <span class="number">1000</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>使用 <code>setInterval</code> 函数创建一个定时器，每隔 1 秒执行一次回调函数。</li>
-<li>在回调函数中，更新 <code>currentIndex</code> 为下一张图片的索引（使用取模运算符确保索引不会越界），然后调用 <code>updateCarousel()</code> 函数切换图片。</li>
-</ul>
-<h4 id="3-5-初始化操作"><a href="#3-5-初始化操作" class="headerlink" title="3.5 初始化操作"></a>3.5 初始化操作</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="title function_">updateCarousel</span>();</span><br><span class="line"><span class="title function_">startAutoPlay</span>();</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>调用 <code>updateCarousel()</code> 函数进行初始化，显示第一张图片并更新分页器状态。</li>
-<li>调用 <code>startAutoPlay()</code> 函数启动自动播放功能。</li>
-</ul>
-<p>综上所述，通过 HTML 构建结构、CSS 设置样式和 JavaScript 实现交互逻辑，完成了一个具有渐隐渐显效果、支持自动播放和手动切换的轮播图。</p>
-<h3 id="4-全部代码"><a href="#4-全部代码" class="headerlink" title="4.全部代码"></a>4.全部代码</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;zh&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>水平轮播图<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-tag">body</span> &#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">font-family</span>: Arial, sans-serif;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">background-color</span>: <span class="number">#f5f5f5</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">margin</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">padding</span>: <span class="number">50px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">text-align</span>: center;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">width</span>: <span class="number">522px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">height</span>: <span class="number">750px</span>;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.carousel</span> &#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">position</span>: relative;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">width</span>: <span class="number">80%</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">margin</span>: auto; </span></span><br><span class="line"><span class="language-css">            <span class="attribute">border-radius</span>: <span class="number">10px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">2px</span> <span class="number">10px</span> <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.1</span>);</span></span><br><span class="line"><span class="language-css">            <span class="attribute">overflow</span>: hidden;</span></span><br><span class="line"><span class="language-css">            <span class="comment">/* 设置一个合适的高度，可根据实际图片比例调整 */</span></span></span><br><span class="line"><span class="language-css">            <span class="attribute">height</span>: <span class="number">750px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">width</span>: <span class="number">522px</span>;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.carousel-images</span> &#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">position</span>: relative;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">width</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">height</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.carousel-image</span> &#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">position</span>: absolute;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">width</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">height</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">opacity</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">transition</span>: opacity <span class="number">1s</span> ease;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.carousel-image</span><span class="selector-class">.active</span> &#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">opacity</span>: <span class="number">1</span>;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.carousel</span> <span class="selector-tag">img</span> &#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">width</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">height</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">object-fit</span>: cover;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">border-radius</span>: <span class="number">10px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">display</span>: block;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.pagination</span> &#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">position</span>: absolute;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">bottom</span>: <span class="number">20px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">left</span>: <span class="number">50%</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">transform</span>: <span class="built_in">translateX</span>(-<span class="number">50%</span>);</span></span><br><span class="line"><span class="language-css">            <span class="attribute">text-align</span>: center;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">z-index</span>: <span class="number">1</span>;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.dot</span> &#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">display</span>: inline-block;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">width</span>: <span class="number">10px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">height</span>: <span class="number">10px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">margin</span>: <span class="number">0</span> <span class="number">5px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">border-radius</span>: <span class="number">50%</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">background-color</span>: <span class="number">#bbb</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">cursor</span>: pointer;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.dot</span><span class="selector-class">.active</span> &#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">background-color</span>: <span class="number">#717171</span>;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;carousel&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;carousel-images&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;carousel-image active&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;1.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;Image 1&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;carousel-image&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;2.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;Image 2&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;carousel-image&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;3.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;Image 3&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;carousel-image&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;4.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;Image 4&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;carousel-image&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;5.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;Image 5&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;carousel-image&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;6.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;Image 6&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;pagination&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">const</span> images = <span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&#x27;.carousel-image&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">const</span> pagination = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;.pagination&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">let</span> currentIndex = <span class="number">0</span>;</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">let</span> timer;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// 创建分页器</span></span></span><br><span class="line"><span class="language-javascript">        images.<span class="title function_">forEach</span>(<span class="function">(<span class="params">_, index</span>) =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">const</span> dot = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;span&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">            dot.<span class="property">classList</span>.<span class="title function_">add</span>(<span class="string">&#x27;dot&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">            dot.<span class="property">dataset</span>.<span class="property">index</span> = index;</span></span><br><span class="line"><span class="language-javascript">            dot.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="comment">// 清除当前定时器</span></span></span><br><span class="line"><span class="language-javascript">                <span class="built_in">clearInterval</span>(timer);</span></span><br><span class="line"><span class="language-javascript">                currentIndex = index;</span></span><br><span class="line"><span class="language-javascript">                <span class="title function_">updateCarousel</span>();</span></span><br><span class="line"><span class="language-javascript">                <span class="comment">// 重新启动定时器</span></span></span><br><span class="line"><span class="language-javascript">                <span class="title function_">startAutoPlay</span>();</span></span><br><span class="line"><span class="language-javascript">            &#125;);</span></span><br><span class="line"><span class="language-javascript">            pagination.<span class="title function_">appendChild</span>(dot);</span></span><br><span class="line"><span class="language-javascript">        &#125;);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">const</span> <span class="title function_">updateCarousel</span> = (<span class="params"></span>) =&gt; &#123;</span></span><br><span class="line"><span class="language-javascript">            images.<span class="title function_">forEach</span>(<span class="function">(<span class="params">image, index</span>) =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">                image.<span class="property">classList</span>.<span class="title function_">remove</span>(<span class="string">&#x27;active&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">                <span class="keyword">if</span> (index === currentIndex) &#123;</span></span><br><span class="line"><span class="language-javascript">                    image.<span class="property">classList</span>.<span class="title function_">add</span>(<span class="string">&#x27;active&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">                &#125;</span></span><br><span class="line"><span class="language-javascript">            &#125;);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 更新分页器状态</span></span></span><br><span class="line"><span class="language-javascript">            <span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&#x27;.dot&#x27;</span>).<span class="title function_">forEach</span>(<span class="function"><span class="params">dot</span> =&gt;</span> dot.<span class="property">classList</span>.<span class="title function_">remove</span>(<span class="string">&#x27;active&#x27;</span>));</span></span><br><span class="line"><span class="language-javascript">            <span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&#x27;.dot&#x27;</span>)[currentIndex].<span class="property">classList</span>.<span class="title function_">add</span>(<span class="string">&#x27;active&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">        &#125;;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">const</span> <span class="title function_">startAutoPlay</span> = (<span class="params"></span>) =&gt; &#123;</span></span><br><span class="line"><span class="language-javascript">            timer = <span class="built_in">setInterval</span>(<span class="function">() =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">                currentIndex = (currentIndex + <span class="number">1</span>) % images.<span class="property">length</span>;</span></span><br><span class="line"><span class="language-javascript">                <span class="title function_">updateCarousel</span>();</span></span><br><span class="line"><span class="language-javascript">            &#125;, <span class="number">1000</span>);</span></span><br><span class="line"><span class="language-javascript">        &#125;;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// 初始化</span></span></span><br><span class="line"><span class="language-javascript">        <span class="title function_">updateCarousel</span>();</span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// 启动自动播放</span></span></span><br><span class="line"><span class="language-javascript">        <span class="title function_">startAutoPlay</span>();</span></span><br><span class="line"><span class="language-javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-
-
-]]></content>
-      <categories>
-        <category>技术文档</category>
-      </categories>
-      <tags>
-        <tag>前端</tag>
-        <tag>Markdown</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>前端学习笔记（部分）</title>
     <url>/2023/08/13/%E5%89%8D%E7%AB%AF%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="前端笔记："><a href="#前端笔记：" class="headerlink" title="前端笔记："></a>前端笔记：</h1><h2 id="h5笔记："><a href="#h5笔记：" class="headerlink" title="h5笔记："></a>h5笔记：</h2><ol>
@@ -2192,34 +2588,6 @@
 </ol>
 </li>
 </ol>
-]]></content>
-      <categories>
-        <category>自学资料</category>
-      </categories>
-      <tags>
-        <tag>前端</tag>
-        <tag>Markdown</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>JS基于原型的继承理解</title>
-    <url>/2025/03/13/JS%E5%9F%BA%E4%BA%8E%E5%8E%9F%E5%9E%8B%E7%9A%84%E7%BB%A7%E6%89%BF%E7%90%86%E8%A7%A3/</url>
-    <content><![CDATA[<h1 id="JS基于原型的继承理解"><a href="#JS基于原型的继承理解" class="headerlink" title="JS基于原型的继承理解"></a>JS基于原型的继承理解</h1><h2 id="原型＆原型链"><a href="#原型＆原型链" class="headerlink" title="原型＆原型链"></a>原型＆原型链</h2><p>JavaScript 只有一种结构：对象。每个对象（object）都有一个私有属性指向另一个名为<strong>原型</strong>（prototype）的对象。原型对象也有一个自己的原型，层层向上直到一个对象的原型为 <code>null</code>。根据定义，<code>null</code> 没有原型，并作为这个<strong>原型链</strong>（prototype chain）中的最后一个环节。</p>
-<p>JavaScript 对象是动态的属性（指<strong>其自有属性</strong>）“包”。JavaScript 对象有一个指向一个原型对象的链。当试图访问一个对象的属性时，它不仅仅在该对象上搜寻，还会搜寻该对象的原型，以及原型的原型，依次层层向上搜索，直到找到一个名字匹配的属性或到达原型链的末尾。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">student.<span class="property">_proto_</span> === <span class="title class_">Student</span>.<span class="property"><span class="keyword">prototype</span></span> </span><br><span class="line"><span class="comment">//  隐式原型             显示原型</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Person</span>&#123;</span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params">name</span>)&#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">name</span> = name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="title function_">drink</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;喝水&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;	</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Teacher</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Person</span>&#123;</span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params">name,subject</span>)&#123;</span><br><span class="line">        <span class="variable language_">super</span>(name);</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">subject</span> = subject;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="title function_">teach</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`我是$(this.name),教$(this.subject)。`</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> teacher = <span class="keyword">new</span> <span class="title class_">Teacher</span>(<span class="string">&#x27;哈默&#x27;</span>,<span class="string">&#x27;前端开发&#x27;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;teacher&#x27;</span>,teacher);</span><br><span class="line">teacher.<span class="title function_">teach</span>();</span><br><span class="line">teacher.<span class="title function_">drink</span>();</span><br></pre></td></tr></table></figure>
-
-<p>代码对应原型链如图：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/image-20231106141020167.png" alt="image-20231106141020167"></p>
-<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><p>super关键字：</p>
-<p>super 关键字用于访问和调用一个对象的父对象上的函数。在构造函数中使用时，super关键字将单独出现，并且必须在使用 this 关键字之前使用。super 关键字也可以用来调用父对象上的函数。</p>
-<p>语法：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">super</span>(<span class="variable language_">arguments</span>);  <span class="comment">// 调用父构造函数</span></span><br><span class="line"><span class="variable language_">super</span>.<span class="title function_">parentMethod</span>(<span class="variable language_">arguments</span>);  <span class="comment">// 调用父方法</span></span><br></pre></td></tr></table></figure>
-
-<p>在类中使用super实例：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Polygon</span> &#123;</span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params">height, width</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">name</span> = <span class="string">&#x27;Rectangle&#x27;</span>;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">height</span> = height;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">width</span> = width;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="title function_">sayName</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;Hi, I am a &#x27;</span> + <span class="variable language_">this</span>.<span class="property">name</span> + <span class="string">&#x27;.&#x27;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">get</span> <span class="title function_">area</span>() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">height</span> * <span class="variable language_">this</span>.<span class="property">width</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">set</span> <span class="title function_">area</span>(<span class="params">value</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">_area</span> = value;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Square</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Polygon</span> &#123;</span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params">length</span>) &#123;</span><br><span class="line">    <span class="comment">// 这里，它调用父类的构造函数的，</span></span><br><span class="line">    <span class="comment">// 作为 Polygon 的 height, width</span></span><br><span class="line">    <span class="variable language_">super</span>(length, length);</span><br><span class="line">      </span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">height</span>; <span class="comment">// 需要放在 super 后面，不然引发 ReferenceErro</span></span><br><span class="line"> </span><br><span class="line">    <span class="comment">// 注意：在派生的类中，在你可以使用&#x27;this&#x27;之前，必须先调用 super()。</span></span><br><span class="line">    <span class="comment">// 忽略这，这将导致引用错误。</span></span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">name</span> = <span class="string">&#x27;Square&#x27;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 ]]></content>
       <categories>
         <category>自学资料</category>
