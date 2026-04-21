@@ -1,0 +1,356 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>uni-app学习笔记 | 仰望星空时</title><meta name="author" content="KKirito,2021090917010@std.uestc.edu.cn"><meta name="copyright" content="KKirito"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="背景最近因为项目需要开始接触和学习uni-app。在已有H5和Vue基础上，所以对于一些基础的语法和代码的理解是基本没有问题的。在了解中，发现uni-app真正难的地方，不在“语法”，而在“思维切换”。 它表面上确实还是.vue 单文件组件，也保留了Vue的数据绑定和事件处理方式；但uni-app的核心目标不是单纯做 Web，而&amp;#x662F;“一套代码跑多端”，它背后&amp;#x662F;“编译器 +">
+<meta property="og:type" content="article">
+<meta property="og:title" content="uni-app学习笔记">
+<meta property="og:url" content="https://ljqkkirito16.top/2026/04/22/uni-app%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="仰望星空时">
+<meta property="og:description" content="背景最近因为项目需要开始接触和学习uni-app。在已有H5和Vue基础上，所以对于一些基础的语法和代码的理解是基本没有问题的。在了解中，发现uni-app真正难的地方，不在“语法”，而在“思维切换”。 它表面上确实还是.vue 单文件组件，也保留了Vue的数据绑定和事件处理方式；但uni-app的核心目标不是单纯做 Web，而&amp;#x662F;“一套代码跑多端”，它背后&amp;#x662F;“编译器 +">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pic.imgdb.cn/item/64e18125661c6c8e54c33269.jpg">
+<meta property="article:published_time" content="2026-04-21T16:26:42.899Z">
+<meta property="article:modified_time" content="2026-04-21T16:27:35.579Z">
+<meta property="article:author" content="KKirito">
+<meta property="article:tag" content="前端">
+<meta property="article:tag" content="Markdown">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic.imgdb.cn/item/64e18125661c6c8e54c33269.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://ljqkkirito16.top/2026/04/22/uni-app%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":50},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"top-right"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'uni-app学习笔记',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: true,
+  isToc: true,
+  postUpdate: '2026-04-22 00:27:35'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><meta name="generator" content="Hexo 6.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="starry-scene"><div class="starry-glow"></div><div class="starry-stars starry-stars--far"></div><div class="starry-stars starry-stars--near"></div><div class="starry-orbit"><div class="starry-orbit-spin"><div class="starry-orbit-ring"></div><div class="starry-orbit-dot"></div></div></div><div class="loading-word">加载中...</div></div></div><script async="async">var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',()=> {preloader.endLoading()})
+document.getElementById('loading-box').addEventListener('click',()=> {preloader.endLoading()})</script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://pic.imgdb.cn/item/64e18125661c6c8e54c33269.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">20</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">5</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://pic.imgdb.cn/item/64e180ea661c6c8e54c28a1c.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="仰望星空时"><span class="site-name">仰望星空时</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">uni-app学习笔记</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-04-21T16:26:42.899Z" title="发表于 2026-04-22 00:26:42">2026-04-22</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-04-21T16:27:35.579Z" title="更新于 2026-04-22 00:27:35">2026-04-22</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/">复习资料</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">3.5k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>14分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="uni-app学习笔记"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近因为项目需要开始接触和学习uni-app。在已有H5和Vue基础上，所以对于一些基础的语法和代码的理解是基本没有问题的。在了解中，发现uni-app真正难的地方，不在“语法”，而在“思维切换”。</p>
+<p>它表面上确实还是.vue 单文件组件，也保留了Vue的数据绑定和事件处理方式；但uni-app的核心目标不是单纯做 Web，而&#x662F;<strong>“一套代码跑多端”</strong>，它背后&#x662F;<strong>“编译器 + 各端 runtime”的体系</strong>：Web、App、各家小程序最终运行环境并不一样，所以很多写法虽然看起来像 Vue，底层却已经不是纯浏览器那套逻辑了。官方也明确提到，uni-app 会把代码编译到不同平台，而不同平台有各自的 runtime，这也是它能跨端的基础。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">flowchart TD</span><br><span class="line">    A[开发者编写 uni-app 代码&lt;br/&gt;.vue / js / css / ts] --&gt; B[uni-app 编译器]</span><br><span class="line"></span><br><span class="line">    B --&gt; C[Web 平台产物]</span><br><span class="line">    B --&gt; D[各家小程序产物]</span><br><span class="line">    B --&gt; E[Android App 平台产物]</span><br><span class="line">    B --&gt; F[iOS App 平台产物]</span><br><span class="line"></span><br><span class="line">    C --&gt; G[Web Runtime]</span><br><span class="line">    D --&gt; H[小程序 Runtime]</span><br><span class="line">    E --&gt; I[Android App Runtime]</span><br><span class="line">    F --&gt; J[iOS App Runtime]</span><br><span class="line"></span><br><span class="line">    G --&gt; K[最终页面运行效果]</span><br><span class="line">    H --&gt; K</span><br><span class="line">    I --&gt; K</span><br><span class="line">    J --&gt; K</span><br></pre></td></tr></table></figure>
+
+<h1 id="误区"><a href="#误区" class="headerlink" title="误区"></a>误区</h1><h2 id="环境区别"><a href="#环境区别" class="headerlink" title="环境区别"></a>环境区别</h2><p>一开始我带着Vue经验去看uni-app，很容易产生两个惯性：</p>
+<p>第一，默认页面最终都会运行在浏览器环境里。</p>
+<p>第二，默认很多问题都能靠DOM思维解决。</p>
+<p>但这两个惯性在uni-app里都不完全成立。</p>
+<p>官方文档里反复强调，uni-app在小程序端和App端，很多时候是<strong>逻辑层和渲染层分离</strong>的。也就是说，JavaScript运行的地方和页面渲染的地方不是一个环境。正因为这样，逻辑层里不能天然把window、document、navigator这些浏览器API当成理所当然的存在。官方性能与架构文档都提到，这些浏览器专用API在逻辑层并不适用。</p>
+<h2 id="多端差异"><a href="#多端差异" class="headerlink" title="多端差异"></a>多端差异</h2><p><strong>“一套代码多端运行”，并不等于“一份代码完全没有差异”。</strong></p>
+<p>官方对条件编译的描述很直接：实际项目里，不只是JS，很多代码都可能要按平台条件编译，这样才能真正解决跨端问题。</p>
+<p>因此，公共部分尽量复用，平台差异有组织地隔离。</p>
+<h1 id="变化"><a href="#变化" class="headerlink" title="变化"></a>变化</h1><h2 id="页面标签"><a href="#页面标签" class="headerlink" title="页面标签"></a>页面标签</h2><p>在H5开发里，我会很自然地写<code>div</code>、<code>span</code>、<code>p</code></p>
+<p>但uni-app更推荐使用它自己的基础组件，比如<code>view</code>、<code>text</code>、<code>button</code>等，这些组件是为了多端统一行为而设计的</p>
+<p>官方文档也说明，uni-app的基础组件命名整体更接近小程序规范，而不是纯HTML标签体系</p>
+<p>关于在一些平台场景下，文本包裹规则和Web并不完全一样，比如app-nvue下只有&lt;text&gt;能包裹文本，&lt;view&gt; 里直接放文字并不可靠</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;page&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;card&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;header-row&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;back-btn&quot;</span> @<span class="attr">click</span>=<span class="string">&quot;handleClose&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">text</span> <span class="attr">class</span>=<span class="string">&quot;back-icon&quot;</span>&gt;</span>‹<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;header-text&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">text</span> <span class="attr">class</span>=<span class="string">&quot;header-title&quot;</span>&gt;</span>备忘录详情<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">text</span> <span class="attr">v-if</span>=<span class="string">&quot;updatedAtText&quot;</span> <span class="attr">class</span>=<span class="string">&quot;header-desc&quot;</span>&gt;</span>最近修改：&#123;&#123; updatedAtText &#125;&#125;<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;field&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">text</span> <span class="attr">class</span>=<span class="string">&quot;label&quot;</span>&gt;</span>标题<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span></span></span><br><span class="line"><span class="tag">          <span class="attr">v-model</span>=<span class="string">&quot;form.title&quot;</span></span></span><br><span class="line"><span class="tag">          <span class="attr">class</span>=<span class="string">&quot;input title-input&quot;</span></span></span><br><span class="line"><span class="tag">          <span class="attr">type</span>=<span class="string">&quot;text&quot;</span></span></span><br><span class="line"><span class="tag">          <span class="attr">placeholder</span>=<span class="string">&quot;标题标题标题标题&quot;</span></span></span><br><span class="line"><span class="tag">          <span class="attr">placeholder-class</span>=<span class="string">&quot;placeholder&quot;</span></span></span><br><span class="line"><span class="tag">        /&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;field&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">text</span> <span class="attr">class</span>=<span class="string">&quot;label&quot;</span>&gt;</span>内容<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;content-meta&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">text</span> <span class="attr">class</span>=<span class="string">&quot;word-count&quot;</span>&gt;</span>字数 &#123;&#123; wordCount &#125;&#125;<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">view</span> <span class="attr">v-if</span>=<span class="string">&quot;contentMode === &#x27;preview&#x27;&quot;</span> <span class="attr">class</span>=<span class="string">&quot;edit-btn&quot;</span> @<span class="attr">click</span>=<span class="string">&quot;contentMode = &#x27;edit&#x27;&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">text</span>&gt;</span>编辑<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">view</span> <span class="attr">v-if</span>=<span class="string">&quot;contentMode === &#x27;preview&#x27;&quot;</span> <span class="attr">class</span>=<span class="string">&quot;content-preview-wrap&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;content-preview&quot;</span> @<span class="attr">click</span>=<span class="string">&quot;contentMode = &#x27;edit&#x27;&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">rich-text</span> <span class="attr">v-if</span>=<span class="string">&quot;contentHtml&quot;</span> <span class="attr">:nodes</span>=<span class="string">&quot;contentHtml&quot;</span> <span class="attr">class</span>=<span class="string">&quot;preview-inner&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">rich-text</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">view</span> <span class="attr">v-else</span> <span class="attr">class</span>=<span class="string">&quot;preview-empty&quot;</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">text</span> <span class="attr">class</span>=<span class="string">&quot;preview-empty-text&quot;</span>&gt;</span>点击添加内容<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">text</span> <span class="attr">class</span>=<span class="string">&quot;preview-empty-hint&quot;</span>&gt;</span>支持粗体、标题、列表等格式<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">template</span> <span class="attr">v-else</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;format-bar&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;format-toolbar&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;fmt-btn&quot;</span> @<span class="attr">mousedown.prevent</span>=<span class="string">&quot;applyFormat(&#x27;bold&#x27;)&quot;</span> @<span class="attr">touchstart.prevent</span>=<span class="string">&quot;applyFormat(&#x27;bold&#x27;)&quot;</span> @<span class="attr">click.prevent</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">text</span> <span class="attr">class</span>=<span class="string">&quot;fmt-icon bold&quot;</span>&gt;</span>B<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;fmt-btn&quot;</span> @<span class="attr">mousedown.prevent</span>=<span class="string">&quot;applyFormat(&#x27;italic&#x27;)&quot;</span> @<span class="attr">touchstart.prevent</span>=<span class="string">&quot;applyFormat(&#x27;italic&#x27;)&quot;</span> @<span class="attr">click.prevent</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">text</span> <span class="attr">class</span>=<span class="string">&quot;fmt-icon italic&quot;</span>&gt;</span>I<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;fmt-btn&quot;</span> @<span class="attr">mousedown.prevent</span>=<span class="string">&quot;applyFormat(&#x27;underline&#x27;)&quot;</span> @<span class="attr">touchstart.prevent</span>=<span class="string">&quot;applyFormat(&#x27;underline&#x27;)&quot;</span> @<span class="attr">click.prevent</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">text</span> <span class="attr">class</span>=<span class="string">&quot;fmt-icon underline&quot;</span>&gt;</span>U<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;fmt-btn&quot;</span> @<span class="attr">mousedown.prevent</span>=<span class="string">&quot;applyFormat(&#x27;strike&#x27;)&quot;</span> @<span class="attr">touchstart.prevent</span>=<span class="string">&quot;applyFormat(&#x27;strike&#x27;)&quot;</span> @<span class="attr">click.prevent</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">text</span> <span class="attr">class</span>=<span class="string">&quot;fmt-icon strike&quot;</span>&gt;</span>S<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;fmt-divider&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;fmt-btn&quot;</span> @<span class="attr">click.prevent</span>=<span class="string">&quot;toggleFormatMenu&quot;</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">text</span> <span class="attr">class</span>=<span class="string">&quot;fmt-icon menu&quot;</span>&gt;</span>格式<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">view</span> <span class="attr">v-if</span>=<span class="string">&quot;showFormatMenu&quot;</span> <span class="attr">class</span>=<span class="string">&quot;format-menu&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;menu-item&quot;</span> @<span class="attr">mousedown.prevent</span>=<span class="string">&quot;applyBlockFormat(&#x27;title&#x27;)&quot;</span> @<span class="attr">touchstart.prevent</span>=<span class="string">&quot;applyBlockFormat(&#x27;title&#x27;)&quot;</span> @<span class="attr">click.prevent</span>&gt;</span>标题<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;menu-item&quot;</span> @<span class="attr">mousedown.prevent</span>=<span class="string">&quot;applyBlockFormat(&#x27;subtitle&#x27;)&quot;</span> @<span class="attr">touchstart.prevent</span>=<span class="string">&quot;applyBlockFormat(&#x27;subtitle&#x27;)&quot;</span> @<span class="attr">click.prevent</span>&gt;</span>小标题<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;menu-item&quot;</span> @<span class="attr">mousedown.prevent</span>=<span class="string">&quot;applyBlockFormat(&#x27;subtitle2&#x27;)&quot;</span> @<span class="attr">touchstart.prevent</span>=<span class="string">&quot;applyBlockFormat(&#x27;subtitle2&#x27;)&quot;</span> @<span class="attr">click.prevent</span>&gt;</span>副标题<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;menu-item&quot;</span> @<span class="attr">mousedown.prevent</span>=<span class="string">&quot;applyBlockFormat(&#x27;body&#x27;)&quot;</span> @<span class="attr">touchstart.prevent</span>=<span class="string">&quot;applyBlockFormat(&#x27;body&#x27;)&quot;</span> @<span class="attr">click.prevent</span>&gt;</span>正文<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;menu-item&quot;</span> @<span class="attr">mousedown.prevent</span>=<span class="string">&quot;applyBlockFormat(&#x27;mono&#x27;)&quot;</span> @<span class="attr">touchstart.prevent</span>=<span class="string">&quot;applyBlockFormat(&#x27;mono&#x27;)&quot;</span> @<span class="attr">click.prevent</span>&gt;</span>等宽样式<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;menu-divider&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;menu-item&quot;</span> @<span class="attr">mousedown.prevent</span>=<span class="string">&quot;applyBlockFormat(&#x27;bullet&#x27;)&quot;</span> @<span class="attr">touchstart.prevent</span>=<span class="string">&quot;applyBlockFormat(&#x27;bullet&#x27;)&quot;</span> @<span class="attr">click.prevent</span>&gt;</span>· 项目符号列表<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;menu-item&quot;</span> @<span class="attr">mousedown.prevent</span>=<span class="string">&quot;applyBlockFormat(&#x27;dash&#x27;)&quot;</span> @<span class="attr">touchstart.prevent</span>=<span class="string">&quot;applyBlockFormat(&#x27;dash&#x27;)&quot;</span> @<span class="attr">click.prevent</span>&gt;</span>- 短划线列表<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;menu-item&quot;</span> @<span class="attr">mousedown.prevent</span>=<span class="string">&quot;applyBlockFormat(&#x27;ordered&#x27;)&quot;</span> @<span class="attr">touchstart.prevent</span>=<span class="string">&quot;applyBlockFormat(&#x27;ordered&#x27;)&quot;</span> @<span class="attr">click.prevent</span>&gt;</span>1. 编号列表<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;menu-divider&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;menu-item&quot;</span> @<span class="attr">mousedown.prevent</span>=<span class="string">&quot;applyBlockFormat(&#x27;quote&#x27;)&quot;</span> @<span class="attr">touchstart.prevent</span>=<span class="string">&quot;applyBlockFormat(&#x27;quote&#x27;)&quot;</span> @<span class="attr">click.prevent</span>&gt;</span>| 块引用<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;edit-done-btn&quot;</span> @<span class="attr">click</span>=<span class="string">&quot;contentMode = &#x27;preview&#x27;&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">text</span>&gt;</span>完成<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;editor-wrap&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">textarea</span></span></span><br><span class="line"><span class="tag">            <span class="attr">id</span>=<span class="string">&quot;contentTextarea&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">v-model</span>=<span class="string">&quot;form.content&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">class</span>=<span class="string">&quot;input content-input&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">placeholder</span>=<span class="string">&quot;输入内容，支持 **粗体**、*斜体* 等格式，点「完成」可预览效果&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">placeholder-class</span>=<span class="string">&quot;placeholder&quot;</span></span></span><br><span class="line"><span class="tag">            @<span class="attr">select</span>=<span class="string">&quot;onContentSelect&quot;</span></span></span><br><span class="line"><span class="tag">          /&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">view</span> <span class="attr">v-if</span>=<span class="string">&quot;memoId&quot;</span> <span class="attr">class</span>=<span class="string">&quot;delete-wrap&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">text</span> <span class="attr">class</span>=<span class="string">&quot;link delete-link&quot;</span> @<span class="attr">click</span>=<span class="string">&quot;handleDelete&quot;</span>&gt;</span>删除备忘录<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><blockquote>
+<p><code>uni-app</code>的 js API 由标准 ECMAScript 的 js API 和 uni 扩展 API 这两部分组成。</p>
+</blockquote>
+<p>以前做H5，碰到存储、网络、页面能力，我第一反应通常是：</p>
+<ul>
+<li><p>localStorage</p>
+</li>
+<li><p>fetch</p>
+</li>
+<li><p>window.location</p>
+</li>
+<li><p>DOM 事件</p>
+</li>
+</ul>
+<p>但是uni-app更标准的做法，<strong>是优先使用uni.*体系</strong>，比如uni.request、uni.getStorage等。官方文档提到，这些是 runtime内置的跨端API，目的是在不同平台下尽量保持一致；如果遇到平台独有能力，再通过条件编译或平台专有API去处理。</p>
+<p><strong>补充说明：</strong></p>
+<ul>
+<li><p>uni.on开头的 API 是监听某个事件发生的API接口，接受一个CALLBACK函数作为参数。当该事件触发时，会调用CALLBACK函数。</p>
+</li>
+<li><p>如未特殊约定，其他API接口都接受一个OBJECT作为参数。</p>
+</li>
+<li><p>OBJECT中可以指定success，fail，complete来接收接口调用结果。</p>
+</li>
+<li><p>平台差异说明若无特殊说明，则表示所有平台均支持。</p>
+</li>
+<li><p>异步API会返回<code>errMsg</code>字段，同步API则不会。比如：<code>getSystemInfoSync</code> 在返回结果中不会有 <code>errMsg</code>。</p>
+</li>
+</ul>
+<h2 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h2><p><strong>生命周期不只是Vue的生命周期，还要加上“页面生命周期”</strong></p>
+<p>谈到生命周期，我会自然地想到Vue里onMounted、onUpdated、onUnmounted这些组件生命周期。Vue官方对这些钩子的定义很清楚，比如onMounted更偏向组件挂载完成后的副作用处理，尤其常和DOM访问有关。&#x20;</p>
+<p>但uni-app除了组件生命周期，还有一套更接近小程序语义的“页面生命周期”，比如onLoad、onShow、onReady。官方生命周期文档明确列出了这些页面级生命周期。&#x20;</p>
+<p>这意味着在uni-app里，我不能只用Vue的老经验判断时机，而是要区分：</p>
+<ul>
+<li><p>这是组件级别的问题？</p>
+</li>
+<li><p>还是页面进入、显示、返回时的问题？</p>
+</li>
+</ul>
+<p>我自己的理解是：</p>
+<ul>
+<li><p>Vue生命周期，更多是“组件实例何时创建、更新、销毁”</p>
+</li>
+<li><p>uni-app页面生命周期，更多是“页面何时被打开、展示、初始化参数、回到前台”</p>
+</li>
+</ul>
+<h2 id="页面路由"><a href="#页面路由" class="headerlink" title="页面路由"></a>页面路由</h2><p><strong>每次新建页面，都需要在pages.json的pages列表中配置；未在pages.json -&gt; pages中注册的页面，uni-app 会在编译阶段忽略。</strong></p>
+<p><code>pages.json</code>文件用来对uni-app进行全局配置，决定页面文件的路径、窗口样式、原生的导航栏、底部的原生 tabbar 等。</p>
+<p><strong>这点让我感受到：uni-app的应用组织方式，不是纯Vue Router思维，而是更接近“小程序应用壳”的思维。</strong></p>
+<p>eg.这是我自己demo项目的pages.json的代码</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;pages&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;path&quot;</span><span class="punctuation">:</span> <span class="string">&quot;pages/login/login&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;style&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">                <span class="attr">&quot;navigationBarTitleText&quot;</span><span class="punctuation">:</span> <span class="string">&quot;登录&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="attr">&quot;navigationBarBackgroundColor&quot;</span><span class="punctuation">:</span> <span class="string">&quot;#e8dff5&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="attr">&quot;navigationBarTextStyle&quot;</span><span class="punctuation">:</span> <span class="string">&quot;black&quot;</span></span><br><span class="line">            <span class="punctuation">&#125;</span></span><br><span class="line">        <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;path&quot;</span><span class="punctuation">:</span> <span class="string">&quot;pages/memo/index&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;style&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">                <span class="attr">&quot;navigationBarTitleText&quot;</span><span class="punctuation">:</span> <span class="string">&quot;备忘录&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="attr">&quot;navigationBarBackgroundColor&quot;</span><span class="punctuation">:</span> <span class="string">&quot;#e8dff5&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="attr">&quot;navigationBarTextStyle&quot;</span><span class="punctuation">:</span> <span class="string">&quot;black&quot;</span></span><br><span class="line">            <span class="punctuation">&#125;</span></span><br><span class="line">        <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;path&quot;</span><span class="punctuation">:</span> <span class="string">&quot;pages/memo/detail&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;style&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">                <span class="attr">&quot;navigationBarTitleText&quot;</span><span class="punctuation">:</span> <span class="string">&quot;备忘录详情&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="attr">&quot;navigationBarBackgroundColor&quot;</span><span class="punctuation">:</span> <span class="string">&quot;#e8dff5&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="attr">&quot;navigationBarTextStyle&quot;</span><span class="punctuation">:</span> <span class="string">&quot;black&quot;</span></span><br><span class="line">            <span class="punctuation">&#125;</span></span><br><span class="line">        <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;path&quot;</span><span class="punctuation">:</span> <span class="string">&quot;pages/profile/index&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;style&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">                <span class="attr">&quot;navigationBarTitleText&quot;</span><span class="punctuation">:</span> <span class="string">&quot;我的&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="attr">&quot;navigationBarBackgroundColor&quot;</span><span class="punctuation">:</span> <span class="string">&quot;#e8dff5&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="attr">&quot;navigationBarTextStyle&quot;</span><span class="punctuation">:</span> <span class="string">&quot;black&quot;</span></span><br><span class="line">            <span class="punctuation">&#125;</span></span><br><span class="line">        <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;path&quot;</span><span class="punctuation">:</span> <span class="string">&quot;pages/profile/setNickname&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;style&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">                <span class="attr">&quot;navigationBarTitleText&quot;</span><span class="punctuation">:</span> <span class="string">&quot;设置昵称&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="attr">&quot;navigationBarBackgroundColor&quot;</span><span class="punctuation">:</span> <span class="string">&quot;#e8dff5&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="attr">&quot;navigationBarTextStyle&quot;</span><span class="punctuation">:</span> <span class="string">&quot;black&quot;</span></span><br><span class="line">            <span class="punctuation">&#125;</span></span><br><span class="line">        <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;globalStyle&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;navigationBarTextStyle&quot;</span><span class="punctuation">:</span> <span class="string">&quot;black&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;navigationBarTitleText&quot;</span><span class="punctuation">:</span> <span class="string">&quot;uni-app&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;navigationBarBackgroundColor&quot;</span><span class="punctuation">:</span> <span class="string">&quot;#F8F8F8&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;backgroundColor&quot;</span><span class="punctuation">:</span> <span class="string">&quot;#F8F8F8&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="easycom组件规范"><a href="#easycom组件规范" class="headerlink" title="easycom组件规范"></a>easycom组件规范</h2><blockquote>
+<p><code>HBuilderX 2.5.5</code>起支持</p>
+<p>easycom 的核心就是“按规范放组件，直接当标签用”，这样在uni-app里写组件会比传统Vue少一步手动注册，更适合日常页面开发。&#x20;</p>
+</blockquote>
+<p>传统vue组件，需要安装、引用、注册，三个步骤后才能使用组件。<code>easycom</code>将其精简为一步。</p>
+<p>只要组件安装在项目的components目录下或<code>uni_modules</code>目录下，并符合<code>components/组件名称/组件名称.(vue|uvue)</code>目录结构（注意：当同时存在vue和uvue时，uni-app项目优先使用vue文件，而uni-app x 项目优先使用 uvue 文件，<a target="_blank" rel="noopener" href="https://doc.dcloud.net.cn/uni-app-x/component/#%E5%A6%82%E4%BD%95%E5%BC%80%E5%8F%91%E5%90%8C%E6%97%B6%E5%85%BC%E5%AE%B9-uni-app-x-%E5%92%8C-uni-app-%E7%9A%84%E7%BB%84%E4%BB%B6">详情</a>）。就可以不用引用、注册，直接在页面中使用。</p>
+<h1 id="接口调用"><a href="#接口调用" class="headerlink" title="接口调用"></a>接口调用</h1><p>uni.request()是uni-app提供的<strong>跨端统一请求API。</strong></p>
+<p>和Vue里常用axios不一样，uni.request()更偏向<strong>跨端统一调用</strong>，同一套写法可以用于H5、App和小程序。官方文档说明它用于<strong>发起网络请求</strong>，支持设置url、data、header、method等参数；如果不传success &#x2F; fail &#x2F; complete，还可以直接返回Promise。</p>
+<p>uni.request()的重点不只是“怎么发请求”，而是要意识到它服务的是多端环境，所以像域名白名单、cookie、请求兼容性这些问题，也比普通Vue项目更值得注意</p>
+<h1 id="登陆"><a href="#登陆" class="headerlink" title="登陆"></a>登陆</h1><p><strong>在uni-app中，前端先通过uni.login()获取登录凭证，再把凭证发给后端，最后由后端完成用户身份校验并返回自己的登录态，比如token。</strong> 官方文档说明，uni.login()是uni-app统一封装的登录API，适用于不同平台的常见登录方式；而登录后的业务请求，一般再通过uni.request()把数据发给服务端处理。</p>
+<p>除了前端API，DCloud还提供了<a target="_blank" rel="noopener" href="https://doc.dcloud.net.cn/uniCloud/uni-id/summary.html">uni-id</a>，这是一个云端一体的、完整的、账户开源框架。不仅包括客户端API，还包括前端页面、服务器代码、管理后台等所有与登录账户有关的服务，包括短信验证码、密码加密存储、忘记密码、头像更新等所有常见账户相关功能。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">uni.login(&#123;</span><br><span class="line">  provider: <span class="string">&#x27;weixin&#x27;</span>, //使用微信登录</span><br><span class="line">  success: <span class="keyword">function</span> (loginRes) &#123;</span><br><span class="line">    console.log(loginRes.authResult);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>另外我也关注了一下对于小程序内微信登陆的流程：</p>
+<p><strong>值得关注的是，小程序登录不是“前端直接登录成功”，而是“先拿平台凭证，再交给自己后端换成业务登录态”。</strong></p>
+<blockquote>
+<p>小程序登录的本质不是前端直接拿到最终token，而是先通过wx.login()获取临时code，再由后端向微信换取用户标识信息，最后由自己系统生成业务登录态，后续请求都基于这个自定义登录态完成。</p>
+</blockquote>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ol>
+<li><p>会话密钥 <code>session_key</code> 是对用户数据进行<a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/signature.html"><span style="color: rgb(36,91,219); background-color: inherit">加密签名</span></a>的密钥。为了应用自身的数据安全，开发者服务器<strong>不应该把会话密钥下发到小程序，也不应该对外提供这个密钥</strong>。</p>
+</li>
+<li><p>临时登录凭证code只能使用一次</p>
+</li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://ljqkkirito16.top">KKirito</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://ljqkkirito16.top/2026/04/22/uni-app%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">https://ljqkkirito16.top/2026/04/22/uni-app%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://ljqkkirito16.top" target="_blank">仰望星空时</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%89%8D%E7%AB%AF/">前端</a><a class="post-meta__tags" href="/tags/Markdown/">Markdown</a></div><div class="post_share"><div class="social-share" data-image="https://pic.imgdb.cn/item/64e18125661c6c8e54c33269.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2026/04/21/Egg.js%E5%AD%A6%E4%B9%A0%E5%BF%83%E5%BE%97/" title="Egg.js学习心得"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Egg.js学习心得</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2024/08/05/Ant%20Design%20Vue%20%E8%A7%A3%E5%86%B3%E8%A1%A8%E5%8D%95%E9%AA%8C%E8%AF%81%EF%BC%8B%E5%A4%9A%E9%80%89%E6%A1%86%E5%BC%95%E5%8F%91%E7%9A%84%E8%BE%93%E5%85%A5%E5%80%BC%E4%B8%8D%E7%94%9F%E6%95%88%E9%97%AE%E9%A2%98/" title="Ant Design Vue 解决表单验证＋多选框引发的输入值不生效问题"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-08-05</div><div class="title">Ant Design Vue 解决表单验证＋多选框引发的输入值不生效问题</div></div></a></div><div><a href="/2025/03/13/JS%E5%9F%BA%E4%BA%8E%E5%8E%9F%E5%9E%8B%E7%9A%84%E7%BB%A7%E6%89%BF%E7%90%86%E8%A7%A3/" title="JS基于原型的继承理解"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-03-13</div><div class="title">JS基于原型的继承理解</div></div></a></div><div><a href="/2025/08/24/JS%E5%BC%82%E6%AD%A5/" title="JS异步"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-24</div><div class="title">JS异步</div></div></a></div><div><a href="/2025/03/13/JS%E5%AE%9E%E7%8E%B0%E4%BB%BF%E4%BA%AC%E4%B8%9C%E9%A6%96%E9%A1%B5%E5%95%86%E5%93%81%E8%BD%AE%E6%92%AD%E5%9B%BE/" title="JS实现仿京东首页商品轮播图"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-03-13</div><div class="title">JS实现仿京东首页商品轮播图</div></div></a></div><div><a href="/2026/04/21/Jotai%E5%AD%A6%E4%B9%A0%E5%BF%83%E5%BE%97/" title="Jotai学习心得"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-04-21</div><div class="title">Jotai学习心得</div></div></a></div><div><a href="/2025/03/13/V8%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/" title="V8垃圾回收机制"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-03-13</div><div class="title">V8垃圾回收机制</div></div></a></div></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://pic.imgdb.cn/item/64e18125661c6c8e54c33269.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">KKirito</div><div class="author-info__description">无论暴风将我带到什么岸边，我都将以主人的身份上岸</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">20</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">5</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/kkirito16"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/kkirito16" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:1041054607@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #24292e;"></i></a><a class="social-icon" href="https://raw.githubusercontent.com/kkirito16/ImgPicGo/main/img/70af5b73e1ab04472be32a174f0692f1.jpg" target="_blank" title="QQ"><i class="fa-brands fa-qq"></i></a><a class="social-icon" href="https://raw.githubusercontent.com/kkirito16/ImgPicGo/main/img/ba26b62552fddd8941833677b08c7b1e.jpg" target="_blank" title="微信"><i class="fa-brands fa-weixin"></i></a><a class="social-icon" href="https://space.bilibili.com/171235920" target="_blank" title="bilibili"><i class="fa-brands fa-bilibili"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">更新了文章、背景图加载、评论系统。<br>追星的少年不会停下，只为寻得心中的那颗星，璀璨入心。</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%83%8C%E6%99%AF"><span class="toc-number">1.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AF%AF%E5%8C%BA"><span class="toc-number">2.</span> <span class="toc-text">误区</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E5%8C%BA%E5%88%AB"><span class="toc-number">2.1.</span> <span class="toc-text">环境区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E7%AB%AF%E5%B7%AE%E5%BC%82"><span class="toc-number">2.2.</span> <span class="toc-text">多端差异</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%98%E5%8C%96"><span class="toc-number">3.</span> <span class="toc-text">变化</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%B5%E9%9D%A2%E6%A0%87%E7%AD%BE"><span class="toc-number">3.1.</span> <span class="toc-text">页面标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#API"><span class="toc-number">3.2.</span> <span class="toc-text">API</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-number">3.3.</span> <span class="toc-text">生命周期</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%B5%E9%9D%A2%E8%B7%AF%E7%94%B1"><span class="toc-number">3.4.</span> <span class="toc-text">页面路由</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#easycom%E7%BB%84%E4%BB%B6%E8%A7%84%E8%8C%83"><span class="toc-number">3.5.</span> <span class="toc-text">easycom组件规范</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8E%A5%E5%8F%A3%E8%B0%83%E7%94%A8"><span class="toc-number">4.</span> <span class="toc-text">接口调用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%99%BB%E9%99%86"><span class="toc-number">5.</span> <span class="toc-text">登陆</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number">5.1.</span> <span class="toc-text">注意事项</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/04/22/uni-app%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="uni-app学习笔记">uni-app学习笔记</a><time datetime="2026-04-21T16:26:42.899Z" title="发表于 2026-04-22 00:26:42">2026-04-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/04/21/Egg.js%E5%AD%A6%E4%B9%A0%E5%BF%83%E5%BE%97/" title="Egg.js学习心得">Egg.js学习心得</a><time datetime="2026-04-20T16:56:52.219Z" title="发表于 2026-04-21 00:56:52">2026-04-21</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/04/21/Jotai%E5%AD%A6%E4%B9%A0%E5%BF%83%E5%BE%97/" title="Jotai学习心得">Jotai学习心得</a><time datetime="2026-04-20T16:49:34.609Z" title="发表于 2026-04-21 00:49:34">2026-04-21</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/04/20/%E5%BD%93React%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5%E5%8F%98%E6%88%90%E4%B8%80%E4%B8%AASkill%EF%BC%8C%E6%88%91%E5%B0%9D%E8%AF%95%E8%AE%A9%E5%AE%83%E7%AE%A1%E7%AE%A1%E6%88%91%E7%9A%84%E4%BB%A3%E7%A0%81/" title="当React最佳实践变成一个Skill，我尝试让它管管我的代码">当React最佳实践变成一个Skill，我尝试让它管管我的代码</a><time datetime="2026-04-20T12:54:43.000Z" title="发表于 2026-04-20 20:54:43">2026-04-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/11/04/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E5%9C%A8%20Zoom%20%E7%BD%91%E9%A1%B5%E5%A4%8D%E5%88%B6%E4%B8%8D%E5%85%A8%EF%BC%9F%E5%8E%9F%E6%9D%A5%E6%98%AF%E8%A2%AB%E2%80%9C%E8%99%9A%E6%8B%9F%E6%BB%9A%E5%8A%A8%E2%80%9D%E9%AA%97%E4%BA%86%EF%BC%81/" title="为什么我在Zoom网页复制不全？原来是被“虚拟滚动”骗了！">为什么我在Zoom网页复制不全？原来是被“虚拟滚动”骗了！</a><time datetime="2025-11-04T03:35:13.017Z" title="发表于 2025-11-04 11:35:13">2025-11-04</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2026 By KKirito</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"><script>(()=>{
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'https://ljqkkirito16.zeabur.app',
+      region: '',
+      onCommentLoaded: function () {
+        btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      }
+    }, null))
+  }
+
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://ljqkkirito16.zeabur.app',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(function (res) {
+      countELement.textContent = res[0].count
+    }).catch(function (err) {
+      console.error(err);
+    });
+  }
+
+  const runFn = () => {
+    init()
+    GLOBAL_CONFIG_SITE.isPost && getCount()
+  }
+
+  const loadTwikoo = () => {
+    if (typeof twikoo === 'object') {
+      setTimeout(runFn,0)
+      return
+    } 
+    getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(runFn)
+  }
+
+  if ('Twikoo' === 'Twikoo' || !true) {
+    if (true) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo()
+  } else {
+    window.loadOtherComment = () => {
+      loadTwikoo()
+    }
+  }
+})()</script></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
