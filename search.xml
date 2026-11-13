@@ -1,93 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>AI Native 产品不是给传统应用加一个聊天框</title>
-    <url>/2026/11/12/AI-Native%E4%BA%A7%E5%93%81%E4%B8%8D%E6%98%AF%E7%BB%99%E4%BC%A0%E7%BB%9F%E5%BA%94%E7%94%A8%E5%8A%A0%E4%B8%80%E4%B8%AA%E8%81%8A%E5%A4%A9%E6%A1%86/</url>
-    <content><![CDATA[<h1 id="AI-Native-产品不是给传统应用加一个聊天框"><a href="#AI-Native-产品不是给传统应用加一个聊天框" class="headerlink" title="AI Native 产品不是给传统应用加一个聊天框"></a>AI Native 产品不是给传统应用加一个聊天框</h1><p>现在很多产品都会增加一个 AI 功能：一个聊天入口、一个智能问答框，或者一个自动生成按钮。这些功能确实能提升效率，但不一定意味着产品已经变成 AI Native。</p>
-<p>我在整理相关资料时看到一个比较有启发性的判断：如果拿掉 AI 之后，产品的核心链路仍然可以按照原来的方式运行，那么它更像是传统产品叠加了 AI 功能。</p>
-<h2 id="传统产品加-AI-是什么样"><a href="#传统产品加-AI-是什么样" class="headerlink" title="传统产品加 AI 是什么样"></a>传统产品加 AI 是什么样</h2><p>传统产品通常已经有稳定的页面、菜单和操作流程，AI 负责其中某一个环节，例如：</p>
-<ul>
-<li>在搜索页增加自然语言搜索</li>
-<li>在编辑器中增加文案生成</li>
-<li>在客服页面增加问答助手</li>
-<li>在表单中增加自动填写</li>
-</ul>
-<p>这些功能可以很有用，但产品的核心结构仍然是原来的页面和流程。用户还是需要按照系统预设的路径完成主要任务。</p>
-<h2 id="AI-Native-从什么出发"><a href="#AI-Native-从什么出发" class="headerlink" title="AI Native 从什么出发"></a>AI Native 从什么出发</h2><p>AI Native 更关注用户真正想完成的目标，而不是要求用户先理解产品有哪些页面和按钮。</p>
-<p>例如用户说“帮我找一家适合三个人、预算五百元、距离地铁近的餐厅”，传统产品可能要求用户先搜索地点、填写人数、设置价格和筛选条件；AI Native 产品可以先理解意图，再自行拆解任务、调用能力并给出结果。</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">用户目标</span><br><span class="line">   ↓</span><br><span class="line">AI 理解意图</span><br><span class="line">   ↓</span><br><span class="line">拆分约束和任务</span><br><span class="line">   ↓</span><br><span class="line">调用搜索、推荐、预订等能力</span><br><span class="line">   ↓</span><br><span class="line">生成结果并支持继续调整</span><br></pre></td></tr></table></figure>
-
-<p>这里的关键不是把页面换成聊天框，而是产品的第一性结构从“页面和功能”变成了“理解、规划和行动”。</p>
-<h2 id="AI-不一定要取代原有界面"><a href="#AI-不一定要取代原有界面" class="headerlink" title="AI 不一定要取代原有界面"></a>AI 不一定要取代原有界面</h2><p>AI Native 也不等于所有产品都应该变成纯文本交互。对于设计、绘图、游戏和数据分析等场景，画布、图表和空间操作本身就是产品价值的一部分。</p>
-<p>更合适的方式可能是让 AI 进入原有工作空间：用户可以通过自然语言让 AI 创建内容、修改对象、生成代码，同时继续使用画布进行探索和调整。</p>
-<p>也就是说，AI 可以重新定义界面能力，但不一定要把所有交互都压缩进一个聊天窗口。</p>
-<h2 id="判断一个产品是否-AI-Native"><a href="#判断一个产品是否-AI-Native" class="headerlink" title="判断一个产品是否 AI Native"></a>判断一个产品是否 AI Native</h2><p>我觉得可以从三个问题开始判断：</p>
-<ol>
-<li>用户真正表达的是功能名称，还是一个想要完成的目标？</li>
-<li>产品是否能够自动拆解任务，而不是让用户自己串联多个页面？</li>
-<li>如果移除 AI，核心体验是否会回到原来的流程？</li>
-</ol>
-<p>如果 AI 只是帮助用户更快点击原来的按钮，它可能是 AI 增强；如果 AI 的理解和规划能力改变了产品的核心工作方式，才更接近 AI Native。</p>
-<h2 id="这对开发有什么影响"><a href="#这对开发有什么影响" class="headerlink" title="这对开发有什么影响"></a>这对开发有什么影响</h2><p>AI Native 产品需要重新考虑任务状态、工具权限、失败恢复和人工确认。传统页面通常由用户一步步推动流程，而 Agent 可能在后台连续执行多个动作，因此系统必须能够展示进度、解释结果，并允许用户中途打断。</p>
-<p>这也意味着产品设计和工程设计会更紧密地结合。AI 不是一个孤立的功能模块，而是会影响交互方式、数据结构和整个任务链路。</p>
-]]></content>
-      <categories>
-        <category>技术文档</category>
-      </categories>
-      <tags>
-        <tag>AI</tag>
-        <tag>产品</tag>
-        <tag>Markdown</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>AI Agent 中的上下文工程与记忆系统</title>
-    <url>/2026/11/12/AI-Agent%E4%B8%AD%E7%9A%84%E4%B8%8A%E4%B8%8B%E6%96%87%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%B0%E5%BF%86%E7%B3%BB%E7%BB%9F/</url>
-    <content><![CDATA[<h1 id="AI-Agent-中的上下文工程与记忆系统"><a href="#AI-Agent-中的上下文工程与记忆系统" class="headerlink" title="AI Agent 中的上下文工程与记忆系统"></a>AI Agent 中的上下文工程与记忆系统</h1><p>刚开始接触 Agent 时，我更关注模型本身的能力：能不能理解问题，能不能调用工具，能不能生成比较完整的答案。</p>
-<p>但任务变复杂之后，真正影响效果的往往不只是模型，而是模型在每一次执行时能看到什么信息。上下文太少，Agent 不知道背景；上下文太多，又会让信息变得混乱，甚至增加无关内容对判断的干扰。</p>
-<p>所以，AI 应用开发中有一个很重要的方向叫上下文工程（Context Engineering）。它关注的不是单纯写一段更长的 Prompt，而是如何组织、筛选和更新 Agent 在运行过程中需要的信息。</p>
-<h2 id="上下文不只是-Prompt"><a href="#上下文不只是-Prompt" class="headerlink" title="上下文不只是 Prompt"></a>上下文不只是 Prompt</h2><p>一个 Agent 的上下文通常包括几类内容：</p>
-<ul>
-<li>用户当前的问题</li>
-<li>历史对话和任务状态</li>
-<li>业务规则和系统约束</li>
-<li>检索到的文档或数据</li>
-<li>可调用的工具描述</li>
-<li>其他 Agent 返回的中间结果</li>
-</ul>
-<p>这些内容如果全部直接拼接到 Prompt 中，短任务可能还能工作，长任务就容易出现上下文膨胀、重复信息和重点不清晰的问题。</p>
-<p>我理解上下文工程的核心，就是在每次执行前回答一个问题：当前这一步真正需要哪些信息？</p>
-<h2 id="短期记忆和长期记忆"><a href="#短期记忆和长期记忆" class="headerlink" title="短期记忆和长期记忆"></a>短期记忆和长期记忆</h2><p>短期记忆主要服务于当前任务。例如用户刚刚说了什么、当前任务执行到了哪一步、上一个工具返回了什么结果。这些信息通常跟当前对话或任务生命周期绑定。</p>
-<p>长期记忆则是跨任务保留的信息，例如用户的偏好、项目约定、常用技术栈和历史结论。长期记忆不能简单地把所有聊天记录永久保存，而是需要提取出真正值得保留的内容。</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">当前对话 / 当前任务 → 短期记忆</span><br><span class="line">用户偏好 / 项目知识 → 长期记忆</span><br><span class="line">工具结果 / 文档资料 → 外部上下文</span><br></pre></td></tr></table></figure>
-
-<p>如果短期记忆里混入太多过期内容，Agent 可能会继续沿用已经改变的结论；如果长期记忆没有经过筛选，检索出来的内容也可能反过来干扰当前任务。</p>
-<h2 id="一个简单的上下文构建流程"><a href="#一个简单的上下文构建流程" class="headerlink" title="一个简单的上下文构建流程"></a>一个简单的上下文构建流程</h2><p>可以把一次 Agent 执行拆成几个阶段：</p>
-<ol>
-<li>获取当前用户目标</li>
-<li>读取当前任务状态</li>
-<li>根据关键词或语义检索相关记忆</li>
-<li>加入必要的业务规则和工具说明</li>
-<li>删除重复、过期或与当前任务无关的内容</li>
-<li>组合成当前步骤需要的上下文</li>
-</ol>
-<p>这里的“删除”其实和“添加”一样重要。不是给模型的信息越多越好，而是要让当前信息的优先级足够清楚。</p>
-<h2 id="上下文工程中的几个问题"><a href="#上下文工程中的几个问题" class="headerlink" title="上下文工程中的几个问题"></a>上下文工程中的几个问题</h2><p>第一个问题是信息过期。比如项目接口已经升级，但记忆中仍然保存着旧接口格式，这种内容比没有记忆更危险。</p>
-<p>第二个问题是来源不可靠。用户输入、外部网页和系统规则的可信度不同，不能把它们放在同一优先级中处理。</p>
-<p>第三个问题是上下文边界。用户提供的文本可能包含与任务无关的指令，外部资料也可能包含不应该执行的内容，所以应用层仍然需要做好权限判断和输入隔离。</p>
-<h2 id="我的理解"><a href="#我的理解" class="headerlink" title="我的理解"></a>我的理解</h2><p>上下文工程本质上是在做信息管理。模型负责推理，但应用需要负责准备材料、维护状态和控制边界。</p>
-<p>当 Agent 的任务还比较简单时，几个清晰的 Prompt 可能就够了；当任务开始涉及多步骤执行、工具调用和长期协作时，记忆、状态和上下文筛选就会变成系统设计的一部分。</p>
-]]></content>
-      <categories>
-        <category>技术文档</category>
-      </categories>
-      <tags>
-        <tag>AI</tag>
-        <tag>Markdown</tag>
-        <tag>Agent</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>AI 应用开发中的四类协议：从 MCP 到 AG-UI</title>
     <url>/2026/11/12/AI%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E5%9B%9B%E7%B1%BB%E5%8D%8F%E8%AE%AEMCP%E4%B8%8EAG-UI/</url>
     <content><![CDATA[<h1 id="AI-应用开发中的四类协议：从-MCP-到-AG-UI"><a href="#AI-应用开发中的四类协议：从-MCP-到-AG-UI" class="headerlink" title="AI 应用开发中的四类协议：从 MCP 到 AG-UI"></a>AI 应用开发中的四类协议：从 MCP 到 AG-UI</h1><p>AI 应用逐渐从单轮问答走向工具调用、多 Agent 协作和实时界面交互。随着系统变复杂，单靠一段 Prompt 很难解决不同组件之间的通信问题。</p>
@@ -152,8 +65,95 @@
       </categories>
       <tags>
         <tag>AI</tag>
-        <tag>Markdown</tag>
         <tag>Agent</tag>
+        <tag>Markdown</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>AI Agent 中的上下文工程与记忆系统</title>
+    <url>/2026/11/12/AI-Agent%E4%B8%AD%E7%9A%84%E4%B8%8A%E4%B8%8B%E6%96%87%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%B0%E5%BF%86%E7%B3%BB%E7%BB%9F/</url>
+    <content><![CDATA[<h1 id="AI-Agent-中的上下文工程与记忆系统"><a href="#AI-Agent-中的上下文工程与记忆系统" class="headerlink" title="AI Agent 中的上下文工程与记忆系统"></a>AI Agent 中的上下文工程与记忆系统</h1><p>刚开始接触 Agent 时，我更关注模型本身的能力：能不能理解问题，能不能调用工具，能不能生成比较完整的答案。</p>
+<p>但任务变复杂之后，真正影响效果的往往不只是模型，而是模型在每一次执行时能看到什么信息。上下文太少，Agent 不知道背景；上下文太多，又会让信息变得混乱，甚至增加无关内容对判断的干扰。</p>
+<p>所以，AI 应用开发中有一个很重要的方向叫上下文工程（Context Engineering）。它关注的不是单纯写一段更长的 Prompt，而是如何组织、筛选和更新 Agent 在运行过程中需要的信息。</p>
+<h2 id="上下文不只是-Prompt"><a href="#上下文不只是-Prompt" class="headerlink" title="上下文不只是 Prompt"></a>上下文不只是 Prompt</h2><p>一个 Agent 的上下文通常包括几类内容：</p>
+<ul>
+<li>用户当前的问题</li>
+<li>历史对话和任务状态</li>
+<li>业务规则和系统约束</li>
+<li>检索到的文档或数据</li>
+<li>可调用的工具描述</li>
+<li>其他 Agent 返回的中间结果</li>
+</ul>
+<p>这些内容如果全部直接拼接到 Prompt 中，短任务可能还能工作，长任务就容易出现上下文膨胀、重复信息和重点不清晰的问题。</p>
+<p>我理解上下文工程的核心，就是在每次执行前回答一个问题：当前这一步真正需要哪些信息？</p>
+<h2 id="短期记忆和长期记忆"><a href="#短期记忆和长期记忆" class="headerlink" title="短期记忆和长期记忆"></a>短期记忆和长期记忆</h2><p>短期记忆主要服务于当前任务。例如用户刚刚说了什么、当前任务执行到了哪一步、上一个工具返回了什么结果。这些信息通常跟当前对话或任务生命周期绑定。</p>
+<p>长期记忆则是跨任务保留的信息，例如用户的偏好、项目约定、常用技术栈和历史结论。长期记忆不能简单地把所有聊天记录永久保存，而是需要提取出真正值得保留的内容。</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">当前对话 / 当前任务 → 短期记忆</span><br><span class="line">用户偏好 / 项目知识 → 长期记忆</span><br><span class="line">工具结果 / 文档资料 → 外部上下文</span><br></pre></td></tr></table></figure>
+
+<p>如果短期记忆里混入太多过期内容，Agent 可能会继续沿用已经改变的结论；如果长期记忆没有经过筛选，检索出来的内容也可能反过来干扰当前任务。</p>
+<h2 id="一个简单的上下文构建流程"><a href="#一个简单的上下文构建流程" class="headerlink" title="一个简单的上下文构建流程"></a>一个简单的上下文构建流程</h2><p>可以把一次 Agent 执行拆成几个阶段：</p>
+<ol>
+<li>获取当前用户目标</li>
+<li>读取当前任务状态</li>
+<li>根据关键词或语义检索相关记忆</li>
+<li>加入必要的业务规则和工具说明</li>
+<li>删除重复、过期或与当前任务无关的内容</li>
+<li>组合成当前步骤需要的上下文</li>
+</ol>
+<p>这里的“删除”其实和“添加”一样重要。不是给模型的信息越多越好，而是要让当前信息的优先级足够清楚。</p>
+<h2 id="上下文工程中的几个问题"><a href="#上下文工程中的几个问题" class="headerlink" title="上下文工程中的几个问题"></a>上下文工程中的几个问题</h2><p>第一个问题是信息过期。比如项目接口已经升级，但记忆中仍然保存着旧接口格式，这种内容比没有记忆更危险。</p>
+<p>第二个问题是来源不可靠。用户输入、外部网页和系统规则的可信度不同，不能把它们放在同一优先级中处理。</p>
+<p>第三个问题是上下文边界。用户提供的文本可能包含与任务无关的指令，外部资料也可能包含不应该执行的内容，所以应用层仍然需要做好权限判断和输入隔离。</p>
+<h2 id="我的理解"><a href="#我的理解" class="headerlink" title="我的理解"></a>我的理解</h2><p>上下文工程本质上是在做信息管理。模型负责推理，但应用需要负责准备材料、维护状态和控制边界。</p>
+<p>当 Agent 的任务还比较简单时，几个清晰的 Prompt 可能就够了；当任务开始涉及多步骤执行、工具调用和长期协作时，记忆、状态和上下文筛选就会变成系统设计的一部分。</p>
+]]></content>
+      <categories>
+        <category>技术文档</category>
+      </categories>
+      <tags>
+        <tag>AI</tag>
+        <tag>Agent</tag>
+        <tag>Markdown</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>AI Native 产品不是给传统应用加一个聊天框</title>
+    <url>/2026/11/12/AI-Native%E4%BA%A7%E5%93%81%E4%B8%8D%E6%98%AF%E7%BB%99%E4%BC%A0%E7%BB%9F%E5%BA%94%E7%94%A8%E5%8A%A0%E4%B8%80%E4%B8%AA%E8%81%8A%E5%A4%A9%E6%A1%86/</url>
+    <content><![CDATA[<h1 id="AI-Native-产品不是给传统应用加一个聊天框"><a href="#AI-Native-产品不是给传统应用加一个聊天框" class="headerlink" title="AI Native 产品不是给传统应用加一个聊天框"></a>AI Native 产品不是给传统应用加一个聊天框</h1><p>现在很多产品都会增加一个 AI 功能：一个聊天入口、一个智能问答框，或者一个自动生成按钮。这些功能确实能提升效率，但不一定意味着产品已经变成 AI Native。</p>
+<p>我在整理相关资料时看到一个比较有启发性的判断：如果拿掉 AI 之后，产品的核心链路仍然可以按照原来的方式运行，那么它更像是传统产品叠加了 AI 功能。</p>
+<h2 id="传统产品加-AI-是什么样"><a href="#传统产品加-AI-是什么样" class="headerlink" title="传统产品加 AI 是什么样"></a>传统产品加 AI 是什么样</h2><p>传统产品通常已经有稳定的页面、菜单和操作流程，AI 负责其中某一个环节，例如：</p>
+<ul>
+<li>在搜索页增加自然语言搜索</li>
+<li>在编辑器中增加文案生成</li>
+<li>在客服页面增加问答助手</li>
+<li>在表单中增加自动填写</li>
+</ul>
+<p>这些功能可以很有用，但产品的核心结构仍然是原来的页面和流程。用户还是需要按照系统预设的路径完成主要任务。</p>
+<h2 id="AI-Native-从什么出发"><a href="#AI-Native-从什么出发" class="headerlink" title="AI Native 从什么出发"></a>AI Native 从什么出发</h2><p>AI Native 更关注用户真正想完成的目标，而不是要求用户先理解产品有哪些页面和按钮。</p>
+<p>例如用户说“帮我找一家适合三个人、预算五百元、距离地铁近的餐厅”，传统产品可能要求用户先搜索地点、填写人数、设置价格和筛选条件；AI Native 产品可以先理解意图，再自行拆解任务、调用能力并给出结果。</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">用户目标</span><br><span class="line">   ↓</span><br><span class="line">AI 理解意图</span><br><span class="line">   ↓</span><br><span class="line">拆分约束和任务</span><br><span class="line">   ↓</span><br><span class="line">调用搜索、推荐、预订等能力</span><br><span class="line">   ↓</span><br><span class="line">生成结果并支持继续调整</span><br></pre></td></tr></table></figure>
+
+<p>这里的关键不是把页面换成聊天框，而是产品的第一性结构从“页面和功能”变成了“理解、规划和行动”。</p>
+<h2 id="AI-不一定要取代原有界面"><a href="#AI-不一定要取代原有界面" class="headerlink" title="AI 不一定要取代原有界面"></a>AI 不一定要取代原有界面</h2><p>AI Native 也不等于所有产品都应该变成纯文本交互。对于设计、绘图、游戏和数据分析等场景，画布、图表和空间操作本身就是产品价值的一部分。</p>
+<p>更合适的方式可能是让 AI 进入原有工作空间：用户可以通过自然语言让 AI 创建内容、修改对象、生成代码，同时继续使用画布进行探索和调整。</p>
+<p>也就是说，AI 可以重新定义界面能力，但不一定要把所有交互都压缩进一个聊天窗口。</p>
+<h2 id="判断一个产品是否-AI-Native"><a href="#判断一个产品是否-AI-Native" class="headerlink" title="判断一个产品是否 AI Native"></a>判断一个产品是否 AI Native</h2><p>我觉得可以从三个问题开始判断：</p>
+<ol>
+<li>用户真正表达的是功能名称，还是一个想要完成的目标？</li>
+<li>产品是否能够自动拆解任务，而不是让用户自己串联多个页面？</li>
+<li>如果移除 AI，核心体验是否会回到原来的流程？</li>
+</ol>
+<p>如果 AI 只是帮助用户更快点击原来的按钮，它可能是 AI 增强；如果 AI 的理解和规划能力改变了产品的核心工作方式，才更接近 AI Native。</p>
+<h2 id="这对开发有什么影响"><a href="#这对开发有什么影响" class="headerlink" title="这对开发有什么影响"></a>这对开发有什么影响</h2><p>AI Native 产品需要重新考虑任务状态、工具权限、失败恢复和人工确认。传统页面通常由用户一步步推动流程，而 Agent 可能在后台连续执行多个动作，因此系统必须能够展示进度、解释结果，并允许用户中途打断。</p>
+<p>这也意味着产品设计和工程设计会更紧密地结合。AI 不是一个孤立的功能模块，而是会影响交互方式、数据结构和整个任务链路。</p>
+]]></content>
+      <categories>
+        <category>技术文档</category>
+      </categories>
+      <tags>
+        <tag>AI</tag>
+        <tag>Markdown</tag>
+        <tag>产品</tag>
       </tags>
   </entry>
   <entry>
@@ -183,6 +183,275 @@
       <tags>
         <tag>Markdown</tag>
         <tag>前端</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JS基于原型的继承理解</title>
+    <url>/2025/03/13/JS%E5%9F%BA%E4%BA%8E%E5%8E%9F%E5%9E%8B%E7%9A%84%E7%BB%A7%E6%89%BF%E7%90%86%E8%A7%A3/</url>
+    <content><![CDATA[<h1 id="JS基于原型的继承理解"><a href="#JS基于原型的继承理解" class="headerlink" title="JS基于原型的继承理解"></a>JS基于原型的继承理解</h1><h2 id="原型＆原型链"><a href="#原型＆原型链" class="headerlink" title="原型＆原型链"></a>原型＆原型链</h2><p>JavaScript 只有一种结构：对象。每个对象（object）都有一个私有属性指向另一个名为<strong>原型</strong>（prototype）的对象。原型对象也有一个自己的原型，层层向上直到一个对象的原型为 <code>null</code>。根据定义，<code>null</code> 没有原型，并作为这个<strong>原型链</strong>（prototype chain）中的最后一个环节。</p>
+<p>JavaScript 对象是动态的属性（指<strong>其自有属性</strong>）“包”。JavaScript 对象有一个指向一个原型对象的链。当试图访问一个对象的属性时，它不仅仅在该对象上搜寻，还会搜寻该对象的原型，以及原型的原型，依次层层向上搜索，直到找到一个名字匹配的属性或到达原型链的末尾。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">student.<span class="property">_proto_</span> === <span class="title class_">Student</span>.<span class="property"><span class="keyword">prototype</span></span> </span><br><span class="line"><span class="comment">//  隐式原型             显示原型</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Person</span>&#123;</span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params">name</span>)&#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">name</span> = name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="title function_">drink</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;喝水&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;	</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Teacher</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Person</span>&#123;</span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params">name,subject</span>)&#123;</span><br><span class="line">        <span class="variable language_">super</span>(name);</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">subject</span> = subject;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="title function_">teach</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`我是$(this.name),教$(this.subject)。`</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> teacher = <span class="keyword">new</span> <span class="title class_">Teacher</span>(<span class="string">&#x27;哈默&#x27;</span>,<span class="string">&#x27;前端开发&#x27;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;teacher&#x27;</span>,teacher);</span><br><span class="line">teacher.<span class="title function_">teach</span>();</span><br><span class="line">teacher.<span class="title function_">drink</span>();</span><br></pre></td></tr></table></figure>
+
+<p>代码对应原型链如图：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/image-20231106141020167.png" alt="image-20231106141020167"></p>
+<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><p>super关键字：</p>
+<p>super 关键字用于访问和调用一个对象的父对象上的函数。在构造函数中使用时，super关键字将单独出现，并且必须在使用 this 关键字之前使用。super 关键字也可以用来调用父对象上的函数。</p>
+<p>语法：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">super</span>(<span class="variable language_">arguments</span>);  <span class="comment">// 调用父构造函数</span></span><br><span class="line"><span class="variable language_">super</span>.<span class="title function_">parentMethod</span>(<span class="variable language_">arguments</span>);  <span class="comment">// 调用父方法</span></span><br></pre></td></tr></table></figure>
+
+<p>在类中使用super实例：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Polygon</span> &#123;</span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params">height, width</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">name</span> = <span class="string">&#x27;Rectangle&#x27;</span>;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">height</span> = height;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">width</span> = width;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="title function_">sayName</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;Hi, I am a &#x27;</span> + <span class="variable language_">this</span>.<span class="property">name</span> + <span class="string">&#x27;.&#x27;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">get</span> <span class="title function_">area</span>() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">height</span> * <span class="variable language_">this</span>.<span class="property">width</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">set</span> <span class="title function_">area</span>(<span class="params">value</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">_area</span> = value;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Square</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Polygon</span> &#123;</span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params">length</span>) &#123;</span><br><span class="line">    <span class="comment">// 这里，它调用父类的构造函数的，</span></span><br><span class="line">    <span class="comment">// 作为 Polygon 的 height, width</span></span><br><span class="line">    <span class="variable language_">super</span>(length, length);</span><br><span class="line">      </span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">height</span>; <span class="comment">// 需要放在 super 后面，不然引发 ReferenceErro</span></span><br><span class="line"> </span><br><span class="line">    <span class="comment">// 注意：在派生的类中，在你可以使用&#x27;this&#x27;之前，必须先调用 super()。</span></span><br><span class="line">    <span class="comment">// 忽略这，这将导致引用错误。</span></span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">name</span> = <span class="string">&#x27;Square&#x27;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>自学资料</category>
+      </categories>
+      <tags>
+        <tag>Markdown</tag>
+        <tag>前端</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JS实现仿京东首页商品轮播图</title>
+    <url>/2025/03/13/JS%E5%AE%9E%E7%8E%B0%E4%BB%BF%E4%BA%AC%E4%B8%9C%E9%A6%96%E9%A1%B5%E5%95%86%E5%93%81%E8%BD%AE%E6%92%AD%E5%9B%BE/</url>
+    <content><![CDATA[<h1 id="JS实现仿京东首页商品轮播图"><a href="#JS实现仿京东首页商品轮播图" class="headerlink" title="JS实现仿京东首页商品轮播图"></a>JS实现仿京东首页商品轮播图</h1><p>近期做了一个面试题，仿照京东首页商品轮播图实现一个轮播图</p>
+<h3 id="1-HTML-结构搭建"><a href="#1-HTML-结构搭建" class="headerlink" title="1. HTML 结构搭建"></a>1. HTML 结构搭建</h3><p>HTML 部分主要负责构建轮播图的整体结构，包含一个轮播图容器、图片展示区域以及分页器容器：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;carousel&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;carousel-images&quot;</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 多个图片项 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;carousel-image active&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;1.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;Image 1&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;carousel-image&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;2.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;Image 2&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 更多图片... --&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;pagination&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>.carousel</code>：作为轮播图的整体容器，用于包裹图片展示区域和分页器。</li>
+<li><code>.carousel-images</code>：用于存放所有轮播图片的容器。</li>
+<li><code>.carousel-image</code>：每个图片项的容器，初始状态下只有带有 <code>active</code> 类的图片项会显示。</li>
+<li><code>.pagination</code>：分页器容器，后续会通过 JavaScript 动态创建分页点。</li>
+</ul>
+<h3 id="2-CSS-样式设计"><a href="#2-CSS-样式设计" class="headerlink" title="2. CSS 样式设计"></a>2. CSS 样式设计</h3><p>CSS 部分为轮播图添加样式，实现布局和渐隐渐显效果：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.carousel</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">80%</span>;</span><br><span class="line">    <span class="attribute">margin</span>: auto;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">2px</span> <span class="number">10px</span> <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.1</span>);</span><br><span class="line">    <span class="attribute">overflow</span>: hidden;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">750px</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">522px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.carousel-image</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">opacity</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">transition</span>: opacity <span class="number">1s</span> ease;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.carousel-image</span><span class="selector-class">.active</span> &#123;</span><br><span class="line">    <span class="attribute">opacity</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>.carousel</code>：设置相对定位，方便内部元素进行绝对定位，同时设置宽度、边距、圆角、阴影和溢出隐藏等样式。</li>
+<li><code>.carousel-image</code>：设置绝对定位，使其重叠显示，初始透明度为 0，通过 <code>transition</code> 属性实现渐隐渐显效果。</li>
+<li><code>.carousel-image.active</code>：当图片项带有 <code>active</code> 类时，透明度为 1，即显示该图片。</li>
+</ul>
+<h3 id="3-JavaScript-功能实现"><a href="#3-JavaScript-功能实现" class="headerlink" title="3. JavaScript 功能实现"></a>3. JavaScript 功能实现</h3><h4 id="3-1-变量初始化"><a href="#3-1-变量初始化" class="headerlink" title="3.1 变量初始化"></a>3.1 变量初始化</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> images = <span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&#x27;.carousel-image&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> pagination = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;.pagination&#x27;</span>);</span><br><span class="line"><span class="keyword">let</span> currentIndex = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">let</span> timer;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>images</code>：获取所有的图片项元素。</li>
+<li><code>pagination</code>：获取分页器容器元素。</li>
+<li><code>currentIndex</code>：记录当前显示图片的索引，初始值为 0。</li>
+<li><code>timer</code>：用于存储自动播放的定时器 ID。</li>
+</ul>
+<h4 id="3-2-分页器创建"><a href="#3-2-分页器创建" class="headerlink" title="3.2 分页器创建"></a>3.2 分页器创建</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">images.<span class="title function_">forEach</span>(<span class="function">(<span class="params">_, index</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> dot = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;span&#x27;</span>);</span><br><span class="line">    dot.<span class="property">classList</span>.<span class="title function_">add</span>(<span class="string">&#x27;dot&#x27;</span>);</span><br><span class="line">    dot.<span class="property">dataset</span>.<span class="property">index</span> = index;</span><br><span class="line">    dot.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">clearInterval</span>(timer);</span><br><span class="line">        currentIndex = index;</span><br><span class="line">        <span class="title function_">updateCarousel</span>();</span><br><span class="line">        <span class="title function_">startAutoPlay</span>();</span><br><span class="line">    &#125;);</span><br><span class="line">    pagination.<span class="title function_">appendChild</span>(dot);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>遍历所有图片项，为每个图片项创建一个分页点（<code>&lt;span&gt;</code> 元素），并添加 <code>dot</code> 类。</li>
+<li>为每个分页点设置 <code>data-index</code> 属性，用于记录其对应的图片索引。</li>
+<li>为每个分页点添加点击事件监听器，点击时清除当前定时器，更新 <code>currentIndex</code> 为点击的分页点对应的索引，调用 <code>updateCarousel()</code> 函数切换图片，然后重新启动定时器。</li>
+</ul>
+<h4 id="3-3-图片切换函数"><a href="#3-3-图片切换函数" class="headerlink" title="3.3 图片切换函数"></a>3.3 图片切换函数</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">updateCarousel</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">    images.<span class="title function_">forEach</span>(<span class="function">(<span class="params">image, index</span>) =&gt;</span> &#123;</span><br><span class="line">        image.<span class="property">classList</span>.<span class="title function_">remove</span>(<span class="string">&#x27;active&#x27;</span>);</span><br><span class="line">        <span class="keyword">if</span> (index === currentIndex) &#123;</span><br><span class="line">            image.<span class="property">classList</span>.<span class="title function_">add</span>(<span class="string">&#x27;active&#x27;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&#x27;.dot&#x27;</span>).<span class="title function_">forEach</span>(<span class="function"><span class="params">dot</span> =&gt;</span> dot.<span class="property">classList</span>.<span class="title function_">remove</span>(<span class="string">&#x27;active&#x27;</span>));</span><br><span class="line">    <span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&#x27;.dot&#x27;</span>)[currentIndex].<span class="property">classList</span>.<span class="title function_">add</span>(<span class="string">&#x27;active&#x27;</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>遍历所有图片项，移除所有图片项的 <code>active</code> 类，然后为当前索引对应的图片项添加 <code>active</code> 类，实现图片的切换。</li>
+<li>同样，遍历所有分页点，移除所有分页点的 <code>active</code> 类，然后为当前索引对应的分页点添加 <code>active</code> 类，更新分页器状态。</li>
+</ul>
+<h4 id="3-4-自动播放函数"><a href="#3-4-自动播放函数" class="headerlink" title="3.4 自动播放函数"></a>3.4 自动播放函数</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">startAutoPlay</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">    timer = <span class="built_in">setInterval</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        currentIndex = (currentIndex + <span class="number">1</span>) % images.<span class="property">length</span>;</span><br><span class="line">        <span class="title function_">updateCarousel</span>();</span><br><span class="line">    &#125;, <span class="number">1000</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>使用 <code>setInterval</code> 函数创建一个定时器，每隔 1 秒执行一次回调函数。</li>
+<li>在回调函数中，更新 <code>currentIndex</code> 为下一张图片的索引（使用取模运算符确保索引不会越界），然后调用 <code>updateCarousel()</code> 函数切换图片。</li>
+</ul>
+<h4 id="3-5-初始化操作"><a href="#3-5-初始化操作" class="headerlink" title="3.5 初始化操作"></a>3.5 初始化操作</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="title function_">updateCarousel</span>();</span><br><span class="line"><span class="title function_">startAutoPlay</span>();</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>调用 <code>updateCarousel()</code> 函数进行初始化，显示第一张图片并更新分页器状态。</li>
+<li>调用 <code>startAutoPlay()</code> 函数启动自动播放功能。</li>
+</ul>
+<p>综上所述，通过 HTML 构建结构、CSS 设置样式和 JavaScript 实现交互逻辑，完成了一个具有渐隐渐显效果、支持自动播放和手动切换的轮播图。</p>
+<h3 id="4-全部代码"><a href="#4-全部代码" class="headerlink" title="4.全部代码"></a>4.全部代码</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;zh&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>水平轮播图<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-tag">body</span> &#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">font-family</span>: Arial, sans-serif;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">background-color</span>: <span class="number">#f5f5f5</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">margin</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">padding</span>: <span class="number">50px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">text-align</span>: center;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">width</span>: <span class="number">522px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">height</span>: <span class="number">750px</span>;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.carousel</span> &#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">position</span>: relative;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">width</span>: <span class="number">80%</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">margin</span>: auto; </span></span><br><span class="line"><span class="language-css">            <span class="attribute">border-radius</span>: <span class="number">10px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">2px</span> <span class="number">10px</span> <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.1</span>);</span></span><br><span class="line"><span class="language-css">            <span class="attribute">overflow</span>: hidden;</span></span><br><span class="line"><span class="language-css">            <span class="comment">/* 设置一个合适的高度，可根据实际图片比例调整 */</span></span></span><br><span class="line"><span class="language-css">            <span class="attribute">height</span>: <span class="number">750px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">width</span>: <span class="number">522px</span>;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.carousel-images</span> &#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">position</span>: relative;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">width</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">height</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.carousel-image</span> &#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">position</span>: absolute;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">width</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">height</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">opacity</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">transition</span>: opacity <span class="number">1s</span> ease;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.carousel-image</span><span class="selector-class">.active</span> &#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">opacity</span>: <span class="number">1</span>;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.carousel</span> <span class="selector-tag">img</span> &#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">width</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">height</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">object-fit</span>: cover;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">border-radius</span>: <span class="number">10px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">display</span>: block;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.pagination</span> &#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">position</span>: absolute;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">bottom</span>: <span class="number">20px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">left</span>: <span class="number">50%</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">transform</span>: <span class="built_in">translateX</span>(-<span class="number">50%</span>);</span></span><br><span class="line"><span class="language-css">            <span class="attribute">text-align</span>: center;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">z-index</span>: <span class="number">1</span>;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.dot</span> &#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">display</span>: inline-block;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">width</span>: <span class="number">10px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">height</span>: <span class="number">10px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">margin</span>: <span class="number">0</span> <span class="number">5px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">border-radius</span>: <span class="number">50%</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">background-color</span>: <span class="number">#bbb</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">cursor</span>: pointer;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.dot</span><span class="selector-class">.active</span> &#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">background-color</span>: <span class="number">#717171</span>;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;carousel&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;carousel-images&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;carousel-image active&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;1.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;Image 1&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;carousel-image&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;2.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;Image 2&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;carousel-image&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;3.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;Image 3&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;carousel-image&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;4.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;Image 4&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;carousel-image&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;5.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;Image 5&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;carousel-image&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;6.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;Image 6&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;pagination&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">const</span> images = <span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&#x27;.carousel-image&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">const</span> pagination = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;.pagination&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">let</span> currentIndex = <span class="number">0</span>;</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">let</span> timer;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// 创建分页器</span></span></span><br><span class="line"><span class="language-javascript">        images.<span class="title function_">forEach</span>(<span class="function">(<span class="params">_, index</span>) =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">const</span> dot = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;span&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">            dot.<span class="property">classList</span>.<span class="title function_">add</span>(<span class="string">&#x27;dot&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">            dot.<span class="property">dataset</span>.<span class="property">index</span> = index;</span></span><br><span class="line"><span class="language-javascript">            dot.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="comment">// 清除当前定时器</span></span></span><br><span class="line"><span class="language-javascript">                <span class="built_in">clearInterval</span>(timer);</span></span><br><span class="line"><span class="language-javascript">                currentIndex = index;</span></span><br><span class="line"><span class="language-javascript">                <span class="title function_">updateCarousel</span>();</span></span><br><span class="line"><span class="language-javascript">                <span class="comment">// 重新启动定时器</span></span></span><br><span class="line"><span class="language-javascript">                <span class="title function_">startAutoPlay</span>();</span></span><br><span class="line"><span class="language-javascript">            &#125;);</span></span><br><span class="line"><span class="language-javascript">            pagination.<span class="title function_">appendChild</span>(dot);</span></span><br><span class="line"><span class="language-javascript">        &#125;);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">const</span> <span class="title function_">updateCarousel</span> = (<span class="params"></span>) =&gt; &#123;</span></span><br><span class="line"><span class="language-javascript">            images.<span class="title function_">forEach</span>(<span class="function">(<span class="params">image, index</span>) =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">                image.<span class="property">classList</span>.<span class="title function_">remove</span>(<span class="string">&#x27;active&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">                <span class="keyword">if</span> (index === currentIndex) &#123;</span></span><br><span class="line"><span class="language-javascript">                    image.<span class="property">classList</span>.<span class="title function_">add</span>(<span class="string">&#x27;active&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">                &#125;</span></span><br><span class="line"><span class="language-javascript">            &#125;);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 更新分页器状态</span></span></span><br><span class="line"><span class="language-javascript">            <span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&#x27;.dot&#x27;</span>).<span class="title function_">forEach</span>(<span class="function"><span class="params">dot</span> =&gt;</span> dot.<span class="property">classList</span>.<span class="title function_">remove</span>(<span class="string">&#x27;active&#x27;</span>));</span></span><br><span class="line"><span class="language-javascript">            <span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&#x27;.dot&#x27;</span>)[currentIndex].<span class="property">classList</span>.<span class="title function_">add</span>(<span class="string">&#x27;active&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">        &#125;;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">const</span> <span class="title function_">startAutoPlay</span> = (<span class="params"></span>) =&gt; &#123;</span></span><br><span class="line"><span class="language-javascript">            timer = <span class="built_in">setInterval</span>(<span class="function">() =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">                currentIndex = (currentIndex + <span class="number">1</span>) % images.<span class="property">length</span>;</span></span><br><span class="line"><span class="language-javascript">                <span class="title function_">updateCarousel</span>();</span></span><br><span class="line"><span class="language-javascript">            &#125;, <span class="number">1000</span>);</span></span><br><span class="line"><span class="language-javascript">        &#125;;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// 初始化</span></span></span><br><span class="line"><span class="language-javascript">        <span class="title function_">updateCarousel</span>();</span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// 启动自动播放</span></span></span><br><span class="line"><span class="language-javascript">        <span class="title function_">startAutoPlay</span>();</span></span><br><span class="line"><span class="language-javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+]]></content>
+      <categories>
+        <category>技术文档</category>
+      </categories>
+      <tags>
+        <tag>Markdown</tag>
+        <tag>前端</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JS异步</title>
+    <url>/2025/08/24/JS%E5%BC%82%E6%AD%A5/</url>
+    <content><![CDATA[<h1 id="JS异步"><a href="#JS异步" class="headerlink" title="JS异步"></a>JS异步</h1><h2 id="并发-并行"><a href="#并发-并行" class="headerlink" title="并发&amp;并行"></a>并发&amp;并行</h2><p>并发是宏观概念，我分别有任务 A 和任务 B，在一段时间内通过任务间的切换完成了这两个任务，这种情况就可以称之为并发。</p>
+<p>并行是微观概念，假设 CPU 中存在两个核心，那么我就可以同时完成任务 A、B。同时完成多个任务的情况就可以称之为并行</p>
+<h2 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h2><p>Promise是在ES6中确定的对异步及回调处理的规范实现</p>
+<p>一个 Promise 必然处于以下几种状态之一：</p>
+<ul>
+<li>待定（pending）: 初始状态，既没有被兑现，也没有被拒绝。</li>
+<li>已兑现（fulfilled）: 意味着操作成功完成。</li>
+<li>已拒绝（rejected）: 意味着操作失败。</li>
+</ul>
+<p>使用Promise封装ajax</p>
+<p>关键：<code>return new Promise((resolve, reject)=&gt;&#123;...&#125;)</code> 用以返回一个Promise对象。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">ajax = <span class="function">(<span class="params">method, url</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>)=&gt;</span>&#123; <span class="comment">//关键，用以返回一个Promise对象</span></span><br><span class="line">        <span class="keyword">var</span> request = <span class="keyword">new</span> <span class="title class_">XMLHttpRequest</span>() </span><br><span class="line">        request.<span class="title function_">open</span>(method, url)</span><br><span class="line">        request.<span class="property">onreadystateChange</span> = <span class="keyword">function</span>(<span class="params"></span></span><br><span class="line"><span class="params">            <span class="keyword">if</span>(request.readyState === <span class="number">4</span>)&#123;</span></span><br><span class="line"><span class="params">                <span class="variable language_">console</span>.log(<span class="string">&#x27;请求完成&#x27;</span>)</span></span><br><span class="line"><span class="params">                <span class="keyword">if</span>(request.responese.status === <span class="number">200</span>)&#123;</span></span><br><span class="line"><span class="params">                    <span class="variable language_">console</span>.log(<span class="string">&#x27;请求成功&#x27;</span>)</span></span><br><span class="line"><span class="params">                    resolve.call(<span class="literal">null</span>, request.response) //成功则调用resolve</span></span><br><span class="line"><span class="params">                &#125;<span class="keyword">else</span>&#123;</span></span><br><span class="line"><span class="params">                    <span class="variable language_">console</span>.log(<span class="string">&#x27;请求失败&#x27;</span>)</span></span><br><span class="line"><span class="params">                    reject.call(<span class="literal">null</span>, request) //失败则调用reject</span></span><br><span class="line"><span class="params">                &#125;</span></span><br><span class="line"><span class="params">            &#125;</span></span><br><span class="line"><span class="params">        </span>)</span><br><span class="line">        request.<span class="title function_">send</span>()</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>一个Promise对象具有then函数，then函数接受两个函数，第一个函数当 Promise 变成接受状态（fulfilled）时被调用，第二个函数当 Promise 变成拒绝状态（rejected）时被调用。</p>
+<p>catch 接收一个函数，在Promise被reject的时候执行，除非该函数抛出错误或返回一个失败的Promise，否则返回的Promise一直是resolved。实质上catch(failureCallback) 是 then(null, failureCallback) 的缩略形式。</p>
+<p>finally接收一个回调函数，在promise结束时，无论结果是fulfilled或者是rejected，都会执行指定该回调函数。这避免了同样的语句需要在then()和catch()中各写一次的情况。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="title function_">ajax</span>(<span class="string">&#x27;GET&#x27;</span>,<span class="string">&#x27;/user&#x27;</span>)</span><br><span class="line">.<span class="title function_">then</span>(</span><br><span class="line">    <span class="function"><span class="params">res</span>=&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(res),</span><br><span class="line">    <span class="function"><span class="params">request</span> =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(request)</span><br><span class="line">)</span><br><span class="line">.<span class="title function_">catch</span>(<span class="function"><span class="params">err</span> =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(err))</span><br><span class="line">.<span class="title function_">finally</span>( <span class="function">() =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;结束&#x27;</span>) )</span><br></pre></td></tr></table></figure>
+
+<h2 id="async和await"><a href="#async和await" class="headerlink" title="async和await"></a>async和await</h2><p>async和await都是JavaScript中用于处理异步操作的关键字。</p>
+<p>async关键字用于声明一个函数是异步函数。异步函数在执行过程中可以暂停，并且可以在某些操作完成之后恢复执行。它们返回一个Promise对象，可以通过await关键字来等待该Promise对象的解决（即完成）。</p>
+<p>而await关键字只能在异步函数内部使用。它可以放在一个返回Promise对象的表达式前面，暂停异步函数的执行，直到该Promise对象解决为止。在等待期间，JavaScript引擎可以继续执行其他任务，以避免阻塞线程。一旦Promise对象解决，await表达式会返回解决的值，并且异步函数会继续执行。</p>
+<p>以下是async和await的简单用法：</p>
+<p>async function fetchData() { try {  const response &#x3D; await fetch(‘<a href="https://api.example.com/data">https://api.example.com/data</a>‘);  const data &#x3D; await response.json();  console.log(data); } catch (error) {  console.log(‘Error:’, error); }}fetchData();</p>
+]]></content>
+      <categories>
+        <category>技术文档</category>
+      </categories>
+      <tags>
+        <tag>Markdown</tag>
+        <tag>前端</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Jotai学习心得</title>
+    <url>/2026/04/21/Jotai%E5%AD%A6%E4%B9%A0%E5%BF%83%E5%BE%97/</url>
+    <content><![CDATA[<h1 id="Jotai学习心得"><a href="#Jotai学习心得" class="headerlink" title="Jotai学习心得"></a>Jotai学习心得</h1><p>了解和使用Jotai之前，我对跨组件状态管理的主要手段是useState + props、Context，以及在部分场景下用EventBus做组件间通信。但在项目复杂度逐渐上升后，这些方案要么带来明显的prop drilling，要么导致组件订阅范围过大、渲染不可控。</p>
+<blockquote>
+<p>Jotai 采用原子方法进行全局 React 状态管理。</p>
+</blockquote>
+<p>Jotai 给我的一个最直观感受是：<strong>它不是在引入一个“更大的状态中心”，而是在把状态拆得足够小。</strong></p>
+<blockquote>
+<p>Atoms are the building blocks of universe and clump together into molecules–</p>
+<p>原子是宇宙的构建模块，聚集成分子——</p>
+</blockquote>
+<p>Jotai 原子是小而孤立的状态片段。理想情况下，一个原子包含非常小的数据（虽然这只是个惯例。仍然可以把所有状态放到一个原子里，虽然那样性能会非常慢）</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; atom &#125; <span class="keyword">from</span> <span class="string">&#x27;jotai&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 原始原子可以是任何类型：布尔、数字、字符串、对象、数组、集合、映射等等。</span></span><br><span class="line"><span class="keyword">const</span> themeAtom = <span class="title function_">atom</span>(<span class="string">&#x27;light&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> countryAtom = <span class="title function_">atom</span>(<span class="string">&#x27;Japan&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> citiesAtom = <span class="title function_">atom</span>([<span class="string">&#x27;Tokyo&#x27;</span>, <span class="string">&#x27;Kyoto&#x27;</span>, <span class="string">&#x27;Osaka&#x27;</span>])</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> animeAtom = <span class="title function_">atom</span>([</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">title</span>: <span class="string">&#x27;Ghost in the Shell&#x27;</span>,</span><br><span class="line">    <span class="attr">year</span>: <span class="number">1995</span>,</span><br><span class="line">    <span class="attr">watched</span>: <span class="literal">true</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">title</span>: <span class="string">&#x27;Serial Experiments Lain&#x27;</span>,</span><br><span class="line">    <span class="attr">year</span>: <span class="number">1998</span>,</span><br><span class="line">    <span class="attr">watched</span>: <span class="literal">false</span></span><br><span class="line">  &#125;</span><br><span class="line">])</span><br><span class="line"></span><br><span class="line"><span class="comment">// 衍生原子可以读取其他原子的信号，然后返回自身的数值</span></span><br><span class="line"><span class="keyword">const</span> progressAtom = <span class="title function_">atom</span>(<span class="function">(<span class="params">get</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> anime = <span class="title function_">get</span>(animeAtom)</span><br><span class="line">  <span class="keyword">return</span> anime.<span class="title function_">filter</span>(<span class="function">(<span class="params">item</span>) =&gt;</span> item.<span class="property">watched</span>).<span class="property">length</span> / anime.<span class="property">length</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="atom-是“最小可共享状态单元”，而不是全局变量"><a href="#atom-是“最小可共享状态单元”，而不是全局变量" class="headerlink" title="atom 是“最小可共享状态单元”，而不是全局变量"></a><strong>atom 是“最小可共享状态单元”，而不是全局变量</strong></h2><p>一开始我担心atom会不会变成新的“全局变量污染”，但实际使用下来发现并不是这样。</p>
+<p>atom本身并不会主动影响任何组件，<strong>只有显式使用 useAtom &#x2F; useAtomValue &#x2F; useSetAtom 的组件才会订阅它</strong>。</p>
+<p>这和传统EventBus或Context的“广播式更新”有本质区别——状态变化只会影响真正关心它的组件，渲染范围更可控。</p>
+<h2 id="很多-EventBus-场景，本质上是“状态同步”而不是“事件”"><a href="#很多-EventBus-场景，本质上是“状态同步”而不是“事件”" class="headerlink" title="很多 EventBus 场景，本质上是“状态同步”而不是“事件”"></a><strong>很多 EventBus 场景，本质上是“状态同步”而不是“事件”</strong></h2><p>在回顾之前使用EventBus的场景时，我发现大量所谓的“跨组件通信”，其实是在同步一些可持续存在的状态，比如：</p>
+<ul>
+<li>是否打开某个弹窗</li>
+<li>当前选中的对象</li>
+<li>列表是否需要刷新</li>
+</ul>
+<p>这些场景用EventBus往往会引入额外的时序问题，而用Jotai表达为atom后，<strong>状态来源和消费关系变得更清楚，也更容易调试</strong>。</p>
+<ul>
+<li><strong>状态型通信</strong> → Jotai</li>
+<li><strong>一次性行为 &#x2F; 命令式操作</strong> → 普通事件或函数调用</li>
+</ul>
+<h2 id="什么时候用Jotai"><a href="#什么时候用Jotai" class="headerlink" title="什么时候用Jotai"></a><strong>什么时候用Jotai</strong></h2><blockquote>
+<p><strong>Jotai 不是“我要一个全局变量”，而是“我要一个可以被多个组件共享的最小状态单元”</strong></p>
+</blockquote>
+<p>面对以下场景：</p>
+<blockquote>
+<p><strong>“这个状态是不是应该被多个地方同时读 &#x2F; 改？”</strong></p>
+</blockquote>
+<ul>
+<li>是 → Jotai</li>
+<li>否 → useState</li>
+</ul>
+<h2 id="Jotai-更适合“局部全局”，而不是无脑全局"><a href="#Jotai-更适合“局部全局”，而不是无脑全局" class="headerlink" title="Jotai 更适合“局部全局”，而不是无脑全局"></a><strong>Jotai 更适合“局部全局”，而不是无脑全局</strong></h2><p>通过学习和了解，总结了一个结论是：<strong>不是所有state都值得atom化</strong>。</p>
+<p>组件内部的临时状态（如hover、输入框值）继续使用useState反而更简单。</p>
+<p>Jotai 真正的优势在于：</p>
+<ul>
+<li>多个组件确实需要共享</li>
+<li>或者希望避免状态层层传递</li>
+<li>或者需要精确控制谁会因状态变化而更新</li>
+</ul>
+<p>在这个前提下，atom更像是“业务域内的共享状态”，而不是应用级的万能全局状态。</p>
+<h2 id="怎么用Jotai"><a href="#怎么用Jotai" class="headerlink" title="怎么用Jotai"></a><strong>怎么用Jotai</strong></h2><p>当原子在同一组件内同时读写时，为了简化使用结合的<code>useAtom</code> 钩子。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; atom, useAtom &#125; <span class="keyword">from</span> <span class="string">&#x27;jotai&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> themeAtom = <span class="title function_">atom</span>(<span class="string">&#x27;light&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="title function_">ThemeSwitcher</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> [theme, setTheme] = <span class="title function_">useAtom</span>(themeAtom);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">main</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>Theme is &#123;theme&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;()</span> =&gt;</span> setTheme(theme === &#x27;light&#x27; ? &#x27;dark&#x27; : &#x27;light&#x27;)&#125;&gt;Toggle Theme<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">main</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>看起来很像useState，但唯一的区别是我们创建的原子要传递给 useState。useAtom返回一个大小为 2 的数组，其中第一个元素是一个值，第二个元素是一个函数，用于设置原子的值。这使得所有依赖该原子的组件都会更新并重新渲染。</p>
+<p>当从不同的组件读取和写入时，使用分别的<code>useAtomValue</code> 和<code>useSetAtom</code> 钩子来优化重新渲染。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; useAtomValue, useSetAtom &#125; <span class="keyword">from</span> <span class="string">&#x27;jotai&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; animeAtom &#125; <span class="keyword">from</span> <span class="string">&#x27;./atoms&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">AnimeList</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> anime = <span class="title function_">useAtomValue</span>(animeAtom)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      &#123;anime.map((item) =&gt; (</span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">&#123;item.title&#125;</span>&gt;</span>&#123;item.title&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      ))&#125;</span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">AddAnime</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> setAnime = <span class="title function_">useSetAtom</span>(animeAtom)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;()</span> =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-xml">      setAnime((anime) =&gt; [</span></span><br><span class="line"><span class="language-xml">        ...anime,</span></span><br><span class="line"><span class="language-xml">        &#123;</span></span><br><span class="line"><span class="language-xml">          title: &#x27;Cowboy Bebop&#x27;,</span></span><br><span class="line"><span class="language-xml">          year: 1998,</span></span><br><span class="line"><span class="language-xml">          watched: false</span></span><br><span class="line"><span class="language-xml">        &#125;</span></span><br><span class="line"><span class="language-xml">      ])</span></span><br><span class="line"><span class="language-xml">    &#125;&#125;&gt;</span></span><br><span class="line"><span class="language-xml">      Add Cowboy Bebop</span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">ProgressTracker</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> progress = <span class="title function_">useAtomValue</span>(progressAtom)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>&#123;Math.trunc(progress * 100)&#125;% watched<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">AnimeApp</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">AnimeList</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">AddAnime</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">ProgressTracker</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="好用的atomWithImmer"><a href="#好用的atomWithImmer" class="headerlink" title="好用的atomWithImmer"></a>好用的atomWithImmer</h2><blockquote>
+<p><strong>atomWithImmer 不是让状态“更全局”，而是让“共享的复杂状态”写起来更安全、更清晰。</strong></p>
+</blockquote>
+<p>React状态最大的痛点：不可变性。</p>
+<p>不可变性很棒，也让人很容易理解React状态，但当状态是对象时，事情会变得非常困难。然后就得做一整套流程，展开对象并与想更新的属性合并。</p>
+<p>而使用Immer允许你直接变异状态</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; atomWithImmer &#125; <span class="keyword">from</span> <span class="string">&#x27;jotai/immer&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> userAtom = <span class="title function_">atomWithImmer</span>(&#123;</span><br><span class="line">  <span class="attr">id</span>: <span class="number">23</span>,</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;Luke Skywalker&#x27;</span>,</span><br><span class="line">  <span class="attr">dob</span>: <span class="keyword">new</span> <span class="title class_">Date</span>(<span class="string">&#x27;25 December, 19 BBY&#x27;</span>),</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">UpdateUser</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> [user, setUser] = <span class="title function_">useAtom</span>(userAtom);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Update the dob</span></span><br><span class="line">  <span class="keyword">const</span> <span class="title function_">updateDob</span> = (<span class="params"></span>) =&gt;</span><br><span class="line">    <span class="title function_">setUser</span>(<span class="function">(<span class="params">user</span>) =&gt;</span> &#123;</span><br><span class="line">      user.<span class="property">dob</span> = <span class="keyword">new</span> <span class="title class_">Date</span>(<span class="string">&#x27;25 November, 200ABY&#x27;</span>);</span><br><span class="line">      <span class="keyword">return</span> user;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;updateDob&#125;</span>&gt;</span>Update DOB<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="✅-适合场景"><a href="#✅-适合场景" class="headerlink" title="✅ 适合场景"></a><strong>✅ 适合场景</strong></h3><ul>
+<li>深层嵌套对象</li>
+<li>列表、树结构</li>
+<li>表单状态</li>
+<li>需要频繁局部修改的共享状态</li>
+</ul>
+<h3 id="❌-不太适合"><a href="#❌-不太适合" class="headerlink" title="❌ 不太适合"></a><strong>❌ 不太适合</strong></h3><ul>
+<li>简单标量值（number &#x2F; boolean）</li>
+<li>非共享的局部状态（用useImmer或useState更简单）</li>
+<li>极度追求极致性能的热点路径（Immer有微小开销）</li>
+</ul>
+]]></content>
+      <categories>
+        <category>复习资料</category>
+      </categories>
+      <tags>
+        <tag>Markdown</tag>
+        <tag>前端</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MCP 工具调用设计：从接口定义到权限控制</title>
+    <url>/2026/11/12/MCP%E5%B7%A5%E5%85%B7%E8%B0%83%E7%94%A8%E8%AE%BE%E8%AE%A1%E4%BB%8E%E6%8E%A5%E5%8F%A3%E5%AE%9A%E4%B9%89%E5%88%B0%E6%9D%83%E9%99%90%E6%8E%A7%E5%88%B6/</url>
+    <content><![CDATA[<h1 id="MCP-工具调用设计：从接口定义到权限控制"><a href="#MCP-工具调用设计：从接口定义到权限控制" class="headerlink" title="MCP 工具调用设计：从接口定义到权限控制"></a>MCP 工具调用设计：从接口定义到权限控制</h1><p>AI 应用如果只负责生成文本，功能相对简单。但当它需要查询数据库、读取文件、创建工单或触发部署时，就必须和外部工具建立连接。</p>
+<p>MCP（Model Context Protocol）提供了一种比较统一的方式，让模型通过 MCP Server 获取资源和调用工具。它解决的不只是“怎么调用接口”，还涉及工具描述、参数结构和执行结果如何返回给模型。</p>
+<h2 id="MCP-中的三类对象"><a href="#MCP-中的三类对象" class="headerlink" title="MCP 中的三类对象"></a>MCP 中的三类对象</h2><p>MCP 常见的核心对象可以分成三类：</p>
+<ul>
+<li>Resources：模型可以读取的资源，例如文档、文件和查询结果</li>
+<li>Tools：模型可以请求执行的动作，例如搜索、创建记录和发送通知</li>
+<li>Prompts：可以复用的提示模板</li>
+</ul>
+<p>简单来说，资源更偏向“读什么”，工具更偏向“做什么”，提示模板则是“如何组织一次任务”。把这几类对象区分开后，应用的职责会更清晰。</p>
+<h2 id="工具描述为什么重要"><a href="#工具描述为什么重要" class="headerlink" title="工具描述为什么重要"></a>工具描述为什么重要</h2><p>模型是否能正确调用工具，很大程度上取决于工具描述是否清楚。一个工具至少需要明确：</p>
+<ul>
+<li>工具名称和用途</li>
+<li>参数名称和数据类型</li>
+<li>必填参数</li>
+<li>参数取值范围</li>
+<li>可能返回的结果</li>
+<li>失败时的错误信息</li>
+</ul>
+<p>例如，一个查询订单的工具，不应该只暴露一个模糊的 <code>query</code> 字符串，而应该明确订单号、用户标识和时间范围分别是什么。参数越清晰，模型越不容易把自然语言中的内容填错位置。</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;get_order&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;description&quot;</span><span class="punctuation">:</span> <span class="string">&quot;根据订单号查询订单状态&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;inputSchema&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;object&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;properties&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;orderId&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;string&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;description&quot;</span><span class="punctuation">:</span> <span class="string">&quot;用户提供的订单号&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;required&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;orderId&quot;</span><span class="punctuation">]</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="工具调用不是普通函数调用"><a href="#工具调用不是普通函数调用" class="headerlink" title="工具调用不是普通函数调用"></a>工具调用不是普通函数调用</h2><p>普通函数调用通常由开发者决定什么时候执行，参数也由代码生成。而 Agent 工具调用中，模型会根据上下文判断是否需要使用工具，因此必须考虑误调用和重复调用。</p>
+<p>比较安全的流程一般包括：</p>
+<ol>
+<li>模型提出工具调用请求</li>
+<li>应用校验工具名称和参数</li>
+<li>根据权限判断是否允许执行</li>
+<li>对有风险的操作请求用户确认</li>
+<li>执行工具并记录结果</li>
+<li>将结果返回给模型继续处理</li>
+</ol>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">模型请求工具</span><br><span class="line">      ↓</span><br><span class="line">参数校验</span><br><span class="line">      ↓</span><br><span class="line">权限检查</span><br><span class="line">      ↓</span><br><span class="line">用户确认（可选）</span><br><span class="line">      ↓</span><br><span class="line">执行并记录</span><br></pre></td></tr></table></figure>
+
+<p>尤其是发送邮件、修改数据、删除文件和触发发布这类有副作用的操作，不能因为模型生成了调用参数就直接执行。</p>
+<h2 id="资源和工具要分开考虑"><a href="#资源和工具要分开考虑" class="headerlink" title="资源和工具要分开考虑"></a>资源和工具要分开考虑</h2><p>如果只是让模型读取项目文档，可以把文档作为 Resource 暴露；如果需要让模型修改项目配置，则应该设计成 Tool，并增加权限和审计。</p>
+<p>这种区分有助于控制风险：只读资源的影响范围通常比较小，而工具可能直接改变外部系统状态。应用需要知道哪些操作可以自动完成，哪些操作必须经过人工确认。</p>
+<h2 id="错误处理和日志"><a href="#错误处理和日志" class="headerlink" title="错误处理和日志"></a>错误处理和日志</h2><p>工具调用失败时，不要只返回一个“执行失败”。更好的错误信息应该包括失败原因、是否可以重试，以及是否需要用户补充信息。</p>
+<p>同时，工具调用过程最好记录下来，包括调用者、参数摘要、执行时间、结果状态和错误信息。这样既方便排查问题，也能发现模型是否反复调用某个工具或频繁传入错误参数。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>MCP 的价值不只是给 Agent 增加几个工具，而是为模型和外部系统之间建立相对清晰的边界。工具描述决定模型能不能正确使用，参数校验决定调用是否安全，权限控制和日志则决定这个系统能不能真正放进业务环境。</p>
+<p>在开发 AI 应用时，我会把工具当成正式的后端接口来设计，而不是把它看成 Prompt 的附属功能。模型可以帮助决定“什么时候调用”，但最终是否允许执行，仍然应该由应用本身负责。</p>
+]]></content>
+      <categories>
+        <category>技术文档</category>
+      </categories>
+      <tags>
+        <tag>AI</tag>
+        <tag>Agent</tag>
+        <tag>Markdown</tag>
+        <tag>MCP</tag>
       </tags>
   </entry>
   <entry>
@@ -502,64 +771,71 @@
       </tags>
   </entry>
   <entry>
-    <title>JS实现仿京东首页商品轮播图</title>
-    <url>/2025/03/13/JS%E5%AE%9E%E7%8E%B0%E4%BB%BF%E4%BA%AC%E4%B8%9C%E9%A6%96%E9%A1%B5%E5%95%86%E5%93%81%E8%BD%AE%E6%92%AD%E5%9B%BE/</url>
-    <content><![CDATA[<h1 id="JS实现仿京东首页商品轮播图"><a href="#JS实现仿京东首页商品轮播图" class="headerlink" title="JS实现仿京东首页商品轮播图"></a>JS实现仿京东首页商品轮播图</h1><p>近期做了一个面试题，仿照京东首页商品轮播图实现一个轮播图</p>
-<h3 id="1-HTML-结构搭建"><a href="#1-HTML-结构搭建" class="headerlink" title="1. HTML 结构搭建"></a>1. HTML 结构搭建</h3><p>HTML 部分主要负责构建轮播图的整体结构，包含一个轮播图容器、图片展示区域以及分页器容器：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;carousel&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;carousel-images&quot;</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 多个图片项 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;carousel-image active&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;1.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;Image 1&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;carousel-image&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;2.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;Image 2&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 更多图片... --&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;pagination&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+    <title>Page Agent：在网页中实现自然语言操作</title>
+    <url>/2026/11/12/Page-Agent%E5%9C%A8%E7%BD%91%E9%A1%B5%E4%B8%AD%E5%AE%9E%E7%8E%B0%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E6%93%8D%E4%BD%9C/</url>
+    <content><![CDATA[<h1 id="Page-Agent：在网页中实现自然语言操作"><a href="#Page-Agent：在网页中实现自然语言操作" class="headerlink" title="Page Agent：在网页中实现自然语言操作"></a>Page Agent：在网页中实现自然语言操作</h1><p>传统的网页自动化通常依赖固定选择器和脚本。开发者需要提前知道按钮、输入框和页面结构，然后通过代码完成点击、输入和滚动。</p>
+<p>Page Agent 提供了另一种思路：让 Agent 直接运行在网页中，根据用户的自然语言理解当前页面，并操作真实的 DOM。</p>
+<h2 id="它可以做什么"><a href="#它可以做什么" class="headerlink" title="它可以做什么"></a>它可以做什么</h2><p>用户可以输入类似这样的指令：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">把筛选条件改成最近一个月，选择状态为已完成，然后导出结果。</span><br></pre></td></tr></table></figure>
 
+<p>Agent 需要先理解目标，再识别页面中对应的输入框、下拉框和按钮，按照顺序完成操作。最终用户不需要记住每个功能位于哪个菜单下面。</p>
+<h2 id="和传统自动化的区别"><a href="#和传统自动化的区别" class="headerlink" title="和传统自动化的区别"></a>和传统自动化的区别</h2><p>Playwright 或浏览器自动化脚本通常是确定性的：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">await</span> page.<span class="title function_">locator</span>(<span class="string">&#x27;#date-range&#x27;</span>).<span class="title function_">click</span>()</span><br><span class="line"><span class="keyword">await</span> page.<span class="title function_">locator</span>(<span class="string">&#x27;text=最近一个月&#x27;</span>).<span class="title function_">click</span>()</span><br><span class="line"><span class="keyword">await</span> page.<span class="title function_">locator</span>(<span class="string">&#x27;#export&#x27;</span>).<span class="title function_">click</span>()</span><br></pre></td></tr></table></figure>
+
+<p>这种方式执行速度快、结果稳定，但页面结构变化后可能需要重新维护选择器。</p>
+<p>Page Agent 更偏向目标驱动。用户告诉它要完成什么，模型根据页面内容决定下一步操作。它不一定依赖固定的 CSS 选择器，而是需要理解页面中的文本、元素和交互关系。</p>
+<h2 id="运行在网页中的特点"><a href="#运行在网页中的特点" class="headerlink" title="运行在网页中的特点"></a>运行在网页中的特点</h2><p>Page Agent 的一个特点是可以直接集成到网页应用里，不一定要求用户安装额外的浏览器插件或专用浏览器。</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">网页页面</span><br><span class="line">   ├─ 当前 DOM 和可交互元素</span><br><span class="line">   ├─ 用户自然语言目标</span><br><span class="line">   └─ Agent 执行层</span><br><span class="line">          ↓</span><br><span class="line">       点击 / 输入 / 滚动</span><br></pre></td></tr></table></figure>
+
+<p>这种方式适合给已有系统增加自然语言操作入口，也适合构建后台管理、表单填写和复杂配置场景中的辅助能力。</p>
+<h2 id="需要解决的问题"><a href="#需要解决的问题" class="headerlink" title="需要解决的问题"></a>需要解决的问题</h2><p>自然语言操作虽然灵活，但执行结果不能只依赖模型“看起来理解了”。页面中可能存在相似按钮、动态加载内容和不可见元素，Agent 需要在执行前确认当前页面状态。</p>
+<p>另外，点击和输入属于可逆操作，但删除数据、提交订单和发布内容具有外部副作用。对于这类操作，应该增加确认步骤：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">识别目标 → 生成操作计划 → 执行低风险步骤</span><br><span class="line">                         ↓</span><br><span class="line">                 高风险操作前确认</span><br></pre></td></tr></table></figure>
+
+<p>还需要考虑操作失败、页面跳转、权限不足和模型误判。一个完整的 Page Agent 不能只有“让模型点击”，还要有状态观察、错误恢复和操作审计。</p>
+<h2 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h2><p>Page Agent 比较适合以下类型的应用：</p>
 <ul>
-<li><code>.carousel</code>：作为轮播图的整体容器，用于包裹图片展示区域和分页器。</li>
-<li><code>.carousel-images</code>：用于存放所有轮播图片的容器。</li>
-<li><code>.carousel-image</code>：每个图片项的容器，初始状态下只有带有 <code>active</code> 类的图片项会显示。</li>
-<li><code>.pagination</code>：分页器容器，后续会通过 JavaScript 动态创建分页点。</li>
+<li>后台系统中的复杂筛选和批量操作</li>
+<li>表单填写和资料录入</li>
+<li>需要跨多个页面完成的流程</li>
+<li>给已有系统增加自然语言辅助入口</li>
 </ul>
-<h3 id="2-CSS-样式设计"><a href="#2-CSS-样式设计" class="headerlink" title="2. CSS 样式设计"></a>2. CSS 样式设计</h3><p>CSS 部分为轮播图添加样式，实现布局和渐隐渐显效果：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.carousel</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">80%</span>;</span><br><span class="line">    <span class="attribute">margin</span>: auto;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">2px</span> <span class="number">10px</span> <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.1</span>);</span><br><span class="line">    <span class="attribute">overflow</span>: hidden;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">750px</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">522px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.carousel-image</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">opacity</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">transition</span>: opacity <span class="number">1s</span> ease;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.carousel-image</span><span class="selector-class">.active</span> &#123;</span><br><span class="line">    <span class="attribute">opacity</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果页面流程非常固定、对稳定性要求极高，传统脚本可能仍然更合适。Page Agent 的优势主要在于减少用户学习成本，让用户用目标描述代替记忆操作路径。</p>
+<p>我觉得这类技术有意思的地方在于：网页不再只是供人操作的界面，也可以成为 Agent 观察和执行任务的环境。但要真正用于业务，还需要把权限、确认和失败恢复放在和模型能力同样重要的位置。</p>
+]]></content>
+      <categories>
+        <category>技术文档</category>
+      </categories>
+      <tags>
+        <tag>AI</tag>
+        <tag>Agent</tag>
+        <tag>Markdown</tag>
+        <tag>前端</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Web Worker：解决前端计算阻塞问题</title>
+    <url>/2026/11/12/Web-Worker%E8%A7%A3%E5%86%B3%E5%89%8D%E7%AB%AF%E8%AE%A1%E7%AE%97%E9%98%BB%E5%A1%9E%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h1 id="Web-Worker：解决前端计算阻塞问题"><a href="#Web-Worker：解决前端计算阻塞问题" class="headerlink" title="Web Worker：解决前端计算阻塞问题"></a>Web Worker：解决前端计算阻塞问题</h1><p>浏览器中的 JavaScript 通常运行在主线程上。页面渲染、用户点击、输入响应和脚本执行都会受到主线程状态的影响。如果一段计算运行时间太长，页面就可能出现卡顿，甚至暂时无法响应操作。</p>
+<p>Web Worker 提供了一个独立的后台线程，可以把不依赖 DOM 的计算任务交给它处理。主线程负责页面交互，Worker 负责数据计算，计算结束后再把结果传回来。</p>
+<h2 id="一个简单的使用方式"><a href="#一个简单的使用方式" class="headerlink" title="一个简单的使用方式"></a>一个简单的使用方式</h2><p>主线程创建 Worker，并通过 <code>postMessage</code> 发送数据：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> worker = <span class="keyword">new</span> <span class="title class_">Worker</span>(<span class="string">&#x27;./worker.js&#x27;</span>)</span><br><span class="line"></span><br><span class="line">worker.<span class="title function_">postMessage</span>(&#123;</span><br><span class="line">  <span class="attr">type</span>: <span class="string">&#x27;calculate&#x27;</span>,</span><br><span class="line">  <span class="attr">data</span>: largeList</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">worker.<span class="property">onmessage</span> = <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;计算结果：&#x27;</span>, event.<span class="property">data</span>)</span><br><span class="line">  worker.<span class="title function_">terminate</span>()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<p><code>worker.js</code> 中接收数据，完成计算后返回结果：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">self.<span class="property">onmessage</span> = <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> &#123; type, data &#125; = event.<span class="property">data</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (type === <span class="string">&#x27;calculate&#x27;</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> result = data.<span class="title function_">map</span>(<span class="function">(<span class="params">item</span>) =&gt;</span> item.<span class="property">value</span> * <span class="number">2</span>)</span><br><span class="line">    self.<span class="title function_">postMessage</span>(result)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>主线程和 Worker 之间不能直接共享普通变量，而是通过消息通信。数据会经过结构化克隆，数据量很大时也要考虑传输成本。</p>
+<h2 id="适合什么场景"><a href="#适合什么场景" class="headerlink" title="适合什么场景"></a>适合什么场景</h2><p>Worker 更适合处理纯数据和计算密集型任务，例如：</p>
 <ul>
-<li><code>.carousel</code>：设置相对定位，方便内部元素进行绝对定位，同时设置宽度、边距、圆角、阴影和溢出隐藏等样式。</li>
-<li><code>.carousel-image</code>：设置绝对定位，使其重叠显示，初始透明度为 0，通过 <code>transition</code> 属性实现渐隐渐显效果。</li>
-<li><code>.carousel-image.active</code>：当图片项带有 <code>active</code> 类时，透明度为 1，即显示该图片。</li>
+<li>大数组排序、筛选和转换</li>
+<li>文件解析</li>
+<li>图片或音频数据处理</li>
+<li>加密计算</li>
+<li>大量数据统计</li>
 </ul>
-<h3 id="3-JavaScript-功能实现"><a href="#3-JavaScript-功能实现" class="headerlink" title="3. JavaScript 功能实现"></a>3. JavaScript 功能实现</h3><h4 id="3-1-变量初始化"><a href="#3-1-变量初始化" class="headerlink" title="3.1 变量初始化"></a>3.1 变量初始化</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> images = <span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&#x27;.carousel-image&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> pagination = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;.pagination&#x27;</span>);</span><br><span class="line"><span class="keyword">let</span> currentIndex = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">let</span> timer;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><code>images</code>：获取所有的图片项元素。</li>
-<li><code>pagination</code>：获取分页器容器元素。</li>
-<li><code>currentIndex</code>：记录当前显示图片的索引，初始值为 0。</li>
-<li><code>timer</code>：用于存储自动播放的定时器 ID。</li>
-</ul>
-<h4 id="3-2-分页器创建"><a href="#3-2-分页器创建" class="headerlink" title="3.2 分页器创建"></a>3.2 分页器创建</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">images.<span class="title function_">forEach</span>(<span class="function">(<span class="params">_, index</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> dot = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;span&#x27;</span>);</span><br><span class="line">    dot.<span class="property">classList</span>.<span class="title function_">add</span>(<span class="string">&#x27;dot&#x27;</span>);</span><br><span class="line">    dot.<span class="property">dataset</span>.<span class="property">index</span> = index;</span><br><span class="line">    dot.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">clearInterval</span>(timer);</span><br><span class="line">        currentIndex = index;</span><br><span class="line">        <span class="title function_">updateCarousel</span>();</span><br><span class="line">        <span class="title function_">startAutoPlay</span>();</span><br><span class="line">    &#125;);</span><br><span class="line">    pagination.<span class="title function_">appendChild</span>(dot);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>遍历所有图片项，为每个图片项创建一个分页点（<code>&lt;span&gt;</code> 元素），并添加 <code>dot</code> 类。</li>
-<li>为每个分页点设置 <code>data-index</code> 属性，用于记录其对应的图片索引。</li>
-<li>为每个分页点添加点击事件监听器，点击时清除当前定时器，更新 <code>currentIndex</code> 为点击的分页点对应的索引，调用 <code>updateCarousel()</code> 函数切换图片，然后重新启动定时器。</li>
-</ul>
-<h4 id="3-3-图片切换函数"><a href="#3-3-图片切换函数" class="headerlink" title="3.3 图片切换函数"></a>3.3 图片切换函数</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">updateCarousel</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">    images.<span class="title function_">forEach</span>(<span class="function">(<span class="params">image, index</span>) =&gt;</span> &#123;</span><br><span class="line">        image.<span class="property">classList</span>.<span class="title function_">remove</span>(<span class="string">&#x27;active&#x27;</span>);</span><br><span class="line">        <span class="keyword">if</span> (index === currentIndex) &#123;</span><br><span class="line">            image.<span class="property">classList</span>.<span class="title function_">add</span>(<span class="string">&#x27;active&#x27;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&#x27;.dot&#x27;</span>).<span class="title function_">forEach</span>(<span class="function"><span class="params">dot</span> =&gt;</span> dot.<span class="property">classList</span>.<span class="title function_">remove</span>(<span class="string">&#x27;active&#x27;</span>));</span><br><span class="line">    <span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&#x27;.dot&#x27;</span>)[currentIndex].<span class="property">classList</span>.<span class="title function_">add</span>(<span class="string">&#x27;active&#x27;</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>遍历所有图片项，移除所有图片项的 <code>active</code> 类，然后为当前索引对应的图片项添加 <code>active</code> 类，实现图片的切换。</li>
-<li>同样，遍历所有分页点，移除所有分页点的 <code>active</code> 类，然后为当前索引对应的分页点添加 <code>active</code> 类，更新分页器状态。</li>
-</ul>
-<h4 id="3-4-自动播放函数"><a href="#3-4-自动播放函数" class="headerlink" title="3.4 自动播放函数"></a>3.4 自动播放函数</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">startAutoPlay</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">    timer = <span class="built_in">setInterval</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        currentIndex = (currentIndex + <span class="number">1</span>) % images.<span class="property">length</span>;</span><br><span class="line">        <span class="title function_">updateCarousel</span>();</span><br><span class="line">    &#125;, <span class="number">1000</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>使用 <code>setInterval</code> 函数创建一个定时器，每隔 1 秒执行一次回调函数。</li>
-<li>在回调函数中，更新 <code>currentIndex</code> 为下一张图片的索引（使用取模运算符确保索引不会越界），然后调用 <code>updateCarousel()</code> 函数切换图片。</li>
-</ul>
-<h4 id="3-5-初始化操作"><a href="#3-5-初始化操作" class="headerlink" title="3.5 初始化操作"></a>3.5 初始化操作</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="title function_">updateCarousel</span>();</span><br><span class="line"><span class="title function_">startAutoPlay</span>();</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>调用 <code>updateCarousel()</code> 函数进行初始化，显示第一张图片并更新分页器状态。</li>
-<li>调用 <code>startAutoPlay()</code> 函数启动自动播放功能。</li>
-</ul>
-<p>综上所述，通过 HTML 构建结构、CSS 设置样式和 JavaScript 实现交互逻辑，完成了一个具有渐隐渐显效果、支持自动播放和手动切换的轮播图。</p>
-<h3 id="4-全部代码"><a href="#4-全部代码" class="headerlink" title="4.全部代码"></a>4.全部代码</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;zh&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>水平轮播图<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-tag">body</span> &#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">font-family</span>: Arial, sans-serif;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">background-color</span>: <span class="number">#f5f5f5</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">margin</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">padding</span>: <span class="number">50px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">text-align</span>: center;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">width</span>: <span class="number">522px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">height</span>: <span class="number">750px</span>;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.carousel</span> &#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">position</span>: relative;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">width</span>: <span class="number">80%</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">margin</span>: auto; </span></span><br><span class="line"><span class="language-css">            <span class="attribute">border-radius</span>: <span class="number">10px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">2px</span> <span class="number">10px</span> <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.1</span>);</span></span><br><span class="line"><span class="language-css">            <span class="attribute">overflow</span>: hidden;</span></span><br><span class="line"><span class="language-css">            <span class="comment">/* 设置一个合适的高度，可根据实际图片比例调整 */</span></span></span><br><span class="line"><span class="language-css">            <span class="attribute">height</span>: <span class="number">750px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">width</span>: <span class="number">522px</span>;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.carousel-images</span> &#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">position</span>: relative;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">width</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">height</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.carousel-image</span> &#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">position</span>: absolute;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">width</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">height</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">opacity</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">transition</span>: opacity <span class="number">1s</span> ease;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.carousel-image</span><span class="selector-class">.active</span> &#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">opacity</span>: <span class="number">1</span>;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.carousel</span> <span class="selector-tag">img</span> &#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">width</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">height</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">object-fit</span>: cover;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">border-radius</span>: <span class="number">10px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">display</span>: block;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.pagination</span> &#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">position</span>: absolute;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">bottom</span>: <span class="number">20px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">left</span>: <span class="number">50%</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">transform</span>: <span class="built_in">translateX</span>(-<span class="number">50%</span>);</span></span><br><span class="line"><span class="language-css">            <span class="attribute">text-align</span>: center;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">z-index</span>: <span class="number">1</span>;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.dot</span> &#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">display</span>: inline-block;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">width</span>: <span class="number">10px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">height</span>: <span class="number">10px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">margin</span>: <span class="number">0</span> <span class="number">5px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">border-radius</span>: <span class="number">50%</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">background-color</span>: <span class="number">#bbb</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">cursor</span>: pointer;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.dot</span><span class="selector-class">.active</span> &#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">background-color</span>: <span class="number">#717171</span>;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;carousel&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;carousel-images&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;carousel-image active&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;1.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;Image 1&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;carousel-image&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;2.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;Image 2&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;carousel-image&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;3.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;Image 3&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;carousel-image&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;4.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;Image 4&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;carousel-image&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;5.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;Image 5&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;carousel-image&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;6.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;Image 6&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;pagination&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">const</span> images = <span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&#x27;.carousel-image&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">const</span> pagination = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;.pagination&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">let</span> currentIndex = <span class="number">0</span>;</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">let</span> timer;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// 创建分页器</span></span></span><br><span class="line"><span class="language-javascript">        images.<span class="title function_">forEach</span>(<span class="function">(<span class="params">_, index</span>) =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">const</span> dot = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;span&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">            dot.<span class="property">classList</span>.<span class="title function_">add</span>(<span class="string">&#x27;dot&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">            dot.<span class="property">dataset</span>.<span class="property">index</span> = index;</span></span><br><span class="line"><span class="language-javascript">            dot.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="comment">// 清除当前定时器</span></span></span><br><span class="line"><span class="language-javascript">                <span class="built_in">clearInterval</span>(timer);</span></span><br><span class="line"><span class="language-javascript">                currentIndex = index;</span></span><br><span class="line"><span class="language-javascript">                <span class="title function_">updateCarousel</span>();</span></span><br><span class="line"><span class="language-javascript">                <span class="comment">// 重新启动定时器</span></span></span><br><span class="line"><span class="language-javascript">                <span class="title function_">startAutoPlay</span>();</span></span><br><span class="line"><span class="language-javascript">            &#125;);</span></span><br><span class="line"><span class="language-javascript">            pagination.<span class="title function_">appendChild</span>(dot);</span></span><br><span class="line"><span class="language-javascript">        &#125;);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">const</span> <span class="title function_">updateCarousel</span> = (<span class="params"></span>) =&gt; &#123;</span></span><br><span class="line"><span class="language-javascript">            images.<span class="title function_">forEach</span>(<span class="function">(<span class="params">image, index</span>) =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">                image.<span class="property">classList</span>.<span class="title function_">remove</span>(<span class="string">&#x27;active&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">                <span class="keyword">if</span> (index === currentIndex) &#123;</span></span><br><span class="line"><span class="language-javascript">                    image.<span class="property">classList</span>.<span class="title function_">add</span>(<span class="string">&#x27;active&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">                &#125;</span></span><br><span class="line"><span class="language-javascript">            &#125;);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 更新分页器状态</span></span></span><br><span class="line"><span class="language-javascript">            <span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&#x27;.dot&#x27;</span>).<span class="title function_">forEach</span>(<span class="function"><span class="params">dot</span> =&gt;</span> dot.<span class="property">classList</span>.<span class="title function_">remove</span>(<span class="string">&#x27;active&#x27;</span>));</span></span><br><span class="line"><span class="language-javascript">            <span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&#x27;.dot&#x27;</span>)[currentIndex].<span class="property">classList</span>.<span class="title function_">add</span>(<span class="string">&#x27;active&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">        &#125;;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">const</span> <span class="title function_">startAutoPlay</span> = (<span class="params"></span>) =&gt; &#123;</span></span><br><span class="line"><span class="language-javascript">            timer = <span class="built_in">setInterval</span>(<span class="function">() =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">                currentIndex = (currentIndex + <span class="number">1</span>) % images.<span class="property">length</span>;</span></span><br><span class="line"><span class="language-javascript">                <span class="title function_">updateCarousel</span>();</span></span><br><span class="line"><span class="language-javascript">            &#125;, <span class="number">1000</span>);</span></span><br><span class="line"><span class="language-javascript">        &#125;;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// 初始化</span></span></span><br><span class="line"><span class="language-javascript">        <span class="title function_">updateCarousel</span>();</span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// 启动自动播放</span></span></span><br><span class="line"><span class="language-javascript">        <span class="title function_">startAutoPlay</span>();</span></span><br><span class="line"><span class="language-javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-
-
+<p>Worker 不能直接操作页面 DOM，也不能直接访问主线程中的变量。如果任务需要频繁更新页面，通常应该让 Worker 负责计算，主线程负责根据结果更新 UI。</p>
+<h2 id="不要为了使用而使用"><a href="#不要为了使用而使用" class="headerlink" title="不要为了使用而使用"></a>不要为了使用而使用</h2><p>Worker 也有创建线程、消息通信和数据复制的成本。如果只是一个很小的计算，直接在主线程中执行反而更简单。只有当计算本身足够耗时，已经影响到页面交互时，才值得引入 Worker。</p>
+<p>我的理解是，Web Worker 并不是让前端“拥有了无限算力”，而是把不同类型的工作分配到更合适的线程中。使用前最好先通过性能面板确认瓶颈，再决定是否需要拆分任务。</p>
 ]]></content>
       <categories>
         <category>技术文档</category>
@@ -567,65 +843,55 @@
       <tags>
         <tag>Markdown</tag>
         <tag>前端</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
-    <title>JS异步</title>
-    <url>/2025/08/24/JS%E5%BC%82%E6%AD%A5/</url>
-    <content><![CDATA[<h1 id="JS异步"><a href="#JS异步" class="headerlink" title="JS异步"></a>JS异步</h1><h2 id="并发-并行"><a href="#并发-并行" class="headerlink" title="并发&amp;并行"></a>并发&amp;并行</h2><p>并发是宏观概念，我分别有任务 A 和任务 B，在一段时间内通过任务间的切换完成了这两个任务，这种情况就可以称之为并发。</p>
-<p>并行是微观概念，假设 CPU 中存在两个核心，那么我就可以同时完成任务 A、B。同时完成多个任务的情况就可以称之为并行</p>
-<h2 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h2><p>Promise是在ES6中确定的对异步及回调处理的规范实现</p>
-<p>一个 Promise 必然处于以下几种状态之一：</p>
+    <title>V8垃圾回收机制</title>
+    <url>/2025/03/13/V8%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/</url>
+    <content><![CDATA[<h1 id="V8垃圾回收机制"><a href="#V8垃圾回收机制" class="headerlink" title="V8垃圾回收机制"></a>V8垃圾回收机制</h1><h2 id="垃圾回收机制"><a href="#垃圾回收机制" class="headerlink" title="垃圾回收机制"></a>垃圾回收机制</h2><p>目标：清除不再使用的对象，使腾退出所占用的内存</p>
+<p>在浏览器的发展历史上有两种解决策略：</p>
 <ul>
-<li>待定（pending）: 初始状态，既没有被兑现，也没有被拒绝。</li>
-<li>已兑现（fulfilled）: 意味着操作成功完成。</li>
-<li>已拒绝（rejected）: 意味着操作失败。</li>
+<li>标记清除</li>
+<li>引用计数</li>
 </ul>
-<p>使用Promise封装ajax</p>
-<p>关键：<code>return new Promise((resolve, reject)=&gt;&#123;...&#125;)</code> 用以返回一个Promise对象。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">ajax = <span class="function">(<span class="params">method, url</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>)=&gt;</span>&#123; <span class="comment">//关键，用以返回一个Promise对象</span></span><br><span class="line">        <span class="keyword">var</span> request = <span class="keyword">new</span> <span class="title class_">XMLHttpRequest</span>() </span><br><span class="line">        request.<span class="title function_">open</span>(method, url)</span><br><span class="line">        request.<span class="property">onreadystateChange</span> = <span class="keyword">function</span>(<span class="params"></span></span><br><span class="line"><span class="params">            <span class="keyword">if</span>(request.readyState === <span class="number">4</span>)&#123;</span></span><br><span class="line"><span class="params">                <span class="variable language_">console</span>.log(<span class="string">&#x27;请求完成&#x27;</span>)</span></span><br><span class="line"><span class="params">                <span class="keyword">if</span>(request.responese.status === <span class="number">200</span>)&#123;</span></span><br><span class="line"><span class="params">                    <span class="variable language_">console</span>.log(<span class="string">&#x27;请求成功&#x27;</span>)</span></span><br><span class="line"><span class="params">                    resolve.call(<span class="literal">null</span>, request.response) //成功则调用resolve</span></span><br><span class="line"><span class="params">                &#125;<span class="keyword">else</span>&#123;</span></span><br><span class="line"><span class="params">                    <span class="variable language_">console</span>.log(<span class="string">&#x27;请求失败&#x27;</span>)</span></span><br><span class="line"><span class="params">                    reject.call(<span class="literal">null</span>, request) //失败则调用reject</span></span><br><span class="line"><span class="params">                &#125;</span></span><br><span class="line"><span class="params">            &#125;</span></span><br><span class="line"><span class="params">        </span>)</span><br><span class="line">        request.<span class="title function_">send</span>()</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>一个Promise对象具有then函数，then函数接受两个函数，第一个函数当 Promise 变成接受状态（fulfilled）时被调用，第二个函数当 Promise 变成拒绝状态（rejected）时被调用。</p>
-<p>catch 接收一个函数，在Promise被reject的时候执行，除非该函数抛出错误或返回一个失败的Promise，否则返回的Promise一直是resolved。实质上catch(failureCallback) 是 then(null, failureCallback) 的缩略形式。</p>
-<p>finally接收一个回调函数，在promise结束时，无论结果是fulfilled或者是rejected，都会执行指定该回调函数。这避免了同样的语句需要在then()和catch()中各写一次的情况。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="title function_">ajax</span>(<span class="string">&#x27;GET&#x27;</span>,<span class="string">&#x27;/user&#x27;</span>)</span><br><span class="line">.<span class="title function_">then</span>(</span><br><span class="line">    <span class="function"><span class="params">res</span>=&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(res),</span><br><span class="line">    <span class="function"><span class="params">request</span> =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(request)</span><br><span class="line">)</span><br><span class="line">.<span class="title function_">catch</span>(<span class="function"><span class="params">err</span> =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(err))</span><br><span class="line">.<span class="title function_">finally</span>( <span class="function">() =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;结束&#x27;</span>) )</span><br></pre></td></tr></table></figure>
-
-<h2 id="async和await"><a href="#async和await" class="headerlink" title="async和await"></a>async和await</h2><p>async和await都是JavaScript中用于处理异步操作的关键字。</p>
-<p>async关键字用于声明一个函数是异步函数。异步函数在执行过程中可以暂停，并且可以在某些操作完成之后恢复执行。它们返回一个Promise对象，可以通过await关键字来等待该Promise对象的解决（即完成）。</p>
-<p>而await关键字只能在异步函数内部使用。它可以放在一个返回Promise对象的表达式前面，暂停异步函数的执行，直到该Promise对象解决为止。在等待期间，JavaScript引擎可以继续执行其他任务，以避免阻塞线程。一旦Promise对象解决，await表达式会返回解决的值，并且异步函数会继续执行。</p>
-<p>以下是async和await的简单用法：</p>
-<p>async function fetchData() { try {  const response &#x3D; await fetch(‘<a href="https://api.example.com/data">https://api.example.com/data</a>‘);  const data &#x3D; await response.json();  console.log(data); } catch (error) {  console.log(‘Error:’, error); }}fetchData();</p>
+<h3 id="标记清除"><a href="#标记清除" class="headerlink" title="标记清除"></a>标记清除</h3><p>标记清除分为：标记阶段和清除阶段。</p>
+<p>首先它会遍历堆内存上所有的对象，分别给它们打上标记，然后在代码执行过程结束之后，对所使用过的变量取消标记。在清除阶段再把具有标记的内存对象进行整体清除，从而释放内存空间。</p>
+<p>使用标记清除策略的最重要的优点在于简单，无非是标记和不标记的差异。通过标记清除之后，剩余的对象内存位置是不变的，也会导致空闲内存空间是不连续的，这就造成出现内存碎片的问题。内存碎片多了后，如果要存储一个新的需要占据较大内存空间的对象，就会造成影响。对于通过标记清除产生的内存碎片，还是需要通过标记整理策略进行解决。</p>
+<p>简而言之：</p>
+<ul>
+<li>优点：简单</li>
+<li>缺点：内存碎片化、分配速度慢</li>
+</ul>
+<h3 id="标记整理"><a href="#标记整理" class="headerlink" title="标记整理"></a>标记整理</h3><p>经过标记清除策略整理后，老生代内存中因此产生了许多内存碎片，如果不进行清理内存碎片，就会对存储造成影响。</p>
+<p><strong>标记整理（Mark-Compact）算法</strong> 就可以有效地解决标记清除的两个缺点。它的标记阶段和标记清除算法没有什么不同，只是标记结束后，标记整理算法会将活着的对象（即不需要清理的对象）向内存的一端移动，最后清理掉边界的内存。</p>
+<h3 id="引用计数"><a href="#引用计数" class="headerlink" title="引用计数"></a>引用计数</h3><p>引用计数是一种不常见的垃圾回收策略，其思路就是对每个值都记录其的引用次数。具体的：</p>
+<ul>
+<li>当变量进行声明并赋值后，值的引用数为1。</li>
+<li>当同一个值被赋值给另一个变量时，引用数+1</li>
+<li>当保存该值引用的变量被其它值覆盖时，引用数-1</li>
+<li>当该值的引用数为0时，表示无法再访问该值了，此时就可以放心地将其清除并回收内存。</li>
+</ul>
+<p>这种回收策略看起来很方便，<strong>但是当其进行循环引用时就会出现问题，会造成大量的内存不会被释放。</strong>当函数结束后，两个对象都不在作用域中，A 和 B 都会被当作非活动对象来清除掉，相比之下，引用计数则不会释放，也就会造成大量无用内存占用，这也是后来放弃引用计数，使用标记清除的原因之一。</p>
+<h2 id="V8对于垃圾回收机制的优化"><a href="#V8对于垃圾回收机制的优化" class="headerlink" title="V8对于垃圾回收机制的优化"></a>V8对于垃圾回收机制的优化</h2><h3 id="分代式垃圾回收"><a href="#分代式垃圾回收" class="headerlink" title="分代式垃圾回收"></a>分代式垃圾回收</h3><p>V8 的垃圾回收策略主要基于分代式垃圾回收机制，V8 中将堆内存分为新生代和老生代两区域，采用不同的垃圾回收器也就是不同的策略管理垃圾回收。</p>
+<p>新生代的对象为存活时间较短的对象，简单来说就是新产生的对象，通常只支持 1～8M 的容量，而老生代的对象为存活事件较长或常驻内存的对象，简单来说就是经历过新生代垃圾回收后还存活下来的对象，容量通常比较大。</p>
+<p>V8 整个堆内存的大小就等于新生代加上老生代的内存，对于新老两块内存区域的垃圾回收，V8 采用了两个垃圾回收器来管控。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/image-20231109155126666.png" alt="image-20231109155126666"></p>
+<p>新生代内存回收的原理是：</p>
+<ul>
+<li>新加入的对象都会存放在使用区，当使用区快写满时就进行一次垃圾清理操作。</li>
+<li>在开始进行垃圾回收时，新生代回收器会对使用区内的对象进行标记</li>
+<li>标记完成后，需要对使用区内的活动对象拷贝到空闲区进行排序</li>
+<li>而后进入垃圾清理阶段，将非活动对象占用的内存空间进行清理</li>
+<li>最后对使用区和空闲区进行交换，使用区-&gt;空闲区，空闲区-&gt;使用区</li>
+</ul>
+<p>老生代内存回收的原理是：使用Mark-Sweep（标记清除）和Mark-Compact（标记整理）的策略</p>
+<p>首先是标记阶段，从一组根元素开始，递归遍历这组根元素，遍历过程中能到达的元素称为活动对象，没有到达的元素就可以判断为非活动对象。清除阶段老生代垃圾回收器会直接将非活动对象，也就是数据清理掉。</p>
+<p>同样的标记清除策略会产生内存碎片，因此还需要进行标记整理策略进行优化。</p>
+<p>另外，因为JS是单线程语言，所以在执行垃圾回收机制的时候，JS执行会被暂停，称为全停顿。而V8机制对这种情况做了一定的优化，垃圾回收机制支持多线程并行回收，提高了垃圾回收的效率。但是仍然会阻塞JS的执行，所以就诞生了增量标记。增量标记可以使得垃圾回收可以分段执行，最大化保证了JS的执行。V8机制还支持了并发回收。JS在主线程执行，垃圾回收在辅助线程执行</p>
 ]]></content>
       <categories>
         <category>技术文档</category>
-      </categories>
-      <tags>
-        <tag>Markdown</tag>
-        <tag>前端</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>JS基于原型的继承理解</title>
-    <url>/2025/03/13/JS%E5%9F%BA%E4%BA%8E%E5%8E%9F%E5%9E%8B%E7%9A%84%E7%BB%A7%E6%89%BF%E7%90%86%E8%A7%A3/</url>
-    <content><![CDATA[<h1 id="JS基于原型的继承理解"><a href="#JS基于原型的继承理解" class="headerlink" title="JS基于原型的继承理解"></a>JS基于原型的继承理解</h1><h2 id="原型＆原型链"><a href="#原型＆原型链" class="headerlink" title="原型＆原型链"></a>原型＆原型链</h2><p>JavaScript 只有一种结构：对象。每个对象（object）都有一个私有属性指向另一个名为<strong>原型</strong>（prototype）的对象。原型对象也有一个自己的原型，层层向上直到一个对象的原型为 <code>null</code>。根据定义，<code>null</code> 没有原型，并作为这个<strong>原型链</strong>（prototype chain）中的最后一个环节。</p>
-<p>JavaScript 对象是动态的属性（指<strong>其自有属性</strong>）“包”。JavaScript 对象有一个指向一个原型对象的链。当试图访问一个对象的属性时，它不仅仅在该对象上搜寻，还会搜寻该对象的原型，以及原型的原型，依次层层向上搜索，直到找到一个名字匹配的属性或到达原型链的末尾。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">student.<span class="property">_proto_</span> === <span class="title class_">Student</span>.<span class="property"><span class="keyword">prototype</span></span> </span><br><span class="line"><span class="comment">//  隐式原型             显示原型</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Person</span>&#123;</span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params">name</span>)&#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">name</span> = name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="title function_">drink</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;喝水&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;	</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Teacher</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Person</span>&#123;</span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params">name,subject</span>)&#123;</span><br><span class="line">        <span class="variable language_">super</span>(name);</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">subject</span> = subject;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="title function_">teach</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`我是$(this.name),教$(this.subject)。`</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> teacher = <span class="keyword">new</span> <span class="title class_">Teacher</span>(<span class="string">&#x27;哈默&#x27;</span>,<span class="string">&#x27;前端开发&#x27;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;teacher&#x27;</span>,teacher);</span><br><span class="line">teacher.<span class="title function_">teach</span>();</span><br><span class="line">teacher.<span class="title function_">drink</span>();</span><br></pre></td></tr></table></figure>
-
-<p>代码对应原型链如图：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/image-20231106141020167.png" alt="image-20231106141020167"></p>
-<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><p>super关键字：</p>
-<p>super 关键字用于访问和调用一个对象的父对象上的函数。在构造函数中使用时，super关键字将单独出现，并且必须在使用 this 关键字之前使用。super 关键字也可以用来调用父对象上的函数。</p>
-<p>语法：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">super</span>(<span class="variable language_">arguments</span>);  <span class="comment">// 调用父构造函数</span></span><br><span class="line"><span class="variable language_">super</span>.<span class="title function_">parentMethod</span>(<span class="variable language_">arguments</span>);  <span class="comment">// 调用父方法</span></span><br></pre></td></tr></table></figure>
-
-<p>在类中使用super实例：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Polygon</span> &#123;</span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params">height, width</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">name</span> = <span class="string">&#x27;Rectangle&#x27;</span>;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">height</span> = height;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">width</span> = width;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="title function_">sayName</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;Hi, I am a &#x27;</span> + <span class="variable language_">this</span>.<span class="property">name</span> + <span class="string">&#x27;.&#x27;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">get</span> <span class="title function_">area</span>() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">height</span> * <span class="variable language_">this</span>.<span class="property">width</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">set</span> <span class="title function_">area</span>(<span class="params">value</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">_area</span> = value;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Square</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Polygon</span> &#123;</span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params">length</span>) &#123;</span><br><span class="line">    <span class="comment">// 这里，它调用父类的构造函数的，</span></span><br><span class="line">    <span class="comment">// 作为 Polygon 的 height, width</span></span><br><span class="line">    <span class="variable language_">super</span>(length, length);</span><br><span class="line">      </span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">height</span>; <span class="comment">// 需要放在 super 后面，不然引发 ReferenceErro</span></span><br><span class="line"> </span><br><span class="line">    <span class="comment">// 注意：在派生的类中，在你可以使用&#x27;this&#x27;之前，必须先调用 super()。</span></span><br><span class="line">    <span class="comment">// 忽略这，这将导致引用错误。</span></span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">name</span> = <span class="string">&#x27;Square&#x27;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>自学资料</category>
       </categories>
       <tags>
         <tag>Markdown</tag>
@@ -1052,239 +1318,6 @@
       </tags>
   </entry>
   <entry>
-    <title>MCP 工具调用设计：从接口定义到权限控制</title>
-    <url>/2026/11/12/MCP%E5%B7%A5%E5%85%B7%E8%B0%83%E7%94%A8%E8%AE%BE%E8%AE%A1%E4%BB%8E%E6%8E%A5%E5%8F%A3%E5%AE%9A%E4%B9%89%E5%88%B0%E6%9D%83%E9%99%90%E6%8E%A7%E5%88%B6/</url>
-    <content><![CDATA[<h1 id="MCP-工具调用设计：从接口定义到权限控制"><a href="#MCP-工具调用设计：从接口定义到权限控制" class="headerlink" title="MCP 工具调用设计：从接口定义到权限控制"></a>MCP 工具调用设计：从接口定义到权限控制</h1><p>AI 应用如果只负责生成文本，功能相对简单。但当它需要查询数据库、读取文件、创建工单或触发部署时，就必须和外部工具建立连接。</p>
-<p>MCP（Model Context Protocol）提供了一种比较统一的方式，让模型通过 MCP Server 获取资源和调用工具。它解决的不只是“怎么调用接口”，还涉及工具描述、参数结构和执行结果如何返回给模型。</p>
-<h2 id="MCP-中的三类对象"><a href="#MCP-中的三类对象" class="headerlink" title="MCP 中的三类对象"></a>MCP 中的三类对象</h2><p>MCP 常见的核心对象可以分成三类：</p>
-<ul>
-<li>Resources：模型可以读取的资源，例如文档、文件和查询结果</li>
-<li>Tools：模型可以请求执行的动作，例如搜索、创建记录和发送通知</li>
-<li>Prompts：可以复用的提示模板</li>
-</ul>
-<p>简单来说，资源更偏向“读什么”，工具更偏向“做什么”，提示模板则是“如何组织一次任务”。把这几类对象区分开后，应用的职责会更清晰。</p>
-<h2 id="工具描述为什么重要"><a href="#工具描述为什么重要" class="headerlink" title="工具描述为什么重要"></a>工具描述为什么重要</h2><p>模型是否能正确调用工具，很大程度上取决于工具描述是否清楚。一个工具至少需要明确：</p>
-<ul>
-<li>工具名称和用途</li>
-<li>参数名称和数据类型</li>
-<li>必填参数</li>
-<li>参数取值范围</li>
-<li>可能返回的结果</li>
-<li>失败时的错误信息</li>
-</ul>
-<p>例如，一个查询订单的工具，不应该只暴露一个模糊的 <code>query</code> 字符串，而应该明确订单号、用户标识和时间范围分别是什么。参数越清晰，模型越不容易把自然语言中的内容填错位置。</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;get_order&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;description&quot;</span><span class="punctuation">:</span> <span class="string">&quot;根据订单号查询订单状态&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;inputSchema&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;object&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;properties&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;orderId&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;string&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;description&quot;</span><span class="punctuation">:</span> <span class="string">&quot;用户提供的订单号&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;required&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;orderId&quot;</span><span class="punctuation">]</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="工具调用不是普通函数调用"><a href="#工具调用不是普通函数调用" class="headerlink" title="工具调用不是普通函数调用"></a>工具调用不是普通函数调用</h2><p>普通函数调用通常由开发者决定什么时候执行，参数也由代码生成。而 Agent 工具调用中，模型会根据上下文判断是否需要使用工具，因此必须考虑误调用和重复调用。</p>
-<p>比较安全的流程一般包括：</p>
-<ol>
-<li>模型提出工具调用请求</li>
-<li>应用校验工具名称和参数</li>
-<li>根据权限判断是否允许执行</li>
-<li>对有风险的操作请求用户确认</li>
-<li>执行工具并记录结果</li>
-<li>将结果返回给模型继续处理</li>
-</ol>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">模型请求工具</span><br><span class="line">      ↓</span><br><span class="line">参数校验</span><br><span class="line">      ↓</span><br><span class="line">权限检查</span><br><span class="line">      ↓</span><br><span class="line">用户确认（可选）</span><br><span class="line">      ↓</span><br><span class="line">执行并记录</span><br></pre></td></tr></table></figure>
-
-<p>尤其是发送邮件、修改数据、删除文件和触发发布这类有副作用的操作，不能因为模型生成了调用参数就直接执行。</p>
-<h2 id="资源和工具要分开考虑"><a href="#资源和工具要分开考虑" class="headerlink" title="资源和工具要分开考虑"></a>资源和工具要分开考虑</h2><p>如果只是让模型读取项目文档，可以把文档作为 Resource 暴露；如果需要让模型修改项目配置，则应该设计成 Tool，并增加权限和审计。</p>
-<p>这种区分有助于控制风险：只读资源的影响范围通常比较小，而工具可能直接改变外部系统状态。应用需要知道哪些操作可以自动完成，哪些操作必须经过人工确认。</p>
-<h2 id="错误处理和日志"><a href="#错误处理和日志" class="headerlink" title="错误处理和日志"></a>错误处理和日志</h2><p>工具调用失败时，不要只返回一个“执行失败”。更好的错误信息应该包括失败原因、是否可以重试，以及是否需要用户补充信息。</p>
-<p>同时，工具调用过程最好记录下来，包括调用者、参数摘要、执行时间、结果状态和错误信息。这样既方便排查问题，也能发现模型是否反复调用某个工具或频繁传入错误参数。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>MCP 的价值不只是给 Agent 增加几个工具，而是为模型和外部系统之间建立相对清晰的边界。工具描述决定模型能不能正确使用，参数校验决定调用是否安全，权限控制和日志则决定这个系统能不能真正放进业务环境。</p>
-<p>在开发 AI 应用时，我会把工具当成正式的后端接口来设计，而不是把它看成 Prompt 的附属功能。模型可以帮助决定“什么时候调用”，但最终是否允许执行，仍然应该由应用本身负责。</p>
-]]></content>
-      <categories>
-        <category>技术文档</category>
-      </categories>
-      <tags>
-        <tag>AI</tag>
-        <tag>Markdown</tag>
-        <tag>Agent</tag>
-        <tag>MCP</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Page Agent：在网页中实现自然语言操作</title>
-    <url>/2026/11/12/Page-Agent%E5%9C%A8%E7%BD%91%E9%A1%B5%E4%B8%AD%E5%AE%9E%E7%8E%B0%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E6%93%8D%E4%BD%9C/</url>
-    <content><![CDATA[<h1 id="Page-Agent：在网页中实现自然语言操作"><a href="#Page-Agent：在网页中实现自然语言操作" class="headerlink" title="Page Agent：在网页中实现自然语言操作"></a>Page Agent：在网页中实现自然语言操作</h1><p>传统的网页自动化通常依赖固定选择器和脚本。开发者需要提前知道按钮、输入框和页面结构，然后通过代码完成点击、输入和滚动。</p>
-<p>Page Agent 提供了另一种思路：让 Agent 直接运行在网页中，根据用户的自然语言理解当前页面，并操作真实的 DOM。</p>
-<h2 id="它可以做什么"><a href="#它可以做什么" class="headerlink" title="它可以做什么"></a>它可以做什么</h2><p>用户可以输入类似这样的指令：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">把筛选条件改成最近一个月，选择状态为已完成，然后导出结果。</span><br></pre></td></tr></table></figure>
-
-<p>Agent 需要先理解目标，再识别页面中对应的输入框、下拉框和按钮，按照顺序完成操作。最终用户不需要记住每个功能位于哪个菜单下面。</p>
-<h2 id="和传统自动化的区别"><a href="#和传统自动化的区别" class="headerlink" title="和传统自动化的区别"></a>和传统自动化的区别</h2><p>Playwright 或浏览器自动化脚本通常是确定性的：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">await</span> page.<span class="title function_">locator</span>(<span class="string">&#x27;#date-range&#x27;</span>).<span class="title function_">click</span>()</span><br><span class="line"><span class="keyword">await</span> page.<span class="title function_">locator</span>(<span class="string">&#x27;text=最近一个月&#x27;</span>).<span class="title function_">click</span>()</span><br><span class="line"><span class="keyword">await</span> page.<span class="title function_">locator</span>(<span class="string">&#x27;#export&#x27;</span>).<span class="title function_">click</span>()</span><br></pre></td></tr></table></figure>
-
-<p>这种方式执行速度快、结果稳定，但页面结构变化后可能需要重新维护选择器。</p>
-<p>Page Agent 更偏向目标驱动。用户告诉它要完成什么，模型根据页面内容决定下一步操作。它不一定依赖固定的 CSS 选择器，而是需要理解页面中的文本、元素和交互关系。</p>
-<h2 id="运行在网页中的特点"><a href="#运行在网页中的特点" class="headerlink" title="运行在网页中的特点"></a>运行在网页中的特点</h2><p>Page Agent 的一个特点是可以直接集成到网页应用里，不一定要求用户安装额外的浏览器插件或专用浏览器。</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">网页页面</span><br><span class="line">   ├─ 当前 DOM 和可交互元素</span><br><span class="line">   ├─ 用户自然语言目标</span><br><span class="line">   └─ Agent 执行层</span><br><span class="line">          ↓</span><br><span class="line">       点击 / 输入 / 滚动</span><br></pre></td></tr></table></figure>
-
-<p>这种方式适合给已有系统增加自然语言操作入口，也适合构建后台管理、表单填写和复杂配置场景中的辅助能力。</p>
-<h2 id="需要解决的问题"><a href="#需要解决的问题" class="headerlink" title="需要解决的问题"></a>需要解决的问题</h2><p>自然语言操作虽然灵活，但执行结果不能只依赖模型“看起来理解了”。页面中可能存在相似按钮、动态加载内容和不可见元素，Agent 需要在执行前确认当前页面状态。</p>
-<p>另外，点击和输入属于可逆操作，但删除数据、提交订单和发布内容具有外部副作用。对于这类操作，应该增加确认步骤：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">识别目标 → 生成操作计划 → 执行低风险步骤</span><br><span class="line">                         ↓</span><br><span class="line">                 高风险操作前确认</span><br></pre></td></tr></table></figure>
-
-<p>还需要考虑操作失败、页面跳转、权限不足和模型误判。一个完整的 Page Agent 不能只有“让模型点击”，还要有状态观察、错误恢复和操作审计。</p>
-<h2 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h2><p>Page Agent 比较适合以下类型的应用：</p>
-<ul>
-<li>后台系统中的复杂筛选和批量操作</li>
-<li>表单填写和资料录入</li>
-<li>需要跨多个页面完成的流程</li>
-<li>给已有系统增加自然语言辅助入口</li>
-</ul>
-<p>如果页面流程非常固定、对稳定性要求极高，传统脚本可能仍然更合适。Page Agent 的优势主要在于减少用户学习成本，让用户用目标描述代替记忆操作路径。</p>
-<p>我觉得这类技术有意思的地方在于：网页不再只是供人操作的界面，也可以成为 Agent 观察和执行任务的环境。但要真正用于业务，还需要把权限、确认和失败恢复放在和模型能力同样重要的位置。</p>
-]]></content>
-      <categories>
-        <category>技术文档</category>
-      </categories>
-      <tags>
-        <tag>AI</tag>
-        <tag>Markdown</tag>
-        <tag>Agent</tag>
-        <tag>前端</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>V8垃圾回收机制</title>
-    <url>/2025/03/13/V8%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/</url>
-    <content><![CDATA[<h1 id="V8垃圾回收机制"><a href="#V8垃圾回收机制" class="headerlink" title="V8垃圾回收机制"></a>V8垃圾回收机制</h1><h2 id="垃圾回收机制"><a href="#垃圾回收机制" class="headerlink" title="垃圾回收机制"></a>垃圾回收机制</h2><p>目标：清除不再使用的对象，使腾退出所占用的内存</p>
-<p>在浏览器的发展历史上有两种解决策略：</p>
-<ul>
-<li>标记清除</li>
-<li>引用计数</li>
-</ul>
-<h3 id="标记清除"><a href="#标记清除" class="headerlink" title="标记清除"></a>标记清除</h3><p>标记清除分为：标记阶段和清除阶段。</p>
-<p>首先它会遍历堆内存上所有的对象，分别给它们打上标记，然后在代码执行过程结束之后，对所使用过的变量取消标记。在清除阶段再把具有标记的内存对象进行整体清除，从而释放内存空间。</p>
-<p>使用标记清除策略的最重要的优点在于简单，无非是标记和不标记的差异。通过标记清除之后，剩余的对象内存位置是不变的，也会导致空闲内存空间是不连续的，这就造成出现内存碎片的问题。内存碎片多了后，如果要存储一个新的需要占据较大内存空间的对象，就会造成影响。对于通过标记清除产生的内存碎片，还是需要通过标记整理策略进行解决。</p>
-<p>简而言之：</p>
-<ul>
-<li>优点：简单</li>
-<li>缺点：内存碎片化、分配速度慢</li>
-</ul>
-<h3 id="标记整理"><a href="#标记整理" class="headerlink" title="标记整理"></a>标记整理</h3><p>经过标记清除策略整理后，老生代内存中因此产生了许多内存碎片，如果不进行清理内存碎片，就会对存储造成影响。</p>
-<p><strong>标记整理（Mark-Compact）算法</strong> 就可以有效地解决标记清除的两个缺点。它的标记阶段和标记清除算法没有什么不同，只是标记结束后，标记整理算法会将活着的对象（即不需要清理的对象）向内存的一端移动，最后清理掉边界的内存。</p>
-<h3 id="引用计数"><a href="#引用计数" class="headerlink" title="引用计数"></a>引用计数</h3><p>引用计数是一种不常见的垃圾回收策略，其思路就是对每个值都记录其的引用次数。具体的：</p>
-<ul>
-<li>当变量进行声明并赋值后，值的引用数为1。</li>
-<li>当同一个值被赋值给另一个变量时，引用数+1</li>
-<li>当保存该值引用的变量被其它值覆盖时，引用数-1</li>
-<li>当该值的引用数为0时，表示无法再访问该值了，此时就可以放心地将其清除并回收内存。</li>
-</ul>
-<p>这种回收策略看起来很方便，<strong>但是当其进行循环引用时就会出现问题，会造成大量的内存不会被释放。</strong>当函数结束后，两个对象都不在作用域中，A 和 B 都会被当作非活动对象来清除掉，相比之下，引用计数则不会释放，也就会造成大量无用内存占用，这也是后来放弃引用计数，使用标记清除的原因之一。</p>
-<h2 id="V8对于垃圾回收机制的优化"><a href="#V8对于垃圾回收机制的优化" class="headerlink" title="V8对于垃圾回收机制的优化"></a>V8对于垃圾回收机制的优化</h2><h3 id="分代式垃圾回收"><a href="#分代式垃圾回收" class="headerlink" title="分代式垃圾回收"></a>分代式垃圾回收</h3><p>V8 的垃圾回收策略主要基于分代式垃圾回收机制，V8 中将堆内存分为新生代和老生代两区域，采用不同的垃圾回收器也就是不同的策略管理垃圾回收。</p>
-<p>新生代的对象为存活时间较短的对象，简单来说就是新产生的对象，通常只支持 1～8M 的容量，而老生代的对象为存活事件较长或常驻内存的对象，简单来说就是经历过新生代垃圾回收后还存活下来的对象，容量通常比较大。</p>
-<p>V8 整个堆内存的大小就等于新生代加上老生代的内存，对于新老两块内存区域的垃圾回收，V8 采用了两个垃圾回收器来管控。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/image-20231109155126666.png" alt="image-20231109155126666"></p>
-<p>新生代内存回收的原理是：</p>
-<ul>
-<li>新加入的对象都会存放在使用区，当使用区快写满时就进行一次垃圾清理操作。</li>
-<li>在开始进行垃圾回收时，新生代回收器会对使用区内的对象进行标记</li>
-<li>标记完成后，需要对使用区内的活动对象拷贝到空闲区进行排序</li>
-<li>而后进入垃圾清理阶段，将非活动对象占用的内存空间进行清理</li>
-<li>最后对使用区和空闲区进行交换，使用区-&gt;空闲区，空闲区-&gt;使用区</li>
-</ul>
-<p>老生代内存回收的原理是：使用Mark-Sweep（标记清除）和Mark-Compact（标记整理）的策略</p>
-<p>首先是标记阶段，从一组根元素开始，递归遍历这组根元素，遍历过程中能到达的元素称为活动对象，没有到达的元素就可以判断为非活动对象。清除阶段老生代垃圾回收器会直接将非活动对象，也就是数据清理掉。</p>
-<p>同样的标记清除策略会产生内存碎片，因此还需要进行标记整理策略进行优化。</p>
-<p>另外，因为JS是单线程语言，所以在执行垃圾回收机制的时候，JS执行会被暂停，称为全停顿。而V8机制对这种情况做了一定的优化，垃圾回收机制支持多线程并行回收，提高了垃圾回收的效率。但是仍然会阻塞JS的执行，所以就诞生了增量标记。增量标记可以使得垃圾回收可以分段执行，最大化保证了JS的执行。V8机制还支持了并发回收。JS在主线程执行，垃圾回收在辅助线程执行</p>
-]]></content>
-      <categories>
-        <category>技术文档</category>
-      </categories>
-      <tags>
-        <tag>Markdown</tag>
-        <tag>前端</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Jotai学习心得</title>
-    <url>/2026/04/21/Jotai%E5%AD%A6%E4%B9%A0%E5%BF%83%E5%BE%97/</url>
-    <content><![CDATA[<h1 id="Jotai学习心得"><a href="#Jotai学习心得" class="headerlink" title="Jotai学习心得"></a>Jotai学习心得</h1><p>了解和使用Jotai之前，我对跨组件状态管理的主要手段是useState + props、Context，以及在部分场景下用EventBus做组件间通信。但在项目复杂度逐渐上升后，这些方案要么带来明显的prop drilling，要么导致组件订阅范围过大、渲染不可控。</p>
-<blockquote>
-<p>Jotai 采用原子方法进行全局 React 状态管理。</p>
-</blockquote>
-<p>Jotai 给我的一个最直观感受是：<strong>它不是在引入一个“更大的状态中心”，而是在把状态拆得足够小。</strong></p>
-<blockquote>
-<p>Atoms are the building blocks of universe and clump together into molecules–</p>
-<p>原子是宇宙的构建模块，聚集成分子——</p>
-</blockquote>
-<p>Jotai 原子是小而孤立的状态片段。理想情况下，一个原子包含非常小的数据（虽然这只是个惯例。仍然可以把所有状态放到一个原子里，虽然那样性能会非常慢）</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; atom &#125; <span class="keyword">from</span> <span class="string">&#x27;jotai&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 原始原子可以是任何类型：布尔、数字、字符串、对象、数组、集合、映射等等。</span></span><br><span class="line"><span class="keyword">const</span> themeAtom = <span class="title function_">atom</span>(<span class="string">&#x27;light&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> countryAtom = <span class="title function_">atom</span>(<span class="string">&#x27;Japan&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> citiesAtom = <span class="title function_">atom</span>([<span class="string">&#x27;Tokyo&#x27;</span>, <span class="string">&#x27;Kyoto&#x27;</span>, <span class="string">&#x27;Osaka&#x27;</span>])</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> animeAtom = <span class="title function_">atom</span>([</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">title</span>: <span class="string">&#x27;Ghost in the Shell&#x27;</span>,</span><br><span class="line">    <span class="attr">year</span>: <span class="number">1995</span>,</span><br><span class="line">    <span class="attr">watched</span>: <span class="literal">true</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">title</span>: <span class="string">&#x27;Serial Experiments Lain&#x27;</span>,</span><br><span class="line">    <span class="attr">year</span>: <span class="number">1998</span>,</span><br><span class="line">    <span class="attr">watched</span>: <span class="literal">false</span></span><br><span class="line">  &#125;</span><br><span class="line">])</span><br><span class="line"></span><br><span class="line"><span class="comment">// 衍生原子可以读取其他原子的信号，然后返回自身的数值</span></span><br><span class="line"><span class="keyword">const</span> progressAtom = <span class="title function_">atom</span>(<span class="function">(<span class="params">get</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> anime = <span class="title function_">get</span>(animeAtom)</span><br><span class="line">  <span class="keyword">return</span> anime.<span class="title function_">filter</span>(<span class="function">(<span class="params">item</span>) =&gt;</span> item.<span class="property">watched</span>).<span class="property">length</span> / anime.<span class="property">length</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h2 id="atom-是“最小可共享状态单元”，而不是全局变量"><a href="#atom-是“最小可共享状态单元”，而不是全局变量" class="headerlink" title="atom 是“最小可共享状态单元”，而不是全局变量"></a><strong>atom 是“最小可共享状态单元”，而不是全局变量</strong></h2><p>一开始我担心atom会不会变成新的“全局变量污染”，但实际使用下来发现并不是这样。</p>
-<p>atom本身并不会主动影响任何组件，<strong>只有显式使用 useAtom &#x2F; useAtomValue &#x2F; useSetAtom 的组件才会订阅它</strong>。</p>
-<p>这和传统EventBus或Context的“广播式更新”有本质区别——状态变化只会影响真正关心它的组件，渲染范围更可控。</p>
-<h2 id="很多-EventBus-场景，本质上是“状态同步”而不是“事件”"><a href="#很多-EventBus-场景，本质上是“状态同步”而不是“事件”" class="headerlink" title="很多 EventBus 场景，本质上是“状态同步”而不是“事件”"></a><strong>很多 EventBus 场景，本质上是“状态同步”而不是“事件”</strong></h2><p>在回顾之前使用EventBus的场景时，我发现大量所谓的“跨组件通信”，其实是在同步一些可持续存在的状态，比如：</p>
-<ul>
-<li>是否打开某个弹窗</li>
-<li>当前选中的对象</li>
-<li>列表是否需要刷新</li>
-</ul>
-<p>这些场景用EventBus往往会引入额外的时序问题，而用Jotai表达为atom后，<strong>状态来源和消费关系变得更清楚，也更容易调试</strong>。</p>
-<ul>
-<li><strong>状态型通信</strong> → Jotai</li>
-<li><strong>一次性行为 &#x2F; 命令式操作</strong> → 普通事件或函数调用</li>
-</ul>
-<h2 id="什么时候用Jotai"><a href="#什么时候用Jotai" class="headerlink" title="什么时候用Jotai"></a><strong>什么时候用Jotai</strong></h2><blockquote>
-<p><strong>Jotai 不是“我要一个全局变量”，而是“我要一个可以被多个组件共享的最小状态单元”</strong></p>
-</blockquote>
-<p>面对以下场景：</p>
-<blockquote>
-<p><strong>“这个状态是不是应该被多个地方同时读 &#x2F; 改？”</strong></p>
-</blockquote>
-<ul>
-<li>是 → Jotai</li>
-<li>否 → useState</li>
-</ul>
-<h2 id="Jotai-更适合“局部全局”，而不是无脑全局"><a href="#Jotai-更适合“局部全局”，而不是无脑全局" class="headerlink" title="Jotai 更适合“局部全局”，而不是无脑全局"></a><strong>Jotai 更适合“局部全局”，而不是无脑全局</strong></h2><p>通过学习和了解，总结了一个结论是：<strong>不是所有state都值得atom化</strong>。</p>
-<p>组件内部的临时状态（如hover、输入框值）继续使用useState反而更简单。</p>
-<p>Jotai 真正的优势在于：</p>
-<ul>
-<li>多个组件确实需要共享</li>
-<li>或者希望避免状态层层传递</li>
-<li>或者需要精确控制谁会因状态变化而更新</li>
-</ul>
-<p>在这个前提下，atom更像是“业务域内的共享状态”，而不是应用级的万能全局状态。</p>
-<h2 id="怎么用Jotai"><a href="#怎么用Jotai" class="headerlink" title="怎么用Jotai"></a><strong>怎么用Jotai</strong></h2><p>当原子在同一组件内同时读写时，为了简化使用结合的<code>useAtom</code> 钩子。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; atom, useAtom &#125; <span class="keyword">from</span> <span class="string">&#x27;jotai&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> themeAtom = <span class="title function_">atom</span>(<span class="string">&#x27;light&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="title function_">ThemeSwitcher</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> [theme, setTheme] = <span class="title function_">useAtom</span>(themeAtom);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">main</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>Theme is &#123;theme&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;()</span> =&gt;</span> setTheme(theme === &#x27;light&#x27; ? &#x27;dark&#x27; : &#x27;light&#x27;)&#125;&gt;Toggle Theme<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">main</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>看起来很像useState，但唯一的区别是我们创建的原子要传递给 useState。useAtom返回一个大小为 2 的数组，其中第一个元素是一个值，第二个元素是一个函数，用于设置原子的值。这使得所有依赖该原子的组件都会更新并重新渲染。</p>
-<p>当从不同的组件读取和写入时，使用分别的<code>useAtomValue</code> 和<code>useSetAtom</code> 钩子来优化重新渲染。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; useAtomValue, useSetAtom &#125; <span class="keyword">from</span> <span class="string">&#x27;jotai&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; animeAtom &#125; <span class="keyword">from</span> <span class="string">&#x27;./atoms&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">AnimeList</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> anime = <span class="title function_">useAtomValue</span>(animeAtom)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      &#123;anime.map((item) =&gt; (</span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">&#123;item.title&#125;</span>&gt;</span>&#123;item.title&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      ))&#125;</span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">AddAnime</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> setAnime = <span class="title function_">useSetAtom</span>(animeAtom)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;()</span> =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-xml">      setAnime((anime) =&gt; [</span></span><br><span class="line"><span class="language-xml">        ...anime,</span></span><br><span class="line"><span class="language-xml">        &#123;</span></span><br><span class="line"><span class="language-xml">          title: &#x27;Cowboy Bebop&#x27;,</span></span><br><span class="line"><span class="language-xml">          year: 1998,</span></span><br><span class="line"><span class="language-xml">          watched: false</span></span><br><span class="line"><span class="language-xml">        &#125;</span></span><br><span class="line"><span class="language-xml">      ])</span></span><br><span class="line"><span class="language-xml">    &#125;&#125;&gt;</span></span><br><span class="line"><span class="language-xml">      Add Cowboy Bebop</span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">ProgressTracker</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> progress = <span class="title function_">useAtomValue</span>(progressAtom)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>&#123;Math.trunc(progress * 100)&#125;% watched<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">AnimeApp</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">AnimeList</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">AddAnime</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">ProgressTracker</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="好用的atomWithImmer"><a href="#好用的atomWithImmer" class="headerlink" title="好用的atomWithImmer"></a>好用的atomWithImmer</h2><blockquote>
-<p><strong>atomWithImmer 不是让状态“更全局”，而是让“共享的复杂状态”写起来更安全、更清晰。</strong></p>
-</blockquote>
-<p>React状态最大的痛点：不可变性。</p>
-<p>不可变性很棒，也让人很容易理解React状态，但当状态是对象时，事情会变得非常困难。然后就得做一整套流程，展开对象并与想更新的属性合并。</p>
-<p>而使用Immer允许你直接变异状态</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; atomWithImmer &#125; <span class="keyword">from</span> <span class="string">&#x27;jotai/immer&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> userAtom = <span class="title function_">atomWithImmer</span>(&#123;</span><br><span class="line">  <span class="attr">id</span>: <span class="number">23</span>,</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;Luke Skywalker&#x27;</span>,</span><br><span class="line">  <span class="attr">dob</span>: <span class="keyword">new</span> <span class="title class_">Date</span>(<span class="string">&#x27;25 December, 19 BBY&#x27;</span>),</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">UpdateUser</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> [user, setUser] = <span class="title function_">useAtom</span>(userAtom);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Update the dob</span></span><br><span class="line">  <span class="keyword">const</span> <span class="title function_">updateDob</span> = (<span class="params"></span>) =&gt;</span><br><span class="line">    <span class="title function_">setUser</span>(<span class="function">(<span class="params">user</span>) =&gt;</span> &#123;</span><br><span class="line">      user.<span class="property">dob</span> = <span class="keyword">new</span> <span class="title class_">Date</span>(<span class="string">&#x27;25 November, 200ABY&#x27;</span>);</span><br><span class="line">      <span class="keyword">return</span> user;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;updateDob&#125;</span>&gt;</span>Update DOB<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="✅-适合场景"><a href="#✅-适合场景" class="headerlink" title="✅ 适合场景"></a><strong>✅ 适合场景</strong></h3><ul>
-<li>深层嵌套对象</li>
-<li>列表、树结构</li>
-<li>表单状态</li>
-<li>需要频繁局部修改的共享状态</li>
-</ul>
-<h3 id="❌-不太适合"><a href="#❌-不太适合" class="headerlink" title="❌ 不太适合"></a><strong>❌ 不太适合</strong></h3><ul>
-<li>简单标量值（number &#x2F; boolean）</li>
-<li>非共享的局部状态（用useImmer或useState更简单）</li>
-<li>极度追求极致性能的热点路径（Immer有微小开销）</li>
-</ul>
-]]></content>
-      <categories>
-        <category>复习资料</category>
-      </categories>
-      <tags>
-        <tag>Markdown</tag>
-        <tag>前端</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Vue2.7.14下的单元测试环境搭建</title>
     <url>/2024/08/06/Vue2.7.14%E4%B8%8B%E7%9A%84%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</url>
     <content><![CDATA[<h1 id="Vue2-7-14下的单元测试环境搭建"><a href="#Vue2-7-14下的单元测试环境搭建" class="headerlink" title="Vue2.7.14下的单元测试环境搭建"></a>Vue2.7.14下的单元测试环境搭建</h1><h2 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h2><blockquote>
@@ -1338,39 +1371,6 @@
       <tags>
         <tag>Markdown</tag>
         <tag>前端</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Web Worker：解决前端计算阻塞问题</title>
-    <url>/2026/11/12/Web-Worker%E8%A7%A3%E5%86%B3%E5%89%8D%E7%AB%AF%E8%AE%A1%E7%AE%97%E9%98%BB%E5%A1%9E%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h1 id="Web-Worker：解决前端计算阻塞问题"><a href="#Web-Worker：解决前端计算阻塞问题" class="headerlink" title="Web Worker：解决前端计算阻塞问题"></a>Web Worker：解决前端计算阻塞问题</h1><p>浏览器中的 JavaScript 通常运行在主线程上。页面渲染、用户点击、输入响应和脚本执行都会受到主线程状态的影响。如果一段计算运行时间太长，页面就可能出现卡顿，甚至暂时无法响应操作。</p>
-<p>Web Worker 提供了一个独立的后台线程，可以把不依赖 DOM 的计算任务交给它处理。主线程负责页面交互，Worker 负责数据计算，计算结束后再把结果传回来。</p>
-<h2 id="一个简单的使用方式"><a href="#一个简单的使用方式" class="headerlink" title="一个简单的使用方式"></a>一个简单的使用方式</h2><p>主线程创建 Worker，并通过 <code>postMessage</code> 发送数据：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> worker = <span class="keyword">new</span> <span class="title class_">Worker</span>(<span class="string">&#x27;./worker.js&#x27;</span>)</span><br><span class="line"></span><br><span class="line">worker.<span class="title function_">postMessage</span>(&#123;</span><br><span class="line">  <span class="attr">type</span>: <span class="string">&#x27;calculate&#x27;</span>,</span><br><span class="line">  <span class="attr">data</span>: largeList</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">worker.<span class="property">onmessage</span> = <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;计算结果：&#x27;</span>, event.<span class="property">data</span>)</span><br><span class="line">  worker.<span class="title function_">terminate</span>()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><code>worker.js</code> 中接收数据，完成计算后返回结果：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">self.<span class="property">onmessage</span> = <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> &#123; type, data &#125; = event.<span class="property">data</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (type === <span class="string">&#x27;calculate&#x27;</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> result = data.<span class="title function_">map</span>(<span class="function">(<span class="params">item</span>) =&gt;</span> item.<span class="property">value</span> * <span class="number">2</span>)</span><br><span class="line">    self.<span class="title function_">postMessage</span>(result)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>主线程和 Worker 之间不能直接共享普通变量，而是通过消息通信。数据会经过结构化克隆，数据量很大时也要考虑传输成本。</p>
-<h2 id="适合什么场景"><a href="#适合什么场景" class="headerlink" title="适合什么场景"></a>适合什么场景</h2><p>Worker 更适合处理纯数据和计算密集型任务，例如：</p>
-<ul>
-<li>大数组排序、筛选和转换</li>
-<li>文件解析</li>
-<li>图片或音频数据处理</li>
-<li>加密计算</li>
-<li>大量数据统计</li>
-</ul>
-<p>Worker 不能直接操作页面 DOM，也不能直接访问主线程中的变量。如果任务需要频繁更新页面，通常应该让 Worker 负责计算，主线程负责根据结果更新 UI。</p>
-<h2 id="不要为了使用而使用"><a href="#不要为了使用而使用" class="headerlink" title="不要为了使用而使用"></a>不要为了使用而使用</h2><p>Worker 也有创建线程、消息通信和数据复制的成本。如果只是一个很小的计算，直接在主线程中执行反而更简单。只有当计算本身足够耗时，已经影响到页面交互时，才值得引入 Worker。</p>
-<p>我的理解是，Web Worker 并不是让前端“拥有了无限算力”，而是把不同类型的工作分配到更合适的线程中。使用前最好先通过性能面板确认瓶颈，再决定是否需要拆分任务。</p>
-]]></content>
-      <categories>
-        <category>技术文档</category>
-      </categories>
-      <tags>
-        <tag>Markdown</tag>
-        <tag>前端</tag>
-        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -1663,8 +1663,54 @@
       </categories>
       <tags>
         <tag>AI</tag>
-        <tag>Markdown</tag>
         <tag>Agent</tag>
+        <tag>Markdown</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>从SSR到ESR的前端渲染方式探索</title>
+    <url>/2024/08/06/%E4%BB%8ESSR%E5%88%B0ESR%E7%9A%84%E5%89%8D%E7%AB%AF%E6%B8%B2%E6%9F%93%E6%96%B9%E5%BC%8F%E6%8E%A2%E7%B4%A2/</url>
+    <content><![CDATA[<h1 id="从SSR到ESR的前端渲染方式探索"><a href="#从SSR到ESR的前端渲染方式探索" class="headerlink" title="从SSR到ESR的前端渲染方式探索"></a>从SSR到ESR的前端渲染方式探索</h1><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>对于 web 页面来说，首跳场景（例如 SEO、付费引流）的性能普遍比二跳场景下要差。原因有多种，主要是首跳用户在连接复用，和本地资源缓存利用方面，有很大的劣势。首跳场景下，很多在端上的优化手段（预加载，预执行，预渲染等）无法实施。</p>
+<p>在客户端缓存能力无法利用的情况下，利用 cdn 距离用户近的特性，可以结合缓存做一些性能优化。</p>
+<h3 id="SSR（Server-Side-Rendering）"><a href="#SSR（Server-Side-Rendering）" class="headerlink" title="SSR（Server Side Rendering）"></a>SSR（Server Side Rendering）</h3><p>为了性能优化考虑，我们一般都会通过服务端渲染（SSR） ，将首屏动态内容直接服务端输出。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1460000022762251" alt="image.png"></p>
+<p>这种方式的优点是一次 html 返回即可包含页面主体内容，不需要浏览器二次请求接口后再用 js 渲染。但这种方式的缺点也比较明显，对于距离服务端远，或者服务端处理时间较长的场景，用户会看到较长时间的白屏。而且即使 html 返回完成了，用户并不会立即看到内容，页面还需要加载前置的 js，css 等资源后，才能看到内容。</p>
+<p>缺点：</p>
+<ul>
+<li>⾮常依赖服务端的处理时间</li>
+<li>需要加载js 、css 、图⽚等静态资源， ⽩屏时间⻓</li>
+</ul>
+<h3 id="CSR（Client-Side-Rendering）"><a href="#CSR（Client-Side-Rendering）" class="headerlink" title="CSR（Client Side Rendering）"></a>CSR（Client Side Rendering）</h3><p>为了减少白屏时间，考虑利用 CDN 的边缘缓存能力，可以把页面 html 直接缓存在 cdn 节点上。但对于大部分场景来说，页面的主体内容都是动态，或者个性化的，把全部 html 内容缓存在 cdn 上对于业务影响较大，很有少场景能接受。那么换个思路，只把 html 静态部分缓存在 cdn 上呢？其实这个思路也是一个很常见的操作，即把 html 的静态框架部分缓存在 cdn 上，让用户能快速看到部分内容，然后再在客户端发起异步请求，获取动态内容并且渲染（CSR）。CSR + CDN 模式下的渲染时序图如下：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1460000022762254" alt="image.png"></p>
+<p>这种方式的优点是页面静态框架缓存在 cdn 上，用户可以快速看到页面框架内容，减少白屏等待焦虑。</p>
+<p>缺点：<strong>完整的页面内容需要再执行 js ，拉取异步接口回来后再进行渲染。最终有意义的动态内容展示出来的时间，比 SSR 更晚。</strong></p>
+<h3 id="ESI-Edge-Side-Include"><a href="#ESI-Edge-Side-Include" class="headerlink" title="ESI (Edge Side Include)"></a>ESI (Edge Side Include)</h3><p>CSR + CDN 的方式，很好地解决了白屏时间问题，但带来了动态内容展示的延时。之所以有这个问题，是因为我们把页面的动态内容和静态内容分割到了两个阶段中，并且是串行的，而且串行过程中还穿插了 js 的下载和执行。有什么办法把动态内容和静态内容在 CDN 上整合起来呢？</p>
+<p>ESI (Edge Side Include) 给了我们一个很好的思路启发，ESI 最初也是 CDN 服务商们提出的规范，可通过 html 标签里加特定的动态标签，可让页面的静态内容缓存在 cdn 上，动态内容可以自由组装。ESI 的渲染时序图如下：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1460000022762253" alt="image.png"></p>
+<p>缺点：</p>
+<ul>
+<li>返回给⽤户的⾸字节也是需要等请求响应， 并且等所有动态内容在CDN上拼接完成 。 没有减少⽩屏时间， 实际上与SSR⼀样。</li>
+<li>会出现cdn域名劫持⻛险</li>
+</ul>
+<h3 id="ESR（Edge-Side-Rendering）"><a href="#ESR（Edge-Side-Rendering）" class="headerlink" title="ESR（Edge Side Rendering）"></a>ESR（Edge Side Rendering）</h3><p>在 ESI (Edge Side Include) 的基础上，提出了一种新的优化思路：边缘流式渲染方案（ESR），即借助 CDN 的边缘计算能力，将静态内容与动态内容以流式的方式，先后返回给用户。</p>
+<p>我们可以将页面进行动静拆分，将静态内容缓存在 CDN 先快速返回给用户，然后在边缘计算节点上发起动态内容的请求，之后将动态内容与静态部分以流的形式进行拼接，从而进一步提高了用户的首屏加载时间，尤其在边缘地区或者弱网环境也有能拥有很好的用户体验，此外还减少原先 SSR 服务器压力。最终页面渲染的时序图如下：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1460000022762256" alt="image.png"></p>
+<h2 id="边缘渲染原理和优势"><a href="#边缘渲染原理和优势" class="headerlink" title="边缘渲染原理和优势"></a>边缘渲染原理和优势</h2><p>边缘渲染就是借助边缘计算能力，将返回的内容进行静态+动态部分拆分并以流的形式返回，最终实现渲染提速。其中，静态部分依托 CDN 的缓存能力，优先返回给用户，随后在边缘计算节点上继续发起动态数据请求，并拼接在静态部分之后，继续流式返回。因此，其优势也是显而易见：</p>
+<ol>
+<li>TTFB(Time To First Byte)很短：因为静态内容在 CDN 缓存住了，会很快的返回给用户。</li>
+<li>FP(First Paint)很短：因为在静态内容返回后，已经可以开始 HTML 的解析以及 JS、CSS 的下载和执行。</li>
+<li>FMP(First Meaningful Paint)很短：因为动态内容的请求是在边缘计算节点发起，相比于客户端与服务端直连，请求减少了 TCP 建连和网络传输开销，而且由于动态部分是以 chunked 形式流式返回，FMP 就会很短，比如搜索网站的第一个搜索结果就会首先绘制出来。</li>
+<li>边缘节点与服务端之间的网络，相比于客户端与服务端之间的网络，更有优化空间。例如通过动态加速，以及 edge 与 server 之间的连接复用，能为动态请求减少 tcp 建连和网络传输开销。以做到最终动态内容的返回时间，比 client 直接访问 server 更快。</li>
+</ol>
+<p>总体而言，相对于传统中心渲染，边缘渲染具有节点分布较广，距离用户更近等优势，让用户可以在更短的时间获取到网站资源进行渲染，同时可以减少中心服务的请求压力，从而达到渲染提速+分散算力的效果。</p>
+<h2 id="架构图"><a href="#架构图" class="headerlink" title="架构图"></a>架构图</h2><p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/view" alt="preview"></p>
+]]></content>
+      <categories>
+        <category>技术文档</category>
+      </categories>
+      <tags>
+        <tag>Markdown</tag>
+        <tag>前端</tag>
       </tags>
   </entry>
   <entry>
@@ -1742,52 +1788,6 @@
         <tag>Markdown</tag>
         <tag>前端</tag>
         <tag>职业思考</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>从SSR到ESR的前端渲染方式探索</title>
-    <url>/2024/08/06/%E4%BB%8ESSR%E5%88%B0ESR%E7%9A%84%E5%89%8D%E7%AB%AF%E6%B8%B2%E6%9F%93%E6%96%B9%E5%BC%8F%E6%8E%A2%E7%B4%A2/</url>
-    <content><![CDATA[<h1 id="从SSR到ESR的前端渲染方式探索"><a href="#从SSR到ESR的前端渲染方式探索" class="headerlink" title="从SSR到ESR的前端渲染方式探索"></a>从SSR到ESR的前端渲染方式探索</h1><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>对于 web 页面来说，首跳场景（例如 SEO、付费引流）的性能普遍比二跳场景下要差。原因有多种，主要是首跳用户在连接复用，和本地资源缓存利用方面，有很大的劣势。首跳场景下，很多在端上的优化手段（预加载，预执行，预渲染等）无法实施。</p>
-<p>在客户端缓存能力无法利用的情况下，利用 cdn 距离用户近的特性，可以结合缓存做一些性能优化。</p>
-<h3 id="SSR（Server-Side-Rendering）"><a href="#SSR（Server-Side-Rendering）" class="headerlink" title="SSR（Server Side Rendering）"></a>SSR（Server Side Rendering）</h3><p>为了性能优化考虑，我们一般都会通过服务端渲染（SSR） ，将首屏动态内容直接服务端输出。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1460000022762251" alt="image.png"></p>
-<p>这种方式的优点是一次 html 返回即可包含页面主体内容，不需要浏览器二次请求接口后再用 js 渲染。但这种方式的缺点也比较明显，对于距离服务端远，或者服务端处理时间较长的场景，用户会看到较长时间的白屏。而且即使 html 返回完成了，用户并不会立即看到内容，页面还需要加载前置的 js，css 等资源后，才能看到内容。</p>
-<p>缺点：</p>
-<ul>
-<li>⾮常依赖服务端的处理时间</li>
-<li>需要加载js 、css 、图⽚等静态资源， ⽩屏时间⻓</li>
-</ul>
-<h3 id="CSR（Client-Side-Rendering）"><a href="#CSR（Client-Side-Rendering）" class="headerlink" title="CSR（Client Side Rendering）"></a>CSR（Client Side Rendering）</h3><p>为了减少白屏时间，考虑利用 CDN 的边缘缓存能力，可以把页面 html 直接缓存在 cdn 节点上。但对于大部分场景来说，页面的主体内容都是动态，或者个性化的，把全部 html 内容缓存在 cdn 上对于业务影响较大，很有少场景能接受。那么换个思路，只把 html 静态部分缓存在 cdn 上呢？其实这个思路也是一个很常见的操作，即把 html 的静态框架部分缓存在 cdn 上，让用户能快速看到部分内容，然后再在客户端发起异步请求，获取动态内容并且渲染（CSR）。CSR + CDN 模式下的渲染时序图如下：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1460000022762254" alt="image.png"></p>
-<p>这种方式的优点是页面静态框架缓存在 cdn 上，用户可以快速看到页面框架内容，减少白屏等待焦虑。</p>
-<p>缺点：<strong>完整的页面内容需要再执行 js ，拉取异步接口回来后再进行渲染。最终有意义的动态内容展示出来的时间，比 SSR 更晚。</strong></p>
-<h3 id="ESI-Edge-Side-Include"><a href="#ESI-Edge-Side-Include" class="headerlink" title="ESI (Edge Side Include)"></a>ESI (Edge Side Include)</h3><p>CSR + CDN 的方式，很好地解决了白屏时间问题，但带来了动态内容展示的延时。之所以有这个问题，是因为我们把页面的动态内容和静态内容分割到了两个阶段中，并且是串行的，而且串行过程中还穿插了 js 的下载和执行。有什么办法把动态内容和静态内容在 CDN 上整合起来呢？</p>
-<p>ESI (Edge Side Include) 给了我们一个很好的思路启发，ESI 最初也是 CDN 服务商们提出的规范，可通过 html 标签里加特定的动态标签，可让页面的静态内容缓存在 cdn 上，动态内容可以自由组装。ESI 的渲染时序图如下：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1460000022762253" alt="image.png"></p>
-<p>缺点：</p>
-<ul>
-<li>返回给⽤户的⾸字节也是需要等请求响应， 并且等所有动态内容在CDN上拼接完成 。 没有减少⽩屏时间， 实际上与SSR⼀样。</li>
-<li>会出现cdn域名劫持⻛险</li>
-</ul>
-<h3 id="ESR（Edge-Side-Rendering）"><a href="#ESR（Edge-Side-Rendering）" class="headerlink" title="ESR（Edge Side Rendering）"></a>ESR（Edge Side Rendering）</h3><p>在 ESI (Edge Side Include) 的基础上，提出了一种新的优化思路：边缘流式渲染方案（ESR），即借助 CDN 的边缘计算能力，将静态内容与动态内容以流式的方式，先后返回给用户。</p>
-<p>我们可以将页面进行动静拆分，将静态内容缓存在 CDN 先快速返回给用户，然后在边缘计算节点上发起动态内容的请求，之后将动态内容与静态部分以流的形式进行拼接，从而进一步提高了用户的首屏加载时间，尤其在边缘地区或者弱网环境也有能拥有很好的用户体验，此外还减少原先 SSR 服务器压力。最终页面渲染的时序图如下：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/1460000022762256" alt="image.png"></p>
-<h2 id="边缘渲染原理和优势"><a href="#边缘渲染原理和优势" class="headerlink" title="边缘渲染原理和优势"></a>边缘渲染原理和优势</h2><p>边缘渲染就是借助边缘计算能力，将返回的内容进行静态+动态部分拆分并以流的形式返回，最终实现渲染提速。其中，静态部分依托 CDN 的缓存能力，优先返回给用户，随后在边缘计算节点上继续发起动态数据请求，并拼接在静态部分之后，继续流式返回。因此，其优势也是显而易见：</p>
-<ol>
-<li>TTFB(Time To First Byte)很短：因为静态内容在 CDN 缓存住了，会很快的返回给用户。</li>
-<li>FP(First Paint)很短：因为在静态内容返回后，已经可以开始 HTML 的解析以及 JS、CSS 的下载和执行。</li>
-<li>FMP(First Meaningful Paint)很短：因为动态内容的请求是在边缘计算节点发起，相比于客户端与服务端直连，请求减少了 TCP 建连和网络传输开销，而且由于动态部分是以 chunked 形式流式返回，FMP 就会很短，比如搜索网站的第一个搜索结果就会首先绘制出来。</li>
-<li>边缘节点与服务端之间的网络，相比于客户端与服务端之间的网络，更有优化空间。例如通过动态加速，以及 edge 与 server 之间的连接复用，能为动态请求减少 tcp 建连和网络传输开销。以做到最终动态内容的返回时间，比 client 直接访问 server 更快。</li>
-</ol>
-<p>总体而言，相对于传统中心渲染，边缘渲染具有节点分布较广，距离用户更近等优势，让用户可以在更短的时间获取到网站资源进行渲染，同时可以减少中心服务的请求压力，从而达到渲染提速+分散算力的效果。</p>
-<h2 id="架构图"><a href="#架构图" class="headerlink" title="架构图"></a>架构图</h2><p><img src="https://cdn.jsdelivr.net/gh/kkirito16/ImgPicGo/img/view" alt="preview"></p>
-]]></content>
-      <categories>
-        <category>技术文档</category>
-      </categories>
-      <tags>
-        <tag>Markdown</tag>
-        <tag>前端</tag>
       </tags>
   </entry>
   <entry>
@@ -2358,40 +2358,6 @@
       </tags>
   </entry>
   <entry>
-    <title>用 DeerFlow 搭建任务交付型 AI 应用</title>
-    <url>/2026/11/12/%E7%94%A8DeerFlow%E6%90%AD%E5%BB%BA%E4%BB%BB%E5%8A%A1%E4%BA%A4%E4%BB%98%E5%9E%8BAI%E5%BA%94%E7%94%A8/</url>
-    <content><![CDATA[<h1 id="用-DeerFlow-搭建任务交付型-AI-应用"><a href="#用-DeerFlow-搭建任务交付型-AI-应用" class="headerlink" title="用 DeerFlow 搭建任务交付型 AI 应用"></a>用 DeerFlow 搭建任务交付型 AI 应用</h1><p>普通聊天机器人通常回答一个问题就结束了，但很多实际任务并不是“回答一句话”这么简单。比如调研一个技术主题，需要搜索资料、整理信息、运行代码，最后还要生成报告。</p>
-<p>DeerFlow 2.0 给我的一个直观印象是：它更像一个任务交付型的 Agent 框架，而不只是聊天界面背后的模型调用。</p>
-<h2 id="它解决的是什么问题"><a href="#它解决的是什么问题" class="headerlink" title="它解决的是什么问题"></a>它解决的是什么问题</h2><p>一个完整任务通常包含多个步骤：理解目标、拆分任务、调用工具、处理结果、修正错误，最后交付文件或报告。如果这些步骤全部写成固定流程，遇到不同任务时维护成本会很高。</p>
-<p>DeerFlow 的思路是让 Agent 在一个受控环境中完成这些工作，框架提供的能力主要包括：</p>
-<ul>
-<li>子 Agent 分工</li>
-<li>长短期记忆</li>
-<li>浏览器、Shell 和文件系统工具</li>
-<li>沙盒环境</li>
-<li>可扩展的 Skills</li>
-<li>长任务运行</li>
-</ul>
-<p>这使它更接近“研究助理”或“自动化执行器”。</p>
-<h2 id="1-0-和-2-0-的区别"><a href="#1-0-和-2-0-的区别" class="headerlink" title="1.0 和 2.0 的区别"></a>1.0 和 2.0 的区别</h2><p>早期版本更偏向 Deep Research，重点是搜索和生成研究报告。2.0 的范围更大，开始提供完整的 Agent 运行环境，包括任务拆分、记忆、沙盒和多 Agent 协作。</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">用户目标</span><br><span class="line">   ↓</span><br><span class="line">任务拆分</span><br><span class="line">   ↓</span><br><span class="line">子 Agent 分工</span><br><span class="line">   ↓</span><br><span class="line">工具调用 / 代码执行 / 文件处理</span><br><span class="line">   ↓</span><br><span class="line">结果汇总与交付</span><br></pre></td></tr></table></figure>
-
-<p>这类设计适合技术调研、竞品分析、报告生成、数据处理和文档转网页等场景。</p>
-<h2 id="为什么需要沙盒"><a href="#为什么需要沙盒" class="headerlink" title="为什么需要沙盒"></a>为什么需要沙盒</h2><p>Agent 如果需要运行代码、处理文件或访问网页，就不能只依赖模型文本输出。沙盒提供了一个相对独立的执行环境，可以把浏览器、Shell、文件系统和 MCP 工具放在容器中统一管理。</p>
-<p>这样做的好处是任务边界更清晰，也可以减少直接影响宿主环境的风险。对于长任务来说，沙盒还可以保存中间文件，让 Agent 不必把所有内容都塞进上下文里。</p>
-<h2 id="使用时需要注意什么"><a href="#使用时需要注意什么" class="headerlink" title="使用时需要注意什么"></a>使用时需要注意什么</h2><p>Agent 框架并不会自动解决所有问题。工具权限、执行超时、失败重试和输出格式都需要提前设计。尤其是涉及发送消息、修改文件或调用外部系统的工具，最好增加审批或确认环节。</p>
-<p>我理解这类框架的价值，不是让模型“更会聊天”，而是让模型拥有完成复杂任务所需要的环境和流程。真正落地时，仍然要把任务拆分、工具边界和最终验收标准定义清楚。</p>
-]]></content>
-      <categories>
-        <category>技术文档</category>
-      </categories>
-      <tags>
-        <tag>AI</tag>
-        <tag>Markdown</tag>
-        <tag>Agent</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>当React最佳实践变成一个Skill，我尝试让它管管我的代码</title>
     <url>/2026/04/20/%E5%BD%93React%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5%E5%8F%98%E6%88%90%E4%B8%80%E4%B8%AASkill%EF%BC%8C%E6%88%91%E5%B0%9D%E8%AF%95%E8%AE%A9%E5%AE%83%E7%AE%A1%E7%AE%A1%E6%88%91%E7%9A%84%E4%BB%A3%E7%A0%81/</url>
     <content><![CDATA[<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><blockquote>
@@ -2761,33 +2727,6 @@
       </tags>
   </entry>
   <entry>
-    <title>长列表渲染优化：分页、虚拟列表与懒加载</title>
-    <url>/2026/11/12/%E9%95%BF%E5%88%97%E8%A1%A8%E6%B8%B2%E6%9F%93%E4%BC%98%E5%8C%96%E5%88%86%E9%A1%B5%E8%99%9A%E6%8B%9F%E5%88%97%E8%A1%A8%E4%B8%8E%E6%87%92%E5%8A%A0%E8%BD%BD/</url>
-    <content><![CDATA[<h1 id="长列表渲染优化：分页、虚拟列表与懒加载"><a href="#长列表渲染优化：分页、虚拟列表与懒加载" class="headerlink" title="长列表渲染优化：分页、虚拟列表与懒加载"></a>长列表渲染优化：分页、虚拟列表与懒加载</h1><p>列表数据少的时候，直接循环渲染就可以了。但当数据达到几百条、几千条时，一次性生成大量 DOM 节点，会增加渲染、布局和内存的压力，滚动也可能变得不流畅。</p>
-<h2 id="分页查询：最稳妥的方案"><a href="#分页查询：最稳妥的方案" class="headerlink" title="分页查询：最稳妥的方案"></a>分页查询：最稳妥的方案</h2><p>分页是后台管理系统中最常见的处理方式。前端只请求当前页数据，后端也不需要一次查询和返回全部记录。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">loadPage</span>(<span class="params">page, pageSize = <span class="number">20</span></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> response = <span class="keyword">await</span> <span class="title function_">fetch</span>(<span class="string">`/api/articles?page=<span class="subst">$&#123;page&#125;</span>&amp;pageSize=<span class="subst">$&#123;pageSize&#125;</span>`</span>)</span><br><span class="line">  <span class="keyword">return</span> response.<span class="title function_">json</span>()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>分页的优势是实现简单、数据边界清晰，而且前后端都能降低压力。它的限制是用户不能连续浏览全部内容，跳转和翻页体验也需要产品设计配合。</p>
-<h2 id="虚拟列表：只渲染可见区域"><a href="#虚拟列表：只渲染可见区域" class="headerlink" title="虚拟列表：只渲染可见区域"></a>虚拟列表：只渲染可见区域</h2><p>虚拟列表并不会减少总数据量，而是只保留视口附近的 DOM 节点。用户滚动时，根据滚动位置计算当前应该显示哪些项。</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">总数据：10000 条</span><br><span class="line">实际数据：10000 条</span><br><span class="line">同时渲染的 DOM：视口附近的几十条</span><br></pre></td></tr></table></figure>
-
-<p>这种方式适合消息记录、日志、通讯录等需要连续浏览大量数据的场景。实现时需要处理列表项高度、滚动容器、占位空间和滚动位置校正，动态高度列表会更复杂。</p>
-<h2 id="无限滚动和懒加载"><a href="#无限滚动和懒加载" class="headerlink" title="无限滚动和懒加载"></a>无限滚动和懒加载</h2><p>无限滚动通常在用户接近底部时请求下一批数据。可以用一个位于列表底部的观察元素判断是否需要加载：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> loadMoreObserver = <span class="keyword">new</span> <span class="title class_">IntersectionObserver</span>(<span class="function">(<span class="params">entries</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (entries[<span class="number">0</span>].<span class="property">isIntersecting</span> &amp;&amp; !loading &amp;&amp; hasMore) &#123;</span><br><span class="line">    <span class="title function_">loadNextPage</span>()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">loadMoreObserver.<span class="title function_">observe</span>(<span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;#load-more-trigger&#x27;</span>))</span><br></pre></td></tr></table></figure>
-
-<p>无限滚动适合信息流、图片流等顺序浏览场景，但不太适合需要快速定位数据的后台页面。用户还可能不容易回到之前的位置，因此需要配合缓存和滚动位置恢复。</p>
-<h2 id="选择方案时的判断"><a href="#选择方案时的判断" class="headerlink" title="选择方案时的判断"></a>选择方案时的判断</h2><p>如果列表主要是管理和检索，优先考虑分页；如果必须在一个页面中连续浏览大量数据，可以考虑虚拟列表；如果内容消费路径比较顺序化，无限滚动会更自然。</p>
-<p>长列表优化的重点不在于“使用最复杂的方案”，而在于减少一次性处理的数据和 DOM 数量。先确认用户真正需要看到什么，再决定数据和页面的加载方式。</p>
-]]></content>
-      <categories>
-        <category>技术文档</category>
-      </categories>
-      <tags>
-        <tag>Markdown</tag>
-        <tag>前端</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>操作系统期末复习总结</title>
     <url>/2023/08/13/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/</url>
     <content><![CDATA[<h1 id="操作系统期末复习"><a href="#操作系统期末复习" class="headerlink" title="操作系统期末复习"></a>操作系统期末复习</h1><h2 id="1、进程和线程的概念"><a href="#1、进程和线程的概念" class="headerlink" title="1、进程和线程的概念"></a>1、进程和线程的概念</h2><h3 id="典型的进程定义有："><a href="#典型的进程定义有：" class="headerlink" title="典型的进程定义有："></a>典型的进程定义有：</h3><p>（1）进程是程序的一次执行。（2）进程是一个程序及其数据在处理机上顺序执行时所发生的活动。（3）进程是程序在一个数据集合上运行的过程，它是系统进行资源分配和调度的一个独立单位。</p>
@@ -2940,6 +2879,40 @@
         <category>复习资料</category>
       </categories>
       <tags>
+        <tag>Markdown</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>用 DeerFlow 搭建任务交付型 AI 应用</title>
+    <url>/2026/11/12/%E7%94%A8DeerFlow%E6%90%AD%E5%BB%BA%E4%BB%BB%E5%8A%A1%E4%BA%A4%E4%BB%98%E5%9E%8BAI%E5%BA%94%E7%94%A8/</url>
+    <content><![CDATA[<h1 id="用-DeerFlow-搭建任务交付型-AI-应用"><a href="#用-DeerFlow-搭建任务交付型-AI-应用" class="headerlink" title="用 DeerFlow 搭建任务交付型 AI 应用"></a>用 DeerFlow 搭建任务交付型 AI 应用</h1><p>普通聊天机器人通常回答一个问题就结束了，但很多实际任务并不是“回答一句话”这么简单。比如调研一个技术主题，需要搜索资料、整理信息、运行代码，最后还要生成报告。</p>
+<p>DeerFlow 2.0 给我的一个直观印象是：它更像一个任务交付型的 Agent 框架，而不只是聊天界面背后的模型调用。</p>
+<h2 id="它解决的是什么问题"><a href="#它解决的是什么问题" class="headerlink" title="它解决的是什么问题"></a>它解决的是什么问题</h2><p>一个完整任务通常包含多个步骤：理解目标、拆分任务、调用工具、处理结果、修正错误，最后交付文件或报告。如果这些步骤全部写成固定流程，遇到不同任务时维护成本会很高。</p>
+<p>DeerFlow 的思路是让 Agent 在一个受控环境中完成这些工作，框架提供的能力主要包括：</p>
+<ul>
+<li>子 Agent 分工</li>
+<li>长短期记忆</li>
+<li>浏览器、Shell 和文件系统工具</li>
+<li>沙盒环境</li>
+<li>可扩展的 Skills</li>
+<li>长任务运行</li>
+</ul>
+<p>这使它更接近“研究助理”或“自动化执行器”。</p>
+<h2 id="1-0-和-2-0-的区别"><a href="#1-0-和-2-0-的区别" class="headerlink" title="1.0 和 2.0 的区别"></a>1.0 和 2.0 的区别</h2><p>早期版本更偏向 Deep Research，重点是搜索和生成研究报告。2.0 的范围更大，开始提供完整的 Agent 运行环境，包括任务拆分、记忆、沙盒和多 Agent 协作。</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">用户目标</span><br><span class="line">   ↓</span><br><span class="line">任务拆分</span><br><span class="line">   ↓</span><br><span class="line">子 Agent 分工</span><br><span class="line">   ↓</span><br><span class="line">工具调用 / 代码执行 / 文件处理</span><br><span class="line">   ↓</span><br><span class="line">结果汇总与交付</span><br></pre></td></tr></table></figure>
+
+<p>这类设计适合技术调研、竞品分析、报告生成、数据处理和文档转网页等场景。</p>
+<h2 id="为什么需要沙盒"><a href="#为什么需要沙盒" class="headerlink" title="为什么需要沙盒"></a>为什么需要沙盒</h2><p>Agent 如果需要运行代码、处理文件或访问网页，就不能只依赖模型文本输出。沙盒提供了一个相对独立的执行环境，可以把浏览器、Shell、文件系统和 MCP 工具放在容器中统一管理。</p>
+<p>这样做的好处是任务边界更清晰，也可以减少直接影响宿主环境的风险。对于长任务来说，沙盒还可以保存中间文件，让 Agent 不必把所有内容都塞进上下文里。</p>
+<h2 id="使用时需要注意什么"><a href="#使用时需要注意什么" class="headerlink" title="使用时需要注意什么"></a>使用时需要注意什么</h2><p>Agent 框架并不会自动解决所有问题。工具权限、执行超时、失败重试和输出格式都需要提前设计。尤其是涉及发送消息、修改文件或调用外部系统的工具，最好增加审批或确认环节。</p>
+<p>我理解这类框架的价值，不是让模型“更会聊天”，而是让模型拥有完成复杂任务所需要的环境和流程。真正落地时，仍然要把任务拆分、工具边界和最终验收标准定义清楚。</p>
+]]></content>
+      <categories>
+        <category>技术文档</category>
+      </categories>
+      <tags>
+        <tag>AI</tag>
+        <tag>Agent</tag>
         <tag>Markdown</tag>
       </tags>
   </entry>
@@ -3634,6 +3607,33 @@
       </categories>
       <tags>
         <tag>Markdown</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>长列表渲染优化：分页、虚拟列表与懒加载</title>
+    <url>/2026/11/12/%E9%95%BF%E5%88%97%E8%A1%A8%E6%B8%B2%E6%9F%93%E4%BC%98%E5%8C%96%E5%88%86%E9%A1%B5%E8%99%9A%E6%8B%9F%E5%88%97%E8%A1%A8%E4%B8%8E%E6%87%92%E5%8A%A0%E8%BD%BD/</url>
+    <content><![CDATA[<h1 id="长列表渲染优化：分页、虚拟列表与懒加载"><a href="#长列表渲染优化：分页、虚拟列表与懒加载" class="headerlink" title="长列表渲染优化：分页、虚拟列表与懒加载"></a>长列表渲染优化：分页、虚拟列表与懒加载</h1><p>列表数据少的时候，直接循环渲染就可以了。但当数据达到几百条、几千条时，一次性生成大量 DOM 节点，会增加渲染、布局和内存的压力，滚动也可能变得不流畅。</p>
+<h2 id="分页查询：最稳妥的方案"><a href="#分页查询：最稳妥的方案" class="headerlink" title="分页查询：最稳妥的方案"></a>分页查询：最稳妥的方案</h2><p>分页是后台管理系统中最常见的处理方式。前端只请求当前页数据，后端也不需要一次查询和返回全部记录。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">loadPage</span>(<span class="params">page, pageSize = <span class="number">20</span></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> response = <span class="keyword">await</span> <span class="title function_">fetch</span>(<span class="string">`/api/articles?page=<span class="subst">$&#123;page&#125;</span>&amp;pageSize=<span class="subst">$&#123;pageSize&#125;</span>`</span>)</span><br><span class="line">  <span class="keyword">return</span> response.<span class="title function_">json</span>()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>分页的优势是实现简单、数据边界清晰，而且前后端都能降低压力。它的限制是用户不能连续浏览全部内容，跳转和翻页体验也需要产品设计配合。</p>
+<h2 id="虚拟列表：只渲染可见区域"><a href="#虚拟列表：只渲染可见区域" class="headerlink" title="虚拟列表：只渲染可见区域"></a>虚拟列表：只渲染可见区域</h2><p>虚拟列表并不会减少总数据量，而是只保留视口附近的 DOM 节点。用户滚动时，根据滚动位置计算当前应该显示哪些项。</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">总数据：10000 条</span><br><span class="line">实际数据：10000 条</span><br><span class="line">同时渲染的 DOM：视口附近的几十条</span><br></pre></td></tr></table></figure>
+
+<p>这种方式适合消息记录、日志、通讯录等需要连续浏览大量数据的场景。实现时需要处理列表项高度、滚动容器、占位空间和滚动位置校正，动态高度列表会更复杂。</p>
+<h2 id="无限滚动和懒加载"><a href="#无限滚动和懒加载" class="headerlink" title="无限滚动和懒加载"></a>无限滚动和懒加载</h2><p>无限滚动通常在用户接近底部时请求下一批数据。可以用一个位于列表底部的观察元素判断是否需要加载：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> loadMoreObserver = <span class="keyword">new</span> <span class="title class_">IntersectionObserver</span>(<span class="function">(<span class="params">entries</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (entries[<span class="number">0</span>].<span class="property">isIntersecting</span> &amp;&amp; !loading &amp;&amp; hasMore) &#123;</span><br><span class="line">    <span class="title function_">loadNextPage</span>()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">loadMoreObserver.<span class="title function_">observe</span>(<span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;#load-more-trigger&#x27;</span>))</span><br></pre></td></tr></table></figure>
+
+<p>无限滚动适合信息流、图片流等顺序浏览场景，但不太适合需要快速定位数据的后台页面。用户还可能不容易回到之前的位置，因此需要配合缓存和滚动位置恢复。</p>
+<h2 id="选择方案时的判断"><a href="#选择方案时的判断" class="headerlink" title="选择方案时的判断"></a>选择方案时的判断</h2><p>如果列表主要是管理和检索，优先考虑分页；如果必须在一个页面中连续浏览大量数据，可以考虑虚拟列表；如果内容消费路径比较顺序化，无限滚动会更自然。</p>
+<p>长列表优化的重点不在于“使用最复杂的方案”，而在于减少一次性处理的数据和 DOM 数量。先确认用户真正需要看到什么，再决定数据和页面的加载方式。</p>
+]]></content>
+      <categories>
+        <category>技术文档</category>
+      </categories>
+      <tags>
+        <tag>Markdown</tag>
+        <tag>前端</tag>
       </tags>
   </entry>
   <entry>
